@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <PasswordField fx:id="Password" layoutX="201.0" layoutY="194.0" promptText="Contraseña" />
+      <TextField fx:id="TfNombre" layoutX="202.0" layoutY="158.0" promptText="Nombre de Usuario" />
+      <Button fx:id="Loginbtn" layoutX="201.0" layoutY="226.0" mnemonicParsing="false" onAction="#comprobarLogin" prefHeight="26.0" prefWidth="150.0" text="Login" />
+      <Button fx:id="Registrarse" layoutX="201.0" layoutY="259.0" mnemonicParsing="false" onAction="#comprobarRegistro" prefHeight="26.0" prefWidth="150.0" text="Registrarse" />
+      <Label fx:id="ErrorNombre" layoutX="372.0" layoutY="162.0" text="Label" visible="false" />
+      <Label fx:id="ErrorPass" layoutX="372.0" layoutY="198.0" text="Label" visible="false" />
+   </children>
+</AnchorPane>
