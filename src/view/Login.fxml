@@ -4,14 +4,21 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <PasswordField fx:id="Password" layoutX="201.0" layoutY="194.0" promptText="Contraseña" />
-      <TextField fx:id="TfNombre" layoutX="202.0" layoutY="158.0" promptText="Nombre de Usuario" />
-      <Button fx:id="Loginbtn" layoutX="201.0" layoutY="226.0" mnemonicParsing="false" onAction="#comprobarLogin" prefHeight="26.0" prefWidth="150.0" text="Login" />
-      <Button fx:id="Registrarse" layoutX="201.0" layoutY="259.0" mnemonicParsing="false" onAction="#comprobarRegistro" prefHeight="26.0" prefWidth="150.0" text="Registrarse" />
+      <ImageView fitHeight="409.0" fitWidth="600.0" layoutY="-2.0">
+         <image>
+            <Image url="@../../img/imagenesExtra/CesurDragonite.png" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="Password" layoutX="225.0" layoutY="188.0" promptText="Contraseña" />
+      <TextField fx:id="TfNombre" layoutX="226.0" layoutY="152.0" promptText="Nombre de Usuario" />
+      <Button fx:id="Loginbtn" layoutX="225.0" layoutY="220.0" mnemonicParsing="false" onAction="#comprobarLogin" prefHeight="26.0" prefWidth="150.0" text="Login" />
+      <Button fx:id="Registrarse" layoutX="225.0" layoutY="253.0" mnemonicParsing="false" onAction="#comprobarRegistro" prefHeight="26.0" prefWidth="150.0" text="Registrarse" />
       <Label fx:id="ErrorNombre" layoutX="372.0" layoutY="162.0" text="Label" visible="false" />
       <Label fx:id="ErrorPass" layoutX="372.0" layoutY="198.0" text="Label" visible="false" />
    </children>
