@@ -16,8 +16,8 @@
             <Image url="@../../img/imagenesExtra/CesurDragonite.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="Password" layoutX="225.0" layoutY="188.0" promptText="Contraseña" />
       <TextField fx:id="TfNombre" layoutX="226.0" layoutY="152.0" promptText="Nombre de Usuario" />
+      <PasswordField fx:id="Password" layoutX="225.0" layoutY="188.0" promptText="Contraseña" />
       <Button fx:id="Loginbtn" layoutX="225.0" layoutY="220.0" mnemonicParsing="false" onAction="#comprobarLogin" prefHeight="26.0" prefWidth="150.0" text="Login" />
       <Button fx:id="Registrarse" layoutX="225.0" layoutY="253.0" mnemonicParsing="false" onAction="#comprobarRegistro" prefHeight="26.0" prefWidth="150.0" text="Registrarse" />
       <Label fx:id="ErrorNombre" layoutX="225.0" layoutY="279.0" text="Label" textFill="RED" visible="false">
