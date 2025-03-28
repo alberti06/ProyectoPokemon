@@ -44,22 +44,22 @@
          <children>
             <ImageView id="FondoMenuPrincipal" fitHeight="408.0" fitWidth="640.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Users/PORTATIL/Downloads/pikachu-and-caterpie-01.jpg" />
+                  <Image url="@../../img/imagenesExtra/pikachu-and-caterpie-01.jpg" />
                </image>
             </ImageView>
             <ImageView id="ImagenPokedex" fitHeight="107.0" fitWidth="67.0" layoutX="45.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Users/PORTATIL/Downloads/pngegg%20(3).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(3).png" />
                </image>
             </ImageView>
             <ImageView fitHeight="70.0" fitWidth="67.0" layoutX="45.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Users/PORTATIL/Downloads/pngegg%20(4).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(4).png" />
                </image>
             </ImageView>
             <ImageView fitHeight="58.0" fitWidth="86.0" layoutX="50.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Users/PORTATIL/Downloads/pngegg%20(5).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(5).png" />
                </image>
             </ImageView>
             <Button id="BotonEquipoPokemon" layoutX="128.0" layoutY="175.0" mnemonicParsing="false" onAction="#AccesoEquipoPokemon" prefHeight="38.0" prefWidth="86.0" text="Equipo" />
