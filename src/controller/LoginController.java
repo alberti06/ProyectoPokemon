@@ -71,7 +71,7 @@ public class LoginController {
 		ErrorPass.setLayoutX(225);
 		ErrorNombre.setLayoutX(225);
 		if (TfNombre.getText().isEmpty()) {
-			System.out.println("no se ha podido llevar a cabo el registro");
+			System.out.println("No se ha podido llevar a cabo el registro");
 			ErrorNombre.setVisible(true);
 			ErrorNombre.setText("Nombre vacío");
 			mover = true;
@@ -80,7 +80,7 @@ public class LoginController {
 			ErrorNombre.setVisible(false);
 		}
 		if (Password.getText().isEmpty()) {
-			System.out.println("no se ha podido llevar a cabo el registro");
+			System.out.println("No se ha podido llevar a cabo el registro");
 			if (mover) {
 				double Y = ErrorPass.getLayoutY();
 				if (contadorError == 1) {
