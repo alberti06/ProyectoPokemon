@@ -19,9 +19,10 @@ public class Main extends Application {
        
         primaryStage.setTitle("Proyecto Pokemon los 3 mosqueteros");
         primaryStage.setScene(scene);
-        /*
+       
         LoginController controller = loader.getController();
-        controller.setStage(primaryStage);*/
+        controller.setStage(primaryStage);
+        
         primaryStage.show();
         
     }

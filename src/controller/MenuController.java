@@ -5,6 +5,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 public class MenuController {
+	
+	/*
+	private Entrenador entrenador;
+	private Stage stage;
+	private LoginController loginController; */
 
     @FXML
     private ImageView ImgBolsa;
@@ -39,4 +44,9 @@ public class MenuController {
     @FXML
     private Label lblPesetas;
 
+    /*
+    public void init(Entrenador ent, Stage stage, LoginController loginController) {
+    	
+    }
+    */
 }

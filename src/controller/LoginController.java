@@ -1,7 +1,12 @@
 package controller;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -100,4 +105,28 @@ public class LoginController {
 	public void setStage(Stage primaryStage) {
 		stage = primaryStage;
 	}
+	
+	/*
+	private void abrirPantallaMenu(Entrenador ent) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuPrincipal.fxml"));
+	        Parent root = loader.load();
+	        
+	        MenuController menuController = loader.getController();
+	        Scene scene = new Scene(root);
+	        Stage stage = new Stage();
+	        
+	        
+	        stage.setTitle("Proyecto Pokemon los 3 mosqueteros");
+	        stage.setScene(scene);
+	        menuController.init(ent, stage, this);
+	        
+	        stage.show();
+	        
+	        this.stage.close();
+	        
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	} */
 }
