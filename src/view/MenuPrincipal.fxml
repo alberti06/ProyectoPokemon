@@ -45,7 +45,7 @@
          <children>
             <ImageView id="FondoMenuPrincipal" fx:id="ImgFondo" fitHeight="912.0" fitWidth="920.0" layoutX="-2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Users/PORTATIL/Downloads/kricketune-on-pokemon-go-loading-screen-ezco15k9cz1ajzip.jpg" />
+                  <Image url="@../../img/imagenesExtra/kricketune-on-pokemon-go-loading-screen-ezco15k9cz1ajzip.jpg" />
                </image>
             </ImageView>
             <ImageView id="Equipo" fx:id="ImgEquipo" fitHeight="98.0" fitWidth="103.0" layoutX="124.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
@@ -65,12 +65,12 @@
             </ImageView>
             <ImageView id="ImagenCombate" fx:id="ImgCombate" fitHeight="108.0" fitWidth="129.0" layoutX="629.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Users/PORTATIL/Downloads/pngaaa.com-81754.png" />
+                  <Image url="@../../img/imagenesExtra/pngaaa.com-81754.png" />
                </image>
             </ImageView>
             <ImageView id="Captura" fx:id="imgCaptura" fitHeight="183.0" fitWidth="190.0" layoutX="617.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Users/PORTATIL/Downloads/pngegg%20(6).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(6).png" />
                </image>
             </ImageView>
             <Label fx:id="LblJugador" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="62.0" prefHeight="84.0" prefWidth="174.0" text="JUGADOR" textFill="#ef2a10">
@@ -86,7 +86,7 @@
             <Label id="Dinero" fx:id="lblDinero" layoutX="630.0" layoutY="130.0" text="Label" />
             <ImageView id="Crianza" fx:id="imgCrianza" fitHeight="159.0" fitWidth="126.0" layoutX="617.0" layoutY="588.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Users/PORTATIL/Downloads/pngegg%20(7).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(7).png" />
                </image>
             </ImageView>
             <Label id="Dinero" fx:id="lblDinero1" layoutX="91.0" layoutY="137.0" text="Label" />
