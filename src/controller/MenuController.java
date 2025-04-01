@@ -11,7 +11,7 @@ public class MenuController {
 	private Stage stage;
 	private LoginController loginController; */
 
-    @FXML
+	@FXML
     private ImageView ImgBolsa;
 
     @FXML
@@ -27,6 +27,9 @@ public class MenuController {
     private ImageView ImgFondo;
 
     @FXML
+    private ImageView ImgSalir;
+
+    @FXML
     private Label LblJugador;
 
     @FXML
@@ -39,10 +42,10 @@ public class MenuController {
     private Label lblDinero;
 
     @FXML
-    private Label lblDinero1;
+    private Label lblPesetas;
 
     @FXML
-    private Label lblPesetas;
+    private Label lblUsuario;
 
     /*
     public void init(Entrenador ent, Stage stage, LoginController loginController) {

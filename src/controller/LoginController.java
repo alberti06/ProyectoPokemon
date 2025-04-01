@@ -108,12 +108,13 @@ public class LoginController {
 	
 	/*
 	private void abrirPantallaMenu(Entrenador ent) {
+	
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuPrincipal.fxml"));
-	        Parent root = loader.load();
 	        
 	        MenuController menuController = loader.getController();
-	        Scene scene = new Scene(root);
+	         Parent root = loader.load();
+	       Scene scene = new Scene(root);
 	        Stage stage = new Stage();
 	        
 	        

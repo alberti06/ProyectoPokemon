@@ -53,12 +53,12 @@
                   <Image url="@../../img/imagenesExtra/pngegg%20(3).png" />
                </image>
             </ImageView>
-            <ImageView fx:id="ImgCentroPokemon" fitHeight="108.0" fitWidth="113.0" layoutX="106.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="CentroPokemon" fx:id="ImgCentroPokemon" fitHeight="108.0" fitWidth="113.0" layoutX="98.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(4).png" />
                </image>
             </ImageView>
-            <ImageView fx:id="ImgBolsa" fitHeight="126.0" fitWidth="137.0" layoutX="91.0" layoutY="594.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Bolsa" fx:id="ImgBolsa" fitHeight="126.0" fitWidth="137.0" layoutX="91.0" layoutY="594.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(5).png" />
                </image>
@@ -89,7 +89,12 @@
                   <Image url="@../../img/imagenesExtra/pngegg%20(7).png" />
                </image>
             </ImageView>
-            <Label id="Dinero" fx:id="lblDinero1" layoutX="91.0" layoutY="137.0" text="Label" />
+            <Label id="Dinero" fx:id="lblUsuario" layoutX="91.0" layoutY="137.0" text="Label" />
+            <ImageView id="Salir" fx:id="ImgSalir" fitHeight="108.0" fitWidth="77.0" layoutX="802.0" layoutY="808.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/pngegg%20(8).png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
