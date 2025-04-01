@@ -3,13 +3,12 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import model.Entrenador;
 
 public class MenuController {
 	
-	/*
-	private Entrenador entrenador;
-	private Stage stage;
-	private LoginController loginController; */
+	
 
 	@FXML
     private ImageView ImgBolsa;
@@ -47,9 +46,12 @@ public class MenuController {
     @FXML
     private Label lblUsuario;
 
-    /*
-    public void init(Entrenador ent, Stage stage, LoginController loginController) {
-    	
-    }
-    */
+	public void init(Entrenador ent, Stage stage, LoginController loginController) {
+		// TODO Auto-generated method stub
+		
+	}
+
+    
+   
+    
 }

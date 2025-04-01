@@ -28,5 +28,10 @@
          <font>
             <Font size="24.0" />
          </font></Label>
+      <ImageView id="btnSonido" fx:id="ImgSonido" fitHeight="26.0" fitWidth="35.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#activarDesactivarSonido" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/imagenesExtra/sonidodes.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
