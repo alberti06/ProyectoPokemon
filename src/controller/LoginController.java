@@ -127,8 +127,6 @@ public class LoginController {
 		}
 		
 	}
-
-	//HAY QUE PONER ESTO abrirPantallaMenu(entrenador); PERO NO SE DONDE VA
 	
 	public void setStage(Stage primaryStage) {
 		stage = primaryStage;
