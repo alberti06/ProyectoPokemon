@@ -25,7 +25,7 @@ import javafx.scene.image.ImageView;
 
 public class LoginController {
 	
-	Entrenador entranador = new Entrenador("Prueba", "123456", 1000);
+	Entrenador entrenador = new Entrenador("Admin", "123456", 1000);
 	
 	int contadorError = 1;
 	int contadorErrorLogin = 1;
@@ -89,6 +89,7 @@ public class LoginController {
 		} else {
 			System.out.println("Te has registrado con éxito");
 			ErrorPass.setVisible(false);
+			abrirPantallaMenu(entrenador);
 		}
 
 	}
@@ -123,12 +124,11 @@ public class LoginController {
 		} else {
 			System.out.println("Te has registrado con éxito");
 			ErrorPass.setVisible(false);
-			
 		}
 		
 	}
 
-	//HAY QUE PONER ESTO abrirPantallaMenu(entranador); PERO NO SE DONDE VA
+	//HAY QUE PONER ESTO abrirPantallaMenu(entrenador); PERO NO SE DONDE VA
 	
 	public void setStage(Stage primaryStage) {
 		stage = primaryStage;
@@ -138,10 +138,11 @@ public class LoginController {
 	private void abrirPantallaMenu(Entrenador ent) {
 	
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuPrincipal.fxml"));
-	        
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
+			Parent root = loader.load();
+	   
 	        MenuController menuController = loader.getController();
-	        Parent root = loader.load();
+	       
 	        Scene scene = new Scene(root);
 	        Stage stage = new Stage();
 	        
@@ -161,8 +162,9 @@ public class LoginController {
 	
 	public void show() {
 		stage.show();
-		Password.setText("");
 		TfNombre.setText("");
+		Password.setText("");
+		
 		
 	}
 	

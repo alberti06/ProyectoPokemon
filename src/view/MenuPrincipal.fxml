@@ -39,13 +39,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+<VBox prefHeight="400.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
    <children>
-      <AnchorPane prefHeight="900.0" prefWidth="900.0">
+      <AnchorPane prefHeight="400.0" prefWidth="615.0">
          <children>
-            <ImageView id="FondoMenuPrincipal" fx:id="ImgFondo" fitHeight="912.0" fitWidth="920.0" layoutX="-2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="FondoMenuPrincipal" fx:id="ImgFondo" fitHeight="690.0" fitWidth="926.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/imagenesExtra/kricketune-on-pokemon-go-loading-screen-ezco15k9cz1ajzip.jpg" />
+                  <Image url="@../../img/imagenesExtra/fondo1.jpg" />
                </image>
             </ImageView>
             <ImageView id="Equipo" fx:id="ImgEquipo" fitHeight="98.0" fitWidth="103.0" layoutX="124.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">

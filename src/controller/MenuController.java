@@ -8,7 +8,9 @@ import model.Entrenador;
 
 public class MenuController {
 	
-	
+	private Entrenador entrenador;
+	private Stage stage;
+	private LoginController loginController;
 
 	@FXML
     private ImageView ImgBolsa;
@@ -47,8 +49,14 @@ public class MenuController {
     private Label lblUsuario;
 
 	public void init(Entrenador ent, Stage stage, LoginController loginController) {
-		// TODO Auto-generated method stub
+	
+		this.loginController = loginController;
+		this.stage = stage;
+		this.entrenador = ent;
 		
+ 
+		lblUsuario.setText(ent.getUsuario());
+		lblDinero.setText(Integer.toString(ent.getPokedolares()));
 	}
 
     
