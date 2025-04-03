@@ -87,7 +87,7 @@ public class LoginController {
 			ErrorPass.setText("Contraseña vacía");
 		} else if (Password.getText() == "") {
 		} else {
-			System.out.println("Te has registrado con éxito");
+			System.out.println("Has accedido con éxito");
 			ErrorPass.setVisible(false);
 			abrirPantallaMenu(entrenador);
 		}
@@ -128,7 +128,6 @@ public class LoginController {
 		
 	}
 
-	//HAY QUE PONER ESTO abrirPantallaMenu(entrenador); PERO NO SE DONDE VA
 	
 	public void setStage(Stage primaryStage) {
 		stage = primaryStage;
@@ -140,9 +139,7 @@ public class LoginController {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
 			Parent root = loader.load();
-	   
 	        MenuController menuController = loader.getController();
-	       
 	        Scene scene = new Scene(root);
 	        Stage stage = new Stage();
 	        
