@@ -15,10 +15,7 @@ public class Main extends Application {
     	
     	System.out.println(getClass().getResource("/view/Login.fxml"));
         Parent root = loader.load();
-        
         Scene scene = new Scene(root);
-        
-        
        
         primaryStage.setTitle("Proyecto Pokemon los 3 mosqueteros");
         primaryStage.setScene(scene);
