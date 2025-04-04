@@ -56,6 +56,9 @@ public class LoginController {
     private TextField TfNombre;
 
     @FXML
+    private ImageView imgSalir;
+
+    @FXML
     private ImageView imgfondo;
 
 	@FXML
