@@ -13,9 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Login.fxml"));
         Parent root = loader.load();
-        
         Scene scene = new Scene(root);
-        
        
         primaryStage.setTitle("Proyecto Pokemon los 3 mosqueteros");
         primaryStage.setScene(scene);
