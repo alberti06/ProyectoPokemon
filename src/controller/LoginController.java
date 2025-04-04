@@ -22,44 +22,42 @@ import model.Entrenador;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-
 public class LoginController {
-	
+
 	Entrenador entrenador = new Entrenador("Admin", "123456", 1000);
-	
+
 	int contadorError = 1;
 	int contadorErrorLogin = 1;
 	public Stage stage;
 	public boolean sonido = false;
 	public MediaPlayer mediaPlayer;
 
+	@FXML
+	private Label ErrorNombre;
 
-    @FXML
-    private Label ErrorNombre;
+	@FXML
+	private Label ErrorPass;
 
-    @FXML
-    private Label ErrorPass;
+	@FXML
+	private ImageView ImgSonido;
 
-    @FXML
-    private ImageView ImgSonido;
+	@FXML
+	private Button Loginbtn;
 
-    @FXML
-    private Button Loginbtn;
+	@FXML
+	private PasswordField Password;
 
-    @FXML
-    private PasswordField Password;
+	@FXML
+	private Button Registrarse;
 
-    @FXML
-    private Button Registrarse;
+	@FXML
+	private TextField TfNombre;
 
-    @FXML
-    private TextField TfNombre;
+	@FXML
+	private ImageView imgSalir;
 
-    @FXML
-    private ImageView imgSalir;
-
-    @FXML
-    private ImageView imgfondo;
+	@FXML
+	private ImageView imgfondo;
 
 	@FXML
 	void comprobarLogin(ActionEvent event) {
@@ -111,7 +109,7 @@ public class LoginController {
 		} else {
 			System.out.println("Te has registrado con éxito");
 			ErrorNombre.setVisible(false);
-			
+
 		}
 		if (Password.getText().isEmpty()) {
 			System.out.println("No se ha podido llevar a cabo el registro");
@@ -128,68 +126,65 @@ public class LoginController {
 			System.out.println("Te has registrado con éxito");
 			ErrorPass.setVisible(false);
 		}
-		
+
 	}
 
-	
 	public void setStage(Stage primaryStage) {
 		stage = primaryStage;
 	}
-	
+
 	@FXML
 	private void abrirPantallaMenu(Entrenador ent) {
-	
+
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
 			Parent root = loader.load();
-	        MenuController menuController = loader.getController();
-	        Scene scene = new Scene(root);
-	        Stage stage = new Stage();
-	        
-	        
-	        stage.setTitle("Proyecto Pokemon los 3 mosqueteros");
-	        stage.setScene(scene);
-	        menuController.init(ent, stage, this);
-	        
-	        stage.show();
-	        
-	        this.stage.close();
-	        
-		}catch(IOException e) {
+			MenuController menuController = loader.getController();
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+
+			stage.setTitle("Proyecto Pokemon los 3 mosqueteros");
+			stage.setScene(scene);
+			menuController.init(ent, stage, this);
+
+			stage.show();
+
+			this.stage.close();
+
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	} 
-	
+	}
+
 	public void show() {
 		stage.show();
 		TfNombre.setText("");
 		Password.setText("");
-		
-		
+
 	}
-	
+
 	public void sonido() {
-		if(!this.sonido) {
+		if (!this.sonido) {
 			mediaPlayer.play();
-			
+
 			ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidoact.png").toURI().toString()));
 			this.sonido = true;
-			
-		}else {
-				mediaPlayer.pause();
-				this.sonido = false;
-				ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidodes.png").toURI().toString()));
-				
-			}
-		
+
+		} else {
+			mediaPlayer.pause();
+			this.sonido = false;
+			ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidodes.png").toURI().toString()));
+
+		}
+
 	}
-	
+
 	@FXML
-    void activarDesactivarSonido(MouseEvent event) {
+	void activarDesactivarSonido(MouseEvent event) {
 		sonido();
 
-    }
-	
+	}
+
 	@FXML
 	public void initialize() {
 		String rutaSonido = "./sonidos/Musica-‐-Hecho-con-Clipchamp.mp3";
@@ -197,5 +192,10 @@ public class LoginController {
 		mediaPlayer = new MediaPlayer(sound);
 		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 		sonido();
+	}
+
+	@FXML
+	void salirJuego(MouseEvent event) {
+
 	}
 }
