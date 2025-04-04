@@ -16,7 +16,6 @@ public class Main extends Application {
         
         Scene scene = new Scene(root);
         
-        
        
         primaryStage.setTitle("Proyecto Pokemon los 3 mosqueteros");
         primaryStage.setScene(scene);
