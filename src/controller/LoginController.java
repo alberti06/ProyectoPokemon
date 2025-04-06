@@ -72,7 +72,7 @@ public class LoginController {
 			mover = true;
 		} else if (TfNombre.getText() == "") {
 		} else {
-			System.out.println("Te has registrado con éxito");
+			System.out.println("Te has logueado con éxito");
 			ErrorNombre.setVisible(false);
 		}
 		if (Password.getText().isEmpty()) {
