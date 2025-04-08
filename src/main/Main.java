@@ -25,7 +25,7 @@ public class Main extends Application {
         if(myImageView != null) {
             // Vincular las propiedades de tamaño del ImageView al tamaño del escenario
             myImageView.fitWidthProperty().bind(scene.widthProperty());
-            myImageView.fitHeightProperty().bind(scene.heightProperty());
+            myImageView.fitHeightProperty().bind(scene.heightProperty());s
         }
         */
         

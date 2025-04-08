@@ -67,6 +67,10 @@ public class MenuController {
  
         lblNombre.setText(ent.getUsuario());
         lblCantidad.setText(Integer.toString(ent.getPokedolares()));
+        
+        stage.setFullScreen(true);
     }
+    
+ 
 
 }
