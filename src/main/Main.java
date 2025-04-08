@@ -27,10 +27,8 @@ public class Main extends Application {
             myImageView.fitWidthProperty().bind(scene.widthProperty());
             myImageView.fitHeightProperty().bind(scene.heightProperty());
         }
-         
-         */
+        */
         
-       
         primaryStage.setScene(scene);
        
         LoginController controller = loader.getController();
