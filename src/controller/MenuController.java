@@ -3,63 +3,74 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import model.Entrenador;
+import javafx.stage.Stage;
+
 
 public class MenuController {
 	
 	private Entrenador entrenador;
-	private Stage stage;
-	private LoginController loginController;
-
-	@FXML
-    private ImageView ImgBolsa;
+    private Stage stage;
+    private LoginController loginController;
 
     @FXML
-    private ImageView ImgCentroPokemon;
+    private AnchorPane AnchorPane;
 
     @FXML
-    private ImageView ImgCombate;
+    private VBox Box;
 
     @FXML
-    private ImageView ImgEquipo;
-
-    @FXML
-    private ImageView ImgFondo;
-
-    @FXML
-    private ImageView ImgSalir;
-
-    @FXML
-    private Label LblJugador;
+    private ImageView imgBolsa;
 
     @FXML
     private ImageView imgCaptura;
 
     @FXML
+    private ImageView imgCenPokemon;
+
+    @FXML
+    private ImageView imgCombate;
+
+    @FXML
     private ImageView imgCrianza;
 
     @FXML
-    private Label lblDinero;
+    private ImageView imgEquipo;
+
+    @FXML
+    private ImageView imgFondo;
+
+    @FXML
+    private ImageView imgSalir;
+
+    @FXML
+    private Label lblCantidad;
+
+    @FXML
+    private Label lblJugador;
+
+    @FXML
+    private Label lblNombre;
 
     @FXML
     private Label lblPesetas;
+    
+    
+    public void init(Entrenador ent, Stage stage, LoginController loginController) {
 
-    @FXML
-    private Label lblUsuario;
+        this.loginController = loginController;
+        this.stage = stage;
+        this.entrenador = ent;
 
-	public void init(Entrenador ent, Stage stage, LoginController loginController) {
-	
-		this.loginController = loginController;
-		this.stage = stage;
-		this.entrenador = ent;
-		
  
-		lblUsuario.setText(ent.getUsuario());
-		lblDinero.setText(Integer.toString(ent.getPokedolares()));
-	}
+        lblNombre.setText(ent.getUsuario());
+        lblCantidad.setText(Integer.toString(ent.getPokedolares()));
+        
+        stage.setFullScreen(true);
+    }
+    
+ 
 
-    
-   
-    
 }
