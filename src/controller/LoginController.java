@@ -2,9 +2,12 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.swing.JOptionPane;
 
+import dao.ConexionBD;
+import dao.EntrenadorDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +26,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class LoginController {
-
-	Entrenador entrenador = new Entrenador("Admin", "123456", 1000);
 
 	int contadorError = 1;
 	int contadorErrorLogin = 1;
@@ -61,22 +62,33 @@ public class LoginController {
 
 	@FXML
 	void comprobarLogin(ActionEvent event) {
+		String usuario = TfNombre.getText();
+		String pass = Password.getText();
+
+		Connection conn = ConexionBD.conectar();
+		Entrenador ent = EntrenadorDAO.login(conn, usuario, pass);
+		if (ent != null) {
+			abrirPantallaMenu(ent);
+		} else {
+			ErrorPass.setText("Credenciales incorrectas");
+			ErrorPass.setVisible(true);
+		}
+
 		boolean mover = false;
 
 		ErrorPass.setLayoutX(225);
 		ErrorNombre.setLayoutX(225);
 		if (TfNombre.getText().isEmpty()) {
-			System.out.println("No se ha podido llevar a cabo el registro");
+			System.out.println("No se ha podido llevar a cabo el login");
 			ErrorNombre.setVisible(true);
 			ErrorNombre.setText("Nombre vacío");
 			mover = true;
-		} else if (TfNombre.getText() == "") {
 		} else {
 			System.out.println("Te has logueado con éxito");
 			ErrorNombre.setVisible(false);
 		}
 		if (Password.getText().isEmpty()) {
-			System.out.println("No se ha podido llevar a cabo el registro");
+			System.out.println("No se ha podido llevar a cabo el login");
 			if (mover) {
 				double Y = ErrorPass.getLayoutY();
 				if (contadorError == 1) {
@@ -86,17 +98,28 @@ public class LoginController {
 			}
 			ErrorPass.setVisible(true);
 			ErrorPass.setText("Contraseña vacía");
-		} else if (Password.getText() == "") {
 		} else {
 			System.out.println("Has accedido con éxito");
 			ErrorPass.setVisible(false);
-			abrirPantallaMenu(entrenador);
 		}
-
 	}
 
 	@FXML
 	void comprobarRegistro(ActionEvent event) {
+		String usuario = TfNombre.getText();
+		String pass = Password.getText();
+
+		Connection conn = ConexionBD.conectar();
+		if (EntrenadorDAO.existeEntrenador(conn, usuario)) {
+			ErrorNombre.setText("Nombre ya registrado");
+			ErrorNombre.setVisible(true);
+		} else {
+			Entrenador nuevo = new Entrenador(usuario, pass, 0);
+			if (EntrenadorDAO.anyadirEntrenador(conn, nuevo)) {
+				abrirPantallaMenu(nuevo);
+			}
+		}
+
 		boolean mover = false;
 
 		ErrorPass.setLayoutX(225);
@@ -109,7 +132,6 @@ public class LoginController {
 		} else {
 			System.out.println("Te has registrado con éxito");
 			ErrorNombre.setVisible(false);
-
 		}
 		if (Password.getText().isEmpty()) {
 			System.out.println("No se ha podido llevar a cabo el registro");
@@ -126,7 +148,6 @@ public class LoginController {
 			System.out.println("Te has registrado con éxito");
 			ErrorPass.setVisible(false);
 		}
-
 	}
 
 	public void setStage(Stage primaryStage) {
@@ -135,7 +156,6 @@ public class LoginController {
 
 	@FXML
 	private void abrirPantallaMenu(Entrenador ent) {
-
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
 			Parent root = loader.load();
@@ -150,7 +170,6 @@ public class LoginController {
 			stage.show();
 
 			this.stage.close();
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -160,29 +179,23 @@ public class LoginController {
 		stage.show();
 		TfNombre.setText("");
 		Password.setText("");
-
 	}
 
 	public void sonido() {
 		if (!this.sonido) {
 			mediaPlayer.play();
-
 			ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidoact.png").toURI().toString()));
 			this.sonido = true;
-
 		} else {
 			mediaPlayer.pause();
 			this.sonido = false;
 			ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidodes.png").toURI().toString()));
-
 		}
-
 	}
 
 	@FXML
 	void activarDesactivarSonido(MouseEvent event) {
 		sonido();
-
 	}
 
 	@FXML
@@ -196,6 +209,6 @@ public class LoginController {
 
 	@FXML
 	void salirJuego(MouseEvent event) {
-
+		// Falta implementar salida del juego si es necesario
 	}
-}
+} 
