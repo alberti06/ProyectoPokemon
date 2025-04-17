@@ -62,92 +62,119 @@ public class LoginController {
 
 	@FXML
 	void comprobarLogin(ActionEvent event) {
-		String usuario = TfNombre.getText();
-		String pass = Password.getText();
+		    String usuario = TfNombre.getText();
+		    String pass = Password.getText();
 
-		Connection conn = ConexionBD.conectar();
-		Entrenador ent = EntrenadorDAO.login(conn, usuario, pass);
-		if (ent != null) {
-			abrirPantallaMenu(ent);
-		} else {
-			ErrorPass.setText("Credenciales incorrectas");
-			ErrorPass.setVisible(true);
+		    boolean mover = false;
+		    boolean camposValidos = true;
+
+		    // Reset de errores visuales
+		    ErrorPass.setLayoutX(225);
+		    ErrorNombre.setLayoutX(225);
+		    ErrorPass.setVisible(false);
+		    ErrorNombre.setVisible(false);
+
+		    if (usuario.isEmpty()) {
+		        ErrorNombre.setText("Nombre vacío");
+		        ErrorNombre.setVisible(true);
+		        System.out.println("Nombre vacío");
+		        mover = true;
+		        camposValidos = false;
+		    }
+
+		    if (pass.isEmpty()) {
+		        ErrorPass.setText("Contraseña vacía");
+		        ErrorPass.setVisible(true);
+		        System.out.println("Contraseña vacía");
+		        camposValidos = false;
+
+		        if (mover) {
+		            double Y = ErrorPass.getLayoutY();
+		            if (contadorError == 1) {
+		                ErrorPass.setLayoutY(Y + 25);
+		                contadorError--;
+		            }
+		        }
+		    }
+
+		    if (!camposValidos) {
+		        System.out.println("No se ha podido llevar a cabo el login");
+		        return;
+		    }
+
+		    // Si no están vacíos, intentamos login en BBDD
+		    Connection conn = ConexionBD.conectar();
+		    Entrenador ent = EntrenadorDAO.login(conn, usuario, pass);
+		    
+		    if (ent != null) {
+		        System.out.println("Login correcto");
+		        abrirPantallaMenu(ent);
+		    } else {
+		        ErrorPass.setText("Credenciales incorrectas");
+		        ErrorPass.setVisible(true);
+		        System.out.println("Credenciales incorrectas");
+		    }
 		}
 
-		boolean mover = false;
-
-		ErrorPass.setLayoutX(225);
-		ErrorNombre.setLayoutX(225);
-		if (TfNombre.getText().isEmpty()) {
-			System.out.println("No se ha podido llevar a cabo el login");
-			ErrorNombre.setVisible(true);
-			ErrorNombre.setText("Nombre vacío");
-			mover = true;
-		} else {
-			System.out.println("Te has logueado con éxito");
-			ErrorNombre.setVisible(false);
-		}
-		if (Password.getText().isEmpty()) {
-			System.out.println("No se ha podido llevar a cabo el login");
-			if (mover) {
-				double Y = ErrorPass.getLayoutY();
-				if (contadorError == 1) {
-					ErrorPass.setLayoutY(Y + 25);
-					contadorError--;
-				}
-			}
-			ErrorPass.setVisible(true);
-			ErrorPass.setText("Contraseña vacía");
-		} else {
-			System.out.println("Has accedido con éxito");
-			ErrorPass.setVisible(false);
-		}
-	}
 
 	@FXML
 	void comprobarRegistro(ActionEvent event) {
 		String usuario = TfNombre.getText();
-		String pass = Password.getText();
+	    String pass = Password.getText();
 
-		Connection conn = ConexionBD.conectar();
-		if (EntrenadorDAO.existeEntrenador(conn, usuario)) {
-			ErrorNombre.setText("Nombre ya registrado");
-			ErrorNombre.setVisible(true);
-		} else {
-			Entrenador nuevo = new Entrenador(usuario, pass, 0);
-			if (EntrenadorDAO.anyadirEntrenador(conn, nuevo)) {
-				abrirPantallaMenu(nuevo);
-			}
-		}
+	    boolean mover = false;
+	    boolean camposValidos = true;
 
-		boolean mover = false;
+	    
+	    ErrorPass.setLayoutX(225);
+	    ErrorNombre.setLayoutX(225);
+	    ErrorPass.setVisible(false);
+	    ErrorNombre.setVisible(false);
 
-		ErrorPass.setLayoutX(225);
-		ErrorNombre.setLayoutX(225);
-		if (TfNombre.getText().isEmpty()) {
-			System.out.println("No se ha podido llevar a cabo el registro");
-			ErrorNombre.setVisible(true);
-			ErrorNombre.setText("Nombre vacío");
-			mover = true;
-		} else {
-			System.out.println("Te has registrado con éxito");
-			ErrorNombre.setVisible(false);
-		}
-		if (Password.getText().isEmpty()) {
-			System.out.println("No se ha podido llevar a cabo el registro");
-			if (mover) {
-				double Y = ErrorPass.getLayoutY();
-				if (contadorError == 1) {
-					ErrorPass.setLayoutY(Y + 25);
-					contadorError--;
-				}
-			}
-			ErrorPass.setVisible(true);
-			ErrorPass.setText("Contraseña vacía");
-		} else {
-			System.out.println("Te has registrado con éxito");
-			ErrorPass.setVisible(false);
-		}
+	    if (usuario.isEmpty()) {
+	        ErrorNombre.setText("Nombre vacío");
+	        ErrorNombre.setVisible(true);
+	        System.out.println("Nombre vacío");
+	        mover = true;
+	        camposValidos = false;
+	    }
+
+	    if (pass.isEmpty()) {
+	        ErrorPass.setText("Contraseña vacía");
+	        ErrorPass.setVisible(true);
+	        System.out.println("Contraseña vacía");
+	        camposValidos = false;
+
+	        if (mover) {
+	            double Y = ErrorPass.getLayoutY();
+	            if (contadorError == 1) {
+	                ErrorPass.setLayoutY(Y + 25);
+	                contadorError--;
+	            }
+	        }
+	    }
+
+	    if (!camposValidos) {
+	        System.out.println("No se ha podido llevar a cabo el registro");
+	        return;
+	    }
+
+	   
+	    Connection conn = ConexionBD.conectar();
+
+	    if (EntrenadorDAO.existeEntrenador(conn, usuario)) {
+	        ErrorNombre.setText("Nombre ya registrado");
+	        ErrorNombre.setVisible(true);
+	        System.out.println("Nombre ya registrado");
+	    } else {
+	        Entrenador nuevo = new Entrenador(usuario, pass, 0);
+	        if (EntrenadorDAO.anyadirEntrenador(conn, nuevo)) {
+	            System.out.println("Registro exitoso");
+	            abrirPantallaMenu(nuevo);
+	        } else {
+	            System.out.println("Error al registrar en la base de datos");
+	        }
+	    }
 	}
 
 	public void setStage(Stage primaryStage) {
