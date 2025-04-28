@@ -39,66 +39,66 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="Box" fx:id="Box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+<VBox id="Box" fx:id="Box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
    <children>
-      <AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="400.0" prefWidth="615.0">
+      <AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="528.0" prefWidth="773.0">
          <children>
-            <ImageView id="Fondo" fx:id="imgFondo" fitHeight="464.0" fitWidth="726.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Fondo" fx:id="imgFondo" layoutX="-9.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/imagenesExtra/fondo1.jpg" />
+                  <Image url="@../../img/imagenesExtra/FondoProyectoPokemon.png" />
                </image>
             </ImageView>
-            <ImageView id="Combate" fx:id="imgCombate" fitHeight="85.0" fitWidth="72.0" layoutX="105.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Combate" fx:id="imgCombate" fitHeight="85.0" fitWidth="72.0" layoutX="330.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngaaa.com-81754.png" />
                </image>
             </ImageView>
-            <ImageView id="Equipo" fx:id="imgEquipo" fitHeight="108.0" fitWidth="72.0" layoutX="98.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Equipo" fx:id="imgEquipo" fitHeight="108.0" fitWidth="72.0" layoutX="318.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(3).png" />
                </image>
             </ImageView>
-            <ImageView id="Bolsa" fx:id="imgBolsa" fitHeight="104.0" fitWidth="72.0" layoutX="98.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Bolsa" fx:id="imgBolsa" fitHeight="104.0" fitWidth="72.0" layoutX="318.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(5).png" />
                </image>
             </ImageView>
-            <ImageView id="CentorPokemon" fx:id="imgCenPokemon" fitHeight="101.0" fitWidth="80.0" layoutX="552.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="CentorPokemon" fx:id="imgCenPokemon" fitHeight="101.0" fitWidth="80.0" layoutX="730.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(4).png" />
                </image>
             </ImageView>
-            <ImageView id="Captura" fx:id="imgCaptura" fitHeight="129.0" fitWidth="80.0" layoutX="552.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Captura" fx:id="imgCaptura" fitHeight="129.0" fitWidth="80.0" layoutX="730.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(6).png" />
                </image>
             </ImageView>
-            <ImageView id="Crianza" fx:id="imgCrianza" fitHeight="82.0" fitWidth="58.0" layoutX="552.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Crianza" fx:id="imgCrianza" fitHeight="82.0" fitWidth="58.0" layoutX="741.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(7).png" />
                </image>
             </ImageView>
-            <Label id="lblPesetas" fx:id="lblPesetas" layoutX="455.0" layoutY="34.0" text="PESETAS" textFill="#f70000">
+            <Label id="lblPesetas" fx:id="lblPesetas" layoutX="529.0" layoutY="6.0" text="PESETAS">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <Label id="NumeroPesetas" fx:id="lblCantidad" layoutX="455.0" layoutY="66.0" prefHeight="35.0" prefWidth="45.0" text="Label" textFill="#03ff29">
+            <Label id="NumeroPesetas" fx:id="lblCantidad" layoutX="625.0" layoutY="4.0" prefHeight="35.0" prefWidth="45.0" text="Label" textFill="#03ff29">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <ImageView id="Salir" fx:id="imgSalir" fitHeight="74.0" fitWidth="45.0" layoutX="660.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Salir" fx:id="imgSalir" fitHeight="74.0" fitWidth="45.0" layoutX="927.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(8).png" />
                </image>
             </ImageView>
-            <Label id="NombreJugador" fx:id="lblNombre" layoutX="273.0" layoutY="70.0" text="Label" textFill="#5ff204">
+            <Label id="NombreJugador" fx:id="lblNombre" layoutX="138.0" layoutY="8.0" text="Label" textFill="#5ff204">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label id="Jugador" fx:id="lblJugador" layoutX="273.0" layoutY="28.0" prefHeight="43.0" prefWidth="146.0" text="JUGADOR" textFill="#f40b0b">
+            <Label id="Jugador" fx:id="lblJugador" layoutX="25.0" prefHeight="43.0" prefWidth="146.0" text="JUGADOR">
                <font>
                   <Font size="23.0" />
                </font>
