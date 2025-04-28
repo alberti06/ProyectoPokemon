@@ -1,12 +1,16 @@
 package controller;
 
+
+import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import model.Entrenador;
 import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
 
 public class MenuController {
@@ -68,10 +72,16 @@ public class MenuController {
         lblNombre.setText(ent.getUsuario());
         lblCantidad.setText(Integer.toString(ent.getPokedolares()));
         
+        /*
         Box.prefWidthProperty().bind(stage.widthProperty());
-        Box.prefHeightProperty().bind(stage.heightProperty());
+        Box.prefHeightProperty().bind(stage.heightProperty());*/
     }
     
- 
-
+    @FXML
+    void salirInicio(MouseEvent event) {
+        if (loginController != null && stage != null) {
+            loginController.show();
+            stage.close();
+        }
+    }
 }
