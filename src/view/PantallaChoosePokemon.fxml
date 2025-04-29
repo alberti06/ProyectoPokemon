@@ -7,14 +7,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="1110.0" prefWidth="1970.0">
          <children>
             <ImageView id="Fondo" fx:id="imgFondo" fitHeight="1092.0" fitWidth="1928.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imagen%20fondo%20eleccion.jpg" />
+                  <Image url="@../../img/imagenesExtra/imagen%20fondo%20eleccion.jpg" />
                </image>
             </ImageView>
             <ImageView id="Bulbasur" fx:id="imgBulbasur" fitHeight="428.0" fitWidth="463.0" layoutX="278.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
@@ -37,11 +36,6 @@
                   <Font size="49.0" />
                </font>
             </Label>
-            <ImageView id="Salir" fx:id="imgSalir" fitHeight="150.0" fitWidth="200.0" layoutX="1404.0" layoutY="810.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../ProyectoPokemon/img/imagenesExtra/pngegg%20(8).png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </children>
