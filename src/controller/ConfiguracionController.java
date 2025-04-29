@@ -93,7 +93,7 @@ public class ConfiguracionController {
 
             int index = lista.indexOf(ruta);
             AudioManager.setPlaylist(lista);
-            AudioManager.setCurrentIndex(index); // 🔥 NUEVO
+            AudioManager.setCurrentIndex(index);
             AudioManager.reproducirActual();
 
             actualizarNombreCancion(); // Mostramos la canción actual
@@ -109,6 +109,6 @@ public class ConfiguracionController {
     private void actualizarNombreCancion() {
         String nombre = AudioManager.getCancionActual();
         lblCancionActual.setText("Reproduciendo: " + nombre);
-        System.out.println("Label actualizado con: " + nombre);
+        System.out.println("Musica actualizada: " + nombre);
     }
 }

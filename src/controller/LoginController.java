@@ -252,17 +252,20 @@ public class LoginController {
 	}
 
 	@FXML
-	public void initialize() {
-		List<String> intro = new ArrayList<>();
-	    intro.add("./sonidos/Musica-‐-Hecho-con-Clipchamp.mp3");
-	    AudioManager.setPlaylist(intro);
-	    AudioManager.reproducirActual();
+    public void initialize() {
+        List<String> orden = new ArrayList<>();
+        orden.add("./sonidos/Musica-‐-Hecho-con-Clipchamp.mp3");
+        orden.add("./sonidos/Coldplay - Viva La Vida (Official Video).mp3");
+        orden.add("./sonidos/Himno-del-Centenario-Real-Murcia-CF.wav");
+        orden.add("./sonidos/La Roja Baila (Himno Oficial de la Selección Española) (Videoclip Oficial).mp3");
 
-	    ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidoact.png").toURI().toString()));
-	}
+        AudioManager.setPlaylist(orden);
+        AudioManager.setCurrentIndex(0);
+        AudioManager.reproducirActual();
+
+        ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidoact.png").toURI().toString()));
+    }
 	
-
-
 
 	@FXML
 	void salirJuego(MouseEvent event) {
