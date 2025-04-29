@@ -13,7 +13,7 @@
          <children>
             <ImageView id="Pokeball" fx:id="imgPokeball" fitHeight="150.0" fitWidth="200.0" layoutX="259.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@pngegg%20(6).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(6).png" />
                </image>
             </ImageView>
             <Label id="NombreObjeto1" fx:id="lblNombreOb1" layoutX="158.0" layoutY="173.0" prefHeight="48.0" prefWidth="91.0" text="Pokeball">
@@ -28,7 +28,7 @@
             </Label>
             <ImageView id="Pluma" fx:id="imgPluma" fitHeight="240.0" fitWidth="248.0" layoutX="223.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@pngegg%20(13).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(13).png" />
                </image>
             </ImageView>
             <Label fx:id="lblNombreOB2" layoutX="154.0" layoutY="364.0" text="Pluma">
@@ -38,7 +38,7 @@
             </Label>
             <ImageView id="AnilloUnico" fx:id="lblAnillo" fitHeight="150.0" fitWidth="200.0" layoutX="1418.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@pngegg%20(14).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(14).png" />
                </image>
             </ImageView>
             <Label id="ContadorOb2" fx:id="lblContadorOB2" layoutX="476.0" layoutY="379.0" text="Contador">
@@ -58,7 +58,7 @@
             </Label>
             <ImageView id="Objeto4" fx:id="imgOb4" fitHeight="150.0" fitWidth="200.0" layoutX="1415.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@pngegg%20(15).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(15).png" />
                </image>
             </ImageView>
             <Label fx:id="lblNombreOb4" layoutX="1260.0" layoutY="396.0" text="Pesa">
@@ -78,7 +78,7 @@
             </Label>
             <ImageView id="Objeto5" fx:id="imgOb5" fitHeight="150.0" fitWidth="200.0" layoutX="249.0" layoutY="501.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@pngegg%20(16).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(16).png" />
                </image>
             </ImageView>
             <Label id="ContadoOb5" fx:id="lblOb5" layoutX="474.0" layoutY="559.0" text="Contador">
@@ -94,7 +94,7 @@
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="243.0" layoutY="803.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView id="Objeto6" fx:id="imgOb6" fitHeight="150.0" fitWidth="200.0" layoutX="259.0" layoutY="750.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@pngegg%20(17).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(17).png" />
                </image>
             </ImageView>
             <Label id="ContadorOb6" fx:id="lblContadorOb6" layoutX="482.0" layoutY="790.0" text="Contador">
@@ -109,7 +109,7 @@
             </Label>
             <ImageView id="Objeto7" fx:id="imgOb7" fitHeight="150.0" fitWidth="200.0" layoutX="1425.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@pngegg%20(18).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(18).png" />
                </image>
             </ImageView>
             <Label id="ContadorOb7" fx:id="lblCont0b7" layoutX="1709.0" layoutY="578.0" text="Contador">
@@ -124,7 +124,7 @@
             </Label>
             <ImageView id="Objeto8" fx:id="imgObjeto8" fitHeight="150.0" fitWidth="200.0" layoutX="1425.0" layoutY="715.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Éter_EP.png" />
+                  <Image url="@../../img/imagenesExtra/Éter_EP.png" />
                </image>
             </ImageView>
             <Label layoutX="1709.0" layoutY="789.0" text="Contador">
