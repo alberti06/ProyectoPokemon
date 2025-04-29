@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="1110.0" prefWidth="1970.0">
+         <children>
+            <ImageView id="Fondo" fx:id="imgFondo" fitHeight="1092.0" fitWidth="1928.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/imagen%20fondo%20eleccion.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="Bulbasur" fx:id="imgBulbasur" fitHeight="428.0" fitWidth="463.0" layoutX="278.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/001.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Charmander" fx:id="imgCharmander" fitHeight="390.0" fitWidth="403.0" layoutX="721.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/004.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Squirtle" fx:id="imgSquirtle" fitHeight="483.0" fitWidth="400.0" layoutX="1200.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/007.png" />
+               </image>
+            </ImageView>
+            <Label id="Texto" fx:id="lblTexto" layoutX="453.0" layoutY="127.0" prefHeight="80.0" prefWidth="1541.0" text="Buenas entrenador elige a tu primer pokemon" textFill="#fcf9f9">
+               <font>
+                  <Font size="49.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
