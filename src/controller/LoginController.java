@@ -266,6 +266,7 @@ public class LoginController {
 	void salirJuego(MouseEvent event) {
 		 if (stage != null) {
 		        stage.close();
+		        System.out.println("Se ha cerrado el juego");
 		    }
     }
 } 

@@ -82,6 +82,7 @@ public class MenuController {
         if (loginController != null && stage != null) {
             loginController.show();
             stage.close();
+            System.out.println("Has cerrado sesion correctamente");
         }
     }
 }
