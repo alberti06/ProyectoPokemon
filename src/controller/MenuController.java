@@ -1,10 +1,12 @@
 package controller;
 
 
+import java.io.File;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -18,6 +20,7 @@ public class MenuController {
 	private Entrenador entrenador;
     private Stage stage;
     private LoginController loginController;
+ 
 
     @FXML
     private AnchorPane AnchorPane;
@@ -48,6 +51,9 @@ public class MenuController {
 
     @FXML
     private ImageView imgSalir;
+    
+    @FXML
+    private ImageView imgAjustes;
 
     @FXML
     private Label lblCantidad;
@@ -61,7 +67,7 @@ public class MenuController {
     @FXML
     private Label lblPesetas;
     
-    
+   
     public void init(Entrenador ent, Stage stage, LoginController loginController) {
 
         this.loginController = loginController;
@@ -84,4 +90,12 @@ public class MenuController {
             stage.close();
         }
     }
+    
+    @FXML
+    void abrirAjustes(MouseEvent event) {
+
+    }
+    
+    
+   
 }
