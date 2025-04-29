@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import dao.ConexionBD;
 import dao.EntrenadorDAO;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,8 +28,6 @@ import javafx.scene.image.ImageView;
 
 public class LoginController {
 
-	int contadorError = 1;
-	int contadorErrorLogin = 1;
 	public Stage stage;
 	public boolean sonido = false;
 	public MediaPlayer mediaPlayer;
@@ -65,36 +64,41 @@ public class LoginController {
 		    String usuario = TfNombre.getText();
 		    String pass = Password.getText();
 
-		    boolean mover = false;
 		    boolean camposValidos = true;
 
-		    // Reset de errores visuales
-		    ErrorPass.setLayoutX(225);
-		    ErrorNombre.setLayoutX(225);
-		    ErrorPass.setVisible(false);
-		    ErrorNombre.setVisible(false);
-
+		    // Ya no usamos los Label de error
 		    if (usuario.isEmpty()) {
-		        ErrorNombre.setText("Nombre vacío");
-		        ErrorNombre.setVisible(true);
-		        System.out.println("Nombre vacío");
-		        mover = true;
+		        int option = JOptionPane.showOptionDialog(
+		            null,
+		            "El nombre de usuario está vacío.",
+		            "Error de Login",
+		            JOptionPane.DEFAULT_OPTION,
+		            JOptionPane.ERROR_MESSAGE,
+		            null,
+		            new Object[] { "Reintentar" },
+		            "Reintentar"
+		        );
+		        if (option == JOptionPane.CLOSED_OPTION) {
+		            return; // Si el usuario cierra la ventana, no hace nada.
+		        }
 		        camposValidos = false;
 		    }
 
 		    if (pass.isEmpty()) {
-		        ErrorPass.setText("Contraseña vacía");
-		        ErrorPass.setVisible(true);
-		        System.out.println("Contraseña vacía");
-		        camposValidos = false;
-
-		        if (mover) {
-		            double Y = ErrorPass.getLayoutY();
-		            if (contadorError == 1) {
-		                ErrorPass.setLayoutY(Y + 25);
-		                contadorError--;
-		            }
+		        int option = JOptionPane.showOptionDialog(
+		            null,
+		            "La contraseña está vacía.",
+		            "Error de Login",
+		            JOptionPane.DEFAULT_OPTION,
+		            JOptionPane.ERROR_MESSAGE,
+		            null,
+		            new Object[] { "Reintentar" },
+		            "Reintentar"
+		        );
+		        if (option == JOptionPane.CLOSED_OPTION) {
+		            return;
 		        }
+		        camposValidos = false;
 		    }
 
 		    if (!camposValidos) {
@@ -102,17 +106,46 @@ public class LoginController {
 		        return;
 		    }
 
-		    // Si no están vacíos, intentamos login en BBDD
 		    Connection conn = ConexionBD.conectar();
-		    Entrenador ent = EntrenadorDAO.login(conn, usuario, pass);
-		    
-		    if (ent != null) {
-		        System.out.println("Login correcto");
-		        abrirPantallaMenu(ent);
+
+		    if (!EntrenadorDAO.existeEntrenador(conn, usuario)) {
+		        int option = JOptionPane.showOptionDialog(
+		            null,
+		            "El nombre de usuario no está registrado en la base de datos."
+		            + " Registrelo o cambie el nombre de usuario a uno ya registrado.",
+		            "Usuario no encontrado",
+		            JOptionPane.DEFAULT_OPTION,
+		            JOptionPane.ERROR_MESSAGE,
+		            null,
+		            new Object[] { "Reintentar" },
+		            "Reintentar"
+		        );
+		        if (option == JOptionPane.CLOSED_OPTION) {
+		            return;
+		        }
+		        System.out.println("Usuario no registrado");
 		    } else {
-		        ErrorPass.setText("Credenciales incorrectas");
-		        ErrorPass.setVisible(true);
-		        System.out.println("Credenciales incorrectas");
+		        Entrenador ent = EntrenadorDAO.login(conn, usuario, pass);
+
+		        if (ent != null) {
+		            System.out.println("Login correcto");
+		            abrirPantallaMenu(ent);
+		        } else {
+		            int option = JOptionPane.showOptionDialog(
+		                null,
+		                "La contraseña es incorrecta.",
+		                "Contraseña incorrecta",
+		                JOptionPane.DEFAULT_OPTION,
+		                JOptionPane.ERROR_MESSAGE,
+		                null,
+		                new Object[] { "Reintentar" },
+		                "Reintentar"
+		            );
+		            if (option == JOptionPane.CLOSED_OPTION) {
+		                return;
+		            }
+		            System.out.println("Contraseña incorrecta");
+		        }
 		    }
 		}
 
@@ -126,8 +159,6 @@ public class LoginController {
 	    boolean camposValidos = true;
 
 	    
-	    ErrorPass.setLayoutX(225);
-	    ErrorNombre.setLayoutX(225);
 	    ErrorPass.setVisible(false);
 	    ErrorNombre.setVisible(false);
 
@@ -145,13 +176,7 @@ public class LoginController {
 	        System.out.println("Contraseña vacía");
 	        camposValidos = false;
 
-	        if (mover) {
-	            double Y = ErrorPass.getLayoutY();
-	            if (contadorError == 1) {
-	                ErrorPass.setLayoutY(Y + 25);
-	                contadorError--;
-	            }
-	        }
+	        
 	    }
 
 	    if (!camposValidos) {
@@ -228,6 +253,10 @@ public class LoginController {
 	@FXML
 	public void initialize() {
 		String rutaSonido = "./sonidos/Musica-‐-Hecho-con-Clipchamp.mp3";
+		/*Musica-‐-Hecho-con-Clipchamp.mp3*/
+		/*Himno-del-Centenario-Real-Murcia-CF.wav*/
+		/*Coldplay - Viva La Vida (Official Video).mp3*/
+		/*La Roja Baila (Himno Oficial de la Selección Española) (Videoclip Oficial).mp3*/
 		Media sound = new Media(new File(rutaSonido).toURI().toString());
 		mediaPlayer = new MediaPlayer(sound);
 		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
@@ -236,6 +265,8 @@ public class LoginController {
 
 	@FXML
 	void salirJuego(MouseEvent event) {
-		// Falta implementar salida del juego si es necesario
-	}
+		 if (stage != null) {
+		        stage.close();
+		    }
+    }
 } 
