@@ -111,8 +111,7 @@ public class LoginController {
 		    if (!EntrenadorDAO.existeEntrenador(conn, usuario)) {
 		        int option = JOptionPane.showOptionDialog(
 		            null,
-		            "El nombre de usuario no está registrado en la base de datos."
-		            + " Registrelo o cambie el nombre de usuario a uno ya registrado.",
+		            "El nombre de usuario no está registrado en la base de datos.",
 		            "Usuario no encontrado",
 		            JOptionPane.DEFAULT_OPTION,
 		            JOptionPane.ERROR_MESSAGE,
