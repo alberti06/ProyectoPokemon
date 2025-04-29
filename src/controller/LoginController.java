@@ -3,6 +3,8 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -23,14 +25,15 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 import model.Entrenador;
+import util.AudioManager;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class LoginController {
 
 	public Stage stage;
-	public boolean sonido = false;
-	public MediaPlayer mediaPlayer;
+	
 
 	@FXML
 	private Label ErrorNombre;
@@ -232,35 +235,34 @@ public class LoginController {
 		Password.setText("");
 	}
 
-	public void sonido() {
-		if (!this.sonido) {
-			mediaPlayer.play();
-			ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidoact.png").toURI().toString()));
-			this.sonido = true;
-		} else {
-			mediaPlayer.pause();
-			this.sonido = false;
-			ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidodes.png").toURI().toString()));
-		}
-	}
+	
 
+	
 	@FXML
 	void activarDesactivarSonido(MouseEvent event) {
-		sonido();
+	    if (AudioManager.getMediaPlayer() != null) {
+	        if (AudioManager.getMediaPlayer().getStatus().equals(MediaPlayer.Status.PLAYING)) {
+	            AudioManager.pausar();
+	            ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidodes.png").toURI().toString()));
+	        } else {
+	            AudioManager.continuar();
+	            ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidoact.png").toURI().toString()));
+	        }
+	    }
 	}
 
 	@FXML
 	public void initialize() {
-		String rutaSonido = "./sonidos/Musica-‐-Hecho-con-Clipchamp.mp3";
-		/*Musica-‐-Hecho-con-Clipchamp.mp3*/
-		/*Himno-del-Centenario-Real-Murcia-CF.wav*/
-		/*Coldplay - Viva La Vida (Official Video).mp3*/
-		/*La Roja Baila (Himno Oficial de la Selección Española) (Videoclip Oficial).mp3*/
-		Media sound = new Media(new File(rutaSonido).toURI().toString());
-		mediaPlayer = new MediaPlayer(sound);
-		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-		sonido();
+		List<String> intro = new ArrayList<>();
+	    intro.add("./sonidos/Musica-‐-Hecho-con-Clipchamp.mp3");
+	    AudioManager.setPlaylist(intro);
+	    AudioManager.reproducirActual();
+
+	    ImgSonido.setImage(new Image(new File("./img/imagenesExtra/sonidoact.png").toURI().toString()));
 	}
+	
+
+
 
 	@FXML
 	void salirJuego(MouseEvent event) {

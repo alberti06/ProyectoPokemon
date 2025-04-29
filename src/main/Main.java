@@ -12,16 +12,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/Login.fxml"));
     	
-    	
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-       
-        primaryStage.setTitle("Proyecto Pokemon los 3 mosqueteros");
-        
-        
-        /*
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/Login.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            primaryStage.setTitle("Proyecto Pokemon los 3 mosqueteros");
+            primaryStage.setScene(scene);
+            
+            /*
         	ImageView myImageView = (ImageView) scene.lookup("#imgfondo");
         if(myImageView != null) {
             // Vincular las propiedades de tamaño del ImageView al tamaño del escenario
@@ -29,13 +29,20 @@ public class Main extends Application {
             myImageView.fitHeightProperty().bind(scene.heightProperty());s
         }
         */
+
+            LoginController controller = loader.getController();
+            controller.setStage(primaryStage);
+
+            primaryStage.show();
+
+            System.out.println("Juego abierto correctamente");
+
+        } catch (Exception e) {
+            System.out.println("Juego lanzado incorrectamente");
+            e.printStackTrace(); // muestra el error exacto en consola
+        }
         
-        primaryStage.setScene(scene);
        
-        LoginController controller = loader.getController();
-        controller.setStage(primaryStage);
-        
-        primaryStage.show();
         
     }
 

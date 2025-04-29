@@ -3,6 +3,8 @@ package controller;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -48,6 +50,9 @@ public class MenuController {
 
     @FXML
     private ImageView imgSalir;
+    
+    @FXML
+    private ImageView btnConf;
 
     @FXML
     private Label lblCantidad;
@@ -85,4 +90,24 @@ public class MenuController {
             System.out.println("Has cerrado sesion correctamente");
         }
     }
+    
+
+    @FXML
+    void abrirConf(MouseEvent event) {
+
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuConfiguracion.fxml"));
+            Parent root = loader.load();
+
+            Stage confStage = new Stage();
+            confStage.setTitle("Configuración");
+            confStage.setScene(new Scene(root));
+            confStage.setResizable(false);
+            confStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
 }
