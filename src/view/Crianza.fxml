@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox id="BOX" fx:id="Vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane id="AnchoPane" fx:id="Ancho" prefHeight="1080.0" prefWidth="1920.0">
@@ -29,7 +28,7 @@
             </Label>
             <ImageView id="HuevoFem" fx:id="imgHuevoFem" fitHeight="150.0" fitWidth="200.0" layoutX="1355.0" layoutY="799.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@png(19)1.png" />
+                  <Image url="@../../img/imagenesExtra/png(19)1.png" />
                </image>
             </ImageView>
             <Label id="Text3" fx:id="lblText3" layoutX="891.0" layoutY="464.0" text="Huevo de la cria del emparejamiento">
@@ -39,7 +38,7 @@
             </Label>
             <ImageView id="HuevoCria" fx:id="imgHuevoCria" fitHeight="150.0" fitWidth="200.0" layoutX="985.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Huevo_suerte_EP.png" />
+                  <Image url="@../../img/imagenesExtra/Huevo_suerte_EP.png" />
                </image>
             </ImageView>
             <ImageView id="CharizardM" fx:id="imgCharizardM" fitHeight="225.0" fitWidth="234.0" layoutX="122.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
@@ -59,7 +58,7 @@
             </ImageView>
             <ImageView id="NPC1" fx:id="imgNPC1" fitHeight="258.0" fitWidth="150.0" layoutX="1517.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@pngegg%20(19).png" />
+                  <Image url="@../../img/imagenesExtra/pngegg%20(19).png" />
                </image>
             </ImageView>
             <ImageView id="037" fx:id="img037" fitHeight="132.0" fitWidth="122.0" layoutX="1677.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
