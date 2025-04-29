@@ -19,7 +19,11 @@ public class Main extends Application {
         Scene scene = new Scene(root);
        
         primaryStage.setTitle("Proyecto Pokemon los 3 mosqueteros");
-       
+        
+        
+        
+        
+        
         /*
         	ImageView myImageView = (ImageView) scene.lookup("#imgfondo");
         if(myImageView != null) {

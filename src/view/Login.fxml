@@ -13,30 +13,30 @@
    <children>
       <ImageView fx:id="imgfondo" fitHeight="671.0" fitWidth="929.0" layoutX="-7.0" layoutY="-9.0">
          <image>
-            <Image url="@../../img/imagenesExtra/CesurDragonite.png" />
+            <Image url="@../../img/imagenesExtra/FondoLogin.png" />
          </image>
       </ImageView>
-      <TextField fx:id="TfNombre" layoutX="356.0" layoutY="184.0" prefHeight="42.0" prefWidth="230.0" promptText="Nombre de Usuario">
+      <TextField fx:id="TfNombre" layoutX="332.0" layoutY="163.0" prefHeight="42.0" prefWidth="230.0" promptText="Nombre de Usuario">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font></TextField>
-      <PasswordField fx:id="Password" layoutX="356.0" layoutY="237.0" prefHeight="41.0" prefWidth="230.0" promptText="Contraseña">
+      <PasswordField fx:id="Password" layoutX="332.0" layoutY="219.0" prefHeight="41.0" prefWidth="230.0" promptText="Contraseña">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font></PasswordField>
-      <Button fx:id="Loginbtn" layoutX="356.0" layoutY="301.0" mnemonicParsing="false" onAction="#comprobarLogin" prefHeight="51.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 5;" text="Login" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="Loginbtn" layoutX="332.0" layoutY="307.0" mnemonicParsing="false" onAction="#comprobarLogin" prefHeight="51.0" prefWidth="230.0" text="Login" textAlignment="CENTER">
          <font>
             <Font name="Times New Roman Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="Registrarse" layoutX="356.0" layoutY="365.0" mnemonicParsing="false" onAction="#comprobarRegistro" prefHeight="51.0" prefWidth="230.0" style="-fx-background-color: blue; -fx-border-color: black; -fx-border-radius: 5;" text="Registrarse">
+      <Button fx:id="Registrarse" layoutX="332.0" layoutY="368.0" mnemonicParsing="false" onAction="#comprobarRegistro" prefHeight="51.0" prefWidth="230.0" text="Registrarse">
          <font>
             <Font name="Times New Roman Bold" size="15.0" />
          </font></Button>
-      <Label fx:id="ErrorPass" layoutX="597.0" layoutY="240.0" prefHeight="35.0" prefWidth="306.0" text="Label" textFill="RED" visible="false">
+      <Label fx:id="ErrorPass" layoutX="574.0" layoutY="222.0" prefHeight="35.0" prefWidth="306.0" text="Label" textFill="RED" visible="false">
          <font>
             <Font size="24.0" />
          </font></Label>
-      <Label fx:id="ErrorNombre" layoutX="597.0" layoutY="184.0" prefHeight="35.0" prefWidth="306.0" text="Label" textFill="RED" visible="false">
+      <Label fx:id="ErrorNombre" layoutX="574.0" layoutY="166.0" prefHeight="35.0" prefWidth="306.0" text="Label" textFill="RED" visible="false">
          <font>
             <Font size="24.0" />
          </font></Label>
