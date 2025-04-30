@@ -235,9 +235,6 @@ public class LoginController {
 		Password.setText("");
 	}
 
-	
-
-	
 	@FXML
 	void activarDesactivarSonido(MouseEvent event) {
 	    if (AudioManager.getMediaPlayer() != null) {
@@ -258,6 +255,9 @@ public class LoginController {
         orden.add("./sonidos/Coldplay - Viva La Vida (Official Video).mp3");
         orden.add("./sonidos/Himno-del-Centenario-Real-Murcia-CF.wav");
         orden.add("./sonidos/La Roja Baila (Himno Oficial de la Selección Española) (Videoclip Oficial).mp3");
+        orden.add("./sonidos/John Lennon - Imagine - 1971.mp3");
+        orden.add("./sonidos/Queen - Too Much Love Will Kill You (Official Video).mp3");
+        orden.add("./sonidos/Faro de Lisboa (feat. Bunbury).mp3");
 
         AudioManager.setPlaylist(orden);
         AudioManager.setCurrentIndex(0);

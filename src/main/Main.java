@@ -1,12 +1,18 @@
 package main;
 
+import java.io.File;
+
+import javax.swing.JOptionPane;
+
 import controller.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import util.AudioManager;
 
 public class Main extends Application {
 
@@ -17,7 +23,8 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/Login.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-
+            
+            primaryStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
             primaryStage.setTitle("Proyecto Pokemon los 3 mosqueteros");
             primaryStage.setScene(scene);
             
@@ -37,10 +44,30 @@ public class Main extends Application {
 
             System.out.println("Juego abierto correctamente");
 
-        } catch (Exception e) {
-            System.out.println("Juego lanzado incorrectamente");
-            e.printStackTrace(); // muestra el error exacto en consola
-        }
+    	} catch (Exception e) {
+    	    JOptionPane.showOptionDialog(
+    	            null,
+    	            "ERROR!! Juego abierto incorrectamente. Revisa la terminal",
+    	            "ERROR",
+    	            JOptionPane.DEFAULT_OPTION,
+    	            JOptionPane.ERROR_MESSAGE,
+    	            null,
+    	            new Object[] { "CERRAR JUEGO" },
+    	            "CERRAR JUEGO"
+    	        );
+
+    	        // 🔇 Detener la música completamente
+    	        try {
+    	            if (util.AudioManager.getMediaPlayer() != null) {
+    	                util.AudioManager.getMediaPlayer().stop(); // Detener por completo
+    	            }
+    	        } catch (Exception ex) {
+    	            System.out.println("No se pudo detener la música.");
+    	        }
+
+    	        System.out.println("Juego abierto incorrectamente");
+    	        e.printStackTrace();
+    	    }
         
        
         

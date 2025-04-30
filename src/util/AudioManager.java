@@ -85,4 +85,24 @@ public class AudioManager {
 	            currentIndex = index;
 	        }
 	    }
+	    
+	    public static void siguiente() {
+	        if (!playlist.isEmpty()) {
+	            currentIndex = (currentIndex + 1) % playlist.size();
+	            reproducirActual();
+	            if (onTrackChanged != null) {
+	                javafx.application.Platform.runLater(onTrackChanged);
+	            }
+	        }
+	    }
+
+	    public static void anterior() {
+	        if (!playlist.isEmpty()) {
+	            currentIndex = (currentIndex - 1 + playlist.size()) % playlist.size();
+	            reproducirActual();
+	            if (onTrackChanged != null) {
+	                javafx.application.Platform.runLater(onTrackChanged);
+	            }
+	        }
+	    }
 }
