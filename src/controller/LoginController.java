@@ -214,9 +214,11 @@ public class LoginController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
 			Parent root = loader.load();
 			MenuController menuController = loader.getController();
+			
 			Scene scene = new Scene(root);
 			Stage stage = new Stage();
 
+			stage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
 			stage.setTitle("Proyecto Pokemon los 3 mosqueteros");
 			stage.setScene(scene);
 			menuController.init(ent, stage, this);
