@@ -11,24 +11,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <ImageView fx:id="imgfondo" fitHeight="671.0" fitWidth="929.0" layoutX="-7.0" layoutY="-9.0">
+      <ImageView fx:id="imgfondo" fitHeight="664.0" fitWidth="924.0" layoutX="-7.0" layoutY="-9.0">
          <image>
             <Image url="@../../img/imagenesExtra/FondoLogin.png" />
          </image>
       </ImageView>
-      <TextField fx:id="TfNombre" layoutX="332.0" layoutY="163.0" prefHeight="42.0" prefWidth="230.0" promptText="Nombre de Usuario">
+      <TextField fx:id="TfNombre" layoutX="340.0" layoutY="180.0" prefHeight="42.0" prefWidth="230.0" promptText="Nombre de Usuario">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font></TextField>
-      <PasswordField fx:id="Password" layoutX="332.0" layoutY="219.0" prefHeight="41.0" prefWidth="230.0" promptText="Contraseña">
+      <PasswordField fx:id="Password" layoutX="340.0" layoutY="236.0" prefHeight="41.0" prefWidth="230.0" promptText="Contraseña">
          <font>
             <Font name="Times New Roman Bold" size="12.0" />
          </font></PasswordField>
-      <Button fx:id="Loginbtn" layoutX="332.0" layoutY="307.0" mnemonicParsing="false" onAction="#comprobarLogin" prefHeight="51.0" prefWidth="230.0" text="Login" textAlignment="CENTER">
+      <Button fx:id="Loginbtn" layoutX="339.0" layoutY="297.0" mnemonicParsing="false" onAction="#comprobarLogin" prefHeight="51.0" prefWidth="230.0" text="Login" textAlignment="CENTER">
          <font>
             <Font name="Times New Roman Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="Registrarse" layoutX="332.0" layoutY="368.0" mnemonicParsing="false" onAction="#comprobarRegistro" prefHeight="51.0" prefWidth="230.0" text="Registrarse">
+      <Button fx:id="Registrarse" layoutX="339.0" layoutY="360.0" mnemonicParsing="false" onAction="#comprobarRegistro" prefHeight="51.0" prefWidth="230.0" text="Registrarse">
          <font>
             <Font name="Times New Roman Bold" size="15.0" />
          </font></Button>
@@ -45,7 +45,7 @@
             <Image url="@../../img/imagenesExtra/sonidodes.png" />
          </image>
       </ImageView>
-      <ImageView id="imgSalir" fx:id="imgSalir" fitHeight="42.0" fitWidth="41.0" layoutX="860.0" layoutY="14.0" onMouseClicked="#salirJuego" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="imgSalir" fx:id="imgSalir" fitHeight="42.0" fitWidth="41.0" layoutX="860.0" layoutY="9.0" onMouseClicked="#salirJuego" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/imagenesExtra/encendido.png" />
          </image>
