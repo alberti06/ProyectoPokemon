@@ -48,34 +48,34 @@
                   <Image url="@../../img/imagenesExtra/FondoProyectoPokemon.png" />
                </image>
             </ImageView>
-            <ImageView id="Combate" fx:id="imgCombate" fitHeight="85.0" fitWidth="72.0" layoutX="147.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Combate" fx:id="imgCombate" fitHeight="176.0" fitWidth="245.0" layoutX="147.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/imagenesExtra/pngaaa.com-81754.png" />
+                  <Image url="@../../img/imagenesExtra/Combate.png" />
                </image>
             </ImageView>
-            <ImageView id="Equipo" fx:id="imgEquipo" fitHeight="108.0" fitWidth="72.0" layoutX="147.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Equipo" fx:id="imgEquipo" fitHeight="116.0" fitWidth="154.0" layoutX="183.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/imagenesExtra/pngegg%20(3).png" />
+                  <Image url="@../../img/imagenesExtra/PokédexIcono.png" />
                </image>
             </ImageView>
-            <ImageView id="Bolsa" fx:id="imgBolsa" fitHeight="104.0" fitWidth="72.0" layoutX="147.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Bolsa" fx:id="imgBolsa" fitHeight="152.0" fitWidth="171.0" layoutX="183.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/imagenesExtra/pngegg%20(5).png" />
+                  <Image url="@../../img/imagenesExtra/IconoBolsa1.png" />
                </image>
             </ImageView>
-            <ImageView id="CentorPokemon" fx:id="imgCenPokemon" fitHeight="101.0" fitWidth="80.0" layoutX="708.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="CentorPokemon" fx:id="imgCenPokemon" fitHeight="152.0" fitWidth="270.0" layoutX="600.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/imagenesExtra/pngegg%20(4).png" />
+                  <Image url="@../../img/imagenesExtra/Centro%20pokemon1.png" />
                </image>
             </ImageView>
-            <ImageView id="Captura" fx:id="imgCaptura" fitHeight="129.0" fitWidth="80.0" layoutX="701.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Captura" fx:id="imgCaptura" fitHeight="129.0" fitWidth="80.0" layoutX="674.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(6).png" />
                </image>
             </ImageView>
-            <ImageView id="Crianza" fx:id="imgCrianza" fitHeight="82.0" fitWidth="58.0" layoutX="712.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Crianza" fx:id="imgCrianza" fitHeight="134.0" fitWidth="154.0" layoutX="662.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/imagenesExtra/pngegg%20(7).png" />
+                  <Image url="@../../img/imagenesExtra/Crianza.png" />
                </image>
             </ImageView>
             <Label id="lblPesetas" fx:id="lblPesetas" layoutX="662.0" layoutY="18.0" text="PESETAS:">
