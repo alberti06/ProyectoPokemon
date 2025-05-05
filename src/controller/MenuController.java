@@ -119,7 +119,21 @@ public class MenuController {
    
     @FXML
     void abrirBolsa(MouseEvent event) {
-    	
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Bolsa Pokemon.fxml"));
+            Parent root = loader.load();
+
+            Stage confStage = new Stage();
+            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+            confStage.setTitle("Centro Pokemon");
+            confStage.setScene(new Scene(root));
+            confStage.setResizable(false);
+            confStage.show();
+            
+            this.stage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
