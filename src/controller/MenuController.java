@@ -57,6 +57,9 @@ public class MenuController {
 
     @FXML
     private ImageView imgSalir;
+    
+    @FXML
+    private ImageView imgTienda;
 
     @FXML
     private Label lblCantidad;
@@ -107,6 +110,8 @@ public class MenuController {
             confStage.setScene(new Scene(root));
             confStage.setResizable(false);
             confStage.show();
+            
+            this.stage.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -120,6 +125,20 @@ public class MenuController {
 
     @FXML
     void abrirCaptura(MouseEvent event) {
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/captura.fxml"));
+            Parent root = loader.load();
+
+            Stage confStage = new Stage();
+            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+            confStage.setTitle("Captura");
+            confStage.setScene(new Scene(root));
+            confStage.setResizable(false);
+            confStage.show();
+            this.stage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -148,16 +167,55 @@ public class MenuController {
     }
     @FXML
     void abrirCrianza(MouseEvent event) {
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Crianza.fxml"));
+            Parent root = loader.load();
+
+            Stage confStage = new Stage();
+            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+            confStage.setTitle("Crianza");
+            confStage.setScene(new Scene(root));
+            confStage.setResizable(false);
+            confStage.show();
+            
+            this.stage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @FXML
     void abrirEquipo(MouseEvent event) {
+    	
 
     }
 
     @FXML
     void abrirPokedex(MouseEvent event) {
+    	
+
+    }
+    
+    @FXML
+    void abrirTienda(MouseEvent event) {
+    	
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Tienda.fxml"));
+            Parent root = loader.load();
+
+            Stage confStage = new Stage();
+            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+            confStage.setTitle("Tienda");
+            confStage.setScene(new Scene(root));
+            confStage.setResizable(false);
+            confStage.show();
+            
+            this.stage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    	
 
     }
     

@@ -113,6 +113,11 @@
                   <Image url="@../../img/imagenesExtra/CapturaProyectoPokemon.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="imgTienda" fitHeight="146.0" fitWidth="142.0" layoutX="377.0" layoutY="95.0" onMouseClicked="#abrirTienda" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/tienda.jpeg" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

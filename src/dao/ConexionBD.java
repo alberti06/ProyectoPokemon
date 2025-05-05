@@ -20,7 +20,7 @@ public class ConexionBD {
             System.out.println("Conexión establecida correctamente");
             return con;
         } catch (SQLException e) {
-            System.out.println("❌ Error al conectar con la base de datos");
+            System.out.println("Error al conectar con la base de datos");
             mostrarVentanaError(e);
             printSQLException(e);
             return null;
