@@ -17,17 +17,22 @@ import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 
 
+
 public class MenuController {
 	
 	private Entrenador entrenador;
     private Stage stage;
     private LoginController loginController;
 
+
     @FXML
     private AnchorPane AnchorPane;
 
     @FXML
     private VBox Box;
+
+    @FXML
+    private ImageView btnConf;
 
     @FXML
     private ImageView imgBolsa;
@@ -52,9 +57,6 @@ public class MenuController {
 
     @FXML
     private ImageView imgSalir;
-    
-    @FXML
-    private ImageView btnConf;
 
     @FXML
     private Label lblCantidad;
@@ -67,7 +69,6 @@ public class MenuController {
 
     @FXML
     private Label lblPesetas;
-    
     
     public void init(Entrenador ent, Stage stage, LoginController loginController) {
 
@@ -96,7 +97,6 @@ public class MenuController {
 
     @FXML
     void abrirConf(MouseEvent event) {
-
     	try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuConfiguracion.fxml"));
             Parent root = loader.load();
@@ -110,6 +110,55 @@ public class MenuController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+   
+    @FXML
+    void abrirBolsa(MouseEvent event) {
+    	
+    }
+
+
+    @FXML
+    void abrirCaptura(MouseEvent event) {
+
+    }
+
+    @FXML
+    void abrirCentropoke(MouseEvent event) {
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CentroPokemon.fxml"));
+            Parent root = loader.load();
+
+            Stage confStage = new Stage();
+            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+            confStage.setTitle("Centro Pokemon");
+            confStage.setScene(new Scene(root));
+            confStage.setResizable(false);
+            confStage.show();
+            
+            this.stage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void abrirCombate(MouseEvent event) {
+
+    }
+    @FXML
+    void abrirCrianza(MouseEvent event) {
+
+    }
+
+    @FXML
+    void abrirEquipo(MouseEvent event) {
+
+    }
+
+    @FXML
+    void abrirPokedex(MouseEvent event) {
+
     }
     
     
