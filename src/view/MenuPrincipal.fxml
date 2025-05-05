@@ -48,32 +48,32 @@
                   <Image url="@../../img/imagenesExtra/FondoProyectoPokemon.png" />
                </image>
             </ImageView>
-            <ImageView id="Combate" fx:id="imgCombate" fitHeight="176.0" fitWidth="245.0" layoutX="147.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Combate" fx:id="imgCombate" fitHeight="176.0" fitWidth="336.0" layoutX="283.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/Combate.png" />
                </image>
             </ImageView>
-            <ImageView id="Equipo" fx:id="imgEquipo" fitHeight="116.0" fitWidth="154.0" layoutX="183.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Equipo" fx:id="imgEquipo" fitHeight="99.0" fitWidth="126.0" layoutX="100.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/PokédexIcono.png" />
                </image>
             </ImageView>
-            <ImageView id="Bolsa" fx:id="imgBolsa" fitHeight="152.0" fitWidth="171.0" layoutX="183.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Bolsa" fx:id="imgBolsa" fitHeight="133.0" fitWidth="120.0" layoutX="103.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/IconoBolsa1.png" />
                </image>
             </ImageView>
-            <ImageView id="CentorPokemon" fx:id="imgCenPokemon" fitHeight="152.0" fitWidth="270.0" layoutX="600.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="CentorPokemon" fx:id="imgCenPokemon" fitHeight="134.0" fitWidth="212.0" layoutX="652.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/Centro%20pokemon1.png" />
                </image>
             </ImageView>
-            <ImageView id="Captura" fx:id="imgCaptura" fitHeight="129.0" fitWidth="80.0" layoutX="674.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Captura" fx:id="imgCaptura" fitHeight="103.0" fitWidth="126.0" layoutX="689.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/imagenesExtra/pngegg%20(6).png" />
+                  <Image url="@../../img/imagenesExtra/EquipoProyectoPokemon.png" />
                </image>
             </ImageView>
-            <ImageView id="Crianza" fx:id="imgCrianza" fitHeight="134.0" fitWidth="154.0" layoutX="662.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Crianza" fx:id="imgCrianza" fitHeight="134.0" fitWidth="126.0" layoutX="689.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/Crianza.png" />
                </image>
