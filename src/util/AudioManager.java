@@ -7,102 +7,128 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AudioManager {
-	
-	    private static MediaPlayer mediaPlayer;
-	    private static List<String> playlist = new ArrayList<>();
-	    private static int currentIndex = 0;
 
-	    public static void setPlaylist(List<String> canciones) {
-	        playlist.clear();
-	        playlist.addAll(canciones);
-	        currentIndex = 0;
-	    }
+    private static MediaPlayer mediaPlayer;
+    private static List<String> playlist = new ArrayList<>();
+    private static int currentIndex = 0;
 
-	    public static void reproducirActual() {
-	        if (playlist.isEmpty()) return;
-	        reproducirMusica(playlist.get(currentIndex));
-	    }
+    public static void setPlaylist(List<String> canciones) {
+        playlist.clear();
+        playlist.addAll(canciones);
+        currentIndex = 0;
+    }
 
-	    public static void reproducirMusica(String ruta) {
-	        try {
-	            if (mediaPlayer != null) {
-	                mediaPlayer.stop();
-	            }
+    public static void reproducirActual() {
+        if (playlist.isEmpty()) return;
+        reproducirMusica(playlist.get(currentIndex));
+    }
 
-	            Media media = new Media(new File(ruta).toURI().toString());
-	            mediaPlayer = new MediaPlayer(media);
-	            mediaPlayer.play();
+    public static void reproducirMusica(String ruta) {
+        try {
+            if (mediaPlayer != null) {
+                mediaPlayer.stop();
+            }
 
-	            mediaPlayer.setOnEndOfMedia(() -> {
-	                currentIndex = (currentIndex + 1) % playlist.size();
-	                reproducirActual();
-	                if (onTrackChanged != null) {
-	                    javafx.application.Platform.runLater(onTrackChanged);
-	                }
-	            });
+            Media media = new Media(new File(ruta).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.play();
 
-	        } catch (Exception e) {
-	            System.out.println("Error al reproducir música: " + e.getMessage());
-	        }
-	    }
+            // Notificar cuando termina la canción
+            mediaPlayer.setOnEndOfMedia(() -> {
+                currentIndex = (currentIndex + 1) % playlist.size();
+                reproducirActual();
+                if (onTrackChanged != null) {
+                    javafx.application.Platform.runLater(onTrackChanged);
+                }
+            });
 
-	    public static void bajarVolumen() {
-	        if (mediaPlayer != null)
-	            mediaPlayer.setVolume(Math.max(0, mediaPlayer.getVolume() - 0.1));
-	    }
+            // ✅ NUEVO: Notificar estado tras estar listo
+            mediaPlayer.setOnReady(() -> {
+                if (onStatusChanged != null) {
+                    javafx.application.Platform.runLater(onStatusChanged);
+                }
+            });
 
-	    public static void subirVolumen() {
-	        if (mediaPlayer != null)
-	            mediaPlayer.setVolume(Math.min(1, mediaPlayer.getVolume() + 0.1));
-	    }
+        } catch (Exception e) {
+            System.out.println("Error al reproducir música: " + e.getMessage());
+        }
+    }
 
-	    public static void pausar() {
-	        if (mediaPlayer != null)
-	            mediaPlayer.pause();
-	    }
+    public static void bajarVolumen() {
+        if (mediaPlayer != null)
+            mediaPlayer.setVolume(Math.max(0, mediaPlayer.getVolume() - 0.1));
+    }
 
-	    public static void continuar() {
-	        if (mediaPlayer != null)
-	            mediaPlayer.play();
-	    }
+    public static void subirVolumen() {
+        if (mediaPlayer != null)
+            mediaPlayer.setVolume(Math.min(1, mediaPlayer.getVolume() + 0.1));
+    }
 
-	    public static MediaPlayer getMediaPlayer() {
-	        return mediaPlayer;
-	    }
+    public static void pausar() {
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+            if (onStatusChanged != null) {
+                javafx.application.Platform.runLater(onStatusChanged);
+            }
+        }
+    }
 
-	    public static String getCancionActual() {
-	        return !playlist.isEmpty() ? new File(playlist.get(currentIndex)).getName() : "Ninguna";
-	    }
-	    
-	    private static Runnable onTrackChanged;  // esto se ejecutará cuando cambie la canción
+    public static void continuar() {
+        if (mediaPlayer != null) {
+            mediaPlayer.play();
+            if (onStatusChanged != null) {
+                javafx.application.Platform.runLater(onStatusChanged);
+            }
+        }
+    }
 
-	    public static void setOnTrackChanged(Runnable callback) {
-	        onTrackChanged = callback;
-	    }
-	    
-	    public static void setCurrentIndex(int index) {
-	        if (index >= 0 && index < playlist.size()) {
-	            currentIndex = index;
-	        }
-	    }
-	    
-	    public static void siguiente() {
-	        if (!playlist.isEmpty()) {
-	            currentIndex = (currentIndex + 1) % playlist.size();
-	            reproducirActual();
-	            if (onTrackChanged != null) {
-	                javafx.application.Platform.runLater(onTrackChanged);
-	            }
-	        }
-	    }
+    public static MediaPlayer getMediaPlayer() {
+        return mediaPlayer;
+    }
 
-	    public static void anterior() {
-	        if (!playlist.isEmpty()) {
-	            currentIndex = (currentIndex - 1 + playlist.size()) % playlist.size();
-	            reproducirActual();
-	            if (onTrackChanged != null) {
-	                javafx.application.Platform.runLater(onTrackChanged);
-	            }
-	        }
-	    }
+    public static String getCancionActual() {
+        return !playlist.isEmpty() ? new File(playlist.get(currentIndex)).getName() : "Ninguna";
+    }
+
+    private static Runnable onTrackChanged;
+    public static void setOnTrackChanged(Runnable callback) {
+        onTrackChanged = callback;
+    }
+
+    private static Runnable onStatusChanged;
+    public static void setOnStatusChanged(Runnable callback) {
+        onStatusChanged = callback;
+    }
+
+    public static void setCurrentIndex(int index) {
+        if (index >= 0 && index < playlist.size()) {
+            currentIndex = index;
+        }
+    }
+
+    public static void siguiente() {
+        if (!playlist.isEmpty()) {
+            currentIndex = (currentIndex + 1) % playlist.size();
+            reproducirActual();
+            if (onTrackChanged != null) {
+                javafx.application.Platform.runLater(onTrackChanged);
+            }
+            if (onStatusChanged != null) {
+                javafx.application.Platform.runLater(onStatusChanged);
+            }
+        }
+    }
+
+    public static void anterior() {
+        if (!playlist.isEmpty()) {
+            currentIndex = (currentIndex - 1 + playlist.size()) % playlist.size();
+            reproducirActual();
+            if (onTrackChanged != null) {
+                javafx.application.Platform.runLater(onTrackChanged);
+            }
+            if (onStatusChanged != null) {
+                javafx.application.Platform.runLater(onStatusChanged);
+            }
+        }
+    }
 }

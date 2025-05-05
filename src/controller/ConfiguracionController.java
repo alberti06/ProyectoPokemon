@@ -16,7 +16,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import util.AudioManager;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.scene.media.MediaPlayer;
 
 public class ConfiguracionController {
 
@@ -58,9 +60,7 @@ public class ConfiguracionController {
         canciones.put("Imagine", "John Lennon - Imagine - 1971.mp3");
         canciones.put("Too Much Love Will Kill You", "Queen - Too Much Love Will Kill You (Official Video).mp3");
         canciones.put("Faro de Lisboa", "Faro de Lisboa (feat. Bunbury).mp3");
-        
-        
-        
+
         choiceCanciones.getItems().addAll(canciones.keySet());
         choiceCanciones.getSelectionModel().selectFirst();
 
@@ -74,8 +74,27 @@ public class ConfiguracionController {
             }
         });
 
-        AudioManager.setOnTrackChanged(() -> actualizarNombreCancion());
+        actualizarIconoPlay();
+
+        // Cambia el icono cuando cambia el estado (play/pause)
+        AudioManager.setOnStatusChanged(() -> Platform.runLater(this::actualizarIconoPlay));
+
+        // Cambia el texto e icono cuando cambia de canción
+        AudioManager.setOnTrackChanged(() -> Platform.runLater(() -> {
+            actualizarNombreCancion();
+            actualizarIconoPlay();
+        }));
+
         actualizarNombreCancion();
+    }
+    
+    private void actualizarIconoPlay() {
+        if (AudioManager.getMediaPlayer() != null &&
+            AudioManager.getMediaPlayer().getStatus() == MediaPlayer.Status.PLAYING) {
+            btnPlay.setImage(new Image(new File("./img/imagenesExtra/pause.png").toURI().toString()));
+        } else {
+            btnPlay.setImage(new Image(new File("./img/imagenesExtra/play.png").toURI().toString()));
+        }
     }
 
     @FXML
@@ -89,14 +108,11 @@ public class ConfiguracionController {
         if (AudioManager.getMediaPlayer() != null) {
             if (AudioManager.getMediaPlayer().getStatus() == javafx.scene.media.MediaPlayer.Status.PLAYING) {
                 AudioManager.pausar();
-                btnPlay.setImage(new Image(new File("./img/imagenesExtra/play.png").toURI().toString()));
             } else {
-                // 🎯 Aquí revisamos si ya hay una canción cargada (mediaPlayer no null)
-                AudioManager.continuar(); // Continúa la canción actual
-                btnPlay.setImage(new Image(new File("./img/imagenesExtra/pause.png").toURI().toString()));
+                AudioManager.continuar();
             }
         } else {
-            // Si por alguna razón no hay mediaPlayer (primera vez), reproducir seleccionada
+            // No hay media cargada, cargamos y reproducimos la canción seleccionada
             String seleccion = choiceCanciones.getValue();
             if (seleccion != null) {
                 String archivo = canciones.get(seleccion);
@@ -111,24 +127,27 @@ public class ConfiguracionController {
                 AudioManager.setPlaylist(lista);
                 AudioManager.setCurrentIndex(index);
                 AudioManager.reproducirActual();
-                btnPlay.setImage(new Image(new File("./img/imagenesExtra/pause.png").toURI().toString()));
             }
         }
 
+        actualizarIconoPlay();
         actualizarNombreCancion();
     }
 
     @FXML
     void siguienteCancion(MouseEvent event) {
         AudioManager.siguiente();
+        actualizarIconoPlay();       // ⬅️ Añadido
         actualizarNombreCancion();
     }
 
     @FXML
     void anteriorCancion(MouseEvent event) {
         AudioManager.anterior();
+        actualizarIconoPlay();       // ⬅️ Añadido
         actualizarNombreCancion();
     }
+
 
     private void actualizarNombreCancion() {
         String nombre = AudioManager.getCancionActual();
