@@ -10,8 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Entrenador;
+
 
 public class CombateController {
 
@@ -20,8 +22,23 @@ public class CombateController {
 	private Entrenador entrenador;
 	private LoginController loginController;
 	
-    @FXML
-    private ImageView btnSalir;
+	 @FXML
+	 private AnchorPane anchorpane;
+
+	 @FXML
+	 private ImageView btnSalir;
+
+	 @FXML
+	 private ImageView imgPokemonEntrenador;
+
+	 @FXML
+	 private ImageView imgPokemonSalvaje;
+
+	 @FXML
+	 private ImageView imgSuelo1;
+
+	 @FXML
+	 private ImageView imgSuelo2;
 
     @FXML
     void salirMenupoke(MouseEvent event) {

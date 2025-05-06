@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -17,21 +16,19 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import util.AudioManager;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.scene.media.MediaPlayer;
 
 public class ConfiguracionController {
 
-
     @FXML
     private ImageView btnCerrar;
-    
+
     @FXML
     private ImageView btnForward;
 
     @FXML
     private ImageView btnPlay;
-    
+
     @FXML
     private ImageView btnRewind;
 
@@ -40,16 +37,15 @@ public class ConfiguracionController {
 
     @FXML
     private ImageView imgFondo;
-    
+
     @FXML
     private Label lblCancionActual;
-    
+
     @FXML
     private Slider sliderVolumen;
 
-    
-    // Mapa para traducir el nombre visible a la ruta real
     private final Map<String, String> canciones = new HashMap<>();
+    private String ultimaCancionMostrada = "";
 
     @FXML
     public void initialize() {
@@ -60,34 +56,64 @@ public class ConfiguracionController {
         canciones.put("Imagine", "John Lennon - Imagine - 1971.mp3");
         canciones.put("Too Much Love Will Kill You", "Queen - Too Much Love Will Kill You (Official Video).mp3");
         canciones.put("Faro de Lisboa", "Faro de Lisboa (feat. Bunbury).mp3");
+        canciones.put("Master of Puppets", "Metallica - Master of Puppets (Live) [Quebec Magnetic].mp3");
 
         choiceCanciones.getItems().addAll(canciones.keySet());
-        choiceCanciones.getSelectionModel().selectFirst();
 
-        if (AudioManager.getMediaPlayer() != null) {
-            sliderVolumen.setValue(AudioManager.getMediaPlayer().getVolume() * 100);
-        }
-
+        sliderVolumen.setValue(AudioManager.getVolumenGlobal() * 100);
         sliderVolumen.valueProperty().addListener((obs, oldVal, newVal) -> {
+            double vol = newVal.doubleValue() / 100;
+            AudioManager.setVolumenGlobal(vol);
             if (AudioManager.getMediaPlayer() != null) {
-                AudioManager.getMediaPlayer().setVolume(newVal.doubleValue() / 100);
+                AudioManager.getMediaPlayer().setVolume(vol);
             }
         });
 
+        if (AudioManager.getMediaPlayer() != null) {
+            String actual = AudioManager.getCancionActual();
+            canciones.forEach((nombre, archivo) -> {
+                if (actual.contains(archivo)) {
+                    choiceCanciones.getSelectionModel().select(nombre);
+                }
+            });
+        } else {
+            choiceCanciones.getSelectionModel().selectFirst();
+        }
+
         actualizarIconoPlay();
 
-        // Cambia el icono cuando cambia el estado (play/pause)
         AudioManager.setOnStatusChanged(() -> Platform.runLater(this::actualizarIconoPlay));
-
-        // Cambia el texto e icono cuando cambia de canción
         AudioManager.setOnTrackChanged(() -> Platform.runLater(() -> {
             actualizarNombreCancion();
             actualizarIconoPlay();
         }));
 
         actualizarNombreCancion();
+
+        choiceCanciones.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                String archivo = canciones.get(newVal);
+                String ruta = "./sonidos/" + archivo;
+
+                List<String> lista = new ArrayList<>();
+                for (String value : canciones.values()) {
+                    lista.add("./sonidos/" + value);
+                }
+
+                int index = lista.indexOf(ruta);
+
+                if (!AudioManager.getCancionActual().equals(new File(ruta).getName())) {
+                    AudioManager.setPlaylist(lista);
+                    AudioManager.setCurrentIndex(index);
+                    AudioManager.reproducirActual();
+                }
+
+                actualizarNombreCancion();
+                actualizarIconoPlay();
+            }
+        });
     }
-    
+
     private void actualizarIconoPlay() {
         if (AudioManager.getMediaPlayer() != null &&
             AudioManager.getMediaPlayer().getStatus() == MediaPlayer.Status.PLAYING) {
@@ -106,13 +132,12 @@ public class ConfiguracionController {
     @FXML
     void togglePlay(MouseEvent event) {
         if (AudioManager.getMediaPlayer() != null) {
-            if (AudioManager.getMediaPlayer().getStatus() == javafx.scene.media.MediaPlayer.Status.PLAYING) {
+            if (AudioManager.getMediaPlayer().getStatus() == MediaPlayer.Status.PLAYING) {
                 AudioManager.pausar();
             } else {
                 AudioManager.continuar();
             }
         } else {
-            // No hay media cargada, cargamos y reproducimos la canción seleccionada
             String seleccion = choiceCanciones.getValue();
             if (seleccion != null) {
                 String archivo = canciones.get(seleccion);
@@ -137,21 +162,26 @@ public class ConfiguracionController {
     @FXML
     void siguienteCancion(MouseEvent event) {
         AudioManager.siguiente();
-        actualizarIconoPlay();       // ⬅️ Añadido
         actualizarNombreCancion();
+        actualizarIconoPlay();
     }
 
     @FXML
     void anteriorCancion(MouseEvent event) {
         AudioManager.anterior();
-        actualizarIconoPlay();       // ⬅️ Añadido
+        actualizarIconoPlay();
         actualizarNombreCancion();
     }
-
 
     private void actualizarNombreCancion() {
         String nombre = AudioManager.getCancionActual();
         lblCancionActual.setText("Reproduciendo: " + nombre);
-        System.out.println("Musica actualizada: " + nombre);
+
+        for (Map.Entry<String, String> entry : canciones.entrySet()) {
+            if (nombre.equals(entry.getValue())) {
+                choiceCanciones.getSelectionModel().select(entry.getKey());
+                break;
+            }
+        }
     }
 }

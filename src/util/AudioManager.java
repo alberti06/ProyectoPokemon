@@ -6,11 +6,23 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 public class AudioManager {
 
     private static MediaPlayer mediaPlayer;
     private static List<String> playlist = new ArrayList<>();
     private static int currentIndex = 0;
+    private static double volumen = 0.5;
+
+    private static Runnable onTrackChanged;
+    private static Runnable onStatusChanged;
+
+    private static String ultimaCancionReproducida = "";
 
     public static void setPlaylist(List<String> canciones) {
         playlist.clear();
@@ -31,9 +43,10 @@ public class AudioManager {
 
             Media media = new Media(new File(ruta).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
+
+            mediaPlayer.setVolume(volumen);
             mediaPlayer.play();
 
-            // Notificar cuando termina la canción
             mediaPlayer.setOnEndOfMedia(() -> {
                 currentIndex = (currentIndex + 1) % playlist.size();
                 reproducirActual();
@@ -42,8 +55,12 @@ public class AudioManager {
                 }
             });
 
-            // ✅ NUEVO: Notificar estado tras estar listo
             mediaPlayer.setOnReady(() -> {
+                String actual = new File(ruta).getName();
+                if (!actual.equals(ultimaCancionReproducida)) {
+                    System.out.println("🎵 Sonando ahora: " + actual);
+                    ultimaCancionReproducida = actual;
+                }
                 if (onStatusChanged != null) {
                     javafx.application.Platform.runLater(onStatusChanged);
                 }
@@ -90,12 +107,10 @@ public class AudioManager {
         return !playlist.isEmpty() ? new File(playlist.get(currentIndex)).getName() : "Ninguna";
     }
 
-    private static Runnable onTrackChanged;
     public static void setOnTrackChanged(Runnable callback) {
         onTrackChanged = callback;
     }
 
-    private static Runnable onStatusChanged;
     public static void setOnStatusChanged(Runnable callback) {
         onStatusChanged = callback;
     }
@@ -113,9 +128,6 @@ public class AudioManager {
             if (onTrackChanged != null) {
                 javafx.application.Platform.runLater(onTrackChanged);
             }
-            if (onStatusChanged != null) {
-                javafx.application.Platform.runLater(onStatusChanged);
-            }
         }
     }
 
@@ -126,9 +138,15 @@ public class AudioManager {
             if (onTrackChanged != null) {
                 javafx.application.Platform.runLater(onTrackChanged);
             }
-            if (onStatusChanged != null) {
-                javafx.application.Platform.runLater(onStatusChanged);
-            }
         }
     }
-}
+
+    public static void setVolumenGlobal(double v) {
+        volumen = v;
+    }
+
+    public static double getVolumenGlobal() {
+        return volumen;
+    }
+} 
+

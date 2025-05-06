@@ -116,7 +116,6 @@ public class MenuController {
             confStage.setResizable(false);
             confStage.show();
             
-            this.stage.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

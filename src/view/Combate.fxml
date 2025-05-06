@@ -4,28 +4,31 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CombateController">
    <children>
-      <ImageView id="Fondo" fx:id="imgFondo" fitHeight="410.0" fitWidth="637.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView id="suelo1" fx:id="imgSuelo1" fitHeight="134.0" fitWidth="170.0" layoutX="51.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="suelo1" fx:id="imgSuelo1" fitHeight="134.0" fitWidth="170.0" layoutX="53.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../ProyectoPokemon/img/imagenesExtra/suelo-combate.png" />
          </image>
       </ImageView>
-      <ImageView id="suelo2" fx:id="imgSuelo2" fitHeight="134.0" fitWidth="134.0" layoutX="436.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="suelo2" fx:id="imgSuelo2" fitHeight="134.0" fitWidth="134.0" layoutX="626.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../ProyectoPokemon/img/imagenesExtra/suelo-combate.png" />
          </image>
       </ImageView>
-      <ImageView id="pokemonEntrenador" fx:id="imgPokemonEntrenador" fitHeight="140.0" fitWidth="134.0" layoutX="51.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="pokemonEntrenador" fx:id="imgPokemonEntrenador" fitHeight="140.0" fitWidth="134.0" layoutX="53.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/052.png" />
          </image>
       </ImageView>
-      <ImageView id="pokemonsalvaje" fx:id="imgPokemonSalvaje" fitHeight="108.0" fitWidth="115.0" layoutX="449.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="pokemonsalvaje" fx:id="imgPokemonSalvaje" fitHeight="108.0" fitWidth="115.0" layoutX="639.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/041.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnSalir" fitHeight="48.0" fitWidth="39.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
          </image>
       </ImageView>
    </children>
