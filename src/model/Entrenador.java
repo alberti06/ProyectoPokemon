@@ -50,6 +50,11 @@ public class Entrenador {
 	public void setPokedolares(int pokedolares) {
 		this.pokedolares = pokedolares;
 	}
+
+	@Override
+	public String toString() {
+		return "Entrenador [usuario=" + usuario + ", pass=" + pass + ", pokedolares=" + pokedolares + "]";
+	}
 	
 	
 	

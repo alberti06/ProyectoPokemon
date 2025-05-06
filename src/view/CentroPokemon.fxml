@@ -6,21 +6,21 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CentropokeController">
    <children>
-      <ImageView fitHeight="582.0" fitWidth="792.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="677.0" fitWidth="939.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/imagenesExtra/Centro%20pokemon%20Fondo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnRestaurar" layoutX="130.0" layoutY="437.0" mnemonicParsing="false" text="Restaurar pokemons" />
-      <Button fx:id="btnSalir" layoutX="599.0" layoutY="437.0" mnemonicParsing="false" text="Salir" />
+      <Button fx:id="btnRestaurar" layoutX="279.0" layoutY="587.0" mnemonicParsing="false" text="Restaurar pokemons" />
+      <Button fx:id="btnSalir" layoutX="652.0" layoutY="587.0" mnemonicParsing="false" text="Salir" />
       <ImageView fx:id="imgPokemon1" fitHeight="26.0" fitWidth="29.0" layoutX="123.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgPokemon2" fitHeight="26.0" fitWidth="29.0" layoutX="164.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgPokemon3" fitHeight="26.0" fitWidth="29.0" layoutX="123.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgPokemon4" fitHeight="26.0" fitWidth="29.0" layoutX="152.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgPokemon5" fitHeight="26.0" fitWidth="29.0" layoutX="109.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgPokemon6" fitHeight="26.0" fitWidth="29.0" layoutX="138.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="lblDialogo" layoutX="138.0" layoutY="309.0" prefHeight="62.0" prefWidth="533.0" text="Dialogo" />
+      <Label fx:id="lblDialogo" layoutX="279.0" layoutY="502.0" prefHeight="62.0" prefWidth="533.0" text="Dialogo" />
    </children>
 </AnchorPane>

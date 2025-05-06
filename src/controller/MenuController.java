@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 
 
-
 public class MenuController {
 	
 	private Entrenador entrenador;
@@ -97,6 +96,12 @@ public class MenuController {
         }
     }
     
+    //REVISAR
+    public void show() {
+        if (stage != null) {
+            stage.show();
+        }
+    }
 
     @FXML
     void abrirConf(MouseEvent event) {
@@ -119,33 +124,8 @@ public class MenuController {
    
     @FXML
     void abrirBolsa(MouseEvent event) {
-    	
-    }
-
-
-    @FXML
-    void abrirCaptura(MouseEvent event) {
     	try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/captura.fxml"));
-            Parent root = loader.load();
-
-            Stage confStage = new Stage();
-            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            confStage.setTitle("Captura");
-            confStage.setScene(new Scene(root));
-            confStage.setResizable(false);
-            confStage.show();
-            this.stage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @FXML
-    void abrirCentropoke(MouseEvent event) {
-    	try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CentroPokemon.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Bolsa Pokemon.fxml"));
             Parent root = loader.load();
 
             Stage confStage = new Stage();
@@ -161,29 +141,79 @@ public class MenuController {
         }
     }
 
+
+    @FXML
+    void abrirCaptura(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/captura .fxml")); // 👈 SIN espacio
+            Parent root = loader.load();
+
+            CapturaController capturaController = loader.getController(); // 👈 CORRECTO controlador
+
+            Stage confStage = new Stage();
+            capturaController.init(entrenador, confStage, this, loginController); // 👈 Asegúrate de que este método existe en CapturaController
+
+            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+            confStage.setTitle("Captura");
+            confStage.setScene(new Scene(root));
+            confStage.setResizable(false);
+            confStage.show();
+
+            this.stage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void abrirCentropoke(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CentroPokemon.fxml"));
+            Parent root = loader.load(); // ⚠️ primero carga
+
+            CentropokeController controller = loader.getController(); // ✅ luego obtén el controller
+
+            Stage confStage = new Stage();
+            controller.init(entrenador, confStage, this, loginController);
+
+            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+            confStage.setTitle("Centro Pokemon");
+            confStage.setScene(new Scene(root));
+            confStage.setResizable(false);
+            confStage.show();
+
+            this.stage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     void abrirCombate(MouseEvent event) {
 
     }
     @FXML
     void abrirCrianza(MouseEvent event) {
-    	try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Crianza.fxml"));
             Parent root = loader.load();
 
-            Stage confStage = new Stage();
+            CrianzaController crianzaController = loader.getController();
+            
+            Stage confStage = new Stage(); // <-- crea primero la nueva ventana
+            crianzaController.init(entrenador, confStage, this, loginController); // <-- pasar confStage aquí
+
             confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
             confStage.setTitle("Crianza");
             confStage.setScene(new Scene(root));
             confStage.setResizable(false);
             confStage.show();
-            
+
             this.stage.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
 
     @FXML
     void abrirEquipo(MouseEvent event) {
@@ -199,25 +229,27 @@ public class MenuController {
     
     @FXML
     void abrirTienda(MouseEvent event) {
-    	
-    	try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Tienda.fxml"));
-            Parent root = loader.load();
+    	    try {
+    	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Tienda.fxml"));
+    	        Parent root = loader.load();
 
-            Stage confStage = new Stage();
-            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            confStage.setTitle("Tienda");
-            confStage.setScene(new Scene(root));
-            confStage.setResizable(false);
-            confStage.show();
-            
-            this.stage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    	
+    	        TiendaController tiendaController = loader.getController();
 
-    }
+    	        Stage confStage = new Stage();
+    	        tiendaController.init(entrenador, confStage, this, loginController); // 👈 AQUI PASAS TODO
+
+    	        confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+    	        confStage.setTitle("Tienda");
+    	        confStage.setScene(new Scene(root));
+    	        confStage.setResizable(false);
+    	        confStage.show();
+
+    	        this.stage.close();
+    	    } catch (IOException e) {
+    	        e.printStackTrace();
+    	    }
+    	}
+
     
     
 }
