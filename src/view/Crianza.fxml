@@ -6,9 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="BOX" fx:id="Vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrianzaController">
-   <children>
-      <AnchorPane id="AnchoPane" fx:id="Ancho" prefHeight="574.0" prefWidth="875.0">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
          <children>
             <ImageView fitHeight="671.0" fitWidth="929.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -56,6 +55,5 @@
                </image>
             </ImageView>
          </children>
-      </AnchorPane>
-   </children>
 </AnchorPane>
+
