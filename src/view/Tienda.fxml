@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TiendaController">
    <children>
       <ImageView fx:id="fondoTienda" fitHeight="722.0" fitWidth="948.0" layoutX="-19.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,7 +19,6 @@
          <font>
             <Font size="34.0" />
          </font></Button>
-      <Button fx:id="btnSalir" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Salir" />
       <Label fx:id="lblEter" layoutX="583.0" layoutY="203.0" text="Eter" />
       <Label fx:id="lblChaleco" layoutX="582.0" layoutY="361.0" text="Chaleco" />
       <Label fx:id="lblBastón" layoutX="576.0" layoutY="305.0" text="Bastón" />
@@ -36,5 +35,10 @@
       <Spinner layoutX="658.0" layoutY="449.0" prefHeight="18.0" prefWidth="158.0" />
       <Spinner layoutX="658.0" layoutY="489.0" prefHeight="18.0" prefWidth="158.0" />
       <Spinner layoutX="658.0" layoutY="155.0" prefHeight="18.0" prefWidth="158.0" />
+      <ImageView fx:id="btnSalir" fitHeight="40.0" fitWidth="42.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

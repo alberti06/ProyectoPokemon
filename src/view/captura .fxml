@@ -4,25 +4,32 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CapturaController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="207.0" layoutY="488.0" pickOnBounds="true" preserveRatio="true">
+
+      <!-- Si realmente necesitas el VBox, aquí te añado uno de ejemplo -->
+      <VBox fx:id="Vbox" layoutX="50" layoutY="50" spacing="10" />
+
+      <ImageView fx:id="imgHuevoMasc" fitHeight="150.0" fitWidth="200.0" layoutX="207.0" layoutY="488.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/imagenesExtra/pngegg%20(6).png" />
          </image>
       </ImageView>
-      <Label layoutX="399.0" layoutY="540.0" text="Pokeballs:">
+
+      <Label fx:id="lblText1" layoutX="399.0" layoutY="540.0" text="Pokeballs:">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label layoutX="613.0" layoutY="540.0" text="Label">
+
+      <Label fx:id="lblText2" layoutX="613.0" layoutY="540.0" text="Label">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
+
    </children>
 </AnchorPane>

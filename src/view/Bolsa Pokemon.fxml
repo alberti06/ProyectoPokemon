@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BolsaController">
    <children>
       <AnchorPane id="anchorpane" fx:id="anchor" prefHeight="671.0" prefWidth="929.0">
          <children>
@@ -137,6 +137,11 @@
                   <Font size="24.0" />
                </font>
             </Label>
+            <ImageView fx:id="btnSalir" fitHeight="42.0" fitWidth="42.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
