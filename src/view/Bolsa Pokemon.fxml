@@ -9,131 +9,135 @@
 
 <VBox id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane id="anchorpane" fx:id="anchor" prefHeight="694.0" prefWidth="1252.0">
+      <AnchorPane id="anchorpane" fx:id="anchor" prefHeight="671.0" prefWidth="929.0">
          <children>
-            <ImageView id="Pokeball" fx:id="imgPokeball" fitHeight="150.0" fitWidth="200.0" layoutX="144.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="652.0" fitWidth="908.0" layoutX="-2.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/FondoBolsa.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Pokeball" fx:id="imgPokeball" fitHeight="87.0" fitWidth="46.0" layoutX="385.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(6).png" />
                </image>
             </ImageView>
-            <Label id="NombreObjeto1" fx:id="lblNombreOb1" layoutX="63.0" layoutY="74.0" prefHeight="48.0" prefWidth="91.0" text="Pokeball">
+            <Label id="NombreObjeto1" fx:id="lblNombreOb1" layoutX="446.0" layoutY="114.0" prefHeight="48.0" prefWidth="91.0" text="Pokeball">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <Label id="ContadorOb1" fx:id="lblContador1" layoutX="307.0" layoutY="83.0" text="Contador">
+            <Label id="ContadorOb1" fx:id="lblContador1" layoutX="635.0" layoutY="123.0" text="Contador">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <ImageView id="Pluma" fx:id="imgPluma" fitHeight="217.0" fitWidth="193.0" layoutX="140.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Pluma" fx:id="imgPluma" fitHeight="95.0" fitWidth="46.0" layoutX="385.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(13).png" />
                </image>
             </ImageView>
-            <Label fx:id="lblNombreOB2" layoutX="63.0" layoutY="225.0" text="Pluma">
+            <Label fx:id="lblNombreOB2" layoutX="463.0" layoutY="305.0" text="Pluma">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <ImageView id="AnilloUnico" fx:id="lblAnillo" fitHeight="150.0" fitWidth="200.0" layoutX="574.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="AnilloUnico" fx:id="lblAnillo" fitHeight="63.0" fitWidth="42.0" layoutX="387.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(14).png" />
                </image>
             </ImageView>
-            <Label id="ContadorOb2" fx:id="lblContadorOB2" layoutX="335.0" layoutY="225.0" text="Contador">
+            <Label id="ContadorOb2" fx:id="lblContadorOB2" layoutX="631.0" layoutY="304.0" text="Contador">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label id="contadorOb3" fx:id="lblContadorOB3" layoutX="733.0" layoutY="58.0" text="Contador">
+            <Label id="contadorOb3" fx:id="lblContadorOB3" layoutX="633.0" layoutY="353.0" text="Contador">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <Label id="NombreObjeto3" fx:id="lblNombreOb3" layoutX="427.0" layoutY="65.0" text="Anillo Único">
+            <Label id="NombreObjeto3" fx:id="lblNombreOb3" layoutX="446.0" layoutY="352.0" text="Anillo Único">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <ImageView id="Objeto4" fx:id="imgOb4" fitHeight="150.0" fitWidth="200.0" layoutX="549.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Objeto4" fx:id="imgOb4" fitHeight="35.0" fitWidth="151.0" layoutX="354.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(15).png" />
                </image>
             </ImageView>
-            <Label fx:id="lblNombreOb4" layoutX="466.0" layoutY="223.0" text="Pesa">
+            <Label fx:id="lblNombreOb4" layoutX="446.0" layoutY="396.0" text="Pesa">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label id="ContadorOb4" fx:id="lblContadorOb4" layoutX="766.0" layoutY="203.0" text="Contador">
+            <Label id="ContadorOb4" fx:id="lblContadorOb4" layoutX="546.0" layoutY="398.0" text="Contador">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <Label fx:id="lblNombreOb5" layoutX="57.0" layoutY="363.0" text="Bastón">
+            <Label fx:id="lblNombreOb5" layoutX="460.0" layoutY="200.0" text="Bastón">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <ImageView id="Objeto5" fx:id="imgOb5" fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Objeto5" fx:id="imgOb5" fitHeight="96.0" fitWidth="63.0" layoutX="376.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(16).png" />
                </image>
             </ImageView>
-            <Label id="ContadoOb5" fx:id="lblOb5" layoutX="322.0" layoutY="377.0" text="Contador">
+            <Label id="ContadoOb5" fx:id="lblOb5" layoutX="629.0" layoutY="200.0" text="Contador">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label id="NombreOb6" fx:id="lblNombre6" layoutX="42.0" layoutY="551.0" text="Chaleco">
+            <Label id="NombreOb6" fx:id="lblNombre6" layoutX="453.0" layoutY="248.0" text="Chaleco">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="243.0" layoutY="803.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView id="Objeto6" fx:id="imgOb6" fitHeight="150.0" fitWidth="200.0" layoutX="129.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Objeto6" fx:id="imgOb6" fitHeight="63.0" fitWidth="58.0" layoutX="379.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(17).png" />
                </image>
             </ImageView>
-            <Label id="ContadorOb6" fx:id="lblContadorOb6" layoutX="343.0" layoutY="549.0" text="Contador">
+            <Label id="ContadorOb6" fx:id="lblContadorOb6" layoutX="629.0" layoutY="246.0" text="Contador">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label id="NombreOb7" fx:id="lblNombreOb7" layoutX="491.0" layoutY="389.0" text="Pilas">
+            <Label id="NombreOb7" fx:id="lblNombreOb7" layoutX="439.0" layoutY="445.0" text="Pilas">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <ImageView id="Objeto7" fx:id="imgOb7" fitHeight="150.0" fitWidth="200.0" layoutX="533.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Objeto7" fx:id="imgOb7" fitHeight="63.0" fitWidth="100.0" layoutX="349.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/pngegg%20(18).png" />
                </image>
             </ImageView>
-            <Label id="ContadorOb7" fx:id="lblCont0b7" layoutX="733.0" layoutY="370.0" text="Contador">
+            <Label id="ContadorOb7" fx:id="lblCont0b7" layoutX="540.0" layoutY="443.0" text="Contador">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label id="NombreOb8" fx:id="lblNombreOb8" layoutX="481.0" layoutY="535.0" text="Éter">
+            <Label id="NombreOb8" fx:id="lblNombreOb8" layoutX="431.0" layoutY="499.0" text="Éter">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <ImageView id="Objeto8" fx:id="imgObjeto8" fitHeight="150.0" fitWidth="200.0" layoutX="567.0" layoutY="474.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Objeto8" fx:id="imgObjeto8" fitHeight="80.0" fitWidth="63.0" layoutX="376.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/Éter_EP.png" />
                </image>
             </ImageView>
-            <Label layoutX="760.0" layoutY="531.0" text="Contador">
+            <Label layoutX="540.0" layoutY="495.0" text="Contador">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </VBox>
