@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrianzaController">
          <children>
-            <ImageView fitHeight="671.0" fitWidth="929.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="679.0" fitWidth="941.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/fondoCrianza.jpg" />
                </image>
@@ -49,11 +48,10 @@
                   <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/004.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btnInicio" fitHeight="35.0" fitWidth="56.0" layoutX="881.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btnInicio" fitHeight="35.0" fitWidth="56.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
                </image>
             </ImageView>
          </children>
 </AnchorPane>
-

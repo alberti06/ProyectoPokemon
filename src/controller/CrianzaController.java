@@ -86,7 +86,6 @@ public class CrianzaController {
     
     
 
-    
     public void init(Entrenador entrenador, Stage stage, MenuController menuController,LoginController loginController) {
 
         this.menuController = menuController;

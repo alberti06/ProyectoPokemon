@@ -7,15 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Entrenador;
 
-public class CapturaController {
+public class EquipoController {
 	
 	private MenuController menuController;
 	private Stage stage;
@@ -23,26 +21,7 @@ public class CapturaController {
 	private LoginController loginController;
 
     @FXML
-    private VBox Vbox;
-
-    @FXML
-    private ImageView imgHuevoMasc;
-
-    @FXML
-    private Label lblText1;
-
-    @FXML
-    private Label lblText2;
-    
-    
-    public void init(Entrenador entrenador, Stage stage, MenuController menuController,LoginController loginController) {
-
-        this.menuController = menuController;
-        this.stage = stage;
-        this.entrenador = entrenador;
-        this.loginController = loginController;
-    }
-    
+    private ImageView btnSalir;
 
     @FXML
     void salirMenupoke(MouseEvent event) {
@@ -68,6 +47,14 @@ public class CapturaController {
 			e.printStackTrace();
 		}
 
+    }
+    
+    public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
+
+        this.menuController = menuController;
+        this.stage = stage;
+        this.entrenador = entrenador;
+        this.loginController = loginController;
     }
 
 }

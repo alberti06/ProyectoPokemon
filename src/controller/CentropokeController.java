@@ -22,8 +22,8 @@ public class CentropokeController {
 	private Entrenador entrenador;
 	private LoginController loginController;
 
-    @FXML
-    private ImageView btnIncio;
+	@FXML
+	private ImageView btnSalir;
 
     @FXML
     private Button btnRestaurar;

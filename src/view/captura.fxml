@@ -13,23 +13,28 @@
       <!-- Si realmente necesitas el VBox, aquí te añado uno de ejemplo -->
       <VBox fx:id="Vbox" layoutX="50" layoutY="50" spacing="10" />
 
-      <ImageView fx:id="imgHuevoMasc" fitHeight="150.0" fitWidth="200.0" layoutX="207.0" layoutY="488.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgHuevoMasc" fitHeight="150.0" fitWidth="200.0" layoutX="149.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/imagenesExtra/pngegg%20(6).png" />
          </image>
       </ImageView>
 
-      <Label fx:id="lblText1" layoutX="399.0" layoutY="540.0" text="Pokeballs:">
+      <Label fx:id="lblText1" layoutX="332.0" layoutY="533.0" text="Pokeballs:">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
 
-      <Label fx:id="lblText2" layoutX="613.0" layoutY="540.0" text="Label">
+      <Label fx:id="lblText2" layoutX="508.0" layoutY="533.0" text="Label">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
+      <ImageView fx:id="btnSalir" fitHeight="46.0" fitWidth="40.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
+         </image>
+      </ImageView>
 
    </children>
 </AnchorPane>
