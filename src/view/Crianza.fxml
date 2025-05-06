@@ -7,63 +7,53 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="BOX" fx:id="Vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox id="BOX" fx:id="Vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CrianzaController">
    <children>
-      <AnchorPane id="AnchoPane" fx:id="Ancho" prefHeight="1080.0" prefWidth="1920.0">
+      <AnchorPane id="AnchoPane" fx:id="Ancho" prefHeight="574.0" prefWidth="875.0">
          <children>
-            <ImageView id="HuevoMasc" fx:id="imgHuevoMasc" fitHeight="150.0" fitWidth="200.0" layoutX="568.0" layoutY="806.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="671.0" fitWidth="929.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/fondoCrianza.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="HuevoMasc" fx:id="imgHuevoMasc" fitHeight="115.0" fitWidth="94.0" layoutX="112.0" layoutY="481.0" onMouseClicked="#fusionarHuevo" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../ProyectoPokemon/img/imagenesExtra/pngegg%20(7).png" />
                </image>
             </ImageView>
-            <Label id="lblText" fx:id="lblText2" layoutX="500.0" layoutY="708.0" text="Introduzca su pokemon macho">
+            <Label id="lblText" fx:id="lblText2" layoutX="466.0" layoutY="238.0" prefHeight="26.0" prefWidth="217.0" text="Introduzca su pokemon macho" textFill="WHITE">
                <font>
-                  <Font size="23.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label id="Text1" fx:id="lblText1" layoutX="1249.0" layoutY="690.0" text="Introduzca su pokemon hembra">
+            <Label id="Text1" fx:id="lblText1" layoutX="239.0" layoutY="238.0" prefHeight="26.0" prefWidth="225.0" text="Introduzca su pokemon hembra" textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <ImageView id="HuevoFem" fx:id="imgHuevoFem" fitHeight="150.0" fitWidth="200.0" layoutX="1355.0" layoutY="799.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/imagenesExtra/png(19)1.png" />
-               </image>
-            </ImageView>
-            <Label id="Text3" fx:id="lblText3" layoutX="891.0" layoutY="464.0" text="Huevo de la cria del emparejamiento">
+            <Label id="Text3" fx:id="lblText3" layoutX="315.0" layoutY="463.0" text="Cria del emparejamiento" textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold Italic" size="24.0" />
                </font>
             </Label>
-            <ImageView id="HuevoCria" fx:id="imgHuevoCria" fitHeight="150.0" fitWidth="200.0" layoutX="985.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/imagenesExtra/Huevo_suerte_EP.png" />
-               </image>
-            </ImageView>
-            <ImageView id="CharizardM" fx:id="imgCharizardM" fitHeight="225.0" fitWidth="234.0" layoutX="122.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="CharizardM" fx:id="imgCharizardF" fitHeight="150.0" fitWidth="158.0" layoutX="287.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/006.png" />
                </image>
             </ImageView>
-            <ImageView id="CharizardF" fx:id="imgCharizardF" fitHeight="187.0" fitWidth="184.0" layoutX="422.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="CharizardF" fx:id="imgCharizardM" fitHeight="150.0" fitWidth="150.0" layoutX="482.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/006.png" />
                </image>
             </ImageView>
-            <ImageView id="Charmander" fx:id="imgCharmander" fitHeight="150.0" fitWidth="200.0" layoutX="288.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Charmander" fx:id="imgCharmander" fitHeight="150.0" fitWidth="162.0" layoutX="380.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/004.png" />
                </image>
             </ImageView>
-            <ImageView id="NPC1" fx:id="imgNPC1" fitHeight="258.0" fitWidth="150.0" layoutX="1517.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btnInicio" fitHeight="35.0" fitWidth="56.0" layoutX="881.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/imagenesExtra/pngegg%20(19).png" />
-               </image>
-            </ImageView>
-            <ImageView id="037" fx:id="img037" fitHeight="132.0" fitWidth="122.0" layoutX="1677.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/037.png" />
+                  <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
                </image>
             </ImageView>
          </children>

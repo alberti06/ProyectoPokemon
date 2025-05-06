@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 
 
-
 public class MenuController {
 	
 	private Entrenador entrenador;
@@ -97,6 +96,12 @@ public class MenuController {
         }
     }
     
+    //REVISAR
+    public void show() {
+        if (stage != null) {
+            stage.show();
+        }
+    }
 
     @FXML
     void abrirConf(MouseEvent event) {
@@ -158,17 +163,21 @@ public class MenuController {
 
     @FXML
     void abrirCentropoke(MouseEvent event) {
-    	try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CentroPokemon.fxml"));
             Parent root = loader.load();
 
+            CentropokeController controller = loader.getController(); // ✅ Obtenemos el controller
             Stage confStage = new Stage();
+
+            controller.init(entrenador, confStage, this, loginController); // ✅ Pasamos datos necesarios
+
             confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
             confStage.setTitle("Centro Pokemon");
             confStage.setScene(new Scene(root));
             confStage.setResizable(false);
             confStage.show();
-            
+
             this.stage.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -181,23 +190,27 @@ public class MenuController {
     }
     @FXML
     void abrirCrianza(MouseEvent event) {
-    	try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Crianza.fxml"));
             Parent root = loader.load();
 
-            Stage confStage = new Stage();
+            CrianzaController crianzaController = loader.getController();
+            
+            Stage confStage = new Stage(); // <-- crea primero la nueva ventana
+            crianzaController.init(entrenador, confStage, this, loginController); // <-- pasar confStage aquí
+
             confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
             confStage.setTitle("Crianza");
             confStage.setScene(new Scene(root));
             confStage.setResizable(false);
             confStage.show();
-            
+
             this.stage.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
 
     @FXML
     void abrirEquipo(MouseEvent event) {
