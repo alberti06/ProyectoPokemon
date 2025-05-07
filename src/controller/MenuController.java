@@ -3,6 +3,7 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,11 +11,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import model.Entrenador;
 import javafx.stage.Stage;
-import javafx.scene.input.MouseEvent;
+import model.Entrenador;
 
 
 public class MenuController {
@@ -85,6 +86,11 @@ public class MenuController {
         /*
         Box.prefWidthProperty().bind(stage.widthProperty());
         Box.prefHeightProperty().bind(stage.heightProperty());*/
+    }
+    
+    public void actualizarDinero() {
+        lblCantidad.setText(String.valueOf(entrenador.getPokedolares()));
+        lblPesetas.setText(entrenador.getPokedolares() + " $");
     }
     
     @FXML

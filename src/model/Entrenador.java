@@ -2,15 +2,23 @@ package model;
 
 public class Entrenador {
 	
+	private int identrenador;
 	private String usuario;
 	private String pass;
 	private int pokedolares;
 	
+	public Entrenador(String usuario, String pass, int pokedolares, int identrenador) {
+	    this.usuario = usuario;
+	    this.pass = pass;
+	    this.pokedolares = pokedolares;
+	    this.identrenador = identrenador;
+	}
+	
 	public Entrenador(String usuario, String pass, int pokedolares) {
-		super();
-		this.usuario = usuario;
-		this.pass = pass;
-		this.pokedolares = pokedolares;
+	    this.usuario = usuario;
+	    this.pass = pass;
+	    this.pokedolares = pokedolares;
+	    this.identrenador = 0; // Por defecto, hasta que se establezca desde la BD
 	}
 	
 	public Entrenador() {
@@ -18,6 +26,7 @@ public class Entrenador {
 		this.usuario = "";
 		this.pass = "";
 		this.pokedolares = 0;
+		this.identrenador = 0;
 	}
 	
 	public Entrenador(Entrenador c) {
@@ -25,6 +34,15 @@ public class Entrenador {
 		this.usuario = c.usuario;
 		this.pass = c.pass;
 		this.pokedolares = c.pokedolares;
+		this.identrenador = c.identrenador;
+	}
+
+	public int getIdentrenador() {
+		return identrenador;
+	}
+
+	public void setIdentrenador(int identrenador) {
+		this.identrenador = identrenador;
 	}
 
 	public String getUsuario() {
@@ -53,8 +71,11 @@ public class Entrenador {
 
 	@Override
 	public String toString() {
-		return "Entrenador [usuario=" + usuario + ", pass=" + pass + ", pokedolares=" + pokedolares + "]";
+		return "Entrenador [identrenador=" + identrenador + ", usuario=" + usuario + ", pass=" + pass + ", pokedolares="
+				+ pokedolares + "]";
 	}
+
+	
 	
 	
 	

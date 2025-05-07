@@ -16,13 +16,12 @@ public class ConexionBD {
 
     public static Connection conectar() {
         try {
-            Connection con = DriverManager.getConnection(url, login, password);
+            Class.forName("com.mysql.cj.jdbc.Driver"); // Asegura que el driver se carga
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokemon", "root", "");
             System.out.println("Conexión establecida correctamente");
             return con;
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Error al conectar con la base de datos");
-            mostrarVentanaError(e);
-            printSQLException(e);
             return null;
         }
     }

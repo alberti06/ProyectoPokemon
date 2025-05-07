@@ -10,9 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import util.AudioManager;
 
 public class Main extends Application {
 
@@ -68,8 +66,6 @@ public class Main extends Application {
     	        System.out.println("Juego abierto incorrectamente");
     	        e.printStackTrace();
     	    }
-        
-       
         
     }
 

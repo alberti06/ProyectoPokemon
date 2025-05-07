@@ -27,6 +27,9 @@ public class CapturaController {
 
     @FXML
     private ImageView imgHuevoMasc;
+    
+    @FXML
+    private ImageView imgFondo;
 
     @FXML
     private Label lblText1;

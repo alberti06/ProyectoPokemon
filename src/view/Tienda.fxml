@@ -15,7 +15,7 @@
             <Image url="@../../img/imagenesExtra/Tienda.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnComprar" layoutX="53.0" layoutY="458.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="390.0" text="Comprar">
+      <Button fx:id="btnComprar" layoutX="53.0" layoutY="458.0" mnemonicParsing="false" onMouseClicked="#comprar" prefHeight="74.0" prefWidth="390.0" text="Comprar">
          <font>
             <Font size="34.0" />
          </font></Button>
@@ -27,18 +27,35 @@
       <Label fx:id="lblPesa" layoutX="582.0" layoutY="453.0" text="Pesa" />
       <Label fx:id="lblAnillo" layoutX="579.0" layoutY="493.0" text="Anillo" />
       <Label fx:id="lblPila" layoutX="584.0" layoutY="159.0" text="Pila" />
-      <Spinner layoutX="658.0" layoutY="199.0" prefHeight="18.0" prefWidth="158.0" />
-      <Spinner layoutX="658.0" layoutY="248.0" prefHeight="18.0" prefWidth="158.0" />
-      <Spinner layoutX="658.0" layoutY="301.0" prefHeight="18.0" prefWidth="158.0" />
-      <Spinner layoutX="658.0" layoutY="357.0" prefHeight="18.0" prefWidth="158.0" />
-      <Spinner layoutX="658.0" layoutY="405.0" prefHeight="18.0" prefWidth="158.0" />
-      <Spinner layoutX="658.0" layoutY="449.0" prefHeight="18.0" prefWidth="158.0" />
-      <Spinner layoutX="658.0" layoutY="489.0" prefHeight="18.0" prefWidth="158.0" />
-      <Spinner layoutX="658.0" layoutY="155.0" prefHeight="18.0" prefWidth="158.0" />
+      
+      <Spinner fx:id="spinnerPila" layoutX="658.0" layoutY="155.0" prefWidth="158.0" />
+	  <Spinner fx:id="spinnerEter" layoutX="658.0" layoutY="199.0" prefWidth="158.0" />
+      <Spinner fx:id="spinnerPokeball" layoutX="658.0" layoutY="248.0" prefWidth="158.0" />
+      <Spinner fx:id="spinnerBaston" layoutX="658.0" layoutY="292.0" prefWidth="158.0" />
+      <Spinner fx:id="spinnerChaleco" layoutX="648.0" layoutY="357.0" prefWidth="158.0" />
+      <Spinner fx:id="spinnerPluma" layoutX="648.0" layoutY="405.0" prefWidth="158.0" />
+      <Spinner fx:id="spinnerPesa" layoutX="648.0" layoutY="445.0" prefWidth="158.0" />
+      <Spinner fx:id="spinnerAnillo" layoutX="648.0" layoutY="489.0" prefWidth="158.0" />
+      
       <ImageView fx:id="btnSalir" fitHeight="40.0" fitWidth="42.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
          </image>
       </ImageView>
+      <Label fx:id="lblPrecio" layoutX="461.0" layoutY="547.0" prefHeight="83.0" prefWidth="375.0" text="Label">
+         <font>
+            <Font name="System Bold Italic" size="56.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDinero" layoutX="190.0" layoutY="275.0" prefHeight="34.0" prefWidth="165.0" text="Label">
+         <font>
+            <Font name="System Bold Italic" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPesetas" layoutX="82.0" layoutY="275.0" prefHeight="34.0" prefWidth="89.0" text="Pesetas:">
+         <font>
+            <Font name="System Bold Italic" size="23.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

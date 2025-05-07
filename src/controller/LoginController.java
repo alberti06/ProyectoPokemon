@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 
 import dao.ConexionBD;
 import dao.EntrenadorDAO;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,20 +19,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.stage.Stage;
-import javafx.scene.input.MouseEvent;
-import model.Entrenador;
-import util.AudioManager;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
+import model.Entrenador;
+import util.AudioManager;
 
 public class LoginController {
 
 	public Stage stage;
-	
 
 	@FXML
 	private Label ErrorNombre;
@@ -194,7 +190,7 @@ public class LoginController {
 	        ErrorNombre.setVisible(true);
 	        System.out.println("Nombre ya registrado");
 	    } else {
-	        Entrenador nuevo = new Entrenador(usuario, pass, 0);
+	        Entrenador nuevo = new Entrenador(usuario, pass, 1000);
 	        if (EntrenadorDAO.anyadirEntrenador(conn, nuevo)) {
 	            System.out.println("Registro exitoso");
 	            abrirPantallaMenu(nuevo);

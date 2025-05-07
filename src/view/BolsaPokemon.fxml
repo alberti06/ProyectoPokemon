@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,7 +27,7 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <Label id="ContadorOb1" fx:id="lblContador1" layoutX="640.0" layoutY="94.0" text="Contador">
+            <Label id="ContadorOb1" fx:id="lblCantPokeball" layoutX="589.0" layoutY="94.0" text="Contador">
                <font>
                   <Font size="20.0" />
                </font>
@@ -46,12 +47,12 @@
                   <Image url="@../../img/imagenesExtra/pngegg%20(14).png" />
                </image>
             </ImageView>
-            <Label id="ContadorOb2" fx:id="lblContadorOB2" layoutX="631.0" layoutY="304.0" text="Contador">
+            <Label id="ContadorOb2" fx:id="lblCantAnillo" layoutX="587.0" layoutY="307.0" text="Contador">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label id="contadorOb3" fx:id="lblContadorOB3" layoutX="638.0" layoutY="143.0" text="Contador">
+            <Label id="contadorOb3" fx:id="lblCantBaston" layoutX="583.0" layoutY="143.0" text="Contador">
                <font>
                   <Font size="21.0" />
                </font>
@@ -71,7 +72,7 @@
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label id="ContadorOb4" fx:id="lblContadorOb4" layoutX="633.0" layoutY="359.0" text="Contador">
+            <Label id="ContadorOb4" fx:id="lblCantPesa" layoutX="583.0" layoutY="358.0" text="Contador">
                <font>
                   <Font size="21.0" />
                </font>
@@ -86,7 +87,7 @@
                   <Image url="@../../img/imagenesExtra/pngegg%20(16).png" />
                </image>
             </ImageView>
-            <Label id="ContadoOb5" fx:id="lblOb5" layoutX="629.0" layoutY="200.0" text="Contador">
+            <Label id="ContadoOb5" fx:id="lblCantChaleco" layoutX="579.0" layoutY="200.0" text="Contador">
                <font>
                   <Font size="23.0" />
                </font>
@@ -101,7 +102,7 @@
                   <Image url="@../../img/imagenesExtra/pngegg%20(17).png" />
                </image>
             </ImageView>
-            <Label id="ContadorOb6" fx:id="lblContadorOb6" layoutX="629.0" layoutY="246.0" text="Contador">
+            <Label id="ContadorOb6" fx:id="lblCantPluma" layoutX="579.0" layoutY="251.0" text="Contador">
                <font>
                   <Font size="23.0" />
                </font>
@@ -116,7 +117,7 @@
                   <Image url="@../../img/imagenesExtra/pngegg%20(18).png" />
                </image>
             </ImageView>
-            <Label id="ContadorOb7" fx:id="lblCont0b7" layoutX="627.0" layoutY="409.0" text="Contador">
+            <Label id="ContadorOb7" fx:id="lblCantPilas" layoutX="577.0" layoutY="409.0" text="Contador">
                <font>
                   <Font size="24.0" />
                </font>
@@ -131,7 +132,7 @@
                   <Image url="@../../img/imagenesExtra/Éter_EP.png" />
                </image>
             </ImageView>
-            <Label layoutX="627.0" layoutY="468.0" text="Contador">
+            <Label fx:id="lblCantEter" layoutX="577.0" layoutY="466.0" text="Contador">
                <font>
                   <Font size="24.0" />
                </font>
@@ -139,6 +140,19 @@
             <ImageView fx:id="btnSalir" fitHeight="42.0" fitWidth="42.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
+               </image>
+            </ImageView>
+            <Spinner fx:id="spinnerPokeball" layoutX="695.0" layoutY="96.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerBaston" layoutX="695.0" layoutY="146.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerChaleco" layoutX="695.0" layoutY="200.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerPluma" layoutX="695.0" layoutY="255.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerAnillo" layoutX="695.0" layoutY="311.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerPesa" layoutX="695.0" layoutY="361.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerPilas" layoutX="695.0" layoutY="421.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerEter" layoutX="695.0" layoutY="471.0" prefHeight="17.0" prefWidth="108.0" />
+            <ImageView fx:id="btnVender" fitHeight="116.0" fitWidth="78.0" layoutX="129.0" layoutY="484.0" onMouseClicked="#vender" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/vender.png" />
                </image>
             </ImageView>
          </children>

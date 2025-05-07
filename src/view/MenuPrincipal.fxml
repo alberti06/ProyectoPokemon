@@ -78,12 +78,12 @@
                   <Image url="@../../img/imagenesExtra/Crianza.png" />
                </image>
             </ImageView>
-            <Label id="lblPesetas" fx:id="lblPesetas" layoutX="662.0" layoutY="18.0" text="PESETAS:">
+            <Label id="lblPesetas" fx:id="lblPesetas" layoutX="602.0" layoutY="18.0" text="PESETAS:">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
             </Label>
-            <Label id="NumeroPesetas" fx:id="lblCantidad" layoutX="781.0" layoutY="17.0" prefHeight="35.0" prefWidth="72.0" text="Label" textFill="#003bff">
+            <Label id="NumeroPesetas" fx:id="lblCantidad" layoutX="711.0" layoutY="17.0" prefHeight="35.0" prefWidth="187.0" text="Label" textFill="#003bff">
                <font>
                   <Font size="23.0" />
                </font>
