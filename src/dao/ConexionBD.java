@@ -32,7 +32,7 @@ public class ConexionBD {
     }
 
     private static void mostrarVentanaError(SQLException ex) {
-    	 System.err.println("Error con la conexion de la base de datos.");
+    	 System.out.println("Error con la conexion de la base de datos.");
     	JOptionPane.showOptionDialog(
                 null,
             "No se ha podido conectar con la base de datos. " +
