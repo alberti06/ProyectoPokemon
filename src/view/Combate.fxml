@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CombateController">
    <children>
-      <ImageView id="suelo1" fx:id="imgSuelo1" fitHeight="134.0" fitWidth="170.0" layoutX="53.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="suelo1" fx:id="imgSuelo1" fitHeight="134.0" fitWidth="170.0" layoutX="159.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../ProyectoPokemon/img/imagenesExtra/suelo-combate.png" />
          </image>
@@ -16,12 +17,12 @@
             <Image url="@../../../ProyectoPokemon/img/imagenesExtra/suelo-combate.png" />
          </image>
       </ImageView>
-      <ImageView id="pokemonEntrenador" fx:id="imgPokemonEntrenador" fitHeight="140.0" fitWidth="134.0" layoutX="53.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="pokemonEntrenador" fx:id="imgPokemonEntrenador" fitHeight="140.0" fitWidth="134.0" layoutX="149.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/052.png" />
          </image>
       </ImageView>
-      <ImageView id="pokemonsalvaje" fx:id="imgPokemonSalvaje" fitHeight="108.0" fitWidth="115.0" layoutX="639.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="pokemonsalvaje" fx:id="imgPokemonSalvaje" fitHeight="108.0" fitWidth="115.0" layoutX="639.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/041.png" />
          </image>
@@ -31,5 +32,9 @@
             <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
          </image>
       </ImageView>
+      <Button id="Ataque1" fx:id="botonAtaque1" layoutX="85.0" layoutY="461.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="281.0" text=" Gruñido (35/35)" />
+      <Button id="Ataque2" fx:id="BotonAtaque2" layoutX="367.0" layoutY="461.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="281.0" text="Placaje (30/30)" />
+      <Button id="Ataque3" fx:id="botonAtaque3" layoutX="87.0" layoutY="521.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="275.0" text="Mordisco (25/25)" />
+      <Button fx:id="BotonAtaque4" layoutX="365.0" layoutY="522.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="282.0" text="Button" />
    </children>
 </AnchorPane>
