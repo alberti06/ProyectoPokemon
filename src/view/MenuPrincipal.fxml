@@ -53,9 +53,9 @@
                   <Image url="@../../img/imagenesExtra/Combate.png" />
                </image>
             </ImageView>
-            <ImageView id="Equipo" fx:id="imgEquipo" fitHeight="99.0" fitWidth="126.0" layoutX="100.0" layoutY="141.0" onMouseClicked="#abrirPokedex" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Equipo" fx:id="imgEquipo" fitHeight="91.0" fitWidth="171.0" layoutX="100.0" layoutY="141.0" onMouseClicked="#abrirPokedex" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/imagenesExtra/PokédexIcono.png" />
+                  <Image url="@../../img/imagenesExtra/entrenamientoBoton.png" />
                </image>
             </ImageView>
             <ImageView id="Bolsa" fx:id="imgBolsa" fitHeight="133.0" fitWidth="120.0" layoutX="103.0" layoutY="422.0" onMouseClicked="#abrirBolsa" pickOnBounds="true" preserveRatio="true">
