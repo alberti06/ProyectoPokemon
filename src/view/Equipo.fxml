@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
 <!--
   Copyright (c) 2015, 2019, Gluon and/or its affiliates.
   All rights reserved. Use is subject to license terms.
@@ -32,28 +43,103 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-<VBox prefHeight="641.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EquipoController">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-        <Label alignment="CENTER" layoutX="287.0" layoutY="282.0" style="&#10;" text="Pantalla Equipo" textAlignment="CENTER" wrapText="false">
-          <font>
-            <Font name="System Bold Italic" size="52.0" />
-          </font>
-        </Label>
-            <ImageView fx:id="btnSalir" fitHeight="43.0" fitWidth="35.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
+<AnchorPane fx:id="imgFondo" prefHeight="671" prefWidth="929" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
+   <ImageView fitHeight="696.0" fitWidth="979.0" layoutX="-9.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../img/imagenesExtra/FondoEquipo.jpeg" />
+      </image>
+   </ImageView>
+<ImageView fx:id="btnSalir" fitHeight="43.0" fitWidth="35.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
                </image>
             </ImageView>
-      </children>
-    </AnchorPane>
-  </children>
-</VBox>
+    <GridPane hgap="20" layoutY="66.0" prefHeight="338.0" prefWidth="952.0" vgap="20">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="50.0" />
+            <ColumnConstraints percentWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints percentHeight="33.0" />
+            <RowConstraints percentHeight="33.0" />
+            <RowConstraints percentHeight="33.0" />
+         <RowConstraints percentHeight="33.0" />
+         <RowConstraints percentHeight="33.0" />
+        </rowConstraints>
+
+        <!-- Recuadro 1 -->
+        <HBox prefHeight="77.0" prefWidth="380.0" spacing="10" style="-fx-border-color: black;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <ImageView fx:id="img1" fitHeight="98.0" fitWidth="116.0">
+                <image>
+                    <Image url="@/img/Pokemon/Front/pelipper.png" />
+                </image>
+            </ImageView>
+            <VBox spacing="5">
+                <Label fx:id="lblNombre1" text="Nv. 98 Pelipper ♀" />
+                <Label fx:id="lblPS1" text="PS: 247/247" />
+                <ProgressBar fx:id="bar1" prefWidth="200" progress="1.0" />
+            </VBox>
+        </HBox>
+
+        <!-- Recuadro 3 -->
+        <HBox prefHeight="100" prefWidth="420" spacing="10" style="-fx-border-color: black;" GridPane.rowIndex="2">
+            <ImageView fx:id="img3" fitHeight="82.0" fitWidth="117.0">
+                <image>
+                    <Image url="@/img/Pokemon/Front/algodon.png" />
+                </image>
+            </ImageView>
+            <VBox spacing="5">
+                <Label fx:id="lblNombre3" text="Nv. 50 100% Algodón ♀" />
+                <Label fx:id="lblPS3" text="PS: 135/135" />
+                <ProgressBar fx:id="bar3" prefWidth="200" progress="1.0" />
+            </VBox>
+        </HBox>
+   
+        <!-- Recuadro 2 -->
+        <HBox prefHeight="100.0" prefWidth="400.0" spacing="10" style="-fx-border-color: black;" GridPane.columnIndex="1">
+            <ImageView fx:id="img2" fitHeight="90.0" fitWidth="136.0">
+                <image>
+                    <Image url="@/img/Pokemon/Front/chingling.png" />
+                </image>
+            </ImageView>
+            <VBox spacing="5">
+                <Label fx:id="lblNombre2" text="Nv. 5 Charmander" />
+                <Label fx:id="lblPS2" text="PS: 25/25" />
+                <ProgressBar fx:id="bar2" prefWidth="200" progress="1.0" />
+            </VBox>
+        </HBox>
+         <VBox prefHeight="54.0" prefWidth="304.0" spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+             <Label fx:id="lblNombre4" text="Nv. 86 Jirachi" />
+             <Label fx:id="lblPS4" text="PS: 348/348" />
+             <ProgressBar fx:id="bar4" prefWidth="200" progress="1.0" />
+         </VBox>
+    </GridPane>
+
+     <!-- Recuadro 5 -->
+     <HBox layoutX="14.0" layoutY="412.0" prefHeight="94.0" prefWidth="400.0" spacing="10" style="-fx-border-color: black;">
+         <ImageView fx:id="img5" fitHeight="95.0" fitWidth="130.0">
+             <image>
+                 <Image url="@/img/Pokemon/Front/flygon.png" />
+             </image>
+         </ImageView>
+         <VBox spacing="5">
+             <Label fx:id="lblNombre5" text="Nv. 88 Flygon" />
+             <Label fx:id="lblPS5" text="PS: 253/253" />
+             <ProgressBar fx:id="bar5" prefWidth="200" progress="1.0" />
+         </VBox>
+     </HBox>
+
+        <!-- Recuadro 6 -->
+     <HBox layoutX="511.0" layoutY="408.0" prefHeight="95.0" prefWidth="400.0" spacing="10" style="-fx-border-color: black;">
+         <ImageView fx:id="img6" fitHeight="96.0" fitWidth="157.0">
+             <image>
+                 <Image url="@/img/Pokemon/Front/spinda.png" />
+             </image>
+         </ImageView>
+         <VBox spacing="5">
+             <Label fx:id="lblNombre6" text="Nv. 26 Spinda" />
+             <Label fx:id="lblPS6" text="PS: 75/75" />
+             <ProgressBar fx:id="bar6" prefWidth="200" progress="1.0" />
+         </VBox>
+     </HBox>
+</AnchorPane>
