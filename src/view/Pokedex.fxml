@@ -38,7 +38,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="671.0" fitWidth="929.0" pickOnBounds="true" preserveRatio="true">
@@ -54,6 +53,16 @@
       <ImageView fitHeight="48.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="249.0" fitWidth="327.0" layoutX="340.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/imagenesExtra/Entrenamiento.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="249.0" fitWidth="327.0" layoutX="341.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img" />
          </image>
       </ImageView>
    </children>
