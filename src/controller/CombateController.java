@@ -20,6 +20,8 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 
+import dao.ConexionBD;
+
 public class CombateController {
 
 	private MenuController menuController;
@@ -77,7 +79,7 @@ public class CombateController {
 
 	private void cargarAtaquesDesdeBD() {
 		ataquesJugador.clear();
-		try (Connection con = ConexionBD.getConexion()) {
+		try (Connection con = ConexionBD.conectar()) {
 			PreparedStatement ps = con.prepareStatement("""
 					    SELECT m.ID_MOVIMIENTO, m.NOM_MOVIMIENTO, m.NIVEL_APRENDIZAJE, m.PP_MAX,
 					           mp.PP_ACTUALES, m.TIPO, m.POTENCIA, m.TIPO_MOV, m.ESTADO, m.TURNOS, m.MEJORA, m.NUM
@@ -100,24 +102,8 @@ public class CombateController {
 			e.printStackTrace();
 		}
 	}
-
-	private void actualizarBotones() {
-		if (ataquesJugador.size() >= 1)
-			botonAtaque1.setText(formatoBoton(ataquesJugador.get(0)));
-		if (ataquesJugador.size() >= 2)
-			botonAtaque2.setText(formatoBoton(ataquesJugador.get(1)));
-		if (ataquesJugador.size() >= 3)
-			botonAtaque3.setText(formatoBoton(ataquesJugador.get(2)));
-		if (ataquesJugador.size() >= 4)
-			botonAtaque4.setText(formatoBoton(ataquesJugador.get(3)));
-	}
-
-	private String formatoBoton(Ataque atk) {
-		return atk.getNombre() + " (" + atk.getPpActual() + "/" + atk.getPpMax() + ")";
-	}
-
 	private void generarPokemonSalvaje() {
-		try (Connection con = ConexionBD.getConexion()) {
+		try (Connection con = ConexionBD.conectar())) {
 			Random rand = new Random();
 			int nivelEntrenador = entrenador.getPrimerPokemon().getNivel();
 			int nivelSalvaje = nivelEntrenador + rand.nextInt(11) - 5;
