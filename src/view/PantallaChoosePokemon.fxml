@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.PantallaChoosePokemonController" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PantallaChoosePokemonController">
    <children>
       <AnchorPane prefHeight="671.0" prefWidth="929.0">
          <children>
@@ -19,17 +19,17 @@
             </ImageView>
             <ImageView id="Bulbasur" fx:id="imgBulbasur" fitHeight="283.0" fitWidth="217.0" layoutX="196.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/001.png" />
+                  <Image url="@../img/Pokemon/Front/001.png" />
                </image>
             </ImageView>
             <ImageView id="Charmander" fx:id="imgCharmander" fitHeight="217.0" fitWidth="217.0" layoutX="333.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/004.png" />
+                  <Image url="@../img/Pokemon/Front/004.png" />
                </image>
             </ImageView>
             <ImageView id="Squirtle" fx:id="imgSquirtle" fitHeight="217.0" fitWidth="217.0" layoutX="469.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/007.png" />
+                  <Image url="@../img/Pokemon/Front/007.png" />
                </image>
             </ImageView>
             <Button fx:id="btnElegirpoke3" layoutX="589.0" layoutY="288.0" mnemonicParsing="false" opacity="0.0" prefHeight="66.0" prefWidth="84.0" text="Button" />
