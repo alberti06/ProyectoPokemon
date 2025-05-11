@@ -95,5 +95,27 @@ public class EntrenadorDAO {
 		        return false;
 		    }
 		}
+		
+		public static Entrenador obtenerEntrenadorPorId(int idEntrenador) {
+		    String query = "SELECT * FROM entrenador WHERE ID_ENTRENADOR = ?";
+		    
+		    try (Connection con = ConexionBD.conectar();
+		         PreparedStatement ps = con.prepareStatement(query)) {
+
+		        ps.setInt(1, idEntrenador);
+		        ResultSet rs = ps.executeQuery();
+
+		        if (rs.next()) {
+		            String usuario = rs.getString("usuario");
+		            String pass = rs.getString("pass");
+		            int pokedolares = rs.getInt("pokedolares");
+		            return new Entrenador(usuario, pass, pokedolares, idEntrenador);
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+
+		    return null;
+		}
 
 }

@@ -4,6 +4,7 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 
+import dao.EntrenadorDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,6 +24,7 @@ public class MenuController {
 	private Entrenador entrenador;
     private Stage stage;
     private LoginController loginController;
+    
 
 
     @FXML
@@ -90,7 +92,8 @@ public class MenuController {
     
     public void actualizarDinero() {
         lblCantidad.setText(String.valueOf(entrenador.getPokedolares()));
-        lblPesetas.setText(entrenador.getPokedolares() + " $");
+        lblPesetas.setVisible(false);
+        //lblPesetas.setText(entrenador.getPokedolares() + " $");
     }
     
     @FXML
@@ -197,6 +200,7 @@ public class MenuController {
         }
     }
 
+   
     @FXML
     void abrirCombate(MouseEvent event) {
     	try {
@@ -315,6 +319,18 @@ public class MenuController {
     	        e.printStackTrace();
     	    }
     	}
+    
+    public void initEntrenadorDesdeId(int idEntrenador) {
+        try {
+            Entrenador ent = EntrenadorDAO.obtenerEntrenadorPorId(idEntrenador);
+            this.entrenador = ent;
+            lblNombre.setText(ent.getUsuario());
+            lblCantidad.setText(String.valueOf(ent.getPokedolares()));
+            lblPesetas.setText(ent.getPokedolares() + " $");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     
     

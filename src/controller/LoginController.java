@@ -193,7 +193,8 @@ public class LoginController {
 	        Entrenador nuevo = new Entrenador(usuario, pass, 1000);
 	        if (EntrenadorDAO.anyadirEntrenador(conn, nuevo)) {
 	            System.out.println("Registro exitoso");
-	            abrirPantallaMenu(nuevo);
+	            abrirPantallaElegirPokemon(nuevo.getIdentrenador());
+
 	        } else {
 	            System.out.println("Error al registrar en la base de datos");
 	        }
@@ -225,6 +226,28 @@ public class LoginController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void abrirPantallaElegirPokemon(int idEntrenador) {
+	    try {
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PantallaChoosePokemon.fxml"));
+	        Parent root = loader.load();
+
+	        PantallaChoosePokemonController controller = loader.getController();
+	        controller.setIdEntrenador(idEntrenador); // 👈 le pasamos el ID
+	        controller.setLoginController(this);      // ✅ le pasamos el loginController
+
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root));
+	        stage.setTitle("Elige tu Pokémon inicial");
+	        stage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+	        stage.show();
+
+	        this.stage.close(); // cerrar login
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 	}
 
 	public void show() {
@@ -272,4 +295,4 @@ public class LoginController {
 		        System.out.println("Se ha cerrado el juego");
 		    }
     }
-} 
+}
