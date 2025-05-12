@@ -16,6 +16,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Ataque;
 import model.Entrenador;
+import model.Pokemon;
+
 import java.io.*;
 import java.sql.*;
 import java.util.*;
@@ -64,7 +66,7 @@ public class CombateController {
 	private Label lblTurnos;
 
 	private final String RUTA_LOG = "./combate_log.txt";
-
+	
 	public void init(Entrenador entrenador, Stage stage) {
 		this.entrenador = entrenador;
 		this.stage = stage;
@@ -103,7 +105,7 @@ public class CombateController {
 		}
 	}
 	private void generarPokemonSalvaje() {
-		try (Connection con = ConexionBD.conectar())) {
+		try (Connection con = ConexionBD.conectar()) {
 			Random rand = new Random();
 			int nivelEntrenador = entrenador.getPrimerPokemon().getNivel();
 			int nivelSalvaje = nivelEntrenador + rand.nextInt(11) - 5;
@@ -220,7 +222,7 @@ public class CombateController {
 		stage.close(); // o redirige al menú si quieres
 	}
 
-	}
+	
 
 	public void init(Entrenador entrenador, Stage stage, MenuController menuController,
 			LoginController loginController) {
@@ -243,7 +245,49 @@ public class CombateController {
 	}
 
 	private String formatoBoton(Ataque atk) {
-		return atk.getNombre() + " (" + atk.getPp() + "/" + atk.getPpMax() + ")";
+		return atk.getNombre() + " (" + atk.getPpActual() + "/" + atk.getPpMax() + ")";
 	}
+
+    // Cambia la imagen del Pokémon del jugador
+    private void actualizarImagenPokemonEntrenador(int idPokemon) {
+        String ruta = "/img/Pokemon/Back/" + String.format("%03d", idPokemon) + "_back.png";
+        Image imagen = new Image(getClass().getResourceAsStream(ruta));
+        imgPokemonEntrenador.setImage(imagen);
+    }
+
+    // Cambia la imagen del Pokémon salvaje
+    private void actualizarImagenPokemonSalvaje(int idPokemon) {
+        String ruta = "/img/Pokemon/Front/" + String.format("%03d", idPokemon) + "_front.png";
+        Image imagen = new Image(getClass().getResourceAsStream(ruta));
+        imgPokemonSalvaje.setImage(imagen);
+    }
+
+    // Cambia el Pokémon del jugador en combate
+    public void cambiarPokemon(Pokemon nuevoPokemon) {
+        entrenador.setPrimerPokemon(nuevoPokemon);
+        cargarAtaquesDesdeBD();
+        actualizarBotones();
+        actualizarImagenPokemonEntrenador(nuevoPokemon.getNumPokedex());
+        log("¡" + nuevoPokemon.getNombre() + " entra en combate!");
+    }
+
+    // Abre una ventana para seleccionar otro Pokémon
+    public void abrirSelectorDePokemon() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Equipo.fxml"));
+            Parent root = loader.load();
+            EquipoController equipoController = loader.getController();
+            equipoController.init(entrenador, this);
+
+            Stage selectorStage = new Stage();
+            selectorStage.setScene(new Scene(root));
+            selectorStage.setTitle("Cambiar Pokémon");
+            selectorStage.setResizable(false);
+            selectorStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

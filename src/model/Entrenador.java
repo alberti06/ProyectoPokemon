@@ -1,11 +1,23 @@
 package model;
 
+import java.util.List;
+
 public class Entrenador {
 	
 	private int identrenador;
 	private String usuario;
 	private String pass;
 	private int pokedolares;
+	private List<Pokemon> pokemons; // Lista con todos sus Pokémon
+
+	public List<Pokemon> getPokemons() {
+	    return pokemons;
+	}
+
+	public void setPokemons(List<Pokemon> pokemons) {
+	    this.pokemons = pokemons;
+	}
+
 	
 	public Entrenador(String usuario, String pass, int pokedolares, int identrenador) {
 	    this.usuario = usuario;
@@ -67,6 +79,18 @@ public class Entrenador {
 
 	public void setPokedolares(int pokedolares) {
 		this.pokedolares = pokedolares;
+	}
+	public Pokemon getPrimerPokemon() {
+	    for (Pokemon p : this.pokemons) { // Asume que tienes una lista llamada 'pokemons'
+	        if (p.getEquipo() == 1) {
+	            return p;
+	        }
+	    }
+	    // Si no encuentra ninguno con equipo 1, devuelve el primero de la lista (opcional)
+	    if (!pokemons.isEmpty()) {
+	        return pokemons.get(0);
+	    }
+	    return null; // o lanza excepción si prefieres
 	}
 
 	@Override
