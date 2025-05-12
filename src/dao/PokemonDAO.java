@@ -27,7 +27,7 @@ public class PokemonDAO {
         int numPokedex = rsPokedex.getInt("NUM_POKEDEX");
         String tipo1 = rsPokedex.getString("TIPO1");
         String tipo2 = rsPokedex.getString("TIPO2");
-        String imgFrontal = rsPokedex.getString("IMG_FRONTAL"); // solo el nombre
+        String imgFrontal = rsPokedex.getString("IMG_FRONTAL");
         String imgTrasera = rsPokedex.getString("IMG_TRASERA");
         String sonido = rsPokedex.getString("SONIDO");
         Integer nivelEvolucion = rsPokedex.getObject("NIVEL_EVOLUCION", Integer.class);
@@ -43,6 +43,7 @@ public class PokemonDAO {
         int nivel = 1;
         int fertilidad = 1 + rd.nextInt(5);
         char sexo = rd.nextBoolean() ? 'M' : 'F';
+        System.out.println("Sexo generado: " + sexo); // ✅ Para depuración
         String estado = "NORMAL";
         int equipo = 1;
 
@@ -62,7 +63,7 @@ public class PokemonDAO {
         stmt.setInt(10, velocidad);
         stmt.setInt(11, nivel);
         stmt.setInt(12, fertilidad);
-        stmt.setString(13, String.valueOf(sexo));
+        stmt.setString(13, sexo + ""); // ⚠ String 'M' o 'F'
         stmt.setString(14, estado);
         stmt.setInt(15, equipo);
 
@@ -91,12 +92,12 @@ public class PokemonDAO {
     public static List<Pokemon> obtenerEquipo(int idEntrenador) {
         List<Pokemon> equipo = new ArrayList<>();
         try (Connection con = ConexionBD.conectar()) {
-        	String sql = """
-        		    SELECT p.*, d.TIPO1, d.TIPO2, d.IMG_FRONTAL, d.IMG_TRASERA, d.SONIDO, d.NIVEL_EVOLUCION
-        		    FROM pokemon p
-        		    JOIN pokedex d ON p.FK_NUM_POKEDEX = d.NUM_POKEDEX
-        		    WHERE p.FKID_ENTRENADOR = ? AND p.EQUIPO > 0 AND p.EQUIPO <= 6
-        		""";
+            String sql = """
+                SELECT p.*, d.TIPO1, d.TIPO2, d.IMG_FRONTAL, d.IMG_TRASERA, d.SONIDO, d.NIVEL_EVOLUCION
+                FROM pokemon p
+                JOIN pokedex d ON p.FK_NUM_POKEDEX = d.NUM_POKEDEX
+                WHERE p.FKID_ENTRENADOR = ? AND p.EQUIPO > 0 AND p.EQUIPO <= 6
+            """;
 
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setInt(1, idEntrenador);
