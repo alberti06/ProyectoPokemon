@@ -88,6 +88,39 @@ public class PokemonDAO {
             return 1;
         }
     }
+    public static void insertarPokemon(int idEntrenador, Pokemon p) {
+        try (Connection conexion = ConexionBD.conectar()) {
+            int nuevoId = generarIdUnico(conexion);
+
+            String insertSQL = """
+                INSERT INTO POKEMON (ID_POKEMON, FKID_ENTRENADOR, FK_NUM_POKEDEX, NOMBRE, VITALIDAD, ATAQUE,
+                                     DEFENSA, AT_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, NIVEL, FERTILIDAD, SEXO,
+                                     ESTADO, EQUIPO)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """;
+
+            PreparedStatement stmt = conexion.prepareStatement(insertSQL);
+            stmt.setInt(1, nuevoId);
+            stmt.setInt(2, idEntrenador);
+            stmt.setInt(3, p.getNumPokedex());
+            stmt.setString(4, p.getNombre());
+            stmt.setInt(5, p.getVitalidad());
+            stmt.setInt(6, p.getAtaque());
+            stmt.setInt(7, 5); // DEFENSA base
+            stmt.setInt(8, 5); // AT_ESPECIAL base
+            stmt.setInt(9, 5); // DEF_ESPECIAL base
+            stmt.setInt(10, 5); // VELOCIDAD base
+            stmt.setInt(11, p.getNivel());
+            stmt.setInt(12, 3); // FERTILIDAD aleatoria/base
+            stmt.setString(13, "M"); // SEXO base, puedes usar rand si quieres
+            stmt.setString(14, "NORMAL"); // Estado inicial
+            stmt.setInt(15, 0); // EQUIPO: 0 = caja
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static List<Pokemon> obtenerEquipo(int idEntrenador) {
         List<Pokemon> equipo = new ArrayList<>();

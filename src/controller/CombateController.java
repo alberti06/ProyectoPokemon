@@ -263,13 +263,16 @@ public class CombateController {
     }
 
     // Cambia el Pokémon del jugador en combate
-    public void cambiarPokemon(Pokemon nuevoPokemon) {
-        entrenador.setPrimerPokemon(nuevoPokemon);
-        cargarAtaquesDesdeBD();
-        actualizarBotones();
-        actualizarImagenPokemonEntrenador(nuevoPokemon.getNumPokedex());
-        log("¡" + nuevoPokemon.getNombre() + " entra en combate!");
+    public void intercambiarPrimerPokemon(int indiceOtro) {
+        List<Pokemon> equipo = entrenador.getPokemons(); //  obtener la lista desde el objeto Entrenador
+        if (indiceOtro < 0 || indiceOtro >= equipo.size()) return;
+
+        Pokemon temp = equipo.get(0);
+        equipo.set(0, equipo.get(indiceOtro));
+        equipo.set(indiceOtro, temp);
     }
+
+
 
     // Abre una ventana para seleccionar otro Pokémon
     public void abrirSelectorDePokemon() {
@@ -277,17 +280,21 @@ public class CombateController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Equipo.fxml"));
             Parent root = loader.load();
             EquipoController equipoController = loader.getController();
-            equipoController.init(entrenador, this);
 
-            Stage selectorStage = new Stage();
+            Stage selectorStage = new Stage(); // Primero creamos el Stage
             selectorStage.setScene(new Scene(root));
             selectorStage.setTitle("Cambiar Pokémon");
             selectorStage.setResizable(false);
+
+            // ✅ Luego pasamos el stage y el resto de los parámetros
+            equipoController.init(entrenador, selectorStage, menuController, loginController);
+
             selectorStage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 }
