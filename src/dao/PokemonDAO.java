@@ -13,8 +13,6 @@ import java.util.Random;
 public class PokemonDAO {
 
     public static Pokemon generarPokemonPrincipalEspecifico(int idEntrenador, String nombrePokemon, Connection conexion) throws SQLException {
-        Pokemon nuevoPokemon = null;
-
         String queryPokedex = "SELECT NUM_POKEDEX, TIPO1, TIPO2, IMG_FRONTAL, IMG_TRASERA, SONIDO, NIVEL_EVOLUCION FROM POKEDEX WHERE NOM_POKEMON = ?";
         PreparedStatement stPokedex = conexion.prepareStatement(queryPokedex);
         stPokedex.setString(1, nombrePokemon);
@@ -42,8 +40,7 @@ public class PokemonDAO {
         int velocidad = 5 + rd.nextInt(11);
         int nivel = 1;
         int fertilidad = 1 + rd.nextInt(5);
-        char sexo = rd.nextBoolean() ? 'M' : 'F';
-        System.out.println("Sexo generado: " + sexo); // ✅ Para depuración
+        String sexo = rd.nextBoolean() ? "M" : "F"; // Corrigido: usar String
         String estado = "NORMAL";
         int equipo = 1;
 
@@ -63,31 +60,26 @@ public class PokemonDAO {
         stmt.setInt(10, velocidad);
         stmt.setInt(11, nivel);
         stmt.setInt(12, fertilidad);
-        stmt.setString(13, sexo + ""); // ⚠ String 'M' o 'F'
+        stmt.setString(13, sexo); // Corrección aquí
         stmt.setString(14, estado);
         stmt.setInt(15, equipo);
 
         stmt.executeUpdate();
 
-        nuevoPokemon = new Pokemon(
+        return new Pokemon(
             idPokemon, idEntrenador, numPokedex, nombrePokemon, tipo1, tipo2,
             vitalidad, ataque, defensa, atEspecial, defEspecial, velocidad, nivel,
-            fertilidad, sexo, estado, equipo, imgFrontal, imgTrasera, sonido, nivelEvolucion
+            fertilidad, sexo.charAt(0), estado, equipo, imgFrontal, imgTrasera, sonido, nivelEvolucion
         );
-
-        return nuevoPokemon;
     }
 
     private static int generarIdUnico(Connection conexion) throws SQLException {
         String query = "SELECT MAX(ID_POKEMON) AS MAX_ID FROM POKEMON";
         PreparedStatement statement = conexion.prepareStatement(query);
         ResultSet resultado = statement.executeQuery();
-        if (resultado.next()) {
-            return resultado.getInt("MAX_ID") + 1;
-        } else {
-            return 1;
-        }
+        return resultado.next() ? resultado.getInt("MAX_ID") + 1 : 1;
     }
+
     public static void insertarPokemon(int idEntrenador, Pokemon p) {
         try (Connection conexion = ConexionBD.conectar()) {
             int nuevoId = generarIdUnico(conexion);
@@ -96,8 +88,7 @@ public class PokemonDAO {
                 INSERT INTO POKEMON (ID_POKEMON, FKID_ENTRENADOR, FK_NUM_POKEDEX, NOMBRE, VITALIDAD, ATAQUE,
                                      DEFENSA, AT_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, NIVEL, FERTILIDAD, SEXO,
                                      ESTADO, EQUIPO)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """;
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""";
 
             PreparedStatement stmt = conexion.prepareStatement(insertSQL);
             stmt.setInt(1, nuevoId);
@@ -106,22 +97,22 @@ public class PokemonDAO {
             stmt.setString(4, p.getNombre());
             stmt.setInt(5, p.getVitalidad());
             stmt.setInt(6, p.getAtaque());
-            stmt.setInt(7, 5); // DEFENSA base
-            stmt.setInt(8, 5); // AT_ESPECIAL base
-            stmt.setInt(9, 5); // DEF_ESPECIAL base
-            stmt.setInt(10, 5); // VELOCIDAD base
+            stmt.setInt(7, p.getDefensa());
+            stmt.setInt(8, p.getAtEspecial());
+            stmt.setInt(9, p.getDefEspecial());
+            stmt.setInt(10, p.getVelocidad());
             stmt.setInt(11, p.getNivel());
-            stmt.setInt(12, 3); // FERTILIDAD aleatoria/base
-            stmt.setString(13, "M"); // SEXO base, puedes usar rand si quieres
-            stmt.setString(14, "NORMAL"); // Estado inicial
-            stmt.setInt(15, 0); // EQUIPO: 0 = caja
+            stmt.setInt(12, p.getFertilidad());
+            stmt.setString(13, String.valueOf(p.getSexo()));
+            stmt.setString(14, p.getEstado());
+            stmt.setInt(15, p.getEquipo());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
+
     public static List<Pokemon> obtenerEquipo(int idEntrenador) {
         List<Pokemon> equipo = new ArrayList<>();
         try (Connection con = ConexionBD.conectar()) {

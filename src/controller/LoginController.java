@@ -234,8 +234,7 @@ public class LoginController {
 	        Parent root = loader.load();
 
 	        PantallaChoosePokemonController controller = loader.getController();
-	        controller.setIdEntrenador(idEntrenador); // 👈 le pasamos el ID
-	        controller.setLoginController(this);      // ✅ le pasamos el loginController
+	        controller.init(idEntrenador, this); // ✅ Método único
 
 	        Stage stage = new Stage();
 	        stage.setScene(new Scene(root));

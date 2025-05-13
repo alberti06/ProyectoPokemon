@@ -94,7 +94,79 @@ public class Pokemon {
 	    public int getNumPokedex() { return numPokedex; }
 	    public String getNombre() { return nombre; }
 	    public String getTipo1() { return tipo1; }
-	    public String getTipo2() { return tipo2; }
+	    public void setId(int id) {
+			this.id = id;
+		}
+
+		public void setIdEntrenador(int idEntrenador) {
+			this.idEntrenador = idEntrenador;
+		}
+
+		public void setNumPokedex(int numPokedex) {
+			this.numPokedex = numPokedex;
+		}
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+
+		public void setTipo1(String tipo1) {
+			this.tipo1 = tipo1;
+		}
+
+		public void setTipo2(String tipo2) {
+			this.tipo2 = tipo2;
+		}
+
+		public void setAtaque(int ataque) {
+			this.ataque = ataque;
+		}
+
+		public void setDefensa(int defensa) {
+			this.defensa = defensa;
+		}
+
+		public void setAtEspecial(int atEspecial) {
+			this.atEspecial = atEspecial;
+		}
+
+		public void setDefEspecial(int defEspecial) {
+			this.defEspecial = defEspecial;
+		}
+
+		public void setVelocidad(int velocidad) {
+			this.velocidad = velocidad;
+		}
+
+		public void setFertilidad(int fertilidad) {
+			this.fertilidad = fertilidad;
+		}
+
+		public void setSexo(char sexo) {
+			this.sexo = sexo;
+		}
+
+		public void setEquipo(int equipo) {
+			this.equipo = equipo;
+		}
+
+		public void setImgFrontal(String imgFrontal) {
+			this.imgFrontal = imgFrontal;
+		}
+
+		public void setImgTrasera(String imgTrasera) {
+			this.imgTrasera = imgTrasera;
+		}
+
+		public void setSonido(String sonido) {
+			this.sonido = sonido;
+		}
+
+		public void setNivelEvolucion(Integer nivelEvolucion) {
+			this.nivelEvolucion = nivelEvolucion;
+		}
+
+		public String getTipo2() { return tipo2; }
 	    public int getVitalidad() { return vitalidad; }
 	    public int getAtaque() { return ataque; }
 	    public int getDefensa() { return defensa; }

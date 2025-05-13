@@ -1,117 +1,164 @@
 package controller;
 
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import model.Pokemon;
-
-import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import dao.ConexionBD;
 import dao.EntrenadorDAO;
 import dao.PokemonDAO;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import model.Entrenador;
+import model.Pokemon;
 
-public class PantallaChoosePokemonController implements Initializable{
-	
-	private LoginController loginController;
-	private int idEntrenador;
+import java.io.File;
+import java.sql.Connection;
 
-    @FXML
-    private Button btnElegirpoke1;
+import javax.swing.JOptionPane;
 
-    @FXML
-    private Button btnElegirpoke2;
+import model.Pokemon;
 
-    @FXML
-    private Button btnElegirpoke3;
+public class PantallaChoosePokemonController {
 
-    @FXML
-    private ImageView imgBulbasur;
+    private int idEntrenador;
+    private LoginController loginController;
 
-    @FXML
-    private ImageView imgCharmander;
+    @FXML private Button btnElegirBulbasur;
+    @FXML private Button btnElegirCharmander;
+    @FXML private Button btnElegirSquirtle;
 
-    @FXML
-    private ImageView imgSquirtle;
+    @FXML private ImageView imgBulbasur;
+    @FXML private ImageView imgCharmander;
+    @FXML private ImageView imgSquirtle;
 
-    @FXML
-    private Label lblTexto;
-
-    @FXML
-    private Label lblTexto1;
-
-    @FXML
-    private Label lblTexto11;
-    
-
-    // Este método se llama desde el controlador anterior (registro)
-    public void setIdEntrenador(int id) {
-        this.idEntrenador = id;
-    }
-
-    public void setLoginController(LoginController loginController) {
+    public void init(int idEntrenador, LoginController loginController) {
+        this.idEntrenador = idEntrenador;
         this.loginController = loginController;
     }
-    
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // Ocultar imágenes al inicio
+
+    // ==========================
+    // Hover - Mostrar imágenes
+    // ==========================
+
+    @FXML
+    void mostrarBulbasur(MouseEvent event) {
+        imgBulbasur.setVisible(true);
+    }
+
+    @FXML
+    void quitarBulbasur(MouseEvent event) {
         imgBulbasur.setVisible(false);
+    }
+
+    @FXML
+    void mostrarCharmander(MouseEvent event) {
+        imgCharmander.setVisible(true);
+    }
+
+    @FXML
+    void quitarCharmander(MouseEvent event) {
         imgCharmander.setVisible(false);
+    }
+
+    @FXML
+    void mostrarSquirtle(MouseEvent event) {
+        imgSquirtle.setVisible(true);
+    }
+
+    @FXML
+    void quitarSquirtle(MouseEvent event) {
         imgSquirtle.setVisible(false);
+    }
 
-        // Hover: mostrar imagen
-        btnElegirpoke1.setOnMouseEntered(e -> imgBulbasur.setVisible(true));
-        btnElegirpoke1.setOnMouseExited(e -> imgBulbasur.setVisible(false));
+    // ==========================
+    // Clic - Elegir Pokémon
+    // ==========================
 
-        btnElegirpoke2.setOnMouseEntered(e -> imgCharmander.setVisible(true));
-        btnElegirpoke2.setOnMouseExited(e -> imgCharmander.setVisible(false));
+    @FXML
+    void elegirBulbasur(MouseEvent event) {
+        elegirPokemon("Bulbasaur");
+    }
 
-        btnElegirpoke3.setOnMouseEntered(e -> imgSquirtle.setVisible(true));
-        btnElegirpoke3.setOnMouseExited(e -> imgSquirtle.setVisible(false));
+    @FXML
+    void elegirCharmander(MouseEvent event) {
+        elegirPokemon("Charmander");
+    }
 
-        // Click: elegir Pokémon
-        btnElegirpoke1.setOnAction(e -> elegirPokemon("Bulbasaur"));
-        btnElegirpoke2.setOnAction(e -> elegirPokemon("Charmander"));
-        btnElegirpoke3.setOnAction(e -> elegirPokemon("Squirtle"));
+    @FXML
+    void elegirSquirtle(MouseEvent event) {
+        elegirPokemon("Squirtle");
     }
 
     private void elegirPokemon(String nombrePokemon) {
         try (Connection con = ConexionBD.conectar()) {
-            Pokemon elegido = PokemonDAO.generarPokemonPrincipalEspecifico(idEntrenador, nombrePokemon, con);
-            System.out.println("Pokémon elegido y guardado: " + elegido.getNombre());
+            Pokemon nuevo = PokemonDAO.generarPokemonPrincipalEspecifico(idEntrenador, nombrePokemon, con);
 
-            // Cierra la ventana actual
-            Stage currentStage = (Stage) btnElegirpoke1.getScene().getWindow();
-            currentStage.close();
+            // Traduce el sexo a texto legible
+            String generoTexto;
+            switch (nuevo.getSexo()) {
+                case 'M' -> generoTexto = "Macho";
+                case 'F' -> generoTexto = "Hembra";
+                default -> generoTexto = "Desconocido";
+            }
 
-            // Abre la pantalla del menú principal
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuPrincipal.fxml"));
-            Parent root = loader.load();
+            // Mostrar mensaje con JOptionPane
+            JOptionPane.showMessageDialog(null,
+                "¡Has elegido a " + nuevo.getNombre() + "!\nGénero: " + generoTexto,
+                "¡Pokémon elegido!",
+                JOptionPane.INFORMATION_MESSAGE
+            );
 
-            MenuController controller = loader.getController();
-            Stage stage = new Stage();
-            controller.init(EntrenadorDAO.obtenerEntrenadorPorId(idEntrenador), stage, loginController); // Usa el método correcto
-
-            stage.setScene(new Scene(root));
-            stage.setTitle("Menú Principal");
-            stage.show();
+            System.out.println("Pokémon elegido: " + nuevo.getNombre() + " | Género: " + generoTexto);
+            
+            abrirPantallaMenu();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    private void abrirPantallaMenu() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuPrincipal.fxml"));
+            Parent root = loader.load();
+
+            MenuController controller = loader.getController();
+            Stage stageMenu = new Stage();
+            stageMenu.setScene(new Scene(root));
+            stageMenu.setTitle("Menú Principal");
+            stageMenu.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+
+            Entrenador entrenador = EntrenadorDAO.obtenerEntrenadorPorId(idEntrenador);
+            controller.init(entrenador, stageMenu, loginController);
+
+            stageMenu.show();
+
+            Stage currentStage = (Stage) btnElegirBulbasur.getScene().getWindow();
+            currentStage.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void initialize() {
+        imgBulbasur.setVisible(false);
+        imgCharmander.setVisible(false);
+        imgSquirtle.setVisible(false);
+
+        try {
+        	imgBulbasur.setImage(new Image(new File("src/view/img/Pokemon/Front/001.png").toURI().toString()));
+            imgCharmander.setImage(new Image(new File("src/view/img/Pokemon/Front/004.png").toURI().toString()));
+            imgSquirtle.setImage(new Image(new File("src/view/img/Pokemon/Front/007.png").toURI().toString()));
+        } catch (Exception e) {
+            System.err.println("⚠️ No se pudo cargar una imagen de Pokémon.");
+            e.printStackTrace();
+        }
+    }
 }

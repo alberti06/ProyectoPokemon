@@ -12,44 +12,60 @@
    <children>
       <AnchorPane prefHeight="671.0" prefWidth="929.0">
          <children>
+
+            <!-- Fondo -->
             <ImageView fitHeight="762.0" fitWidth="1014.0" layoutX="-3.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/imagenesExtra/FondoChoosePoke.png" />
                </image>
             </ImageView>
-            <ImageView id="Bulbasur" fx:id="imgBulbasur" fitHeight="283.0" fitWidth="217.0" layoutX="196.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/Pokemon/Front/001.png" />
-               </image>
-            </ImageView>
-            <ImageView id="Charmander" fx:id="imgCharmander" fitHeight="217.0" fitWidth="217.0" layoutX="333.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/Pokemon/Front/004.png" />
-               </image>
-            </ImageView>
-            <ImageView id="Squirtle" fx:id="imgSquirtle" fitHeight="217.0" fitWidth="217.0" layoutX="469.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/Pokemon/Front/007.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="btnElegirpoke3" layoutX="589.0" layoutY="288.0" mnemonicParsing="false" opacity="0.0" prefHeight="66.0" prefWidth="84.0" text="Button" />
-            <Button fx:id="btnElegirpoke2" layoutX="454.0" layoutY="294.0" mnemonicParsing="false" opacity="0.0" prefHeight="66.0" prefWidth="84.0" text="Button" />
-            <Button fx:id="btnElegirpoke1" layoutX="333.0" layoutY="294.0" mnemonicParsing="false" opacity="0.0" prefHeight="66.0" prefWidth="84.0" text="Button" />
-            <Label id="Texto" fx:id="lblTexto" layoutX="283.0" layoutY="36.0" prefHeight="49.0" prefWidth="441.0" text="Buenas entrenador elige a tu primer pokemon">
+
+            <ImageView fx:id="imgBulbasur" fitHeight="209.0" fitWidth="188.0" layoutX="189.0" layoutY="251.0" preserveRatio="true" visible="false">
+   <image>
+       <Image url="@img/Pokemon/Front/001.png" />
+   </image>
+</ImageView>
+
+<ImageView fx:id="imgCharmander" fitHeight="188.0" fitWidth="196.0" layoutX="350.0" layoutY="251.0" preserveRatio="true" visible="false">
+   <image>
+       <Image url="@img/Pokemon/Front/004.png" />
+   </image>
+</ImageView>
+
+<ImageView fx:id="imgSquirtle" fitHeight="180.0" fitWidth="197.0" layoutX="484.0" layoutY="255.0" preserveRatio="true" visible="false">
+   <image>
+       <Image url="@img/Pokemon/Front/007.png" />
+   </image>
+</ImageView>
+
+            <!-- Botón invisible Squirtle -->
+            <Button fx:id="btnElegirSquirtle" layoutX="589.0" layoutY="288.0" mnemonicParsing="false" onMouseClicked="#elegirSquirtle" onMouseEntered="#mostrarSquirtle" onMouseExited="#quitarSquirtle" opacity="0.0" prefHeight="66.0" prefWidth="84.0" text="Button" />
+
+            <!-- Botón invisible Charmander -->
+            <Button fx:id="btnElegirCharmander" layoutX="454.0" layoutY="294.0" mnemonicParsing="false" onMouseClicked="#elegirCharmander" onMouseEntered="#mostrarCharmander" onMouseExited="#quitarCharmander" opacity="0.0" prefHeight="66.0" prefWidth="84.0" text="Button" />
+
+            <!-- Botón invisible Bulbasur -->
+            <Button fx:id="btnElegirBulbasur" layoutX="333.0" layoutY="294.0" mnemonicParsing="false" onMouseClicked="#elegirBulbasur" onMouseEntered="#mostrarBulbasur" onMouseExited="#quitarBulbasur" opacity="0.0" prefHeight="66.0" prefWidth="84.0" text="Button" />
+
+            <!-- Etiquetas -->
+            <Label fx:id="lblTexto" layoutX="283.0" layoutY="36.0" prefHeight="49.0" prefWidth="441.0" text="Buenas entrenador elige a tu primer pokemon">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Label>
-            <Label id="Texto" fx:id="lblTexto1" layoutX="320.0" layoutY="86.0" prefHeight="50.0" prefWidth="366.0" text="(Pasa por encima de la pokebola para ver el pokemon)">
+
+            <Label fx:id="lblTexto1" layoutX="320.0" layoutY="86.0" prefHeight="50.0" prefWidth="366.0" text="(Pasa por encima de la pokebola para ver el pokemon)">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <Label id="Texto" fx:id="lblTexto11" layoutX="304.0" layoutY="126.0" prefHeight="50.0" prefWidth="398.0" text="(Clica en una pokebola para elegir el pokemon que quieras)">
+
+            <Label fx:id="lblTexto11" layoutX="304.0" layoutY="126.0" prefHeight="50.0" prefWidth="398.0" text="(Clica en una pokebola para elegir el pokemon que quieras)">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
+
          </children>
       </AnchorPane>
    </children>

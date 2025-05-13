@@ -151,13 +151,13 @@ public class EquipoController {
     }
 
     private void cargarImagen(ImageView imageView, String nombreArchivo) {
-        String ruta = "/Pokemon/Front/" + nombreArchivo; // sin "img" al principio
-        InputStream is = getClass().getResourceAsStream(ruta);
-        System.out.println("🔍 Buscando imagen: " + ruta + " | Existe: " + (is != null));
-        if (is != null) {
-            imageView.setImage(new Image(is));
+        String ruta = "src/view/img/Pokemon/Front/" + nombreArchivo;
+        File archivo = new File(ruta);
+        System.out.println("🔍 Buscando imagen: " + archivo.getPath() + " | Existe: " + archivo.exists());
+        if (archivo.exists()) {
+            imageView.setImage(new Image(archivo.toURI().toString()));
         } else {
-            System.out.println("⚠ Imagen no encontrada en: " + ruta);
+            System.out.println("⚠ Imagen no encontrada en: " + archivo.getPath());
         }
     }
 
