@@ -121,7 +121,7 @@ public class PokemonDAO {
             e.printStackTrace();
         }
     }
-
+    
     public static List<Pokemon> obtenerEquipo(int idEntrenador) {
         List<Pokemon> equipo = new ArrayList<>();
         try (Connection con = ConexionBD.conectar()) {

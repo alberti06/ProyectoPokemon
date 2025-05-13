@@ -155,7 +155,7 @@ public class CapturaController {
 			e.printStackTrace();
 		}
 	}
-
+	
 	private double obtenerEscalado(int nivelJugador, int nivelSalvaje) {
 		int diff = nivelSalvaje - nivelJugador;
 		if (diff > 0)

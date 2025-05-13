@@ -254,7 +254,6 @@ public class CombateController {
         Image imagen = new Image(getClass().getResourceAsStream(ruta));
         imgPokemonEntrenador.setImage(imagen);
     }
-
     // Cambia la imagen del Pokémon salvaje
     private void actualizarImagenPokemonSalvaje(int idPokemon) {
         String ruta = "/img/Pokemon/Front/" + String.format("%03d", idPokemon) + "_front.png";
