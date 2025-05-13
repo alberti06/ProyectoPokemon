@@ -2,7 +2,9 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
+import dao.PokemonDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,16 +16,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Entrenador;
+import model.Pokemon;
 
 public class CentropokeController {
-	
-	private MenuController menuController;
-	private Stage stage;
-	private Entrenador entrenador;
-	private LoginController loginController;
 
-	@FXML
-	private ImageView btnSalir;
+    private MenuController menuController;
+    private Stage stage;
+    private Entrenador entrenador;
+    private LoginController loginController;
+
+    @FXML
+    private ImageView btnSalir;
 
     @FXML
     private Button btnRestaurar;
@@ -49,38 +52,41 @@ public class CentropokeController {
     @FXML
     private Label lblDialogo;
 
+    private List<Pokemon> equipo;
+
     @FXML
     void salirMenupoke(MouseEvent event) {
-    	try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
-			Parent root = loader.load();
-			menuController = loader.getController();
-			
-			Scene sc = new Scene(root);
-			Stage st = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
+            Parent root = loader.load();
+            menuController = loader.getController();
 
-			st.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-			st.setTitle("Proyecto Pokemon los 3 mosqueteros");
-			st.setScene(sc);
-			menuController.init(entrenador, st, loginController);
+            Scene sc = new Scene(root);
+            Stage st = new Stage();
 
-			
-			st.show();
-			this.stage.close();
+            st.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+            st.setTitle("Proyecto Pokémon los 3 mosqueteros");
+            st.setScene(sc);
+            menuController.init(entrenador, st, loginController);
 
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+            st.show();
+            this.stage.close();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    
-    public void init(Entrenador entrenador, Stage stage, MenuController menuController,LoginController loginController) {
 
+    public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
         this.menuController = menuController;
         this.stage = stage;
         this.entrenador = entrenador;
         this.loginController = loginController;
+
+       
     }
 
+   
+
+ 
 }
