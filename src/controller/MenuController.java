@@ -24,9 +24,8 @@ public class MenuController {
 	private Entrenador entrenador;
     private Stage stage;
     private LoginController loginController;
+    private EquipoController equipoController;
     
-
-
     @FXML
     private AnchorPane AnchorPane;
 
@@ -76,12 +75,13 @@ public class MenuController {
     private Label lblPesetas;
     
     public void init(Entrenador ent, Stage stage, LoginController loginController) {
-
         this.loginController = loginController;
         this.stage = stage;
         this.entrenador = ent;
 
- 
+        // ✅ AÑADIR ESTA LÍNEA PARA CARGAR EL EQUIPO
+        entrenador.setPokemons(dao.PokemonDAO.obtenerEquipo(entrenador.getIdentrenador()));
+
         lblNombre.setText(ent.getUsuario());
         lblCantidad.setText(Integer.toString(ent.getPokedolares()));
         
@@ -251,14 +251,14 @@ public class MenuController {
 
     @FXML
     void abrirEquipo(MouseEvent event) {
-    	try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Equipo.fxml"));
             Parent root = loader.load();
 
-            EquipoController equipoController = loader.getController();
-            
-            Stage confStage = new Stage(); // <-- crea primero la nueva ventana
-            equipoController.init(entrenador, confStage, this, loginController); // <-- pasar confStage aquí
+            equipoController = loader.getController(); // ← guardamos la referencia
+
+            Stage confStage = new Stage();
+            equipoController.init(entrenador, confStage, this, loginController);
 
             confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
             confStage.setTitle("Equipo");
@@ -270,7 +270,6 @@ public class MenuController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
@@ -329,6 +328,14 @@ public class MenuController {
             lblPesetas.setText(ent.getPokedolares() + " $");
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    
+    public void actualizarVistaEquipo() {
+        if (equipoController != null) {
+            equipoController.actualizarEquipo(); // ← método que debe estar en EquipoController
+        } else {
+            System.out.println("⚠ No hay equipo cargado aún.");
         }
     }
 

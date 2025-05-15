@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+
+<AnchorPane fx:id="root" prefHeight="505.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CajaController">
+
+    <children>
+        <Label layoutX="30.0" layoutY="20.0" style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Caja de Pokémon" />
+      <ImageView fitHeight="714.0" fitWidth="929.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/imagenesExtra/FondoCaja.png" />
+         </image>
+      </ImageView>
+        
+        <ScrollPane fx:id="scrollPane" layoutX="53.0" layoutY="109.0" prefHeight="468.0" prefWidth="822.0"
+            style="-fx-background-image: url('file:/C:/ProyectoPokemon/img/imagenesExtra/FondoCaja.png'); 
+           -fx-background-repeat: no-repeat; 
+           -fx-background-size: cover;">
+            <content>
+                <GridPane fx:id="gridCaja" hgap="20.0" vgap="20.0">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                    </padding>
+                </GridPane>
+            </content>
+        </ScrollPane>
+        
+        <Button fx:id="btnVolver" layoutX="768.0" layoutY="60.0" mnemonicParsing="false" onAction="#volverAlMenu" prefWidth="106.0" text="Volver" />
+    </children>
+</AnchorPane>

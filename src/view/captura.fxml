@@ -10,23 +10,23 @@
    <children>
       <ImageView fx:id="imgFondo" fitHeight="692.0" fitWidth="1018.0" layoutX="-10.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/imagenesExtra/forest_rescaled_929x627.jpeg" />
+            <Image url="@../../img/imagenesExtra/fondoCombateYcaptura.jpeg" />
          </image>
       </ImageView>
 
-      <ImageView fx:id="imgHuevoMasc" fitHeight="150.0" fitWidth="200.0" layoutX="149.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgHuevoMasc" fitHeight="150.0" fitWidth="200.0" layoutX="149.0" layoutY="481.0" onMouseClicked="#capturarPokemon" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/imagenesExtra/pngegg%20(6).png" />
          </image>
       </ImageView>
 
-      <Label fx:id="lblText1" layoutX="332.0" layoutY="533.0" text="Pokeballs:">
+      <Label fx:id="lblText1" layoutX="318.0" layoutY="533.0" text="Pokeballs:">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
 
-      <Label fx:id="lblText2" layoutX="508.0" layoutY="533.0" text="Label">
+      <Label fx:id="lblText2" layoutX="429.0" layoutY="165.0" text="Label">
          <font>
             <Font size="30.0" />
          </font>
@@ -36,6 +36,17 @@
             <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="btnCambiarPoke" fitHeight="150.0" fitWidth="200.0" layoutX="640.0" layoutY="481.0" onMouseClicked="#generarNuevoPokemonSalvaje" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/imagenesExtra/cambiarpoke.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgPokemon" fitHeight="150.0" fitWidth="200.0" layoutX="358.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lblNunpokebolas" layoutX="481.0" layoutY="533.0" text="Label">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
 
    </children>
 </AnchorPane>

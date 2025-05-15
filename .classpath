@@ -2,8 +2,7 @@
 <classpath>
 	<classpathentry excluding="img/Pokemon/Back/|img/Pokemon/Front/|img/Pokemon/|img/|img/|view/img/Pokemon/Back/|view/img/Pokemon/Front/" kind="src" path="src"/>
 	<classpathentry kind="src" path="img"/>
-	<classpathentry kind="src" path="src/view/img/Pokemon/Back"/>
-	<classpathentry kind="src" path="src/view/img/Pokemon/Front"/>
+	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>

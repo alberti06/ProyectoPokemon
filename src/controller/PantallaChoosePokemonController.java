@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,8 +19,6 @@ import java.io.File;
 import java.sql.Connection;
 
 import javax.swing.JOptionPane;
-
-import model.Pokemon;
 
 public class PantallaChoosePokemonController {
 
@@ -100,21 +97,22 @@ public class PantallaChoosePokemonController {
 
             // Traduce el sexo a texto legible
             String generoTexto;
-            switch (nuevo.getSexo()) {
-                case 'M' -> generoTexto = "Macho";
-                case 'F' -> generoTexto = "Hembra";
-                default -> generoTexto = "Desconocido";
+            if ("M".equalsIgnoreCase(nuevo.getSexo())) {
+                generoTexto = "Macho";
+            } else if ("F".equalsIgnoreCase(nuevo.getSexo())) {
+                generoTexto = "Hembra";
+            } else {
+                generoTexto = "Desconocido";
             }
 
             // Mostrar mensaje con JOptionPane
             JOptionPane.showMessageDialog(null,
-                "¡Has elegido a " + nuevo.getNombre() + "!\nGénero: " + generoTexto,
+                "¡Has elegido a " + nuevo.getNombre() + "!Género: " + generoTexto,
                 "¡Pokémon elegido!",
                 JOptionPane.INFORMATION_MESSAGE
             );
 
             System.out.println("Pokémon elegido: " + nuevo.getNombre() + " | Género: " + generoTexto);
-            
             abrirPantallaMenu();
 
         } catch (Exception e) {
@@ -153,9 +151,9 @@ public class PantallaChoosePokemonController {
         imgSquirtle.setVisible(false);
 
         try {
-        	imgBulbasur.setImage(new Image(new File("src/view/img/Pokemon/Front/001.png").toURI().toString()));
-            imgCharmander.setImage(new Image(new File("src/view/img/Pokemon/Front/004.png").toURI().toString()));
-            imgSquirtle.setImage(new Image(new File("src/view/img/Pokemon/Front/007.png").toURI().toString()));
+            imgBulbasur.setImage(new Image(new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/001.png").toURI().toString()));
+            imgCharmander.setImage(new Image(new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/004.png").toURI().toString()));
+            imgSquirtle.setImage(new Image(new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/007.png").toURI().toString()));
         } catch (Exception e) {
             System.err.println("⚠️ No se pudo cargar una imagen de Pokémon.");
             e.printStackTrace();

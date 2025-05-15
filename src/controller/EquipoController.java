@@ -2,14 +2,16 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 import dao.PokemonDAO;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
@@ -27,101 +29,66 @@ public class EquipoController {
     private Entrenador entrenador;
     private LoginController loginController;
 
-    @FXML 
-    private ProgressBar barPokemon1;
-    
-    @FXML 
-    private ProgressBar barPokemon2;
-    
-    @FXML 
-    private ProgressBar barPokemon3;
-    
-    @FXML 
-    private ProgressBar barPokemon4;
-    
-    @FXML 
-    private ProgressBar barPokemon5;
-    
-    @FXML 
-    private ProgressBar barPokemon6;
+    @FXML private ProgressBar barPokemon1, barPokemon2, barPokemon3, barPokemon4, barPokemon5, barPokemon6;
+    @FXML private ImageView btnSalir;
+    @FXML private AnchorPane imgFondo;
+    @FXML private ImageView imgPokemon1, imgPokemon2, imgPokemon3, imgPokemon4, imgPokemon5, imgPokemon6;
+    @FXML private Label lblNombre1, lblNombre2, lblNombre3, lblNombre4, lblNombre5, lblNombre6;
+    @FXML private Label lblPS2, lblPS3, lblPS4, lblPS5, lblPS6, lblPs1;
+    @FXML private Label lblNivel1, lblNivel2, lblNivel3, lblNivel4, lblNivel5, lblNivel6;
+    @FXML private Button btnCaja;
 
-    @FXML
-    private ImageView btnSalir;
+    public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
+        this.menuController = menuController;
+        this.stage = stage;
+        this.entrenador = entrenador;
+        this.loginController = loginController;
+        cargarEquipo();
+    }
 
-    @FXML
-    private AnchorPane imgFondo;
+    private void cargarImagen(ImageView imageView, String nombreArchivo) {
+        String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Front/" + nombreArchivo;
+        File archivo = new File(ruta);
+        if (archivo.exists()) {
+            imageView.setImage(new Image(archivo.toURI().toString()));
+        } else {
+            imageView.setImage(null);
+        }
+    }
 
-    @FXML 
-    private ImageView imgPokemon1;
-    
-    @FXML 
-    private ImageView imgPokemon2;
-    
-    @FXML 
-    private ImageView imgPokemon3;
-    
-    @FXML 
-    private ImageView imgPokemon4;
-    
-    @FXML 
-    private ImageView imgPokemon5;
-    
-    @FXML 
-    private ImageView imgPokemon6;
+    private void cargarEquipo() {
+        List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
 
-    @FXML 
-    private Label lblNombre1;
-    
-    @FXML 
-    private Label lblNombre2;
-    
-    @FXML 
-    private Label lblNombre3;
-    
-    @FXML 
-    private Label lblNombre4;
-    
-    @FXML 
-    private Label lblNombre5;
-    
-    @FXML 
-    private Label lblNombre6;
+        ImageView[] imagenes = { imgPokemon1, imgPokemon2, imgPokemon3, imgPokemon4, imgPokemon5, imgPokemon6 };
+        Label[] nombres = { lblNombre1, lblNombre2, lblNombre3, lblNombre4, lblNombre5, lblNombre6 };
+        Label[] niveles = { lblNivel1, lblNivel2, lblNivel3, lblNivel4, lblNivel5, lblNivel6 };
+        Label[] ps = { lblPs1, lblPS2, lblPS3, lblPS4, lblPS5, lblPS6 };
+        ProgressBar[] barras = { barPokemon1, barPokemon2, barPokemon3, barPokemon4, barPokemon5, barPokemon6 };
 
-    @FXML 
-    private Label lblPS2;
-    
-    @FXML 
-    private Label lblPS3;
-    
-    @FXML 
-    private Label lblPS4;
-    
-    @FXML 
-    private Label lblPS5;
-    
-    @FXML 
-    private Label lblPS6;
-    
-    @FXML 
-    private Label lblPs1;
+        for (int i = 0; i < 6; i++) {
+            if (i < equipo.size()) {
+                Pokemon p = equipo.get(i);
+                nombres[i].setText(p.getNombre());
+                niveles[i].setText("Nv. " + p.getNivel());
+                ps[i].setText(p.getVitalidad() + " PS");
+                barras[i].setProgress(p.getVitalidad() / 100.0);
+                cargarImagen(imagenes[i], p.getImgFrontal());
 
-    @FXML 
-    private Label lblNivel1;
-    
-    @FXML 
-    private Label lblNivel2;
-    
-    @FXML 
-    private Label lblNivel3;
-    
-    @FXML 
-    private Label lblNivel4;
-    
-    @FXML 
-    private Label lblNivel5;
-    
-    @FXML 
-    private Label lblNivel6;
+                imagenes[i].setOnMouseClicked(e -> {
+                    PokemonDAO.actualizarEquipo(p.getId(), 0);
+                    JOptionPane.showMessageDialog(null, p.getNombre() + " ha sido enviado a la caja.");
+                    cargarEquipo();
+                });
+            } else {
+                nombres[i].setText("");
+                niveles[i].setText("");
+                ps[i].setText("");
+                barras[i].setProgress(0);
+                imagenes[i].setImage(null);
+                imagenes[i].setOnMouseClicked(null);
+            }
+        }
+    }
 
     @FXML
     void salirMenupoke(MouseEvent event) {
@@ -142,81 +109,36 @@ public class EquipoController {
         }
     }
 
-    public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
-        this.menuController = menuController;
-        this.stage = stage;
-        this.entrenador = entrenador;
-        this.loginController = loginController;
-        cargarEquipo();
-    }
+    @FXML
+    void abrirCaja(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Caja.fxml"));
+            Parent root = loader.load();
 
-    private void cargarImagen(ImageView imageView, String nombreArchivo) {
-        String ruta = "src/view/img/Pokemon/Front/" + nombreArchivo;
-        File archivo = new File(ruta);
-        System.out.println("🔍 Buscando imagen: " + archivo.getPath() + " | Existe: " + archivo.exists());
-        if (archivo.exists()) {
-            imageView.setImage(new Image(archivo.toURI().toString()));
-        } else {
-            System.out.println("⚠ Imagen no encontrada en: " + archivo.getPath());
+            CajaController cajaController = loader.getController();
+
+            Stage cajaStage = new Stage();
+            cajaStage.setTitle("Caja de Pokémon");
+            cajaStage.setScene(new Scene(root));
+            cajaStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+
+            // ✅ PASA THIS → EquipoController
+            cajaController.init(entrenador, cajaStage, this);
+
+            cajaStage.show();
+            stage.close(); // cerrar la ventana del equipo
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    private void cargarEquipo() {
-        List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
-
-        for (int i = 0; i < equipo.size(); i++) {
-            Pokemon p = equipo.get(i);
-            String nombre = p.getNombre();
-            int vitalidad = p.getVitalidad();
-            int nivel = p.getNivel();
-            double progreso = vitalidad / 100.0;
-            String imagenArchivo = p.getImgFrontal();
-
-            switch (i) {
-                case 0:
-                    lblNombre1.setText(nombre);
-                    lblPs1.setText(vitalidad + " PS");
-                    lblNivel1.setText("Nv. " + nivel);
-                    barPokemon1.setProgress(progreso);
-                    cargarImagen(imgPokemon1, imagenArchivo);
-                    break;
-                case 1:
-                    lblNombre2.setText(nombre);
-                    lblPS2.setText(vitalidad + " PS");
-                    lblNivel2.setText("Nv. " + nivel);
-                    barPokemon2.setProgress(progreso);
-                    cargarImagen(imgPokemon2, imagenArchivo);
-                    break;
-                case 2:
-                    lblNombre3.setText(nombre);
-                    lblPS3.setText(vitalidad + " PS");
-                    lblNivel3.setText("Nv. " + nivel);
-                    barPokemon3.setProgress(progreso);
-                    cargarImagen(imgPokemon3, imagenArchivo);
-                    break;
-                case 3:
-                    lblNombre4.setText(nombre);
-                    lblPS4.setText(vitalidad + " PS");
-                    lblNivel4.setText("Nv. " + nivel);
-                    barPokemon4.setProgress(progreso);
-                    cargarImagen(imgPokemon4, imagenArchivo);
-                    break;
-                case 4:
-                    lblNombre5.setText(nombre);
-                    lblPS5.setText(vitalidad + " PS");
-                    lblNivel5.setText("Nv. " + nivel);
-                    barPokemon5.setProgress(progreso);
-                    cargarImagen(imgPokemon5, imagenArchivo);
-                    break;
-                case 5:
-                    lblNombre6.setText(nombre);
-                    lblPS6.setText(vitalidad + " PS");
-                    lblNivel6.setText("Nv. " + nivel);
-                    barPokemon6.setProgress(progreso);
-                    cargarImagen(imgPokemon6, imagenArchivo);
-                    break;
-            }
-        }
+    public void actualizarEquipo() {
+        cargarEquipo(); // Método que repinta visualmente los Pokémon del equipo
     }
 
+    public void show() {
+        if (stage != null) {
+            stage.show();
+        }
+    }
 }

@@ -22,19 +22,19 @@
 
             <ImageView fx:id="imgBulbasur" fitHeight="209.0" fitWidth="188.0" layoutX="189.0" layoutY="251.0" preserveRatio="true" visible="false">
    <image>
-       <Image url="@img/Pokemon/Front/001.png" />
+       <Image url="@../../resources/img/Pokemon/Front/001.png" />
    </image>
 </ImageView>
 
 <ImageView fx:id="imgCharmander" fitHeight="188.0" fitWidth="196.0" layoutX="350.0" layoutY="251.0" preserveRatio="true" visible="false">
    <image>
-       <Image url="@img/Pokemon/Front/004.png" />
+       <Image url="@../../resources/img/Pokemon/Front/004.png" />
    </image>
 </ImageView>
 
 <ImageView fx:id="imgSquirtle" fitHeight="180.0" fitWidth="197.0" layoutX="484.0" layoutY="255.0" preserveRatio="true" visible="false">
    <image>
-       <Image url="@img/Pokemon/Front/007.png" />
+       <Image url="@../../resources/img/Pokemon/Front/007.png" />
    </image>
 </ImageView>
 
