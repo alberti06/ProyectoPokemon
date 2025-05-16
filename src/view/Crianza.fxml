@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.ExpansionPanel?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -33,17 +35,17 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Label>
-            <ImageView id="CharizardM" fx:id="imgCharizardF" fitHeight="150.0" fitWidth="158.0" layoutX="287.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="CharizardM" fx:id="imgPokeF" fitHeight="150.0" fitWidth="158.0" layoutX="287.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/006.png" />
                </image>
             </ImageView>
-            <ImageView id="CharizardF" fx:id="imgCharizardM" fitHeight="150.0" fitWidth="150.0" layoutX="482.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="CharizardF" fx:id="imgPokeM" fitHeight="150.0" fitWidth="150.0" layoutX="482.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/006.png" />
                </image>
             </ImageView>
-            <ImageView id="Charmander" fx:id="imgCharmander" fitHeight="150.0" fitWidth="162.0" layoutX="380.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="Charmander" fx:id="imgCria" fitHeight="150.0" fitWidth="162.0" layoutX="380.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/004.png" />
                </image>
@@ -53,5 +55,8 @@
                   <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
                </image>
             </ImageView>
+      <ExpansionPanel layoutX="340.0" layoutY="420.0" />
+      <ChoiceBox fx:id="choiceHembra" layoutX="291.0" layoutY="420.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="choiceMacho" layoutX="482.0" layoutY="420.0" prefWidth="150.0" />
          </children>
 </AnchorPane>

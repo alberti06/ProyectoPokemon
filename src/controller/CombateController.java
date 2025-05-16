@@ -144,9 +144,9 @@ public class CombateController {
 	}
 
 	private void cargarSprites() {
-		String pathJugador = "file:img/Pokemon/Front/"
+		String pathJugador = "file:C:/ProyectoPokemon/resources/img/Pokemon/Front/"
 				+ String.format("%03d", entrenador.getPrimerPokemon().getNumPokedex()) + ".png";
-		String pathSalvaje = "file:img/Pokemon/Front/" + String.format("%03d", pokemonSalvaje.getId()) + ".png";
+		String pathSalvaje = "file:C:/ProyectoPokemon/resources/img/Pokemon/Front/" + String.format("%03d", pokemonSalvaje.getId()) + ".png";
 
 		imgPokemonEntrenador.setImage(new Image(pathJugador));
 		imgPokemonSalvaje.setImage(new Image(pathSalvaje));
@@ -266,13 +266,13 @@ public class CombateController {
 
     // Cambia la imagen del Pokémon del jugador
     private void actualizarImagenPokemonEntrenador(int idPokemon) {
-        String ruta = "/img/Pokemon/Back/" + String.format("%03d", idPokemon) + "_back.png";
+        String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Back/" + String.format("%03d", idPokemon) + ".png";
         Image imagen = new Image(getClass().getResourceAsStream(ruta));
         imgPokemonEntrenador.setImage(imagen);
     }
     // Cambia la imagen del Pokémon salvaje
     private void actualizarImagenPokemonSalvaje(int idPokemon) {
-        String ruta = "/img/Pokemon/Front/" + String.format("%03d", idPokemon) + "_front.png";
+        String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Front/" + String.format("%03d", idPokemon) + ".png";
         Image imagen = new Image(getClass().getResourceAsStream(ruta));
         imgPokemonSalvaje.setImage(imagen);
     }

@@ -88,6 +88,15 @@ public class Pokemon {
         this.ataque = ataque;
         this.sexo = sexo;
     }
+    
+    public Pokemon(int numPokedex, String nombre, int nivel, int vitalidad, int ataque) {
+        this.numPokedex = numPokedex;
+        this.nombre = nombre;
+        this.nivel = nivel;
+        this.vitalidad = vitalidad;
+        this.ataque = ataque;
+        this.sexo = "Desconocido"; // por seguridad
+    }
 
     // Getters
     public int getId() { return id; }
