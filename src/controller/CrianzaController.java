@@ -130,9 +130,11 @@ public class CrianzaController {
             return;
         }
 
-        String tipo1 = padreMacho.getTipo1();
-        String tipo2 = padreMacho.getTipo2();
-        String nombre = padreMacho.getNombre();
+        Pokemon parentVisual = Math.random() < 0.5 ? padreMacho : madreHembra;
+        
+        String tipo1 = parentVisual.getTipo1();
+        String tipo2 = parentVisual.getTipo2();
+        String nombre = parentVisual.getNombre();
 
         int vitalidad = Math.max(padreMacho.getVitalidad(), madreHembra.getVitalidad());
         int ataque = Math.max(padreMacho.getAtaque(), madreHembra.getAtaque());
@@ -142,8 +144,7 @@ public class CrianzaController {
         int velocidad = Math.max(padreMacho.getVelocidad(), madreHembra.getVelocidad());
 
         String sexoHijo = Math.random() < 0.5 ? "M" : "F";
-        Pokemon parentVisual = Math.random() < 0.5 ? padreMacho : madreHembra;
-
+        
         nuevoHijo = new Pokemon(
         	    0,
         	    padreMacho.getIdEntrenador(),
@@ -185,7 +186,7 @@ public class CrianzaController {
 
         PokemonDAO.insertarPokemon(entrenador.getIdentrenador(), nuevoHijo);
 
-        JOptionPane.showMessageDialog(null, "🐣 ¡Ha nacido un " + nuevoHijo.getNombre() + "!", "Crianza completada", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "¡Ha nacido un " + nuevoHijo.getNombre() + "!", " Crianza completada", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @FXML

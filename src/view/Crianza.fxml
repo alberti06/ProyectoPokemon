@@ -19,7 +19,7 @@
             <Image url="@../../../ProyectoPokemon/img/imagenesExtra/pngegg%20(7).png" />
          </image>
       </ImageView>
-      <Label id="lblText" fx:id="lblText2" layoutX="466.0" layoutY="238.0" prefHeight="26.0" prefWidth="217.0" text="Introduzca su pokemon macho" textFill="WHITE">
+      <Label id="lblText" fx:id="lblText2" layoutX="482.0" layoutY="238.0" prefHeight="26.0" prefWidth="217.0" text="Introduzca su pokemon macho" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
@@ -29,12 +29,12 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label id="Text3" fx:id="lblText3" layoutX="315.0" layoutY="463.0" text="Cria del emparejamiento" textFill="WHITE">
+      <Label id="Text3" fx:id="lblText3" layoutX="330.0" layoutY="473.0" text="Cria del emparejamiento" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <ImageView id="CharizardM" fx:id="imgPokeF" fitHeight="150.0" fitWidth="158.0" layoutX="287.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="CharizardM" fx:id="imgPokeF" fitHeight="150.0" fitWidth="171.0" layoutX="287.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../ProyectoPokemon/img/Pokemon/Front/006.png" />
          </image>
@@ -54,7 +54,7 @@
             <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
          </image>
       </ImageView>
-      <ChoiceBox fx:id="choiceHembra" layoutX="280.0" layoutY="419.0" prefHeight="26.0" prefWidth="171.0" />
+      <ChoiceBox fx:id="choiceHembra" layoutX="287.0" layoutY="420.0" prefHeight="26.0" prefWidth="171.0" />
       <ChoiceBox fx:id="choiceMacho" layoutX="482.0" layoutY="420.0" prefHeight="26.0" prefWidth="171.0" />
    </children>
 </AnchorPane>

@@ -261,5 +261,16 @@ public class PokemonDAO {
 	        );
 	    }
 	    
+	    public static int obtenerUltimoIdPokemonInsertado(Connection con) throws SQLException {
+	        String query = "SELECT MAX(ID_POKEMON) AS ID FROM POKEMON";
+	        try (PreparedStatement ps = con.prepareStatement(query);
+	             ResultSet rs = ps.executeQuery()) {
+	            if (rs.next()) {
+	                return rs.getInt("ID");
+	            }
+	        }
+	        return -1; // en caso de error
+	    }
+	    
 	    
 }

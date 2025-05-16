@@ -20,10 +20,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Entrenador;
 import model.Pokemon;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class CapturaController {
 
@@ -32,14 +33,15 @@ public class CapturaController {
 	private Entrenador entrenador;
 	private LoginController loginController;
 	private Pokemon pokemonSalvaje;
+	private MediaPlayer efectoSonido;
 
-	@FXML private VBox Vbox;
-	@FXML private ImageView imgFondo;
-	@FXML private Label lblText1;
-	@FXML private Label lblText2;
 	@FXML private ImageView btnCambiarPoke;
+	@FXML private ImageView btnSalir;
+	@FXML private ImageView imgFondo;
+	@FXML private ImageView imgHuevoMasc;
 	@FXML private ImageView imgPokemon;
 	@FXML private Label lblNunpokebolas;
+	@FXML private Label lblText2;
 
 	public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
 		this.menuController = menuController;
@@ -70,10 +72,16 @@ public class CapturaController {
 
 	@FXML
 	void capturarPokemon(MouseEvent event) {
-		final int ID_POKEBALL = 8; // ID correcto de la Pokéball
+		final int ID_POKEBALL = 8;
+
+		if (pokemonSalvaje == null) {
+			JOptionPane.showMessageDialog(null,
+				"No hay ningún Pokémon para capturar.",
+				"Error", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
 
 		try (Connection con = ConexionBD.conectar()) {
-			// Verificar si existe la entrada del objeto en la mochila
 			PreparedStatement comprobar = con.prepareStatement("""
 				SELECT NUMERO_OBJETOS FROM MOCHILA
 				WHERE ID_ENTRENADOR = ? AND ID_OBJETO = ?
@@ -87,7 +95,6 @@ public class CapturaController {
 				System.out.println("Cantidad de Pokéballs: " + cantidad);
 
 				if (cantidad > 0) {
-					// Reducir en 1 la cantidad de Pokéballs
 					PreparedStatement reducir = con.prepareStatement("""
 						UPDATE MOCHILA SET NUMERO_OBJETOS = NUMERO_OBJETOS - 1
 						WHERE ID_ENTRENADOR = ? AND ID_OBJETO = ?
@@ -96,26 +103,42 @@ public class CapturaController {
 					reducir.setInt(2, ID_POKEBALL);
 					reducir.executeUpdate();
 
-					// Lógica de captura
 					Random rand = new Random();
-					boolean capturado = rand.nextInt(3) < 2; // 66% probabilidad
+					boolean capturado = rand.nextInt(3) < 2;
 
 					if (capturado) {
 						int slotEquipo = PokemonDAO.obtenerSiguienteHuecoEquipo(entrenador.getIdentrenador());
 
 						if (slotEquipo == -1) {
-							pokemonSalvaje.setEquipo(0); // Enviar a la caja
+							pokemonSalvaje.setEquipo(0);
 							JOptionPane.showMessageDialog(null,
 								"¡Has capturado a " + pokemonSalvaje.getNombre() + ", pero tu equipo está lleno!\nSe ha enviado a la caja.",
 								"Equipo lleno", JOptionPane.WARNING_MESSAGE);
 						} else {
-							pokemonSalvaje.setEquipo(slotEquipo); // Al siguiente hueco del equipo
+							pokemonSalvaje.setEquipo(slotEquipo);
 							JOptionPane.showMessageDialog(null,
 								"¡Has capturado a " + pokemonSalvaje.getNombre() + "!",
 								"¡Captura exitosa!", JOptionPane.INFORMATION_MESSAGE);
 						}
 
 						PokemonDAO.insertarPokemon(entrenador.getIdentrenador(), pokemonSalvaje);
+
+						// Añadir movimiento Placaje (ID 31)
+						try (Connection con2 = ConexionBD.conectar()) {
+							int idNuevoPokemon = PokemonDAO.obtenerUltimoIdPokemonInsertado(con2);
+
+							PreparedStatement ps = con2.prepareStatement("""
+								INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_RESTANTES)
+								VALUES (?, 31, (SELECT PP FROM MOVIMIENTOS WHERE ID_MOVIMIENTO = 31))
+							""");
+							ps.setInt(1, idNuevoPokemon);
+							ps.executeUpdate();
+
+							System.out.println("✔ Placaje (ID 31) añadido al Pokémon capturado.");
+						} catch (Exception e) {
+							System.err.println("❌ Error al asignar Placaje: " + e.getMessage());
+						}
+
 						generarNuevoPokemonSalvaje();
 					} else {
 						JOptionPane.showMessageDialog(null,
@@ -130,7 +153,6 @@ public class CapturaController {
 						"Sin Pokéballs", JOptionPane.WARNING_MESSAGE);
 				}
 			} else {
-				// Entrada no encontrada: se crea con cantidad 0
 				PreparedStatement crearEntrada = con.prepareStatement("""
 					INSERT INTO MOCHILA (ID_ENTRENADOR, ID_OBJETO, NUMERO_OBJETOS)
 					VALUES (?, ?, 0)
@@ -149,6 +171,8 @@ public class CapturaController {
 				"Ocurrió un error al capturar el Pokémon:\n" + e.getMessage(),
 				"Error de base de datos", JOptionPane.ERROR_MESSAGE);
 		}
+
+		actualizarLabelPokeballs();
 	}
 
 	@FXML
@@ -177,10 +201,18 @@ public class CapturaController {
 				double escalado = obtenerEscalado(nivelJugador, nivelSalvaje);
 				int vida = (int) (50 * escalado);
 				int atk = (int) (25 * escalado);
-				String sexo = rand.nextBoolean() ? "M" : "F"; // ⚠️ Ahora sí se genera sexo correctamente
+				String sexo = rand.nextBoolean() ? "M" : "F";
 
-				// Nuevo constructor compatible con sexo tipo String
 				pokemonSalvaje = new Pokemon(numPokedex, nombre, nivelSalvaje, vida, atk, sexo);
+
+				File sonidoFile = new File("C:/ProyectoPokemon/sonidos/Pokemon/" + String.format("%03d", numPokedex) + ".wav");
+				if (sonidoFile.exists()) {
+					Media media = new Media(sonidoFile.toURI().toString());
+					efectoSonido = new MediaPlayer(media);
+					efectoSonido.play();
+				} else {
+					System.out.println("No se encontró el archivo de sonido");
+				}
 
 				String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Front/" + String.format("%03d", numPokedex) + ".png";
 				File file = new File(ruta);
@@ -194,11 +226,39 @@ public class CapturaController {
 						System.err.println("❌ Imagen por defecto tampoco encontrada.");
 					}
 				}
-				lblText1.setText("");
 				lblText2.setText("¡Un " + nombre + " salvaje apareció!");
+				actualizarLabelPokeballs();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+	}
+
+	private void actualizarLabelPokeballs() {
+		try (Connection con = ConexionBD.conectar()) {
+			PreparedStatement ps = con.prepareStatement("""
+				SELECT NUMERO_OBJETOS FROM MOCHILA
+				WHERE ID_ENTRENADOR = ? AND ID_OBJETO = 8
+			""");
+			ps.setInt(1, entrenador.getIdentrenador());
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				int cantidad = rs.getInt("NUMERO_OBJETOS");
+				lblNunpokebolas.setText("Pokéballs: " + cantidad);
+
+				if (cantidad == 0) {
+					lblNunpokebolas.setStyle("-fx-text-fill: red;");
+				} else {
+					lblNunpokebolas.setStyle("-fx-text-fill: black;");
+				}
+			} else {
+				lblNunpokebolas.setText("Pokéballs: 0");
+				lblNunpokebolas.setStyle("-fx-text-fill: red;");
+			}
+		} catch (SQLException e) {
+			lblNunpokebolas.setText("Pokéballs: ?");
+			System.err.println("Error al obtener Pokéballs: " + e.getMessage());
 		}
 	}
 
@@ -208,4 +268,4 @@ public class CapturaController {
 		else if (diff < 0) return Math.max(1.0 + diff * 0.04, 0.8);
 		else return 1.0;
 	}
-} 
+}

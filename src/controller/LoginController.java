@@ -182,7 +182,7 @@ public class LoginController {
 	        return;
 	    }
 
-	   
+	 
 	    Connection conn = ConexionBD.conectar();
 
 	    if (EntrenadorDAO.existeEntrenador(conn, usuario)) {
@@ -193,14 +193,27 @@ public class LoginController {
 	        Entrenador nuevo = new Entrenador(usuario, pass, 1000);
 	        if (EntrenadorDAO.anyadirEntrenador(conn, nuevo)) {
 	            System.out.println("Registro exitoso");
-	            abrirPantallaElegirPokemon(nuevo.getIdentrenador());
+
+	            try {
+	                // Insertar 5 Pokéballs por defecto
+	                var stmt = conn.prepareStatement("""
+	                    INSERT INTO MOCHILA (ID_ENTRENADOR, ID_OBJETO, NUMERO_OBJETOS)
+	                    VALUES (?, 8, 5)
+	                """);
+	                stmt.setInt(1, EntrenadorDAO.obtenerIdEntrenador(conn, usuario));
+	                stmt.executeUpdate();
+	                System.out.println("Pokéballs iniciales otorgadas.");
+	            } catch (Exception e) {
+	                System.err.println("❌ Error al insertar Pokéballs iniciales: " + e.getMessage());
+	            }
+
+	            abrirPantallaElegirPokemon(EntrenadorDAO.obtenerIdEntrenador(conn, usuario));
 
 	        } else {
 	            System.out.println("Error al registrar en la base de datos");
-	        }
 	    }
-	}
-
+	 }   
+}
 	public void setStage(Stage primaryStage) {
 		stage = primaryStage;
 	}

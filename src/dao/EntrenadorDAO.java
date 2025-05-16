@@ -117,5 +117,22 @@ public class EntrenadorDAO {
 
 		    return null;
 		}
+		
+		public static int obtenerIdEntrenador(Connection con, String usuario) {
+		    String query = "SELECT ID_ENTRENADOR FROM entrenador WHERE usuario = ?";
+
+		    try (PreparedStatement ps = con.prepareStatement(query)) {
+		        ps.setString(1, usuario);
+		        ResultSet rs = ps.executeQuery();
+
+		        if (rs.next()) {
+		            return rs.getInt("ID_ENTRENADOR");
+		        }
+		    } catch (SQLException e) {
+		        ConexionBD.printSQLException(e);
+		    }
+
+		    return -1; // valor de error si no se encuentra
+		}
 
 }

@@ -17,6 +17,7 @@ import model.Pokemon;
 
 import java.io.File;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import javax.swing.JOptionPane;
 
@@ -25,13 +26,23 @@ public class PantallaChoosePokemonController {
     private int idEntrenador;
     private LoginController loginController;
 
-    @FXML private Button btnElegirBulbasur;
-    @FXML private Button btnElegirCharmander;
-    @FXML private Button btnElegirSquirtle;
+    @FXML 
+    private Button btnElegirBulbasur;
+    
+    @FXML 
+    private Button btnElegirCharmander;
+    
+    @FXML
+    private Button btnElegirSquirtle;
 
-    @FXML private ImageView imgBulbasur;
-    @FXML private ImageView imgCharmander;
-    @FXML private ImageView imgSquirtle;
+    @FXML 
+    private ImageView imgBulbasur;
+    
+    @FXML 
+    private ImageView imgCharmander;
+    
+    @FXML 
+    private ImageView imgSquirtle;
 
     public void init(int idEntrenador, LoginController loginController) {
         this.idEntrenador = idEntrenador;
@@ -95,7 +106,17 @@ public class PantallaChoosePokemonController {
         try (Connection con = ConexionBD.conectar()) {
             Pokemon nuevo = PokemonDAO.generarPokemonPrincipalEspecifico(idEntrenador, nombrePokemon, con);
 
-            // Traduce el sexo a texto legible
+            // 🔽 Asignar ataque Placaje (ID 31)
+            int idNuevoPokemon = PokemonDAO.obtenerUltimoIdPokemonInsertado(con);
+
+            PreparedStatement ps = con.prepareStatement("""
+                INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_RESTANTES)
+                VALUES (?, 31, (SELECT PP FROM MOVIMIENTOS WHERE ID_MOVIMIENTO = 31))
+            """);
+            ps.setInt(1, idNuevoPokemon);
+            ps.executeUpdate();
+
+            // Mostrar género
             String generoTexto;
             if ("M".equalsIgnoreCase(nuevo.getSexo())) {
                 generoTexto = "Macho";
@@ -105,9 +126,8 @@ public class PantallaChoosePokemonController {
                 generoTexto = "Desconocido";
             }
 
-            // Mostrar mensaje con JOptionPane
             JOptionPane.showMessageDialog(null,
-                "¡Has elegido a " + nuevo.getNombre() + "!Género: " + generoTexto,
+                "¡Has elegido a " + nuevo.getNombre() + "!\nGénero: " + generoTexto,
                 "¡Pokémon elegido!",
                 JOptionPane.INFORMATION_MESSAGE
             );
@@ -119,6 +139,7 @@ public class PantallaChoosePokemonController {
             e.printStackTrace();
         }
     }
+
 
     private void abrirPantallaMenu() {
         try {
