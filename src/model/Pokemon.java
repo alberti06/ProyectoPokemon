@@ -22,8 +22,18 @@ public class Pokemon {
     private String imgTrasera;
     private String sonido;
     private Integer nivelEvolucion;
+    private int vidaActual;
 
-    // Constructor completo
+
+    public int getVidaActual() {
+		return vidaActual;
+	}
+
+	public void setVidaActual(int vidaActual) {
+		this.vidaActual = vidaActual;
+	}
+
+	// Constructor completo
     public Pokemon(int id, int idEntrenador, int numPokedex, String nombre,
                    String tipo1, String tipo2, int vitalidad, int ataque, int defensa,
                    int atEspecial, int defEspecial, int velocidad, int nivel,

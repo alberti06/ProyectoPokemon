@@ -30,17 +30,29 @@ public class EquipoController {
     private LoginController loginController;
     private CombateController combateController;
     
-    @FXML private ProgressBar barPokemon1, barPokemon2, barPokemon3, barPokemon4, barPokemon5, barPokemon6;
-    @FXML private ImageView btnSalir;
-    @FXML private AnchorPane imgFondo;
-    @FXML private ImageView imgPokemon1, imgPokemon2, imgPokemon3, imgPokemon4, imgPokemon5, imgPokemon6;
-    @FXML private Label lblNombre1, lblNombre2, lblNombre3, lblNombre4, lblNombre5, lblNombre6;
-    @FXML private Label lblPS2, lblPS3, lblPS4, lblPS5, lblPS6, lblPs1;
-    @FXML private Label lblNivel1, lblNivel2, lblNivel3, lblNivel4, lblNivel5, lblNivel6;
-    @FXML private Button btnCaja;
+    @FXML private 
+    ProgressBar barPokemon1, barPokemon2, barPokemon3, barPokemon4, barPokemon5, barPokemon6;
     
-
-  
+    @FXML private 
+    ImageView btnSalir;
+    
+    @FXML private 
+    AnchorPane imgFondo;
+    
+    @FXML private 
+    ImageView imgPokemon1, imgPokemon2, imgPokemon3, imgPokemon4, imgPokemon5, imgPokemon6;
+    
+    @FXML private 
+    Label lblNombre1, lblNombre2, lblNombre3, lblNombre4, lblNombre5, lblNombre6;
+    
+    @FXML private 
+    Label lblPS2, lblPS3, lblPS4, lblPS5, lblPS6, lblPs1;
+    
+    @FXML private 
+    Label lblNivel1, lblNivel2, lblNivel3, lblNivel4, lblNivel5, lblNivel6;
+    
+    @FXML private 
+    Button btnCaja;
 
     public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
         this.menuController = menuController;
@@ -49,9 +61,11 @@ public class EquipoController {
         this.loginController = loginController;
         cargarEquipo();
     }
+
     public void setCombateController(CombateController combateController) {
         this.combateController = combateController;
     }
+
     private void cargarImagen(ImageView imageView, String nombreArchivo) {
         String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Front/" + nombreArchivo;
         File archivo = new File(ruta);
@@ -76,8 +90,21 @@ public class EquipoController {
                 Pokemon p = equipo.get(i);
                 nombres[i].setText(p.getNombre());
                 niveles[i].setText("Nv. " + p.getNivel());
-                ps[i].setText(p.getVitalidad() + " PS");
-                barras[i].setProgress(p.getVitalidad() / 100.0);
+                ps[i].setText(p.getVidaActual() + " PS");
+
+                // ✅ Vida real basada en vidaActual / vitalidad
+                double porcentaje = (double) p.getVidaActual() / p.getVitalidad();
+                barras[i].setProgress(porcentaje);
+
+                // 🎨 Colores según porcentaje
+                if (porcentaje >= 0.5) {
+                    barras[i].setStyle("-fx-accent: #00cc00;"); // Verde
+                } else if (porcentaje >= 0.3) {
+                    barras[i].setStyle("-fx-accent: #ffcc00;"); // Amarillo
+                } else {
+                    barras[i].setStyle("-fx-accent: #cc0000;"); // Rojo
+                }
+
                 cargarImagen(imagenes[i], p.getImgFrontal());
 
                 imagenes[i].setOnMouseClicked(e -> {
@@ -90,6 +117,7 @@ public class EquipoController {
                 niveles[i].setText("");
                 ps[i].setText("");
                 barras[i].setProgress(0);
+                barras[i].setStyle(""); // Resetear color
                 imagenes[i].setImage(null);
                 imagenes[i].setOnMouseClicked(null);
             }
@@ -128,7 +156,6 @@ public class EquipoController {
             cajaStage.setScene(new Scene(root));
             cajaStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
 
-         
             cajaController.init(entrenador, cajaStage, this);
 
             cajaStage.show();
@@ -139,7 +166,7 @@ public class EquipoController {
     }
 
     public void actualizarEquipo() {
-        cargarEquipo(); // Método que repinta visualmente los Pokémon del equipo
+        cargarEquipo();
     }
 
     public void show() {
