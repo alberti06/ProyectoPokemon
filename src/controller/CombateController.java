@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -64,7 +65,10 @@ public class CombateController {
 	private Button botonAtaque4;
 	@FXML
 	private Label lblTurnos;
-
+@FXML
+private ProgressBar barraVidaEntrenador;
+@FXML
+private ProgressBar barraVidaSalvaje;
 	private final String RUTA_LOG = "./combate_log.txt";
 	
 	public void init(Entrenador entrenador, Stage stage) {
@@ -219,26 +223,10 @@ public class CombateController {
 
 	@FXML
 	void salirMenupoke() {
-		try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
-            Parent root = loader.load();
-            menuController = loader.getController();
+		stage.close(); // o redirige al menú si quieres
+	}
 
-            Scene sc = new Scene(root);
-            Stage st = new Stage();
-            
-        	st.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            st.setTitle("Proyecto Pokemon los 3 mosqueteros");
-            st.setScene(sc);
-            
-            menuController.init(entrenador, st, loginController);
-            st.show();
-            this.stage.close();
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-	}	
+	
 
 	public void init(Entrenador entrenador, Stage stage, MenuController menuController,
 			LoginController loginController) {
@@ -309,6 +297,15 @@ public class CombateController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    private void actualizarBarrasVida() {
+    	double vidaMaxJugador = entrenador.getPrimerPokemon().getVitalidad();
+    	double vidaActualJugador = entrenador.getPrimerPokemon().getVitalidad();
+    	barraVidaEntrenador.setProgress(vidaActualJugador / vidaMaxJugador);
+
+    	double vidaMaxEnemigo = pokemonSalvaje.getVitalidad();
+    	double vidaActualEnemigo = pokemonSalvaje.getVitalidad();
+    	barraVidaSalvaje.setProgress(vidaActualEnemigo / vidaMaxEnemigo);
     }
 
 
