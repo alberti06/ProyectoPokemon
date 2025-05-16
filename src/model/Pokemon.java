@@ -157,8 +157,12 @@ public class Pokemon {
         return nivelEvolucion != null && nivel >= nivelEvolucion;
     }
 
+    public String resumenCombate() {
+        return nombre + " (Nv. " + nivel + ", Vida: " + vitalidad + ")";
+    }
+    
     @Override
     public String toString() {
-        return nombre + " (Nivel " + nivel + ") - Vida: " + vitalidad;
+        return nombre + " (Nv. " + nivel + ", Fertilidad: " + fertilidad + ")";
     }
 }

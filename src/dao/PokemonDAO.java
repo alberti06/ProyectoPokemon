@@ -73,6 +73,42 @@ public class PokemonDAO {
 	                defensa, atEspecial, defEspecial, velocidad, nivel, fertilidad, sexo, estado, equipo,
 	                imgFrontal, imgTrasera, sonido, nivelEvolucion);
 	    }
+	  
+	  public static void guardarPokemon(Pokemon p) {
+		    try (Connection conexion = ConexionBD.conectar()) {
+		        int nuevoId = generarIdUnico(conexion);
+		        int equipo = obtenerSiguienteHuecoEquipo(p.getIdEntrenador());
+		        if (equipo == -1) equipo = 0;
+
+		        String insertSQL = """
+		            INSERT INTO POKEMON (ID_POKEMON, FKID_ENTRENADOR, FK_NUM_POKEDEX, NOMBRE, VITALIDAD, ATAQUE,
+		                                 DEFENSA, AT_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, NIVEL, FERTILIDAD, SEXO,
+		                                 ESTADO, EQUIPO)
+		            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""";
+
+		        PreparedStatement stmt = conexion.prepareStatement(insertSQL);
+		        stmt.setInt(1, nuevoId);
+		        stmt.setInt(2, p.getIdEntrenador());
+		        stmt.setInt(3, p.getNumPokedex());
+		        stmt.setString(4, p.getNombre());
+		        stmt.setInt(5, p.getVitalidad());
+		        stmt.setInt(6, p.getAtaque());
+		        stmt.setInt(7, p.getDefensa());
+		        stmt.setInt(8, p.getAtEspecial());
+		        stmt.setInt(9, p.getDefEspecial());
+		        stmt.setInt(10, p.getVelocidad());
+		        stmt.setInt(11, p.getNivel());
+		        stmt.setInt(12, p.getFertilidad());
+		        stmt.setString(13, p.getSexo());
+		        stmt.setString(14, p.getEstado());
+		        stmt.setInt(15, equipo);
+
+		        stmt.executeUpdate();
+
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		}
 
 	    public static int generarIdUnico(Connection conexion) throws SQLException {
 	        String query = "SELECT MAX(ID_POKEMON) AS MAX_ID FROM POKEMON";
@@ -82,42 +118,51 @@ public class PokemonDAO {
 	    }
 
 	    public static void insertarPokemon(int idEntrenador, Pokemon p) {
-	        try (Connection conexion = ConexionBD.conectar()) {
-	            int nuevoId = generarIdUnico(conexion);
-	            int equipo = p.getEquipo();
-	            if (equipo < 0 || equipo > 6) equipo = 0; // evita constraint
+	        String sql = """
+	            INSERT INTO POKEMON 
+	            (FKID_ENTRENADOR, FK_NUM_POKEDEX, NOMBRE, VITALIDAD, ATAQUE, DEFENSA, AT_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, NIVEL, FERTILIDAD, SEXO, ESTADO, EQUIPO)
+	            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	        """;
 
-	            String sexo = (p.getSexo() != null && (p.getSexo().equals("M") || p.getSexo().equals("F"))) ? p.getSexo() : "M";
+	        try (Connection con = ConexionBD.conectar();
+	             PreparedStatement ps = con.prepareStatement(sql)) {
 
-	            String insertSQL = """
-	                INSERT INTO POKEMON (ID_POKEMON, FKID_ENTRENADOR, FK_NUM_POKEDEX, NOMBRE, VITALIDAD, ATAQUE,
-	                                     DEFENSA, AT_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, NIVEL, FERTILIDAD, SEXO,
-	                                     ESTADO, EQUIPO)
-	                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""";
+	            ps.setInt(1, idEntrenador);
+	            ps.setInt(2, p.getNumPokedex());
+	            ps.setString(3, p.getNombre());
+	            ps.setInt(4, p.getVitalidad());
+	            ps.setInt(5, p.getAtaque());
+	            ps.setInt(6, p.getDefensa());
+	            ps.setInt(7, p.getAtEspecial());
+	            ps.setInt(8, p.getDefEspecial());
+	            ps.setInt(9, p.getVelocidad());
+	            ps.setInt(10, p.getNivel());
+	            ps.setInt(11, p.getFertilidad());
+	            ps.setString(12, p.getSexo());
+	            ps.setString(13, p.getEstado());
+	            ps.setInt(14, p.getEquipo());
 
-	            PreparedStatement stmt = conexion.prepareStatement(insertSQL);
-	            stmt.setInt(1, nuevoId);
-	            stmt.setInt(2, idEntrenador);
-	            stmt.setInt(3, p.getNumPokedex());
-	            stmt.setString(4, p.getNombre());
-	            stmt.setInt(5, p.getVitalidad());
-	            stmt.setInt(6, p.getAtaque());
-	            stmt.setInt(7, p.getDefensa());
-	            stmt.setInt(8, p.getAtEspecial());
-	            stmt.setInt(9, p.getDefEspecial());
-	            stmt.setInt(10, p.getVelocidad());
-	            stmt.setInt(11, p.getNivel());
-	            stmt.setInt(12, p.getFertilidad());
-	            stmt.setString(13, sexo);
-	            stmt.setString(14, p.getEstado());
-	            stmt.setInt(15, equipo);
-
-	            stmt.executeUpdate();
+	            ps.executeUpdate();
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
 	    }
+	    
+	    public static void actualizarFertilidad(int idPokemon, int nuevaFertilidad) {
+	        String sql = "UPDATE POKEMON SET FERTILIDAD = ? WHERE ID_POKEMON = ?";
 
+	        try (Connection con = ConexionBD.conectar();
+	             PreparedStatement ps = con.prepareStatement(sql)) {
+
+	            ps.setInt(1, nuevaFertilidad);
+	            ps.setInt(2, idPokemon);
+
+	            ps.executeUpdate();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    
 	    public static void actualizarEquipo(int idPokemon, int nuevoEquipo) {
 	        if (nuevoEquipo < 0 || nuevoEquipo > 6) {
 	            System.err.println("Error: valor de EQUIPO no válido: " + nuevoEquipo);
