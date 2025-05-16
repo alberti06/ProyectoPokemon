@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BolsaController">
+   <children>
+      <AnchorPane id="anchorpane" fx:id="anchor" prefHeight="837.0" prefWidth="718.0">
+         <children>
+            <ImageView fitHeight="656.0" fitWidth="913.0" layoutX="-7.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/FondoBolsa.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Pokeball" fx:id="imgPokeball" fitHeight="87.0" fitWidth="46.0" layoutX="395.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/pngegg%20(6).png" />
+               </image>
+            </ImageView>
+            <Label id="NombreObjeto1" fx:id="lblNombreOb1" layoutX="466.0" layoutY="85.0" prefHeight="48.0" prefWidth="91.0" text="Pokeball">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label id="ContadorOb1" fx:id="lblCantPokeball" layoutX="589.0" layoutY="94.0" text="Contador">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView id="Pluma" fx:id="imgPluma" fitHeight="50.0" fitWidth="38.0" layoutX="402.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/pngegg%20(13).png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblNombreOB2" layoutX="481.0" layoutY="253.0" text="Pluma">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <ImageView id="AnilloUnico" fx:id="lblAnillo" fitHeight="63.0" fitWidth="42.0" layoutX="400.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/pngegg%20(14).png" />
+               </image>
+            </ImageView>
+            <Label id="ContadorOb2" fx:id="lblCantAnillo" layoutX="587.0" layoutY="307.0" text="Contador">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label id="contadorOb3" fx:id="lblCantBaston" layoutX="583.0" layoutY="143.0" text="Contador">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label id="NombreObjeto3" fx:id="lblNombreOb3" layoutX="452.0" layoutY="306.0" text="Anillo Único">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <ImageView id="Objeto4" fx:id="imgOb4" fitHeight="24.0" fitWidth="58.0" layoutX="392.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/pngegg%20(15).png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblNombreOb4" layoutX="486.0" layoutY="357.0" text="Pesa">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label id="ContadorOb4" fx:id="lblCantPesa" layoutX="583.0" layoutY="358.0" text="Contador">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNombreOb5" layoutX="478.0" layoutY="143.0" text="Bastón">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <ImageView id="Objeto5" fx:id="imgOb5" fitHeight="46.0" fitWidth="38.0" layoutX="399.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/pngegg%20(16).png" />
+               </image>
+            </ImageView>
+            <Label id="ContadoOb5" fx:id="lblCantChaleco" layoutX="579.0" layoutY="200.0" text="Contador">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label id="NombreOb6" fx:id="lblNombre6" layoutX="471.0" layoutY="201.0" text="Chaleco">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <ImageView id="Objeto6" fx:id="imgOb6" fitHeight="50.0" fitWidth="42.0" layoutX="398.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/pngegg%20(17).png" />
+               </image>
+            </ImageView>
+            <Label id="ContadorOb6" fx:id="lblCantPluma" layoutX="579.0" layoutY="251.0" text="Contador">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label id="NombreOb7" fx:id="lblNombreOb7" layoutX="488.0" layoutY="411.0" text="Pilas">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <ImageView id="Objeto7" fx:id="imgOb7" fitHeight="46.0" fitWidth="70.0" layoutX="386.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/pngegg%20(18).png" />
+               </image>
+            </ImageView>
+            <Label id="ContadorOb7" fx:id="lblCantPilas" layoutX="577.0" layoutY="409.0" text="Contador">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label id="NombreOb8" fx:id="lblNombreOb8" layoutX="489.0" layoutY="468.0" text="Éter">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <ImageView id="Objeto8" fx:id="imgObjeto8" fitHeight="42.0" fitWidth="42.0" layoutX="400.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/Éter_EP.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblCantEter" layoutX="577.0" layoutY="466.0" text="Contador">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="btnSalir" fitHeight="42.0" fitWidth="42.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
+               </image>
+            </ImageView>
+            <Spinner fx:id="spinnerPokeball" layoutX="695.0" layoutY="96.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerBaston" layoutX="695.0" layoutY="146.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerChaleco" layoutX="695.0" layoutY="200.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerPluma" layoutX="695.0" layoutY="255.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerAnillo" layoutX="695.0" layoutY="311.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerPesa" layoutX="695.0" layoutY="361.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerPilas" layoutX="695.0" layoutY="421.0" prefHeight="17.0" prefWidth="108.0" />
+            <Spinner fx:id="spinnerEter" layoutX="695.0" layoutY="471.0" prefHeight="17.0" prefWidth="108.0" />
+            <ImageView fx:id="btnVender" fitHeight="116.0" fitWidth="78.0" layoutX="129.0" layoutY="484.0" onMouseClicked="#vender" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/imagenesExtra/vender.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

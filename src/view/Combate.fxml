@@ -7,50 +7,88 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorpane" prefHeight="641.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CombateController">
+<AnchorPane fx:id="anchorpane" prefHeight="641.0"
+	prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="controller.CombateController">
 	<children>
-		<ImageView fx:id="imgSuelo11" fitHeight="641.0" fitWidth="991.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fx:id="imgSuelo11" fitHeight="641.0"
+			fitWidth="991.0" pickOnBounds="true" preserveRatio="true">
 			<image>
-				<Image url="@../../img/imagenesExtra/fondoCombateYcaptura.jpeg" />
+				<Image
+					url="@../../img/imagenesExtra/fondoCombateYcaptura.jpeg" />
 			</image>
 		</ImageView>
-		<ImageView fx:id="imgSuelo1" fitHeight="283.0" fitWidth="532.0" layoutX="155.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fx:id="imgSuelo1" fitHeight="283.0"
+			fitWidth="532.0" layoutX="155.0" layoutY="351.0" pickOnBounds="true"
+			preserveRatio="true">
 			<image>
-				<Image url="@../../../ProyectoPokemon/img/imagenesExtra/suelo-combate.png" />
+				<Image
+					url="@../../../ProyectoPokemon/img/imagenesExtra/suelo-combate.png" />
 			</image>
 		</ImageView>
-		<ImageView fx:id="imgSuelo2" fitHeight="240.0" fitWidth="332.0" layoutX="465.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fx:id="imgSuelo2" fitHeight="240.0"
+			fitWidth="332.0" layoutX="465.0" layoutY="231.0" pickOnBounds="true"
+			preserveRatio="true">
 			<image>
-				<Image url="@../../../ProyectoPokemon/img/imagenesExtra/suelo-combate.png" />
+				<Image
+					url="@../../../ProyectoPokemon/img/imagenesExtra/suelo-combate.png" />
 			</image>
 		</ImageView>
-		<ImageView fx:id="imgPokemonEntrenador" fitHeight="247.0" fitWidth="250.0" layoutX="173.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fx:id="imgPokemonEntrenador" fitHeight="247.0"
+			fitWidth="250.0" layoutX="173.0" layoutY="320.0" pickOnBounds="true"
+			preserveRatio="true">
 			<image>
-				<Image url="@../../../ProyectoPokemon/img/Pokemon/Front/052.png" />
+				<Image
+					url="@../../../ProyectoPokemon/img/Pokemon/Front/052.png" />
 			</image>
 		</ImageView>
-		<ImageView fx:id="imgPokemonSalvaje" fitHeight="152.0" fitWidth="172.0" layoutX="509.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fx:id="imgPokemonSalvaje" fitHeight="152.0"
+			fitWidth="172.0" layoutX="509.0" layoutY="257.0" pickOnBounds="true"
+			preserveRatio="true">
 			<image>
-				<Image url="@../../../ProyectoPokemon/img/Pokemon/Front/041.png" />
+				<Image
+					url="@../../../ProyectoPokemon/img/Pokemon/Front/041.png" />
 			</image>
 		</ImageView>
 
 		<!-- Barras de vida -->
-		<ProgressBar fx:id="barraVidaEntrenador" layoutX="173.0" layoutY="295.0" prefHeight="20.0" prefWidth="200.0" progress="1.0" />
-		<ProgressBar fx:id="barraVidaSalvaje" layoutX="509.0" layoutY="230.0" prefHeight="20.0" prefWidth="200.0" progress="1.0" />
+		<ProgressBar fx:id="barraVidaEntrenador" layoutX="173.0"
+			layoutY="295.0" prefHeight="20.0" prefWidth="200.0" progress="1.0" />
+		<ProgressBar fx:id="barraVidaSalvaje" layoutX="509.0"
+			layoutY="230.0" prefHeight="20.0" prefWidth="200.0" progress="1.0" />
 
-		<ImageView fx:id="btnSalir" fitHeight="48.0" fitWidth="39.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke" pickOnBounds="true" preserveRatio="true">
+		<ImageView fx:id="btnSalir" fitHeight="48.0" fitWidth="39.0"
+			layoutX="14.0" layoutY="14.0" onMouseClicked="#salirMenupoke"
+			pickOnBounds="true" preserveRatio="true">
 			<image>
 				<Image url="@../../img/imagenesExtra/casa-icono-silueta.png" />
 			</image>
 		</ImageView>
 
 		<!-- Botones de ataque -->
-		<Button fx:id="botonAtaque1" layoutX="222.0" layoutY="508.0" onAction="#usarAtaque1" prefHeight="58.0" prefWidth="281.0" text="Gruñido (35/35)" />
-		<Button fx:id="botonAtaque2" layoutX="507.0" layoutY="508.0" onAction="#usarAtaque2" prefHeight="58.0" prefWidth="281.0" text="Placaje (30/30)" />
-		<Button fx:id="botonAtaque3" layoutX="222.0" layoutY="567.0" onAction="#usarAtaque3" prefHeight="58.0" prefWidth="282.0" text="Mordisco (25/25)" />
-		<Button fx:id="botonAtaque4" layoutX="507.0" layoutY="567.0" onAction="#usarAtaque4" prefHeight="58.0" prefWidth="282.0" text="Ataque4" />
+		<Button fx:id="botonAtaque1" layoutX="222.0" layoutY="508.0"
+			onAction="#usarAtaque1" prefHeight="58.0" prefWidth="281.0"
+			text="Gruñido (35/35)" />
+		<Button fx:id="botonAtaque2" layoutX="507.0" layoutY="508.0"
+			onAction="#usarAtaque2" prefHeight="58.0" prefWidth="281.0"
+			text="Placaje (30/30)" />
+		<Button fx:id="botonAtaque3" layoutX="222.0" layoutY="567.0"
+			onAction="#usarAtaque3" prefHeight="58.0" prefWidth="282.0"
+			text="Mordisco (25/25)" />
+		<Button fx:id="botonAtaque4" layoutX="507.0" layoutY="567.0"
+			onAction="#usarAtaque4" prefHeight="58.0" prefWidth="282.0"
+			text="Ataque4" />
 
-		<Label fx:id="lblTurnos" layoutX="661.0" layoutY="53.0" text="Turno actual" />
+		<Label fx:id="lblTurnos" layoutX="661.0" layoutY="53.0"
+			text="Turno actual" />
+		<Button fx:id="btnBolsa" layoutX="34.0" layoutY="575.0"
+			mnemonicParsing="false" prefHeight="58.0" prefWidth="115.0"
+			text="Bolsa" onAction="#abrirMenuObjetos" />
+
+		<Button fx:id="btnEquipo" layoutX="34.0" layoutY="508.0"
+			mnemonicParsing="false" prefHeight="58.0" prefWidth="115.0"
+			text="Equipo" onAction="#abrirSelectorDePokemon" />
+
 	</children>
 </AnchorPane>

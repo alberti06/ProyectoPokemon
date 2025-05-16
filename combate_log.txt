@@ -8,3 +8,6 @@
 ¡Ha comenzado un combate entre Bulbasaur y Beedrill!
 ¡Ha comenzado un combate entre Bulbasaur y Fearow!
 ¡Ha comenzado un combate entre Bulbasaur y Dugtrio!
+¡Ha comenzado un combate entre Charmander y Parasect!
+¡Ha comenzado un combate entre Charmander y Vileplume!
+¡Ha comenzado un combate entre Bulbasaur y Wigglytuff!

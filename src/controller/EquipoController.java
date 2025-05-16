@@ -55,12 +55,13 @@ public class EquipoController {
     Button btnCaja;
 
     public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
-        this.menuController = menuController;
-        this.stage = stage;
         this.entrenador = entrenador;
+        this.stage = stage;
+        this.menuController = menuController;
         this.loginController = loginController;
-        cargarEquipo();
+        cargarEquipo(); 
     }
+
 
     public void setCombateController(CombateController combateController) {
         this.combateController = combateController;

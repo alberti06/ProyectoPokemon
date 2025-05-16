@@ -139,7 +139,12 @@ public class BolsaController {
     
     @FXML 
     private Spinner<Integer> spinnerPokeball;
-    
+    private CombateController combateController;
+
+    public void setCombateController(CombateController combateController) {
+        this.combateController = combateController;
+    }
+
 
     public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
         this.entrenador = entrenador;
