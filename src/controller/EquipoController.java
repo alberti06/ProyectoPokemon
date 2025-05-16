@@ -28,7 +28,8 @@ public class EquipoController {
     private Stage stage;
     private Entrenador entrenador;
     private LoginController loginController;
-
+    private CombateController combateController;
+    
     @FXML private ProgressBar barPokemon1, barPokemon2, barPokemon3, barPokemon4, barPokemon5, barPokemon6;
     @FXML private ImageView btnSalir;
     @FXML private AnchorPane imgFondo;
@@ -37,6 +38,9 @@ public class EquipoController {
     @FXML private Label lblPS2, lblPS3, lblPS4, lblPS5, lblPS6, lblPs1;
     @FXML private Label lblNivel1, lblNivel2, lblNivel3, lblNivel4, lblNivel5, lblNivel6;
     @FXML private Button btnCaja;
+    
+
+  
 
     public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
         this.menuController = menuController;
@@ -45,7 +49,9 @@ public class EquipoController {
         this.loginController = loginController;
         cargarEquipo();
     }
-
+    public void setCombateController(CombateController combateController) {
+        this.combateController = combateController;
+    }
     private void cargarImagen(ImageView imageView, String nombreArchivo) {
         String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Front/" + nombreArchivo;
         File archivo = new File(ruta);
@@ -122,11 +128,11 @@ public class EquipoController {
             cajaStage.setScene(new Scene(root));
             cajaStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
 
-            // ✅ PASA THIS → EquipoController
+         
             cajaController.init(entrenador, cajaStage, this);
 
             cajaStage.show();
-            stage.close(); // cerrar la ventana del equipo
+            stage.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

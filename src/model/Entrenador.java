@@ -100,6 +100,19 @@ public class Entrenador {
         }
         return pokemons.get(0); // Devuelve el primero aunque no esté en equipo 1
     }
+    public Pokemon getPokemonDeEquipo(int posicion) {
+        if (pokemons == null || pokemons.isEmpty()) {
+            throw new IllegalStateException("El entrenador no tiene ningún Pokémon.");
+        }
+
+        for (Pokemon p : pokemons) {
+            if (p.getEquipo() == posicion) {
+                return p;
+            }
+        }
+
+        throw new IllegalArgumentException("No hay Pokémon en la posición de equipo: " + posicion);
+    }
 
     @Override
     public String toString() {
