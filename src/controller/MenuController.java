@@ -275,25 +275,21 @@ public class MenuController {
     @FXML
     void abrirPokedex(MouseEvent event) {
     	try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Pokedex.fxml"));
-            Parent root = loader.load();
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Pokedex.fxml"));
+    		Parent root = loader.load();
 
-            PokedexController pokedexController = loader.getController();
-            
-            Stage confStage = new Stage(); // <-- crea primero la nueva ventana
-            pokedexController.init(entrenador, confStage, this, loginController); // <-- pasar confStage aquí
+    		PokedexController pokedexController = loader.getController(); 
+    		Scene scene = new Scene(root);
+    		Stage pokedexStage = new Stage();
 
-            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            confStage.setTitle("Pokedex");
-            confStage.setScene(new Scene(root));
-            confStage.setResizable(false);
-            confStage.show();
-
-            this.stage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    		pokedexStage.setScene(scene);
+    		pokedexStage.setTitle("Pokédex");
+    		pokedexController.init(entrenador, pokedexStage, this, loginController);
+    		pokedexStage.show();
+    		
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
     }
     
     @FXML

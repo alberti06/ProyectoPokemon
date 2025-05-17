@@ -971,3 +971,21 @@ Metapod contraatacó e hizo 25 de daño.
 [2025-05-17 14:03:21] Has usado Pesa sobre Squirtle
 [2025-05-17 14:04:56] ¡Ha comenzado un combate entre Squirtle y Charmeleon!
 [2025-05-17 14:04:58] Has usado Pesa sobre Squirtle
+[2025-05-17 15:47:51] ¡Ha comenzado un combate entre Squirtle y Sandslash!
+[2025-05-17 15:47:55] ✅ ¡Beedrill ha sido enviado al combate!
+[2025-05-17 15:47:58] ✅ ¡Squirtle ha sido enviado al combate!
+[2025-05-17 15:52:54] ¡Ha comenzado un combate entre Charmander y Nidoran♂!
+[2025-05-17 15:52:56] ✅ ¡Nidorina ha sido enviado al combate!
+[2025-05-17 15:52:57] ✅ ¡Charmander ha sido enviado al combate!
+[2025-05-17 15:53:00] ¡Ha comenzado un combate entre Charmander y Sandshrew!
+[2025-05-17 15:54:09] ¡Ha comenzado un combate entre Charmander y Pidgeot!
+[2025-05-17 15:54:12] ✅ ¡Charmander ha sido enviado al combate!
+[2025-05-17 15:54:13] Has usado Éter sobre Charmander
+[2025-05-17 15:54:15] Charmander usó Placaje e hizo 40 de daño.
+Pidgeot contraatacó e hizo 25 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 15:54:25] ✅ ¡Nidorina ha sido enviado al combate!
+[2025-05-17 15:54:28] Has usado Éter sobre Nidorina
+[2025-05-17 15:54:30] Nidorina usó Placaje e hizo 40 de daño.
+¡Pidgeot se ha debilitado!
+¡Ha aparecido un nuevo Jigglypuff salvaje!
