@@ -52,4 +52,25 @@ public class ObjetoDAO {
         }
         return lista;
     }
+    public static boolean restarObjeto(int idEntrenador, String objeto) {
+        String sql = """
+            UPDATE MOCHILA
+            SET CANTIDAD = CANTIDAD - 1
+            WHERE ID_ENTRENADOR = ? AND NOM_OBJETO = ? AND CANTIDAD > 0
+        """;
+
+        try (Connection con = ConexionBD.conectar();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, idEntrenador);
+            ps.setString(2, objeto.toLowerCase());
+
+            int filasAfectadas = ps.executeUpdate();
+            return filasAfectadas > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

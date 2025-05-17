@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
@@ -23,89 +24,113 @@ import java.sql.*;
 import java.util.*;
 
 import dao.ConexionBD;
+import dao.PokemonDAO;
 
 public class CombateController {
-
+	private List<String> nombresObjetos = new ArrayList<>();
+	private List<Integer> idsObjetos = new ArrayList<>();
 	private MenuController menuController;
 	private Stage stage;
 	private Entrenador entrenador;
 	private LoginController loginController;
 	private Pokemon pokemonSalvaje;
+	private Pokemon pokemonAliado;
 	private List<Ataque> ataquesJugador = new ArrayList<>();
+	private Stage stageBolsa;
+	private Stage stageEquipo;
 
 	@FXML
 	private AnchorPane anchorpane;
-
 	@FXML
 	private ImageView btnSalir;
-
+    @FXML
+    private ChoiceBox<Pokemon> chcEquipo;
+    @FXML
+    private ChoiceBox<String> chcObjetos;
 	@FXML
 	private ImageView imgPokemonEntrenador;
-
 	@FXML
 	private ImageView imgPokemonSalvaje;
-
 	@FXML
 	private ImageView imgSuelo1;
-
 	@FXML
 	private ImageView imgSuelo2;
-
+	@FXML
+	private Button btnusarObjetoCombate;
 	@FXML
 	private Button botonAtaque1;
-
 	@FXML
 	private Button botonAtaque2;
-
 	@FXML
 	private Button botonAtaque3;
-
 	@FXML
 	private Button botonAtaque4;
-
 	@FXML
 	private Label lblTurnos;
-
 	@FXML
 	private ProgressBar barraVidaEntrenador;
-
 	@FXML
 	private ProgressBar barraVidaSalvaje;
+
 	private final String RUTA_LOG = "./combate_log.txt";
 
-	public void init(Entrenador entrenador, Stage stage, MenuController menuController,
-			LoginController loginController) {
-		this.entrenador = entrenador;
-		this.stage = stage;
-		this.menuController = menuController;
-		this.loginController = loginController;
+	public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
+	    this.entrenador = entrenador;
+	    this.stage = stage;
+	    this.menuController = menuController;
+	    this.loginController = loginController;
+	    this.entrenador.setPokemons(PokemonDAO.obtenerEquipo(entrenador.getIdentrenador()));
+	    this.pokemonAliado = entrenador.getPrimerPokemon();
+	    if (this.pokemonAliado == null) {
+	        System.err.println("❌ El entrenador no tiene ningún Pokémon en el equipo.");
+	        return;
+	    }
+	   
+	    cargarObjetosDisponibles();
+	    inicializarChoiceBoxEquipo();
+	    generarPokemonSalvaje();
+	    cargarAtaquesDesdeBD();
+	    actualizarBotones();
+	    actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
+	    actualizarImagenPokemonEntrenador(entrenador.getPrimerPokemon().getNumPokedex());
+	    actualizarBarrasVida();
 
-		generarPokemonSalvaje();
+	    log("¡Ha comenzado un combate entre " + entrenador.getPrimerPokemon().getNombre() + " y " + pokemonSalvaje.getNombre() + "!");
+	}
 
-		cargarAtaquesDesdeBD();
 
-		actualizarBotones();
+	public void mostrarEquipoConVida() {
+	    List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
 
-		actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
-		actualizarImagenPokemonEntrenador(entrenador.getPrimerPokemon().getNumPokedex());
-		actualizarBarrasVida();
+	    if (equipo == null || equipo.isEmpty()) {
+	        System.out.println("No hay Pokémon en el equipo.");
+	        return;
+	    }
 
-		// Texto inicial
-		log("¡Ha comenzado un combate entre " + entrenador.getPrimerPokemon().getNombre() + " y "
-				+ pokemonSalvaje.getNombre() + "!");
+	    System.out.println("Pokémon del equipo:");
+	    for (Pokemon p : equipo) {
+	        String info = p.getNombre() + " (Nv. " + p.getNivel() + ", PS: " + p.getVidaActual() + "/" + p.getVitalidad() + ")";
+	        System.out.println(info);
+	    }
+	}
+
+
+	private String formatoBoton(Ataque atk) {
+		return atk.getNombre() + " (" + atk.getPpActual() + "/" + atk.getPpMax() + ")";
 	}
 
 	private void cargarAtaquesDesdeBD() {
 		ataquesJugador.clear();
 		try (Connection con = ConexionBD.conectar()) {
 			PreparedStatement ps = con.prepareStatement("""
-					    SELECT m.ID_MOVIMIENTO, m.NOM_MOVIMIENTO, m.NIVEL_APRENDIZAJE, m.PP_MAX,
-					           mp.PP_ACTUALES, m.TIPO, m.POTENCIA, m.TIPO_MOV, m.ESTADO, m.TURNOS, m.MEJORA, m.NUM
-					    FROM MOVIMIENTO_POKEMON mp
-					    JOIN MOVIMIENTOS m ON mp.ID_MOVIMIENTO = m.ID_MOVIMIENTO
-					    WHERE mp.ID_POKEMON = ? LIMIT 4
+						SELECT m.ID_MOVIMIENTO, m.NOM_MOVIMIENTO, m.NIVEL_APRENDIZAJE, m.PP_MAX,
+						       mp.PP_ACTUALES, m.TIPO, m.POTENCIA, m.TIPO_MOV, m.ESTADO, m.TURNOS, m.MEJORA, m.NUM
+						FROM MOVIMIENTO_POKEMON mp
+						JOIN MOVIMIENTOS m ON mp.ID_MOVIMIENTO = m.ID_MOVIMIENTO
+						WHERE mp.ID_POKEMON = ? LIMIT 4
 					""");
-			ps.setInt(1, entrenador.getPrimerPokemon().getId());
+
+			ps.setInt(1, pokemonAliado.getId());
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -116,92 +141,22 @@ public class CombateController {
 						rs.getObject("TURNOS") != null ? rs.getInt("TURNOS") : null, rs.getString("MEJORA"),
 						rs.getObject("NUM") != null ? rs.getInt("NUM") : null);
 				ataquesJugador.add(atk);
-				System.out.println("Añadido ataque: " + atk.getNombre());
 			}
 
-			System.out.println("Total ataques cargados: " + ataquesJugador.size());
 			if (ataquesJugador.isEmpty()) {
-				System.out.println("🛠 Añadiendo ataques de emergencia al Pokémon.");
 				ataquesJugador.add(new Ataque(1, "Placaje", 1, 30, 30, "ATAQUE", 40, "Normal", null, null, null, null));
-
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public void volverDeBolsa() {
-	    System.out.println("Volviendo al combate");
-	    cargarAtaquesDesdeBD();
-	    actualizarBotones();
-	    actualizarBarrasVida();
-	    log("Has vuelto del menú de objetos.");
-	}
-
-	public void abrirBolsaCombate() {
-	    try {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/BolsaCombate.fxml"));
-	        Parent root = loader.load();
-	        BolsaCombateController bolsaCombateController = loader.getController();
-
-	        Stage stageBolsa = new Stage();
-	        stageBolsa.setScene(new Scene(root));
-	        stageBolsa.setTitle("Bolsa de combate");
-	        stageBolsa.setResizable(false);
-
-	        bolsaCombateController.init(entrenador, stageBolsa, menuController, loginController);
-	        bolsaCombateController.setCombateController(this); // para volver al combate
-
-	        stageBolsa.show();
-
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	}
-
-
-	private void generarPokemonSalvaje() {
-		try (Connection con = ConexionBD.conectar()) {
-			Random rand = new Random();
-			int nivelEntrenador = entrenador.getPrimerPokemon().getNivel();
-			int nivelSalvaje = nivelEntrenador + rand.nextInt(11) - 5;
-			if (nivelSalvaje < 1)
-				nivelSalvaje = 1;
-
-			PreparedStatement ps = con.prepareStatement("""
-					    SELECT p.NUM_POKEDEX, p.NOM_POKEMON, p.TIPO1, p.TIPO2, p.IMG_FRONTAL, p.IMG_TRASERA,
-					           p.SONIDO, p.NIVEL_EVOLUCION
-					    FROM POKEDEX p
-					    ORDER BY RAND()
-					    LIMIT 1
-					""");
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
-				String nombre = rs.getString("NOM_POKEMON");
-				double escalado = obtenerEscalado(nivelEntrenador, nivelSalvaje);
-				int vida = (int) (50 * escalado);
-				int atk = (int) (25 * escalado);
-
-				pokemonSalvaje = new Pokemon(rs.getInt("NUM_POKEDEX"), nombre, nivelSalvaje, vida, atk);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	private double obtenerEscalado(int nivelJugador, int nivelSalvaje) {
-		int diff = nivelSalvaje - nivelJugador;
-		if (diff > 0)
-			return Math.min(1.0 + diff * 0.1, 1.5);
-		else if (diff < 0)
-			return Math.max(1.0 + diff * 0.04, 0.8);
-		else
-			return 1.0;
 	}
 
 	private void log(String mensaje) {
+		String timestamp = java.time.LocalDateTime.now()
+				.format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+		String msg = "[" + timestamp + "] " + mensaje;
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(RUTA_LOG, true))) {
-			writer.write(mensaje);
+			writer.write(msg);
 			writer.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -209,7 +164,6 @@ public class CombateController {
 		lblTurnos.setText(mensaje);
 	}
 
-	// MÉTODOS DE ATAQUE
 	@FXML
 	void usarAtaque1() {
 		ejecutarAtaque(0);
@@ -231,6 +185,7 @@ public class CombateController {
 	}
 
 	private void ejecutarAtaque(int index) {
+		
 		if (index >= ataquesJugador.size())
 			return;
 		Ataque atk = ataquesJugador.get(index);
@@ -238,202 +193,381 @@ public class CombateController {
 			lblTurnos.setText("¡No quedan PP para ese ataque!");
 			return;
 		}
-
-		Pokemon jugador = entrenador.getPrimerPokemon();
-
 		atk.reducirPP();
-		pokemonSalvaje.reducirVida(atk.getPotencia());
-		log(jugador.getNombre() + " ha usado " + atk.getNombre());
+		switch (index) {
+		case 0 -> botonAtaque1.setText(formatoBoton(atk));
+		case 1 -> botonAtaque2.setText(formatoBoton(atk));
+		case 2 -> botonAtaque3.setText(formatoBoton(atk));
+		case 3 -> botonAtaque4.setText(formatoBoton(atk));
+		}
+		int dañoHecho = atk.getPotencia();
+		pokemonSalvaje.reducirVida(dañoHecho);
+		String mensaje = pokemonAliado.getNombre() + " usó " + atk.getNombre() + " e hizo " + dañoHecho + " de daño.\n";
+		if (entrenador.getPrimerPokemon().estaDebilitado()) {
+		    mensaje += "¡" + pokemonAliado.getNombre() + " se ha debilitado!\n";
 
-		actualizarBotones();
+		    if (!cambiarASiguientePokemonDisponible()) {
+		        mensaje += "¡No quedan Pokémon disponibles! Has perdido el combate.";
+		        log(mensaje.trim());
+				try {
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
+					Parent root = loader.load();
+					menuController = loader.getController();
+					Scene sc = new Scene(root);
+					Stage st = new Stage();
+					st.setTitle("Proyecto Pokemon los 3 mosqueteros");
+					st.setScene(sc);
+					menuController.init(entrenador, st, loginController);
+					st.show();
+					this.stage.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}	    }
+		}
 
+		actualizarBarrasVida();
 		if (pokemonSalvaje.estaDebilitado()) {
-			log("¡" + pokemonSalvaje.getNombre() + " se ha debilitado!");
+			mensaje += "¡" + pokemonSalvaje.getNombre() + " se ha debilitado!\n";
+			generarPokemonSalvaje();
+			actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
+			pokemonSalvaje.setVidaActual(pokemonSalvaje.getVitalidad());
+			actualizarBarrasVida();
+			mensaje += "¡Ha aparecido un nuevo " + pokemonSalvaje.getNombre() + " salvaje!\n";
 		} else {
-			turnoEnemigo();
+			int dañoEnemigo = turnoEnemigo();
+			mensaje += pokemonSalvaje.getNombre() + " contraatacó e hizo " + dañoEnemigo + " de daño.\n";
+			if (pokemonAliado.estaDebilitado()) {
+				mensaje += "¡" + pokemonAliado.getNombre() + " se ha debilitado!";
+			}
+		}
+		actualizarBarrasVida();
+		log(mensaje.trim());
+		
+	}
+
+	private int turnoEnemigo() {
+		int daño = pokemonSalvaje.getAtaque();
+		pokemonAliado.reducirVida(daño);
+		actualizarBarrasVida();
+		return daño;
+	}
+
+	private void generarPokemonSalvaje() {
+		try (Connection con = ConexionBD.conectar()) {
+			Random rand = new Random();
+			int nivelJugador = pokemonAliado.getNivel();
+			int nivelSalvaje = Math.max(1, nivelJugador + rand.nextInt(11) - 5);
+			PreparedStatement ps = con.prepareStatement("""
+						SELECT NUM_POKEDEX, NOM_POKEMON, IMG_FRONTAL, IMG_TRASERA, SONIDO, TIPO1, TIPO2, NIVEL_EVOLUCION
+						FROM POKEDEX
+						ORDER BY RAND()
+						LIMIT 1
+					""");
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				String nombre = rs.getString("NOM_POKEMON");
+				double escalado = obtenerEscalado(nivelJugador, nivelSalvaje);
+				int vitalidad = (int) (50 * escalado);
+				int ataque = (int) (25 * escalado);
+				pokemonSalvaje = new Pokemon(rs.getInt("NUM_POKEDEX"), nombre, nivelSalvaje, vitalidad, ataque);
+				pokemonSalvaje.setVidaActual(vitalidad);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 
-	private void turnoEnemigo() {
-		int daño = pokemonSalvaje.getAtaque();
-		entrenador.getPrimerPokemon().reducirVida(daño);
-		log(pokemonSalvaje.getNombre() + " ha atacado con fuerza");
+	private double obtenerEscalado(int nivelJugador, int nivelSalvaje) {
+		int diff = nivelSalvaje - nivelJugador;
+		if (diff > 0)
+			return Math.min(1.0 + diff * 0.1, 1.5);
+		else if (diff < 0)
+			return Math.max(1.0 + diff * 0.04, 0.8);
+		else
+			return 1.0;
+	}
 
-		if (entrenador.getPrimerPokemon().estaDebilitado()) {
-			log("¡" + entrenador.getPrimerPokemon().getNombre() + " se ha debilitado!");
+	private void actualizarBotones() {
+		Button[] botones = { botonAtaque1, botonAtaque2, botonAtaque3, botonAtaque4 };
+		for (int i = 0; i < botones.length; i++) {
+			if (i < ataquesJugador.size()) {
+				Ataque atk = ataquesJugador.get(i);
+				botones[i].setText(atk.getNombre() + " (" + atk.getPpActual() + "/" + atk.getPpMax() + ")");
+			} else {
+				botones[i].setText("—");
+			}
 		}
+	}
+
+	private void actualizarImagenPokemonEntrenador(int id) {
+		String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Back/" + String.format("%03d", id) + "_back.png";
+		File f = new File(ruta);
+		imgPokemonEntrenador.setImage(f.exists() ? new Image(f.toURI().toString()) : null);
+	}
+
+	private void actualizarImagenPokemonSalvaje(int id) {
+		String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Front/" + String.format("%03d", id) + ".png";
+		File f = new File(ruta);
+		imgPokemonSalvaje.setImage(f.exists() ? new Image(f.toURI().toString()) : null);
+	}
+
+	private void actualizarBarrasVida() {
+		int vidaMaxAliado = pokemonAliado.getVitalidad();
+		int vidaActualAliado = pokemonAliado.getVidaActual();
+		double porcentajeAliado = vidaMaxAliado > 0 ? (double) vidaActualAliado / vidaMaxAliado : 0;
+		barraVidaEntrenador.setProgress(Math.max(0.0, Math.min(1.0, porcentajeAliado)));
+		barraVidaEntrenador.setStyle(colorPorcentaje(porcentajeAliado));
+		int vidaMaxEnemigo = pokemonSalvaje.getVitalidad();
+		int vidaActualEnemigo = pokemonSalvaje.getVidaActual();
+		double porcentajeEnemigo = vidaMaxEnemigo > 0 ? (double) vidaActualEnemigo / vidaMaxEnemigo : 0;
+		barraVidaSalvaje.setProgress(Math.max(0.0, Math.min(1.0, porcentajeEnemigo)));
+		barraVidaSalvaje.setStyle(colorPorcentaje(porcentajeEnemigo));
+	}
+
+	private String colorPorcentaje(double p) {
+		if (p >= 0.5)
+			return "-fx-accent: #00cc00;";
+		if (p >= 0.3)
+			return "-fx-accent: #ffcc00;";
+		return "-fx-accent: #cc0000;";
 	}
 
 	@FXML
-	void salirMenupoke() {
+	void salirMenupoke(MouseEvent event) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuPrincipal.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
 			Parent root = loader.load();
 			menuController = loader.getController();
 			Scene sc = new Scene(root);
 			Stage st = new Stage();
-			st.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
 			st.setTitle("Proyecto Pokemon los 3 mosqueteros");
 			st.setScene(sc);
 			menuController.init(entrenador, st, loginController);
 			st.show();
 			this.stage.close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
-	private void actualizarBotones() {
-		if (botonAtaque1 != null) {
-			if (ataquesJugador.size() > 0 && ataquesJugador.get(0) != null)
-				botonAtaque1.setText(formatoBoton(ataquesJugador.get(0)));
-			else
-				botonAtaque1.setText("—");
-		}
-
-		if (botonAtaque2 != null) {
-			if (ataquesJugador.size() > 1 && ataquesJugador.get(1) != null)
-				botonAtaque2.setText(formatoBoton(ataquesJugador.get(1)));
-			else
-				botonAtaque2.setText("—");
-		}
-
-		if (botonAtaque3 != null) {
-			if (ataquesJugador.size() > 2 && ataquesJugador.get(2) != null)
-				botonAtaque3.setText(formatoBoton(ataquesJugador.get(2)));
-			else
-				botonAtaque3.setText("—");
-		}
-
-		if (botonAtaque4 != null) {
-			if (ataquesJugador.size() > 3 && ataquesJugador.get(3) != null)
-				botonAtaque4.setText(formatoBoton(ataquesJugador.get(3)));
-			else
-				botonAtaque4.setText("—");
-		}
-	}
-
-	private String formatoBoton(Ataque atk) {
-		return atk.getNombre() + " (" + atk.getPpActual() + "/" + atk.getPpMax() + ")";
-	}
-
-	// Cambia la imagen del Pokémon del jugador
-	private void actualizarImagenPokemonEntrenador(int idPokemon) {
-		String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Back/" + String.format("%03d", idPokemon) + "_back.png";
-		File file = new File(ruta);
-		if (file.exists()) {
-			imgPokemonEntrenador.setImage(new Image(file.toURI().toString()));
-		} else {
-			File defaultFile = new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/default.png");
-			if (defaultFile.exists()) {
-				imgPokemonEntrenador.setImage(new Image(defaultFile.toURI().toString()));
-			} else {
-				System.err.println(" Imagen por defecto tampoco encontrada.");
-			}
-		}
-	}
-
-	// Cambia la imagen del Pokémon salvaje
-	private void actualizarImagenPokemonSalvaje(int idPokemon) {
-		String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Front/" + String.format("%03d", idPokemon) + ".png";
-		System.out.println("🌿 Ruta generada para imagen salvaje: " + ruta);
-		File file = new File(ruta);
-		if (file.exists()) {
-			System.out.println(" Imagen encontrada.");
-			imgPokemonSalvaje.setImage(new Image(file.toURI().toString()));
-		} else {
-			System.out.println(" Imagen no encontrada, buscando imagen por defecto.");
-			File defaultFile = new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/default.png");
-			if (defaultFile.exists()) {
-				imgPokemonSalvaje.setImage(new Image(defaultFile.toURI().toString()));
-				System.out.println(" Imagen por defecto cargada.");
-			} else {
-				System.err.println(" Imagen por defecto tampoco encontrada.");
-			}
-		}
-	}
-
-	// Cambia el Pokémon del jugador en combate
-	public void intercambiarPrimerPokemon(int indiceOtro) {
-		List<Pokemon> equipo = entrenador.getPokemons(); // obtener la lista desde el objeto Entrenador
-		if (indiceOtro < 0 || indiceOtro >= equipo.size())
-			return;
-
-		Pokemon temp = equipo.get(0);
-		equipo.set(0, equipo.get(indiceOtro));
-		equipo.set(indiceOtro, temp);
-	}
-
-	// Abre una ventana para seleccionar otro Pokémon
-	public void abrirSelectorDePokemon() {
+	@FXML
+	void salirMenupokeForzado() {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Equipo.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
 			Parent root = loader.load();
-			EquipoController equipoController = loader.getController();
-
-			Stage selectorStage = new Stage(); // Primero creamos el Stage
-			selectorStage.setScene(new Scene(root));
-			selectorStage.setTitle("Cambiar Pokémon");
-			selectorStage.setResizable(false);
-
-			// Luego pasamos el stage y el resto de los parámetros
-			equipoController.init(entrenador, selectorStage, menuController, loginController);
-
-			selectorStage.show();
-
-		} catch (IOException e) {
+			menuController = loader.getController();
+			Scene sc = new Scene(root);
+			Stage st = new Stage();
+			st.setTitle("Proyecto Pokemon los 3 mosqueteros");
+			st.setScene(sc);
+			menuController.init(entrenador, st, loginController);
+			st.show();
+			this.stage.close();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	private boolean cambiarASiguientePokemonDisponible() {
+	    List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
 
-	public void cambiarPokemon(int posicion) {
-		List<Pokemon> equipo = entrenador.getPokemons();
-		if (posicion < 0 || posicion >= equipo.size())
-			return;
+	    for (int i = 1; i < equipo.size(); i++) { 
+	        Pokemon candidato = equipo.get(i);
+	        if (candidato.getVidaActual() > 0) {
+	        
+	            Collections.swap(equipo, 0, i);
+	            entrenador.setPokemons(equipo); 
+	            actualizarImagenPokemonEntrenador(candidato.getNumPokedex());
+	            cargarAtaquesDesdeBD();
+	            actualizarBotones();
+	            actualizarBarrasVida();
+	            log("¡" + candidato.getNombre() + " entra en combate!");
+	            return true;
+	        }
+	    }
 
-		if (equipo.get(0).getId() == equipo.get(posicion).getId())
-			return;
+	    return false; 
+	}
+	private void cambiarPokemonActivo(Pokemon nuevo) {
+	    if (nuevo == null) {
+	        log(" No se ha seleccionado ningún Pokémon.");
+	        return;
+	    }
 
-		Collections.swap(equipo, 0, posicion);
+	    if (nuevo.equals(pokemonAliado)) {
+	        log(" ¡Ese Pokémon ya está en combate!");
+	        return;
+	    }
 
-		cargarAtaquesDesdeBD();
-		actualizarBotones();
-		actualizarImagenPokemonEntrenador(entrenador.getPrimerPokemon().getNumPokedex());
-		actualizarBarrasVida();
+	    if (nuevo.getVidaActual() <= 0) {
+	        log(" No puedes enviar un Pokémon debilitado al combate.");
+	        return;
+	    }
 
-		log("¡" + entrenador.getPrimerPokemon().getNombre() + " ha entrado en combate!");
+	    this.pokemonAliado = nuevo;
+	    cargarAtaquesDesdeBD();
+	    actualizarBotones();
+	    actualizarImagenPokemonEntrenador(nuevo.getNumPokedex());
+	    actualizarBarrasVida();
+	    log("✅ ¡" + nuevo.getNombre() + " ha sido enviado al combate!");
 	}
 
-	public void abrirMenuObjetos() {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Bolsa.fxml"));
-			Parent root = loader.load();
-			BolsaController bolsaController = loader.getController();
 
-			Stage stageBolsa = new Stage();
-			stageBolsa.setScene(new Scene(root));
-			stageBolsa.setTitle("Bolsa");
-			stageBolsa.setResizable(false);
+	public void inicializarChoiceBoxEquipo() {
+	    List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
 
-			bolsaController.init(entrenador, stageBolsa, menuController, loginController);
-			bolsaController.setCombateController(this);
-			stageBolsa.show();
+	    chcEquipo.getItems().clear();
+	    chcEquipo.getItems().addAll(equipo);
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	    
+	    chcEquipo.setConverter(new javafx.util.StringConverter<>() {
+	        @Override
+	        public String toString(Pokemon p) {
+	            return p == null ? "" : p.getNombre() + " (Nv. " + p.getNivel() + " | PS: " + p.getVidaActual() + "/" + p.getVitalidad() + ")";
+	        }
+
+	        @Override
+	        public Pokemon fromString(String s) {
+	            return null;
+	        }
+	    });
+
+	    chcEquipo.setOnAction(e -> {
+	        Pokemon seleccionado = chcEquipo.getValue();
+	        cambiarPokemonActivo(seleccionado);
+	    });
 	}
 
-	private void actualizarBarrasVida() {
-	    Pokemon aliado = entrenador.getPrimerPokemon();
+	private void cargarObjetosDisponibles() {
+	    nombresObjetos.clear();
+	    idsObjetos.clear();
 
-	    double vidaMaxJugador = aliado.getVitalidad();
-	    double vidaActualJugador = aliado.getVidaActual();
-	    barraVidaEntrenador.setProgress(Math.max(0, vidaActualJugador / vidaMaxJugador));
+	    if (chcObjetos == null) {
+	        System.err.println("❌ ChoiceBox de objetos no está inicializado.");
+	        return;
+	    }
 
-	    double vidaMaxEnemigo = pokemonSalvaje.getVitalidad();
-	    double vidaActualEnemigo = pokemonSalvaje.getVidaActual();
-	    barraVidaSalvaje.setProgress(Math.max(0, vidaActualEnemigo / vidaMaxEnemigo));
+	    chcObjetos.getItems().clear();
+
+	    try (Connection con = ConexionBD.conectar()) {
+	        String query = """
+	            SELECT o.ID_OBJETO, o.NOM_OBJETO, m.NUMERO_OBJETOS
+	            FROM MOCHILA m
+	            JOIN OBJETO o ON m.ID_OBJETO = o.ID_OBJETO
+	            WHERE m.ID_ENTRENADOR = ? AND m.NUMERO_OBJETOS > 0
+	              AND LOWER(o.NOM_OBJETO) NOT LIKE 'pokeball'
+	        """;
+
+	        PreparedStatement ps = con.prepareStatement(query);
+	        ps.setInt(1, entrenador.getIdentrenador());
+
+	        ResultSet rs = ps.executeQuery();
+	        while (rs.next()) {
+	            int id = rs.getInt("ID_OBJETO");
+	            String nombre = rs.getString("NOM_OBJETO");
+	            int cantidad = rs.getInt("NUMERO_OBJETOS");
+
+	            idsObjetos.add(id);
+	            nombresObjetos.add(nombre);
+	            chcObjetos.getItems().add(nombre + ": " + cantidad);
+
+	            System.out.println(" Objeto cargado: " + nombre + ": " + cantidad);
+	        }
+
+	        if (chcObjetos.getItems().isEmpty()) {
+	            System.out.println(" No hay objetos disponibles.");
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
+
+	private int obtenerIdObjetoPorNombre(String nombre) {
+	    return switch (nombre.toLowerCase()) {
+	        case "pesa" -> 1;
+	        case "pluma" -> 2;
+	        case "chaleco" -> 3;
+	        case "bastón" -> 4;
+	        case "pilas" -> 5;
+	        case "éter" -> 6;
+	        case "anillo único" -> 7;
+	        default -> -1;
+	    };
+	}
+
+	private void aplicarEfectoObjeto(String nombre) {
+	    switch (nombre.toLowerCase()) {
+	        case "pesa" -> {
+	            pokemonAliado.setAtaque((int) (pokemonAliado.getAtaque() * 1.2));
+	            pokemonAliado.setDefensa((int) (pokemonAliado.getDefensa() * 1.2));
+	            pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 0.8));
+	        }
+	        case "pluma" -> {
+	            pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 1.3));
+	            pokemonAliado.setDefensa((int) (pokemonAliado.getDefensa() * 0.8));
+	            pokemonAliado.setDefEspecial((int) (pokemonAliado.getDefEspecial() * 0.8));
+	        }
+	        case "chaleco" -> {
+	            pokemonAliado.setDefensa((int) (pokemonAliado.getDefensa() * 1.2));
+	            pokemonAliado.setDefEspecial((int) (pokemonAliado.getDefEspecial() * 1.2));
+	            pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 0.85));
+	            pokemonAliado.setAtaque((int) (pokemonAliado.getAtaque() * 0.85));
+	        }
+	        case "bastón" -> {
+	            pokemonAliado.setVitalidad((int) (pokemonAliado.getVitalidad() * 1.2));
+	            pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 0.85));
+	        }
+	        case "pilas" -> {
+	            pokemonAliado.setVitalidad((int) (pokemonAliado.getVitalidad() * 1.5));
+	            pokemonAliado.setDefEspecial((int) (pokemonAliado.getDefEspecial() * 0.7));
+	        }
+	        case "éter" -> {
+	            if (!ataquesJugador.isEmpty()) {
+	                ataquesJugador.get(0).restaurarPP(); // o elegir el ataque con un ChoiceBox también
+	                actualizarBotones();
+	            }
+	        }
+	        case "anillo único" -> {
+	            log(pokemonAliado.getNombre() + " es invencible durante 3 turnos y su ataque se multiplica por 10.");
+	        }
+	    }
+	}
+
+	private void restarObjetoDeBD(int idObjeto) {
+	    try (Connection con = ConexionBD.conectar()) {
+	        PreparedStatement ps = con.prepareStatement("""
+	            UPDATE MOCHILA SET NUMERO_OBJETOS = NUMERO_OBJETOS - 1
+	            WHERE ID_ENTRENADOR = ? AND ID_OBJETO = ?
+	        """);
+	        ps.setInt(1, entrenador.getIdentrenador());
+	        ps.setInt(2, idObjeto);
+	        ps.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
+	@FXML
+	void usarObjetoSeleccionado() {
+	    String seleccionado = chcObjetos.getValue();
+	    if (seleccionado == null || !seleccionado.contains(":")) {
+	        log("Selecciona un objeto válido.");
+	        return;
+	    }
+
+	    String nombreObjeto = seleccionado.split(":")[0].trim();
+	    int idObjeto = obtenerIdObjetoPorNombre(nombreObjeto);
+
+	    if (idObjeto == -1) {
+	        log("Objeto no reconocido.");
+	        return;
+	    }
+
+	    aplicarEfectoObjeto(nombreObjeto);
+	    restarObjetoDeBD(idObjeto);
+
+	    log("Has usado " + nombreObjeto + " sobre " + pokemonAliado.getNombre());
+	    actualizarBarrasVida();
+	    cargarObjetosDisponibles(); // <-- Para recargar el ChoiceBox
+	}
+
 
 }

@@ -15,3 +15,959 @@
 ¡Ha comenzado un combate entre Charmander y Dratini!
 ¡Ha comenzado un combate entre Charmander y Golbat!
 ¡Ha comenzado un combate entre Charmander y Nidoqueen!
+¡Ha comenzado un combate entre Bulbasaur y Dratini!
+¡Ha comenzado un combate entre Bulbasaur y Raichu!
+¡Ha comenzado un combate entre Bulbasaur y Fearow!
+¡Ha comenzado un combate entre Charmander y Dragonite!
+¡Ha comenzado un combate entre Bulbasaur y Wartortle!
+¡Ha comenzado un combate entre Bulbasaur y Jigglypuff!
+¡Ha comenzado un combate entre Bulbasaur y Bulbasaur!
+[2025-05-17 11:43:51] ¡Ha comenzado un combate entre Bulbasaur y Beedrill!
+[2025-05-17 11:46:08] ¡Ha comenzado un combate entre Squirtle y Arbok!
+[2025-05-17 11:49:48] ¡Ha comenzado un combate entre Squirtle y Parasect!
+[2025-05-17 11:54:11] ¡Ha comenzado un combate entre Charmander y Rattata!
+[2025-05-17 11:58:31] ¡Ha comenzado un combate entre Charmander y Golbat!
+[2025-05-17 12:09:14] ¡Ha comenzado un combate entre Charmander y Dugtrio!
+[2025-05-17 12:09:16] Charmander ha usado Placaje
+[2025-05-17 12:09:16] Dugtrio ha atacado con fuerza
+[2025-05-17 12:09:19] Charmander ha usado Placaje
+[2025-05-17 12:09:19] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:25] Charmander ha usado Placaje
+[2025-05-17 12:09:25] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:25] Charmander ha usado Placaje
+[2025-05-17 12:09:25] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:26] Charmander ha usado Placaje
+[2025-05-17 12:09:26] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:26] Charmander ha usado Placaje
+[2025-05-17 12:09:26] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:26] Charmander ha usado Placaje
+[2025-05-17 12:09:26] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:26] Charmander ha usado Placaje
+[2025-05-17 12:09:26] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:27] Charmander ha usado Placaje
+[2025-05-17 12:09:27] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:27] Charmander ha usado Placaje
+[2025-05-17 12:09:27] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:27] Charmander ha usado Placaje
+[2025-05-17 12:09:27] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:27] Charmander ha usado Placaje
+[2025-05-17 12:09:27] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:27] Charmander ha usado Placaje
+[2025-05-17 12:09:27] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:28] Charmander ha usado Placaje
+[2025-05-17 12:09:28] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:28] Charmander ha usado Placaje
+[2025-05-17 12:09:28] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:28] Charmander ha usado Placaje
+[2025-05-17 12:09:28] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:28] Charmander ha usado Placaje
+[2025-05-17 12:09:28] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:28] Charmander ha usado Placaje
+[2025-05-17 12:09:28] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:28] Charmander ha usado Placaje
+[2025-05-17 12:09:28] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:28] Charmander ha usado Placaje
+[2025-05-17 12:09:28] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:29] Charmander ha usado Placaje
+[2025-05-17 12:09:29] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:29] Charmander ha usado Placaje
+[2025-05-17 12:09:29] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:29] Charmander ha usado Placaje
+[2025-05-17 12:09:29] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:29] Charmander ha usado Placaje
+[2025-05-17 12:09:29] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:29] Charmander ha usado Placaje
+[2025-05-17 12:09:29] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:30] Charmander ha usado Placaje
+[2025-05-17 12:09:30] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:30] Charmander ha usado Placaje
+[2025-05-17 12:09:30] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:30] Charmander ha usado Placaje
+[2025-05-17 12:09:30] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:30] Charmander ha usado Placaje
+[2025-05-17 12:09:30] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:09:30] Charmander ha usado Placaje
+[2025-05-17 12:09:30] ¡Dugtrio se ha debilitado!
+[2025-05-17 12:16:20] ¡Ha comenzado un combate entre Charmander y Pidgeot!
+[2025-05-17 12:16:21] Charmander ha usado Lanzallamas
+[2025-05-17 12:16:21] ¡Pidgeot se ha debilitado!
+[2025-05-17 12:16:21] ¡Ha aparecido un nuevo Venomoth!
+[2025-05-17 12:16:24] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:24] Venomoth ha atacado con fuerza
+[2025-05-17 12:16:26] Charmander ha usado Lanzallamas
+[2025-05-17 12:16:26] ¡Venomoth se ha debilitado!
+[2025-05-17 12:16:26] ¡Ha aparecido un nuevo Pidgeotto!
+[2025-05-17 12:16:30] Charmander ha usado Lanzallamas
+[2025-05-17 12:16:30] ¡Pidgeotto se ha debilitado!
+[2025-05-17 12:16:30] ¡Ha aparecido un nuevo Wigglytuff!
+[2025-05-17 12:16:32] Charmander ha usado Ascuas
+[2025-05-17 12:16:32] Wigglytuff ha atacado con fuerza
+[2025-05-17 12:16:34] Charmander ha usado Ascuas
+[2025-05-17 12:16:34] ¡Wigglytuff se ha debilitado!
+[2025-05-17 12:16:34] ¡Ha aparecido un nuevo Charmander!
+[2025-05-17 12:16:37] Charmander ha usado Ascuas
+[2025-05-17 12:16:37] Charmander ha atacado con fuerza
+[2025-05-17 12:16:37] Charmander ha usado Ascuas
+[2025-05-17 12:16:37] ¡Charmander se ha debilitado!
+[2025-05-17 12:16:37] ¡Ha aparecido un nuevo Vileplume!
+[2025-05-17 12:16:38] Charmander ha usado Ascuas
+[2025-05-17 12:16:38] Vileplume ha atacado con fuerza
+[2025-05-17 12:16:38] Charmander ha usado Ascuas
+[2025-05-17 12:16:38] ¡Vileplume se ha debilitado!
+[2025-05-17 12:16:38] ¡Ha aparecido un nuevo Pidgey!
+[2025-05-17 12:16:39] Charmander ha usado Lanzallamas
+[2025-05-17 12:16:39] ¡Pidgey se ha debilitado!
+[2025-05-17 12:16:39] ¡Ha aparecido un nuevo Weedle!
+[2025-05-17 12:16:40] Charmander ha usado Lanzallamas
+[2025-05-17 12:16:40] ¡Weedle se ha debilitado!
+[2025-05-17 12:16:40] ¡Ha aparecido un nuevo Dratini!
+[2025-05-17 12:16:45] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:45] Dratini ha atacado con fuerza
+[2025-05-17 12:16:46] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:46] ¡Dratini se ha debilitado!
+[2025-05-17 12:16:46] ¡Ha aparecido un nuevo Kakuna!
+[2025-05-17 12:16:46] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:46] Kakuna ha atacado con fuerza
+[2025-05-17 12:16:46] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:46] ¡Kakuna se ha debilitado!
+[2025-05-17 12:16:46] ¡Ha aparecido un nuevo Golbat!
+[2025-05-17 12:16:47] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:47] Golbat ha atacado con fuerza
+[2025-05-17 12:16:47] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:47] ¡Golbat se ha debilitado!
+[2025-05-17 12:16:47] ¡Ha aparecido un nuevo Charmander!
+[2025-05-17 12:16:47] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:47] Charmander ha atacado con fuerza
+[2025-05-17 12:16:47] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:47] ¡Charmander se ha debilitado!
+[2025-05-17 12:16:47] ¡Ha aparecido un nuevo Wigglytuff!
+[2025-05-17 12:16:47] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:47] Wigglytuff ha atacado con fuerza
+[2025-05-17 12:16:47] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:47] ¡Wigglytuff se ha debilitado!
+[2025-05-17 12:16:47] ¡Ha aparecido un nuevo Wigglytuff!
+[2025-05-17 12:16:48] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:48] Wigglytuff ha atacado con fuerza
+[2025-05-17 12:16:49] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:49] ¡Wigglytuff se ha debilitado!
+[2025-05-17 12:16:49] ¡Ha aparecido un nuevo Nidorino!
+[2025-05-17 12:16:49] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:49] Nidorino ha atacado con fuerza
+[2025-05-17 12:16:51] Charmander ha usado Giro Fuego
+[2025-05-17 12:16:51] ¡Nidorino se ha debilitado!
+[2025-05-17 12:16:51] ¡Ha aparecido un nuevo Beedrill!
+[2025-05-17 12:16:56] Charmander ha usado Lanzallamas
+[2025-05-17 12:16:56] ¡Beedrill se ha debilitado!
+[2025-05-17 12:16:56] ¡Ha aparecido un nuevo Charizard!
+[2025-05-17 12:16:58] Charmander ha usado Ascuas
+[2025-05-17 12:16:58] ¡Charizard se ha debilitado!
+[2025-05-17 12:16:58] ¡Ha aparecido un nuevo Dratini!
+[2025-05-17 12:16:59] Charmander ha usado Lanzallamas
+[2025-05-17 12:16:59] ¡Dratini se ha debilitado!
+[2025-05-17 12:16:59] ¡Ha aparecido un nuevo Raticate!
+[2025-05-17 12:17:00] Charmander ha usado Ascuas
+[2025-05-17 12:17:00] Raticate ha atacado con fuerza
+[2025-05-17 12:17:00] Charmander ha usado Lanzallamas
+[2025-05-17 12:17:00] ¡Raticate se ha debilitado!
+[2025-05-17 12:17:00] ¡Ha aparecido un nuevo Dragonair!
+[2025-05-17 12:17:01] Charmander ha usado Lanzallamas
+[2025-05-17 12:17:01] ¡Dragonair se ha debilitado!
+[2025-05-17 12:17:01] ¡Ha aparecido un nuevo Vulpix!
+[2025-05-17 12:17:02] Charmander ha usado Infierno
+[2025-05-17 12:17:02] ¡Vulpix se ha debilitado!
+[2025-05-17 12:17:02] ¡Ha aparecido un nuevo Zubat!
+[2025-05-17 12:17:02] Charmander ha usado Infierno
+[2025-05-17 12:17:02] ¡Zubat se ha debilitado!
+[2025-05-17 12:17:02] ¡Ha aparecido un nuevo Fearow!
+[2025-05-17 12:17:03] Charmander ha usado Infierno
+[2025-05-17 12:17:03] ¡Fearow se ha debilitado!
+[2025-05-17 12:17:03] ¡Ha aparecido un nuevo Blastoise!
+[2025-05-17 12:17:04] Charmander ha usado Infierno
+[2025-05-17 12:17:04] ¡Blastoise se ha debilitado!
+[2025-05-17 12:17:04] ¡Ha aparecido un nuevo Vileplume!
+[2025-05-17 12:17:04] Charmander ha usado Infierno
+[2025-05-17 12:17:04] ¡Vileplume se ha debilitado!
+[2025-05-17 12:17:04] ¡Ha aparecido un nuevo Charmeleon!
+[2025-05-17 12:17:07] Charmander ha usado Ascuas
+[2025-05-17 12:17:07] ¡Charmeleon se ha debilitado!
+[2025-05-17 12:17:07] ¡Ha aparecido un nuevo Charizard!
+[2025-05-17 12:17:08] Charmander ha usado Ascuas
+[2025-05-17 12:17:08] Charizard ha atacado con fuerza
+[2025-05-17 12:17:09] Charmander ha usado Ascuas
+[2025-05-17 12:17:09] ¡Charizard se ha debilitado!
+[2025-05-17 12:17:09] ¡Ha aparecido un nuevo Ditto!
+[2025-05-17 12:17:10] Charmander ha usado Ascuas
+[2025-05-17 12:17:10] Ditto ha atacado con fuerza
+[2025-05-17 12:17:11] Charmander ha usado Ascuas
+[2025-05-17 12:17:11] ¡Ditto se ha debilitado!
+[2025-05-17 12:17:11] ¡Ha aparecido un nuevo Spearow!
+[2025-05-17 12:17:12] Charmander ha usado Ascuas
+[2025-05-17 12:17:12] Spearow ha atacado con fuerza
+[2025-05-17 12:17:12] Charmander ha usado Ascuas
+[2025-05-17 12:17:12] ¡Spearow se ha debilitado!
+[2025-05-17 12:17:12] ¡Ha aparecido un nuevo Raticate!
+[2025-05-17 12:17:13] Charmander ha usado Ascuas
+[2025-05-17 12:17:13] Raticate ha atacado con fuerza
+[2025-05-17 12:17:13] Charmander ha usado Ascuas
+[2025-05-17 12:17:13] ¡Raticate se ha debilitado!
+[2025-05-17 12:17:13] ¡Ha aparecido un nuevo Raichu!
+[2025-05-17 12:17:14] Charmander ha usado Ascuas
+[2025-05-17 12:17:14] ¡Raichu se ha debilitado!
+[2025-05-17 12:17:14] ¡Ha aparecido un nuevo Clefable!
+[2025-05-17 12:19:18] ¡Ha comenzado un combate entre Charmander y Wigglytuff!
+[2025-05-17 12:19:22] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Wigglytuff se ha debilitado!
+¡Ha aparecido un nuevo Venonat salvaje!
+[2025-05-17 12:19:25] Charmander usó Giro Fuego e hizo 35 de daño.
+Venonat contraatacó e hizo 21 de daño.
+[2025-05-17 12:19:29] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Venonat se ha debilitado!
+¡Ha aparecido un nuevo Arbok salvaje!
+[2025-05-17 12:20:29] ¡Ha comenzado un combate entre Charmander y Venonat!
+[2025-05-17 12:20:30] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Venonat se ha debilitado!
+¡Ha aparecido un nuevo Nidoqueen salvaje!
+[2025-05-17 12:20:33] Charmander usó Giro Fuego e hizo 35 de daño.
+Nidoqueen contraatacó e hizo 30 de daño.
+[2025-05-17 12:21:10] ¡Ha comenzado un combate entre Charmander y Nidorino!
+[2025-05-17 12:21:11] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Nidorino se ha debilitado!
+¡Ha aparecido un nuevo Rattata salvaje!
+[2025-05-17 12:21:12] Charmander usó Ascuas e hizo 40 de daño.
+Rattata contraatacó e hizo 21 de daño.
+[2025-05-17 12:21:12] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Rattata se ha debilitado!
+¡Ha aparecido un nuevo Gloom salvaje!
+[2025-05-17 12:21:13] Charmander usó Infierno e hizo 100 de daño.
+¡Gloom se ha debilitado!
+¡Ha aparecido un nuevo Metapod salvaje!
+[2025-05-17 12:21:13] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Metapod se ha debilitado!
+¡Ha aparecido un nuevo Vulpix salvaje!
+[2025-05-17 12:21:14] Charmander usó Infierno e hizo 100 de daño.
+¡Vulpix se ha debilitado!
+¡Ha aparecido un nuevo Raichu salvaje!
+[2025-05-17 12:21:14] Charmander usó Infierno e hizo 100 de daño.
+¡Raichu se ha debilitado!
+¡Ha aparecido un nuevo Nidoqueen salvaje!
+[2025-05-17 12:21:15] Charmander usó Ascuas e hizo 40 de daño.
+Nidoqueen contraatacó e hizo 37 de daño.
+[2025-05-17 12:21:15] Charmander usó Ascuas e hizo 40 de daño.
+¡Nidoqueen se ha debilitado!
+¡Ha aparecido un nuevo Clefairy salvaje!
+[2025-05-17 12:21:15] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Clefairy se ha debilitado!
+¡Ha aparecido un nuevo Oddish salvaje!
+[2025-05-17 12:21:16] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Oddish se ha debilitado!
+¡Ha aparecido un nuevo Blastoise salvaje!
+[2025-05-17 12:21:16] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Blastoise se ha debilitado!
+¡Ha aparecido un nuevo Venonat salvaje!
+[2025-05-17 12:21:16] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Venonat se ha debilitado!
+¡Ha aparecido un nuevo Beedrill salvaje!
+[2025-05-17 12:21:17] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Beedrill se ha debilitado!
+¡Ha aparecido un nuevo Diglett salvaje!
+[2025-05-17 12:21:17] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Diglett se ha debilitado!
+¡Ha aparecido un nuevo Pidgeotto salvaje!
+[2025-05-17 12:21:17] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Pidgeotto se ha debilitado!
+¡Ha aparecido un nuevo Vulpix salvaje!
+[2025-05-17 12:21:18] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Vulpix se ha debilitado!
+¡Ha aparecido un nuevo Charizard salvaje!
+[2025-05-17 12:21:18] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charizard se ha debilitado!
+¡Ha aparecido un nuevo Venusaur salvaje!
+[2025-05-17 12:21:18] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Venusaur se ha debilitado!
+¡Ha aparecido un nuevo Bulbasaur salvaje!
+[2025-05-17 12:21:19] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Bulbasaur se ha debilitado!
+¡Ha aparecido un nuevo Butterfree salvaje!
+[2025-05-17 12:21:20] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Butterfree se ha debilitado!
+¡Ha aparecido un nuevo Vulpix salvaje!
+[2025-05-17 12:21:20] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Vulpix se ha debilitado!
+¡Ha aparecido un nuevo Vulpix salvaje!
+[2025-05-17 12:21:24] Charmander usó Giro Fuego e hizo 35 de daño.
+Vulpix contraatacó e hizo 20 de daño.
+[2025-05-17 12:21:24] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Vulpix se ha debilitado!
+¡Ha aparecido un nuevo Nidorino salvaje!
+[2025-05-17 12:21:24] Charmander usó Giro Fuego e hizo 35 de daño.
+Nidorino contraatacó e hizo 24 de daño.
+[2025-05-17 12:21:25] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Nidorino se ha debilitado!
+¡Ha aparecido un nuevo Ditto salvaje!
+[2025-05-17 12:21:25] Charmander usó Giro Fuego e hizo 35 de daño.
+Ditto contraatacó e hizo 24 de daño.
+[2025-05-17 12:21:27] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Ditto se ha debilitado!
+¡Ha aparecido un nuevo Jigglypuff salvaje!
+[2025-05-17 12:21:27] Charmander usó Giro Fuego e hizo 35 de daño.
+Jigglypuff contraatacó e hizo 20 de daño.
+[2025-05-17 12:21:27] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Jigglypuff se ha debilitado!
+¡Ha aparecido un nuevo Ninetales salvaje!
+[2025-05-17 12:21:27] Charmander usó Giro Fuego e hizo 35 de daño.
+Ninetales contraatacó e hizo 35 de daño.
+[2025-05-17 12:21:28] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Ninetales se ha debilitado!
+¡Ha aparecido un nuevo Vileplume salvaje!
+[2025-05-17 12:21:28] Charmander usó Giro Fuego e hizo 35 de daño.
+Vileplume contraatacó e hizo 30 de daño.
+[2025-05-17 12:21:28] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Vileplume se ha debilitado!
+¡Ha aparecido un nuevo Raichu salvaje!
+[2025-05-17 12:21:28] Charmander usó Giro Fuego e hizo 35 de daño.
+Raichu contraatacó e hizo 24 de daño.
+[2025-05-17 12:21:28] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Raichu se ha debilitado!
+¡Ha aparecido un nuevo Spearow salvaje!
+[2025-05-17 12:21:29] Charmander usó Infierno e hizo 100 de daño.
+¡Spearow se ha debilitado!
+¡Ha aparecido un nuevo Vileplume salvaje!
+[2025-05-17 12:21:30] Charmander usó Infierno e hizo 100 de daño.
+¡Vileplume se ha debilitado!
+¡Ha aparecido un nuevo Raticate salvaje!
+[2025-05-17 12:21:31] Charmander usó Ascuas e hizo 40 de daño.
+¡Raticate se ha debilitado!
+¡Ha aparecido un nuevo Dratini salvaje!
+[2025-05-17 12:21:31] Charmander usó Ascuas e hizo 40 de daño.
+Dratini contraatacó e hizo 37 de daño.
+[2025-05-17 12:21:31] Charmander usó Ascuas e hizo 40 de daño.
+¡Dratini se ha debilitado!
+¡Ha aparecido un nuevo Nidoran♀ salvaje!
+[2025-05-17 12:21:32] Charmander usó Ascuas e hizo 40 de daño.
+Nidoran♀ contraatacó e hizo 23 de daño.
+[2025-05-17 12:21:32] Charmander usó Ascuas e hizo 40 de daño.
+¡Nidoran♀ se ha debilitado!
+¡Ha aparecido un nuevo Diglett salvaje!
+[2025-05-17 12:21:32] Charmander usó Ascuas e hizo 40 de daño.
+Diglett contraatacó e hizo 23 de daño.
+[2025-05-17 12:21:32] Charmander usó Ascuas e hizo 40 de daño.
+¡Diglett se ha debilitado!
+¡Ha aparecido un nuevo Pidgey salvaje!
+[2025-05-17 12:21:32] Charmander usó Ascuas e hizo 40 de daño.
+Pidgey contraatacó e hizo 35 de daño.
+[2025-05-17 12:21:33] Charmander usó Ascuas e hizo 40 de daño.
+¡Pidgey se ha debilitado!
+¡Ha aparecido un nuevo Nidoran♀ salvaje!
+[2025-05-17 12:21:33] Charmander usó Ascuas e hizo 40 de daño.
+Nidoran♀ contraatacó e hizo 32 de daño.
+[2025-05-17 12:21:33] Charmander usó Ascuas e hizo 40 de daño.
+¡Nidoran♀ se ha debilitado!
+¡Ha aparecido un nuevo Sandslash salvaje!
+[2025-05-17 12:21:33] Charmander usó Ascuas e hizo 40 de daño.
+Sandslash contraatacó e hizo 24 de daño.
+[2025-05-17 12:21:34] Charmander usó Ascuas e hizo 40 de daño.
+¡Sandslash se ha debilitado!
+¡Ha aparecido un nuevo Nidorino salvaje!
+[2025-05-17 12:24:38] ¡Ha comenzado un combate entre Charmander y Gloom!
+[2025-05-17 12:24:39] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Gloom se ha debilitado!
+¡Ha aparecido un nuevo Vileplume salvaje!
+[2025-05-17 12:24:41] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Vileplume se ha debilitado!
+¡Ha aparecido un nuevo Ekans salvaje!
+[2025-05-17 12:24:43] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Ekans se ha debilitado!
+¡Ha aparecido un nuevo Clefairy salvaje!
+[2025-05-17 12:24:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Clefairy se ha debilitado!
+¡Ha aparecido un nuevo Squirtle salvaje!
+[2025-05-17 12:24:46] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Squirtle se ha debilitado!
+¡Ha aparecido un nuevo Vileplume salvaje!
+[2025-05-17 12:24:47] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Vileplume se ha debilitado!
+¡Ha aparecido un nuevo Nidoqueen salvaje!
+[2025-05-17 12:24:48] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Nidoqueen se ha debilitado!
+¡Ha aparecido un nuevo Vulpix salvaje!
+[2025-05-17 12:24:49] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Vulpix se ha debilitado!
+¡Ha aparecido un nuevo Wartortle salvaje!
+[2025-05-17 12:24:51] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Wartortle se ha debilitado!
+¡Ha aparecido un nuevo Golbat salvaje!
+[2025-05-17 12:24:52] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Golbat se ha debilitado!
+¡Ha aparecido un nuevo Dugtrio salvaje!
+[2025-05-17 12:24:53] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dugtrio se ha debilitado!
+¡Ha aparecido un nuevo Fearow salvaje!
+[2025-05-17 12:24:55] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Fearow se ha debilitado!
+¡Ha aparecido un nuevo Pidgeot salvaje!
+[2025-05-17 12:24:56] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Pidgeot se ha debilitado!
+¡Ha aparecido un nuevo Diglett salvaje!
+[2025-05-17 12:24:59] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Diglett se ha debilitado!
+¡Ha aparecido un nuevo Vulpix salvaje!
+[2025-05-17 12:25:00] Charmander usó Giro Fuego e hizo 35 de daño.
+Vulpix contraatacó e hizo 27 de daño.
+[2025-05-17 12:25:02] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Vulpix se ha debilitado!
+¡Ha aparecido un nuevo Nidorino salvaje!
+[2025-05-17 12:25:04] Charmander usó Infierno e hizo 100 de daño.
+¡Nidorino se ha debilitado!
+¡Ha aparecido un nuevo Blastoise salvaje!
+[2025-05-17 12:25:06] Charmander usó Infierno e hizo 100 de daño.
+¡Blastoise se ha debilitado!
+¡Ha aparecido un nuevo Charizard salvaje!
+[2025-05-17 12:25:07] Charmander usó Infierno e hizo 100 de daño.
+¡Charizard se ha debilitado!
+¡Ha aparecido un nuevo Dratini salvaje!
+[2025-05-17 12:25:07] Charmander usó Infierno e hizo 100 de daño.
+¡Dratini se ha debilitado!
+¡Ha aparecido un nuevo Rattata salvaje!
+[2025-05-17 12:25:09] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Rattata se ha debilitado!
+¡Ha aparecido un nuevo Clefairy salvaje!
+[2025-05-17 12:25:11] Charmander usó Ascuas e hizo 40 de daño.
+Clefairy contraatacó e hizo 27 de daño.
+[2025-05-17 12:27:28] ¡Ha comenzado un combate entre Charmander y Dragonite!
+[2025-05-17 12:27:29] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+¡Ha aparecido un nuevo Dragonite salvaje!
+[2025-05-17 12:27:31] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+¡Ha aparecido un nuevo Arbok salvaje!
+[2025-05-17 12:27:33] Charmander usó Ascuas e hizo 40 de daño.
+Arbok contraatacó e hizo 22 de daño.
+[2025-05-17 12:31:32] ¡Ha comenzado un combate entre Charmander y Clefairy!
+[2025-05-17 12:31:33] Charmander usó Ascuas e hizo 40 de daño.
+Clefairy contraatacó e hizo 32 de daño.
+[2025-05-17 12:31:35] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Clefairy se ha debilitado!
+¡Ha aparecido un nuevo Pidgey salvaje!
+[2025-05-17 12:31:36] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Pidgey se ha debilitado!
+¡Ha aparecido un nuevo Dugtrio salvaje!
+[2025-05-17 12:31:36] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dugtrio se ha debilitado!
+¡Ha aparecido un nuevo Beedrill salvaje!
+[2025-05-17 12:31:37] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Beedrill se ha debilitado!
+¡Ha aparecido un nuevo Ekans salvaje!
+[2025-05-17 12:31:37] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Ekans se ha debilitado!
+¡Ha aparecido un nuevo Zubat salvaje!
+[2025-05-17 12:31:37] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Zubat se ha debilitado!
+¡Ha aparecido un nuevo Rattata salvaje!
+[2025-05-17 12:31:37] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Rattata se ha debilitado!
+¡Ha aparecido un nuevo Dragonair salvaje!
+[2025-05-17 12:31:37] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonair se ha debilitado!
+¡Ha aparecido un nuevo Caterpie salvaje!
+[2025-05-17 12:31:38] Charmander usó Infierno e hizo 100 de daño.
+¡Caterpie se ha debilitado!
+¡Ha aparecido un nuevo Kakuna salvaje!
+[2025-05-17 12:31:39] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Kakuna se ha debilitado!
+¡Ha aparecido un nuevo Kakuna salvaje!
+[2025-05-17 12:31:41] Charmander usó Infierno e hizo 100 de daño.
+¡Kakuna se ha debilitado!
+¡Ha aparecido un nuevo Metapod salvaje!
+[2025-05-17 12:31:42] Charmander usó Giro Fuego e hizo 35 de daño.
+Metapod contraatacó e hizo 23 de daño.
+[2025-05-17 12:33:49] ¡Ha comenzado un combate entre Charmander y Raticate!
+[2025-05-17 12:33:50] Charmander usó Lanzallamas e hizo 90 de daño.
+Raticate contraatacó e hizo 22 de daño.
+[2025-05-17 12:33:55] Charmander usó Ascuas e hizo 40 de daño.
+Raticate contraatacó e hizo 22 de daño.
+[2025-05-17 12:33:56] Charmander usó Ascuas e hizo 40 de daño.
+Raticate contraatacó e hizo 22 de daño.
+[2025-05-17 12:33:56] Charmander usó Ascuas e hizo 40 de daño.
+Raticate contraatacó e hizo 22 de daño.
+[2025-05-17 12:33:59] Charmander usó Giro Fuego e hizo 35 de daño.
+Raticate contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:19] ¡Ha comenzado un combate entre Charmander y Spearow!
+[2025-05-17 12:35:20] Charmander usó Lanzallamas e hizo 90 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:23] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:24] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:24] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:24] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:24] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:24] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:25] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:25] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:25] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:25] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:26] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:26] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:26] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:27] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:27] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:31] Charmander usó Lanzallamas e hizo 90 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:32] Charmander usó Infierno e hizo 100 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:35:34] Charmander usó Ascuas e hizo 40 de daño.
+Spearow contraatacó e hizo 22 de daño.
+[2025-05-17 12:37:51] ¡Ha comenzado un combate entre Charmander y Paras!
+[2025-05-17 12:37:52] Charmander usó Lanzallamas e hizo 90 de daño.
+Paras contraatacó e hizo 25 de daño.
+[2025-05-17 12:37:54] Charmander usó Giro Fuego e hizo 35 de daño.
+Paras contraatacó e hizo 25 de daño.
+[2025-05-17 12:39:13] ¡Ha comenzado un combate entre Charmander y Dragonair!
+[2025-05-17 12:39:14] Charmander usó Infierno e hizo 100 de daño.
+Dragonair contraatacó e hizo 24 de daño.
+[2025-05-17 12:39:19] Charmander usó Lanzallamas e hizo 90 de daño.
+Dragonair contraatacó e hizo 24 de daño.
+[2025-05-17 12:39:21] Charmander usó Lanzallamas e hizo 90 de daño.
+Dragonair contraatacó e hizo 24 de daño.
+[2025-05-17 12:40:59] ¡Ha comenzado un combate entre Charmander y Ditto!
+[2025-05-17 12:41:00] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Ditto se ha debilitado!
+¡Ha aparecido un nuevo Caterpie salvaje!
+[2025-05-17 12:41:01] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Caterpie se ha debilitado!
+¡Ha aparecido un nuevo Butterfree salvaje!
+[2025-05-17 12:41:02] Charmander usó Ascuas e hizo 40 de daño.
+Butterfree contraatacó e hizo 21 de daño.
+[2025-05-17 12:41:06] Charmander usó Infierno e hizo 100 de daño.
+¡Butterfree se ha debilitado!
+¡Ha aparecido un nuevo Parasect salvaje!
+[2025-05-17 12:41:07] Charmander usó Ascuas e hizo 40 de daño.
+Parasect contraatacó e hizo 21 de daño.
+[2025-05-17 12:41:08] Charmander usó Infierno e hizo 100 de daño.
+¡Parasect se ha debilitado!
+¡Ha aparecido un nuevo Beedrill salvaje!
+[2025-05-17 12:41:09] Charmander usó Infierno e hizo 100 de daño.
+¡Beedrill se ha debilitado!
+¡Ha aparecido un nuevo Pidgey salvaje!
+[2025-05-17 12:41:10] Charmander usó Infierno e hizo 100 de daño.
+¡Pidgey se ha debilitado!
+¡Ha aparecido un nuevo Metapod salvaje!
+[2025-05-17 12:41:12] Charmander usó Infierno e hizo 100 de daño.
+¡Metapod se ha debilitado!
+¡Ha aparecido un nuevo Metapod salvaje!
+[2025-05-17 12:41:13] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Metapod se ha debilitado!
+¡Ha aparecido un nuevo Gloom salvaje!
+[2025-05-17 12:41:13] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Gloom se ha debilitado!
+¡Ha aparecido un nuevo Pidgeotto salvaje!
+[2025-05-17 12:41:14] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Pidgeotto se ha debilitado!
+¡Ha aparecido un nuevo Weedle salvaje!
+[2025-05-17 12:41:14] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Weedle se ha debilitado!
+¡Ha aparecido un nuevo Charmeleon salvaje!
+[2025-05-17 12:41:15] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmeleon se ha debilitado!
+¡Ha aparecido un nuevo Jigglypuff salvaje!
+[2025-05-17 12:41:15] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Jigglypuff se ha debilitado!
+¡Ha aparecido un nuevo Gloom salvaje!
+[2025-05-17 12:41:15] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Gloom se ha debilitado!
+¡Ha aparecido un nuevo Spearow salvaje!
+[2025-05-17 12:41:16] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Spearow se ha debilitado!
+¡Ha aparecido un nuevo Diglett salvaje!
+[2025-05-17 12:41:16] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Diglett se ha debilitado!
+¡Ha aparecido un nuevo Ekans salvaje!
+[2025-05-17 12:41:17] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Ekans se ha debilitado!
+¡Ha aparecido un nuevo Dragonair salvaje!
+[2025-05-17 12:41:17] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonair se ha debilitado!
+¡Ha aparecido un nuevo Nidoqueen salvaje!
+[2025-05-17 12:41:17] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Nidoqueen se ha debilitado!
+¡Ha aparecido un nuevo Caterpie salvaje!
+[2025-05-17 12:41:18] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Caterpie se ha debilitado!
+¡Ha aparecido un nuevo Spearow salvaje!
+[2025-05-17 12:41:20] Charmander usó Ascuas e hizo 40 de daño.
+Spearow contraatacó e hizo 24 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:47:16] ¡Ha comenzado un combate entre Charmander y Dratini!
+[2025-05-17 12:47:18] Charmander usó Ascuas e hizo 40 de daño.
+Dratini contraatacó e hizo 37 de daño.
+[2025-05-17 12:47:21] Charmander usó Ascuas e hizo 40 de daño.
+¡Dratini se ha debilitado!
+¡Ha aparecido un nuevo Kakuna salvaje!
+[2025-05-17 12:47:27] Charmander usó Ascuas e hizo 40 de daño.
+Kakuna contraatacó e hizo 21 de daño.
+[2025-05-17 12:47:28] Charmander usó Ascuas e hizo 40 de daño.
+¡Kakuna se ha debilitado!
+¡Ha aparecido un nuevo Oddish salvaje!
+[2025-05-17 12:47:29] Charmander usó Ascuas e hizo 40 de daño.
+Oddish contraatacó e hizo 27 de daño.
+[2025-05-17 12:47:29] Charmander usó Ascuas e hizo 40 de daño.
+¡Oddish se ha debilitado!
+¡Ha aparecido un nuevo Venusaur salvaje!
+[2025-05-17 12:48:01] ¡Ha comenzado un combate entre Charmander y Nidoking!
+[2025-05-17 12:48:34] ¡Ha comenzado un combate entre Charmander y Charmander!
+[2025-05-17 12:48:35] Charmander usó Ascuas e hizo 40 de daño.
+Charmander contraatacó e hizo 32 de daño.
+[2025-05-17 12:48:36] Charmander usó Ascuas e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡Ha aparecido un nuevo Ivysaur salvaje!
+[2025-05-17 12:48:37] Charmander usó Ascuas e hizo 40 de daño.
+Ivysaur contraatacó e hizo 30 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:48:39] Charmander usó Ascuas e hizo 40 de daño.
+¡Ivysaur se ha debilitado!
+¡Ha aparecido un nuevo Pidgey salvaje!
+[2025-05-17 12:48:40] Charmander usó Ascuas e hizo 40 de daño.
+¡Pidgey se ha debilitado!
+¡Ha aparecido un nuevo Venomoth salvaje!
+[2025-05-17 12:48:40] Charmander usó Ascuas e hizo 40 de daño.
+Venomoth contraatacó e hizo 22 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:48:41] Charmander usó Ascuas e hizo 40 de daño.
+¡Venomoth se ha debilitado!
+¡Ha aparecido un nuevo Ivysaur salvaje!
+[2025-05-17 12:48:41] Charmander usó Ascuas e hizo 40 de daño.
+Ivysaur contraatacó e hizo 35 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:48:41] Charmander usó Ascuas e hizo 40 de daño.
+¡Ivysaur se ha debilitado!
+¡Ha aparecido un nuevo Gloom salvaje!
+[2025-05-17 12:48:41] Charmander usó Ascuas e hizo 40 de daño.
+¡Gloom se ha debilitado!
+¡Ha aparecido un nuevo Pikachu salvaje!
+[2025-05-17 12:48:41] Charmander usó Ascuas e hizo 40 de daño.
+Pikachu contraatacó e hizo 27 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:48:42] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Pikachu se ha debilitado!
+¡Ha aparecido un nuevo Venonat salvaje!
+[2025-05-17 12:48:42] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Venonat se ha debilitado!
+¡Ha aparecido un nuevo Parasect salvaje!
+[2025-05-17 12:48:43] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Parasect se ha debilitado!
+¡Ha aparecido un nuevo Kakuna salvaje!
+[2025-05-17 12:48:43] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Kakuna se ha debilitado!
+¡Ha aparecido un nuevo Dugtrio salvaje!
+[2025-05-17 12:48:43] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dugtrio se ha debilitado!
+¡Ha aparecido un nuevo Weedle salvaje!
+[2025-05-17 12:48:43] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Weedle se ha debilitado!
+¡Ha aparecido un nuevo Nidoran♂ salvaje!
+[2025-05-17 12:48:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Nidoran♂ se ha debilitado!
+¡Ha aparecido un nuevo Pidgeotto salvaje!
+[2025-05-17 12:48:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Pidgeotto se ha debilitado!
+¡Ha aparecido un nuevo Charizard salvaje!
+[2025-05-17 12:48:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charizard se ha debilitado!
+¡Ha aparecido un nuevo Raticate salvaje!
+[2025-05-17 12:48:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Raticate se ha debilitado!
+¡Ha aparecido un nuevo Sandshrew salvaje!
+[2025-05-17 12:48:45] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Sandshrew se ha debilitado!
+¡Ha aparecido un nuevo Metapod salvaje!
+[2025-05-17 12:48:45] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Metapod se ha debilitado!
+¡Ha aparecido un nuevo Arbok salvaje!
+[2025-05-17 12:48:45] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Arbok se ha debilitado!
+¡Ha aparecido un nuevo Vulpix salvaje!
+[2025-05-17 12:48:46] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Vulpix se ha debilitado!
+¡Ha aparecido un nuevo Wigglytuff salvaje!
+[2025-05-17 12:48:48] Charmander usó Infierno e hizo 100 de daño.
+¡Wigglytuff se ha debilitado!
+¡Ha aparecido un nuevo Ditto salvaje!
+[2025-05-17 12:48:48] Charmander usó Infierno e hizo 100 de daño.
+¡Ditto se ha debilitado!
+¡Ha aparecido un nuevo Fearow salvaje!
+[2025-05-17 12:48:48] Charmander usó Infierno e hizo 100 de daño.
+¡Fearow se ha debilitado!
+¡Ha aparecido un nuevo Spearow salvaje!
+[2025-05-17 12:48:49] Charmander usó Infierno e hizo 100 de daño.
+¡Spearow se ha debilitado!
+¡Ha aparecido un nuevo Butterfree salvaje!
+[2025-05-17 12:48:49] Charmander usó Infierno e hizo 100 de daño.
+¡Butterfree se ha debilitado!
+¡Ha aparecido un nuevo Ninetales salvaje!
+[2025-05-17 12:50:48] ¡Ha comenzado un combate entre Charmander y Spearow!
+[2025-05-17 12:50:49] Charmander usó Ascuas e hizo 40 de daño.
+Spearow contraatacó e hizo 23 de daño.
+[2025-05-17 12:50:50] Charmander usó Ascuas e hizo 40 de daño.
+¡Spearow se ha debilitado!
+¡Ha aparecido un nuevo Kakuna salvaje!
+[2025-05-17 12:50:50] Charmander usó Ascuas e hizo 40 de daño.
+Kakuna contraatacó e hizo 30 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:50:52] Charmander usó Ascuas e hizo 40 de daño.
+¡Kakuna se ha debilitado!
+¡Ha aparecido un nuevo Pikachu salvaje!
+[2025-05-17 12:50:52] Charmander usó Ascuas e hizo 40 de daño.
+Pikachu contraatacó e hizo 23 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:50:53] Charmander usó Ascuas e hizo 40 de daño.
+¡Pikachu se ha debilitado!
+¡Ha aparecido un nuevo Dratini salvaje!
+[2025-05-17 12:50:53] Charmander usó Ascuas e hizo 40 de daño.
+Dratini contraatacó e hizo 25 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:50:54] Charmander usó Ascuas e hizo 40 de daño.
+¡Dratini se ha debilitado!
+¡Ha aparecido un nuevo Metapod salvaje!
+[2025-05-17 12:50:54] Charmander usó Ascuas e hizo 40 de daño.
+Metapod contraatacó e hizo 21 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:50:55] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Metapod se ha debilitado!
+¡Ha aparecido un nuevo Wigglytuff salvaje!
+[2025-05-17 12:52:37] ¡Ha comenzado un combate entre Charmander y Venonat!
+[2025-05-17 12:52:38] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Venonat se ha debilitado!
+¡Ha aparecido un nuevo Dragonair salvaje!
+[2025-05-17 12:52:39] Charmander usó Ascuas e hizo 40 de daño.
+Dragonair contraatacó e hizo 23 de daño.
+[2025-05-17 12:52:40] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonair se ha debilitado!
+¡Ha aparecido un nuevo Pikachu salvaje!
+[2025-05-17 12:52:40] Charmander usó Ascuas e hizo 40 de daño.
+Pikachu contraatacó e hizo 25 de daño.
+[2025-05-17 12:52:41] Charmander usó Ascuas e hizo 40 de daño.
+¡Pikachu se ha debilitado!
+¡Ha aparecido un nuevo Ninetales salvaje!
+[2025-05-17 12:52:42] Charmander usó Ascuas e hizo 40 de daño.
+Ninetales contraatacó e hizo 32 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:52:42] Charmander usó Ascuas e hizo 40 de daño.
+¡Ninetales se ha debilitado!
+¡Ha aparecido un nuevo Pikachu salvaje!
+[2025-05-17 12:52:43] Charmander usó Ascuas e hizo 40 de daño.
+Pikachu contraatacó e hizo 35 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:52:43] Charmander usó Ascuas e hizo 40 de daño.
+¡Pikachu se ha debilitado!
+¡Ha aparecido un nuevo Sandslash salvaje!
+[2025-05-17 12:52:44] Charmander usó Ascuas e hizo 40 de daño.
+Sandslash contraatacó e hizo 21 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:52:44] Charmander usó Ascuas e hizo 40 de daño.
+¡Sandslash se ha debilitado!
+¡Ha aparecido un nuevo Charizard salvaje!
+[2025-05-17 12:52:44] Charmander usó Ascuas e hizo 40 de daño.
+Charizard contraatacó e hizo 32 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:52:44] Charmander usó Ascuas e hizo 40 de daño.
+¡Charizard se ha debilitado!
+¡Ha aparecido un nuevo Oddish salvaje!
+[2025-05-17 12:52:45] Charmander usó Ascuas e hizo 40 de daño.
+Oddish contraatacó e hizo 24 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:52:45] Charmander usó Ascuas e hizo 40 de daño.
+¡Oddish se ha debilitado!
+¡Ha aparecido un nuevo Caterpie salvaje!
+[2025-05-17 12:52:45] Charmander usó Ascuas e hizo 40 de daño.
+Caterpie contraatacó e hizo 22 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:52:45] Charmander usó Ascuas e hizo 40 de daño.
+¡Caterpie se ha debilitado!
+¡Ha aparecido un nuevo Ekans salvaje!
+[2025-05-17 12:52:45] Charmander usó Ascuas e hizo 40 de daño.
+Ekans contraatacó e hizo 27 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:52:45] Charmander usó Ascuas e hizo 40 de daño.
+¡Ekans se ha debilitado!
+¡Ha aparecido un nuevo Vulpix salvaje!
+[2025-05-17 12:52:46] Charmander usó Ascuas e hizo 40 de daño.
+Vulpix contraatacó e hizo 37 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:52:46] Charmander usó Ascuas e hizo 40 de daño.
+¡Vulpix se ha debilitado!
+¡Ha aparecido un nuevo Bulbasaur salvaje!
+[2025-05-17 12:52:46] Charmander usó Ascuas e hizo 40 de daño.
+Bulbasaur contraatacó e hizo 25 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:52:46] Charmander usó Ascuas e hizo 40 de daño.
+¡Bulbasaur se ha debilitado!
+¡Ha aparecido un nuevo Squirtle salvaje!
+[2025-05-17 12:52:46] Charmander usó Ascuas e hizo 40 de daño.
+Squirtle contraatacó e hizo 32 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:52:46] Charmander usó Ascuas e hizo 40 de daño.
+¡Squirtle se ha debilitado!
+¡Ha aparecido un nuevo Fearow salvaje!
+[2025-05-17 12:52:47] Charmander usó Ascuas e hizo 40 de daño.
+Fearow contraatacó e hizo 35 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:53:54] ¡Ha comenzado un combate entre Charmander y Nidoking!
+[2025-05-17 12:53:54] Charmander usó Ascuas e hizo 40 de daño.
+Nidoking contraatacó e hizo 27 de daño.
+[2025-05-17 12:53:55] Charmander usó Ascuas e hizo 40 de daño.
+¡Nidoking se ha debilitado!
+¡Ha aparecido un nuevo Nidoran♀ salvaje!
+[2025-05-17 12:53:55] Charmander usó Ascuas e hizo 40 de daño.
+Nidoran♀ contraatacó e hizo 27 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 12:53:56] Charmander usó Ascuas e hizo 40 de daño.
+¡Nidoran♀ se ha debilitado!
+¡Ha aparecido un nuevo Ditto salvaje!
+[2025-05-17 12:54:08] ¡Ha comenzado un combate entre Charmander y Golbat!
+[2025-05-17 12:54:46] ¡Ha comenzado un combate entre Squirtle y Bulbasaur!
+[2025-05-17 12:56:36] ¡Ha comenzado un combate entre Squirtle y Dugtrio!
+[2025-05-17 13:03:15] ¡Ha comenzado un combate entre Squirtle y Fearow!
+[2025-05-17 13:03:55] ¡Ha comenzado un combate entre Squirtle y Bulbasaur!
+[2025-05-17 13:07:34] ¡Ha comenzado un combate entre Squirtle y Dragonair!
+[2025-05-17 13:07:45] ¡Ha comenzado un combate entre Charmander y Pidgeotto!
+[2025-05-17 13:07:46] Charmander usó Placaje e hizo 40 de daño.
+Pidgeotto contraatacó e hizo 24 de daño.
+[2025-05-17 13:07:47] Charmander usó Placaje e hizo 40 de daño.
+¡Pidgeotto se ha debilitado!
+¡Ha aparecido un nuevo Ditto salvaje!
+[2025-05-17 13:07:48] Charmander usó Placaje e hizo 40 de daño.
+Ditto contraatacó e hizo 25 de daño.
+[2025-05-17 13:07:49] Charmander usó Placaje e hizo 40 de daño.
+¡Ditto se ha debilitado!
+¡Ha aparecido un nuevo Caterpie salvaje!
+[2025-05-17 13:07:50] Charmander usó Placaje e hizo 40 de daño.
+Caterpie contraatacó e hizo 25 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 13:07:50] Charmander usó Placaje e hizo 40 de daño.
+¡Caterpie se ha debilitado!
+¡Ha aparecido un nuevo Dugtrio salvaje!
+[2025-05-17 13:07:50] Charmander usó Placaje e hizo 40 de daño.
+¡Dugtrio se ha debilitado!
+¡Ha aparecido un nuevo Raichu salvaje!
+[2025-05-17 13:07:50] Charmander usó Placaje e hizo 40 de daño.
+Raichu contraatacó e hizo 30 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 13:07:50] Charmander usó Placaje e hizo 40 de daño.
+¡Raichu se ha debilitado!
+¡Ha aparecido un nuevo Spearow salvaje!
+[2025-05-17 13:07:51] Charmander usó Placaje e hizo 40 de daño.
+Spearow contraatacó e hizo 32 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 13:07:51] Charmander usó Placaje e hizo 40 de daño.
+¡Spearow se ha debilitado!
+¡Ha aparecido un nuevo Spearow salvaje!
+[2025-05-17 13:07:51] Charmander usó Placaje e hizo 40 de daño.
+Spearow contraatacó e hizo 25 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 13:07:51] Charmander usó Placaje e hizo 40 de daño.
+¡Spearow se ha debilitado!
+¡Ha aparecido un nuevo Wigglytuff salvaje!
+[2025-05-17 13:07:52] Charmander usó Placaje e hizo 40 de daño.
+Wigglytuff contraatacó e hizo 23 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 13:07:52] Charmander usó Placaje e hizo 40 de daño.
+¡Wigglytuff se ha debilitado!
+¡Ha aparecido un nuevo Wartortle salvaje!
+[2025-05-17 13:07:52] Charmander usó Placaje e hizo 40 de daño.
+Wartortle contraatacó e hizo 30 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 13:07:52] Charmander usó Placaje e hizo 40 de daño.
+¡Wartortle se ha debilitado!
+¡Ha aparecido un nuevo Clefable salvaje!
+[2025-05-17 13:07:52] Charmander usó Placaje e hizo 40 de daño.
+Clefable contraatacó e hizo 32 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 13:07:52] Charmander usó Placaje e hizo 40 de daño.
+¡Clefable se ha debilitado!
+¡Ha aparecido un nuevo Gloom salvaje!
+[2025-05-17 13:07:52] Charmander usó Placaje e hizo 40 de daño.
+Gloom contraatacó e hizo 32 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 13:07:53] Charmander usó Placaje e hizo 40 de daño.
+¡Gloom se ha debilitado!
+¡Ha aparecido un nuevo Pikachu salvaje!
+[2025-05-17 13:07:53] Charmander usó Placaje e hizo 40 de daño.
+Pikachu contraatacó e hizo 23 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 13:07:53] Charmander usó Placaje e hizo 40 de daño.
+¡Pikachu se ha debilitado!
+¡Ha aparecido un nuevo Kakuna salvaje!
+[2025-05-17 13:12:11] ¡Ha comenzado un combate entre Charmander y Charmeleon!
+[2025-05-17 13:12:14] Charmander usó Placaje e hizo 40 de daño.
+Charmeleon contraatacó e hizo 35 de daño.
+[2025-05-17 13:12:15] Charmander usó Placaje e hizo 40 de daño.
+¡Charmeleon se ha debilitado!
+¡Ha aparecido un nuevo Ekans salvaje!
+[2025-05-17 13:12:15] Charmander usó Placaje e hizo 40 de daño.
+Ekans contraatacó e hizo 32 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 13:12:15] Charmander usó Placaje e hizo 40 de daño.
+¡Ekans se ha debilitado!
+¡Ha aparecido un nuevo Beedrill salvaje!
+[2025-05-17 13:12:15] Charmander usó Placaje e hizo 40 de daño.
+Beedrill contraatacó e hizo 23 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 13:12:15] Charmander usó Placaje e hizo 40 de daño.
+¡Beedrill se ha debilitado!
+¡Ha aparecido un nuevo Venomoth salvaje!
+[2025-05-17 13:12:16] Charmander usó Placaje e hizo 40 de daño.
+¡Venomoth se ha debilitado!
+¡Ha aparecido un nuevo Metapod salvaje!
+[2025-05-17 13:13:17] ¡Ha comenzado un combate entre Charmander y Pikachu!
+[2025-05-17 13:13:18] Charmander usó Placaje e hizo 40 de daño.
+Pikachu contraatacó e hizo 27 de daño.
+[2025-05-17 13:14:24] ¡Ha comenzado un combate entre Charmander y Dugtrio!
+[2025-05-17 13:18:27] ¡Ha comenzado un combate entre Charmander y Sandslash!
+[2025-05-17 13:18:28] ✅ ¡Charmander ha sido enviado al combate!
+[2025-05-17 13:18:30] ✅ ¡Charmander ha sido enviado al combate!
+[2025-05-17 13:18:32] ❌ No puedes enviar un Pokémon debilitado al combate.
+[2025-05-17 13:18:55] ¡Ha comenzado un combate entre Charmander y Dragonair!
+[2025-05-17 13:19:04] ¡Ha comenzado un combate entre Squirtle y Metapod!
+[2025-05-17 13:19:06] ✅ ¡Charmander ha sido enviado al combate!
+[2025-05-17 13:19:07] Charmander usó Placaje e hizo 40 de daño.
+Metapod contraatacó e hizo 25 de daño.
+[2025-05-17 13:19:08] ✅ ¡Charmander ha sido enviado al combate!
+[2025-05-17 13:19:09] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Metapod se ha debilitado!
+¡Ha aparecido un nuevo Spearow salvaje!
+[2025-05-17 13:34:35] ¡Ha comenzado un combate entre Squirtle y Venonat!
+[2025-05-17 13:35:06] ¡Ha comenzado un combate entre Squirtle y Arbok!
+[2025-05-17 13:35:10] ✅ ¡Charmander ha sido enviado al combate!
+[2025-05-17 13:37:18] ¡Ha comenzado un combate entre Squirtle y Nidoqueen!
+[2025-05-17 13:45:00] ¡Ha comenzado un combate entre Squirtle y Venonat!
+[2025-05-17 13:46:17] ¡Ha comenzado un combate entre Squirtle y Charmeleon!
+[2025-05-17 13:46:52] ¡Ha comenzado un combate entre Squirtle y Venusaur!
+[2025-05-17 13:47:10] ¡Ha comenzado un combate entre Squirtle y Zubat!
+[2025-05-17 13:47:23] ¡Ha comenzado un combate entre Squirtle y Sandslash!
+[2025-05-17 13:49:22] ¡Ha comenzado un combate entre Squirtle y Raticate!
+[2025-05-17 13:52:03] ¡Ha comenzado un combate entre Squirtle y Caterpie!
+[2025-05-17 13:53:15] ¡Ha comenzado un combate entre Squirtle y Blastoise!
+[2025-05-17 13:54:57] ¡Ha comenzado un combate entre Squirtle y Dragonair!
+[2025-05-17 13:55:44] ¡Ha comenzado un combate entre Squirtle y Raichu!
+[2025-05-17 13:56:07] ¡Ha comenzado un combate entre Squirtle y Vulpix!
+[2025-05-17 13:56:54] ¡Ha comenzado un combate entre Squirtle y Beedrill!
+[2025-05-17 13:58:49] ¡Ha comenzado un combate entre Squirtle y Nidoking!
+[2025-05-17 14:00:12] ¡Ha comenzado un combate entre Squirtle y Diglett!
+[2025-05-17 14:01:22] ¡Ha comenzado un combate entre Squirtle y Pidgeotto!
+[2025-05-17 14:03:19] ¡Ha comenzado un combate entre Squirtle y Clefable!
+[2025-05-17 14:03:21] Has usado Pesa sobre Squirtle
+[2025-05-17 14:04:56] ¡Ha comenzado un combate entre Squirtle y Charmeleon!
+[2025-05-17 14:04:58] Has usado Pesa sobre Squirtle

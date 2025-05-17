@@ -24,14 +24,18 @@ public class Pokemon {
     private Integer nivelEvolucion;
     private int vidaActual;
 
-
     public int getVidaActual() {
-		return vidaActual;
-	}
+        return vidaActual;
+    }
 
-	public void setVidaActual(int vidaActual) {
-		this.vidaActual = vidaActual;
-	}
+    public void setVidaActual(int vidaActual) {
+        this.vidaActual = Math.max(0, vidaActual);
+    }
+
+    public void reducirVida(int cantidad) {
+        setVidaActual(vidaActual - cantidad);
+    }
+
 
 	// Constructor completo
     public Pokemon(int id, int idEntrenador, int numPokedex, String nombre,
@@ -182,14 +186,11 @@ public class Pokemon {
     public void setSonido(String sonido) { this.sonido = sonido; }
     public void setNivelEvolucion(Integer nivelEvolucion) { this.nivelEvolucion = nivelEvolucion; }
 
-    // Métodos de utilidad
-    public void reducirVida(int cantidad) {
-        this.vitalidad = Math.max(0, this.vitalidad - cantidad);
-    }
 
     public boolean estaDebilitado() {
-        return this.vitalidad <= 0;
+        return this.vidaActual <= 0;
     }
+
 
     public boolean puedeEvolucionar() {
         return nivelEvolucion != null && nivel >= nivelEvolucion;
