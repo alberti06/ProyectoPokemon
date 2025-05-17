@@ -99,6 +99,34 @@ public class Pokemon {
         this.sexo = sexo;
     }
     
+    public Pokemon(int id, int idEntrenador, int numPokedex, String nombre, String tipo1, String tipo2,
+            int vitalidad, int vidaActual, int ataque, int defensa, int atEspecial, int defEspecial,
+            int velocidad, int nivel, int fertilidad, String sexo, String estado, int equipo,
+            String imgFrontal, String imgTrasera, String sonido, Integer nivelEvolucion) {
+ this.id = id;
+ this.idEntrenador = idEntrenador;
+ this.numPokedex = numPokedex;
+ this.nombre = nombre;
+ this.tipo1 = tipo1;
+ this.tipo2 = tipo2;
+ this.vitalidad = vitalidad;
+ this.vidaActual = vidaActual;
+ this.ataque = ataque;
+ this.defensa = defensa;
+ this.atEspecial = atEspecial;
+ this.defEspecial = defEspecial;
+ this.velocidad = velocidad;
+ this.nivel = nivel;
+ this.fertilidad = fertilidad;
+ this.sexo = sexo;
+ this.estado = estado;
+ this.equipo = equipo;
+ this.imgFrontal = imgFrontal;
+ this.imgTrasera = imgTrasera;
+ this.sonido = sonido;
+ this.nivelEvolucion = nivelEvolucion;
+}
+
     public Pokemon(int numPokedex, String nombre, int nivel, int vitalidad, int ataque) {
         this.numPokedex = numPokedex;
         this.nombre = nombre;

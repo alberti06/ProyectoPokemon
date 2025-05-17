@@ -411,13 +411,15 @@ public class CombateController {
 	}
 
 	private void actualizarBarrasVida() {
-		double vidaMaxJugador = entrenador.getPrimerPokemon().getVitalidad();
-		double vidaActualJugador = entrenador.getPrimerPokemon().getVitalidad();
-		barraVidaEntrenador.setProgress(vidaActualJugador / vidaMaxJugador);
+	    Pokemon aliado = entrenador.getPrimerPokemon();
 
-		double vidaMaxEnemigo = pokemonSalvaje.getVitalidad();
-		double vidaActualEnemigo = pokemonSalvaje.getVitalidad();
-		barraVidaSalvaje.setProgress(vidaActualEnemigo / vidaMaxEnemigo);
+	    double vidaMaxJugador = aliado.getVitalidad();
+	    double vidaActualJugador = aliado.getVidaActual();
+	    barraVidaEntrenador.setProgress(Math.max(0, vidaActualJugador / vidaMaxJugador));
+
+	    double vidaMaxEnemigo = pokemonSalvaje.getVitalidad();
+	    double vidaActualEnemigo = pokemonSalvaje.getVidaActual();
+	    barraVidaSalvaje.setProgress(Math.max(0, vidaActualEnemigo / vidaMaxEnemigo));
 	}
 
 }

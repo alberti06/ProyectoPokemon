@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.PokemonDAO;
+
 public class Entrenador {
 
     private int identrenador;
@@ -89,17 +91,13 @@ public class Entrenador {
     }
 
     public Pokemon getPrimerPokemon() {
-        if (pokemons == null || pokemons.isEmpty()) {
-            throw new IllegalStateException("El entrenador no tiene ningún Pokémon.");
+        List<Pokemon> equipo = PokemonDAO.obtenerEquipo(getIdentrenador());
+        if (equipo == null || equipo.isEmpty()) {
+            return null;
         }
-
-        for (Pokemon p : pokemons) {
-            if (p.getEquipo() == 1) {
-                return p;
-            }
-        }
-        return pokemons.get(0); // Devuelve el primero aunque no esté en equipo 1
+        return equipo.get(0);
     }
+
     public Pokemon getPokemonDeEquipo(int posicion) {
         if (pokemons == null || pokemons.isEmpty()) {
             throw new IllegalStateException("El entrenador no tiene ningún Pokémon.");

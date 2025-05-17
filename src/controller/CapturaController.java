@@ -121,7 +121,9 @@ public class CapturaController {
 								"¡Captura exitosa!", JOptionPane.INFORMATION_MESSAGE);
 						}
 
-						PokemonDAO.insertarPokemon(entrenador.getIdentrenador(), pokemonSalvaje);
+						pokemonSalvaje.setIdEntrenador(entrenador.getIdentrenador()); 
+						PokemonDAO.guardarPokemon(pokemonSalvaje);
+
 
 						// Añadir movimiento Placaje (ID 31)
 						try (Connection con2 = ConexionBD.conectar()) {
@@ -268,4 +270,6 @@ public class CapturaController {
 		else if (diff < 0) return Math.max(1.0 + diff * 0.04, 0.8);
 		else return 1.0;
 	}
+
+
 }
