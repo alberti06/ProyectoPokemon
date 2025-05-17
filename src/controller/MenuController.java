@@ -275,10 +275,10 @@ public class MenuController {
     @FXML
     void abrirPokedex(MouseEvent event) {
     	try {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Pokedex.fxml"));
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Entrenamiento.fxml"));
     		Parent root = loader.load();
 
-    		PokedexController pokedexController = loader.getController(); 
+    		EntrenamientoController pokedexController = loader.getController(); 
     		Scene scene = new Scene(root);
     		Stage pokedexStage = new Stage();
 

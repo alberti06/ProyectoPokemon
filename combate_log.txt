@@ -988,3 +988,295 @@ Metapod contraatacó e hizo 25 de daño.
 [2025-05-17 17:23:39] ¡Ha comenzado un combate entre Charmander y Dugtrio!
 [2025-05-17 17:23:41] Charmander usó Placaje e hizo 40 de daño.
 Dugtrio contraatacó e hizo 30 de daño.
+[2025-05-17 17:45:34] ¡Ha comenzado un combate entre Charmander y Arbok!
+[2025-05-17 17:45:37] ¡Ha comenzado un combate entre Charmander y Blastoise!
+[2025-05-17 17:45:39] Charmander usó Placaje e hizo 40 de daño.
+Blastoise contraatacó e hizo 21 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 17:45:44] Charmander ha sido enviado al combate!
+[2025-05-17 17:45:45] Charmander usó Placaje e hizo 40 de daño.
+¡Blastoise se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Fearow salvaje!
+[2025-05-17 17:45:47] Charmander usó Placaje e hizo 40 de daño.
+Fearow contraatacó e hizo 21 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 17:45:49] Charmander ha sido enviado al combate!
+[2025-05-17 17:45:51] ¡Charmander entra en combate!
+[2025-05-17 17:45:51] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Fearow se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Nidorina salvaje!
+[2025-05-17 17:45:51] ¡Charmander entra en combate!
+[2025-05-17 17:45:51] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Nidorina se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Dratini salvaje!
+[2025-05-17 17:45:52] ¡Charmander entra en combate!
+[2025-05-17 17:45:52] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Dratini se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Nidoqueen salvaje!
+[2025-05-17 17:45:53] ¡Charmander entra en combate!
+[2025-05-17 17:45:53] Charmander usó Ascuas e hizo 40 de daño.
+¡Charmander se ha debilitado!
+Nidoqueen contraatacó e hizo 23 de daño.
+[2025-05-17 17:45:54] ¡Charmander entra en combate!
+[2025-05-17 17:45:54] Charmander usó Ascuas e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡Nidoqueen se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Venomoth salvaje!
+[2025-05-17 17:45:55] ¡Charmander entra en combate!
+[2025-05-17 17:45:55] Charmander usó Ascuas e hizo 40 de daño.
+¡Charmander se ha debilitado!
+Venomoth contraatacó e hizo 22 de daño.
+[2025-05-17 17:48:13] ¡Ha comenzado un combate entre Charmander y Metapod!
+[2025-05-17 17:48:14] ¡Charmander entra en combate!
+[2025-05-17 17:48:14] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+Metapod contraatacó e hizo 35 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 17:48:16] Charmander ha sido enviado al combate!
+[2025-05-17 17:48:17] ¡Charmander entra en combate!
+[2025-05-17 17:48:17] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Metapod se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Metapod salvaje!
+[2025-05-17 17:48:18] ¡Charmander entra en combate!
+[2025-05-17 17:48:18] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Metapod se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Clefable salvaje!
+[2025-05-17 17:48:19] ¡Charmander entra en combate!
+[2025-05-17 17:48:19] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Clefable se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Blastoise salvaje!
+[2025-05-17 17:48:19] ¡Charmander entra en combate!
+[2025-05-17 17:48:19] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Blastoise se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Fearow salvaje!
+[2025-05-17 17:48:20] ¡Charmander entra en combate!
+[2025-05-17 17:48:20] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Fearow se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Nidoran♀ salvaje!
+[2025-05-17 17:48:20] ¡Charmander entra en combate!
+[2025-05-17 17:48:20] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Nidoran♀ se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Sandslash salvaje!
+[2025-05-17 17:48:21] ¡Charmander entra en combate!
+[2025-05-17 17:48:21] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Sandslash se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Dugtrio salvaje!
+[2025-05-17 17:48:21] ¡Charmander entra en combate!
+[2025-05-17 17:48:21] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Dugtrio se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Jigglypuff salvaje!
+[2025-05-17 17:48:21] ¡Charmander entra en combate!
+[2025-05-17 17:48:21] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Jigglypuff se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Squirtle salvaje!
+[2025-05-17 17:48:22] ¡Charmander entra en combate!
+[2025-05-17 17:48:22] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Squirtle se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Charizard salvaje!
+[2025-05-17 17:48:22] ¡Charmander entra en combate!
+[2025-05-17 17:48:22] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Charizard se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Beedrill salvaje!
+[2025-05-17 17:48:22] ¡Charmander entra en combate!
+[2025-05-17 17:48:22] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Beedrill se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Jigglypuff salvaje!
+[2025-05-17 17:48:22] ¡Charmander entra en combate!
+[2025-05-17 17:48:22] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Jigglypuff se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Charmeleon salvaje!
+[2025-05-17 17:48:23] ¡Charmander entra en combate!
+[2025-05-17 17:48:23] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Charmeleon se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Jigglypuff salvaje!
+[2025-05-17 17:48:23] ¡Charmander entra en combate!
+[2025-05-17 17:48:23] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Jigglypuff se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Oddish salvaje!
+[2025-05-17 17:48:23] ¡Charmander entra en combate!
+[2025-05-17 17:48:23] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Oddish se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Pidgeot salvaje!
+[2025-05-17 17:48:23] ¡Charmander entra en combate!
+[2025-05-17 17:48:23] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Pidgeot se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Metapod salvaje!
+[2025-05-17 17:48:23] ¡Charmander entra en combate!
+[2025-05-17 17:48:23] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Metapod se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Nidoqueen salvaje!
+[2025-05-17 17:48:23] ¡Charmander entra en combate!
+[2025-05-17 17:48:23] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Nidoqueen se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Kakuna salvaje!
+[2025-05-17 17:48:23] ¡Charmander entra en combate!
+[2025-05-17 17:48:23] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Kakuna se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Vulpix salvaje!
+[2025-05-17 17:48:23] ¡Charmander entra en combate!
+[2025-05-17 17:48:23] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Vulpix se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Rattata salvaje!
+[2025-05-17 17:48:24] ¡Charmander entra en combate!
+[2025-05-17 17:48:24] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Rattata se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Pidgey salvaje!
+[2025-05-17 17:48:24] ¡Charmander entra en combate!
+[2025-05-17 17:48:24] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Pidgey se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Metapod salvaje!
+[2025-05-17 17:48:24] ¡Charmander entra en combate!
+[2025-05-17 17:48:24] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Metapod se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Zubat salvaje!
+[2025-05-17 17:48:24] ¡Charmander entra en combate!
+[2025-05-17 17:48:24] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Zubat se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Charmeleon salvaje!
+[2025-05-17 17:48:24] ¡Charmander entra en combate!
+[2025-05-17 17:48:24] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Charmeleon se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Nidoking salvaje!
+[2025-05-17 17:48:25] ¡Charmander entra en combate!
+[2025-05-17 17:48:25] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Nidoking se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Clefairy salvaje!
+[2025-05-17 17:48:25] ¡Charmander entra en combate!
+[2025-05-17 17:48:25] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Clefairy se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Blastoise salvaje!
+[2025-05-17 17:48:25] ¡Charmander entra en combate!
+[2025-05-17 17:48:25] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Blastoise se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Butterfree salvaje!
+[2025-05-17 17:48:25] ¡Charmander entra en combate!
+[2025-05-17 17:48:25] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Butterfree se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Pidgey salvaje!
+[2025-05-17 17:48:25] ¡Charmander entra en combate!
+[2025-05-17 17:48:25] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Pidgey se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Sandshrew salvaje!
+[2025-05-17 17:48:26] ¡Charmander entra en combate!
+[2025-05-17 17:48:26] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Sandshrew se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Raticate salvaje!
+[2025-05-17 17:48:26] ¡Charmander entra en combate!
+[2025-05-17 17:48:26] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Raticate se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Jigglypuff salvaje!
+[2025-05-17 17:48:26] ¡Charmander entra en combate!
+[2025-05-17 17:48:26] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Jigglypuff se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Caterpie salvaje!
+[2025-05-17 17:48:26] ¡Charmander entra en combate!
+[2025-05-17 17:48:26] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡Caterpie se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Nidoran♀ salvaje!
+[2025-05-17 17:48:27] ¡Charmander entra en combate!
+[2025-05-17 17:48:27] Charmander usó Ascuas e hizo 40 de daño.
+¡Charmander se ha debilitado!
+Nidoran♀ contraatacó e hizo 35 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 17:50:44] ¡Ha comenzado un combate entre Charmander y Sandslash!
+[2025-05-17 17:50:45] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.
+[2025-05-17 17:50:45] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.Sandslash contraatacó e hizo 32 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 17:50:47] ¡Ha comenzado un combate entre Charmander y Sandslash!
+[2025-05-17 17:50:48] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.
+[2025-05-17 17:50:48] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.Sandslash contraatacó e hizo 27 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 17:50:49] ¡Ha comenzado un combate entre Charmander y Nidoking!
+[2025-05-17 17:50:50] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.
+[2025-05-17 17:50:50] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.Nidoking contraatacó e hizo 25 de daño.
+¡Charmander se ha debilitado!
