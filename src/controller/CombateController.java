@@ -227,13 +227,31 @@ public class CombateController {
 
 		actualizarBarrasVida();
 		if (pokemonSalvaje.estaDebilitado()) {
-			mensaje += "¡" + pokemonSalvaje.getNombre() + " se ha debilitado!\n";
-			generarPokemonSalvaje();
-			actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
-			pokemonSalvaje.setVidaActual(pokemonSalvaje.getVitalidad());
-			actualizarBarrasVida();
-			mensaje += "¡Ha aparecido un nuevo " + pokemonSalvaje.getNombre() + " salvaje!\n";
-		} else {
+		    mensaje += "¡" + pokemonSalvaje.getNombre() + " se ha debilitado!\n";
+
+		    // Sumar 500 pokedólares al entrenador
+		    int dineroActual = entrenador.getPokedolares();
+		    int nuevoDinero = dineroActual + 500;
+		    entrenador.setPokedolares(nuevoDinero);
+
+		    try (Connection con = ConexionBD.conectar()) {
+		        PreparedStatement ps = con.prepareStatement("UPDATE ENTRENADOR SET POKEDOLARES = ? WHERE ID_ENTRENADOR = ?");
+		        ps.setInt(1, nuevoDinero);
+		        ps.setInt(2, entrenador.getIdentrenador());
+		        ps.executeUpdate();
+		        mensaje += "¡Has ganado 500 pokedólares!\n";
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		        mensaje += " Error al actualizar el dinero del entrenador.\n";
+		    }
+
+		    generarPokemonSalvaje();
+		    actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
+		    pokemonSalvaje.setVidaActual(pokemonSalvaje.getVitalidad());
+		    actualizarBarrasVida();
+		    mensaje += "¡Ha aparecido un nuevo " + pokemonSalvaje.getNombre() + " salvaje!\n";
+		}
+ else {
 			int dañoEnemigo = turnoEnemigo();
 			mensaje += pokemonSalvaje.getNombre() + " contraatacó e hizo " + dañoEnemigo + " de daño.\n";
 			if (pokemonAliado.estaDebilitado()) {
@@ -322,6 +340,7 @@ public class CombateController {
 		double porcentajeEnemigo = vidaMaxEnemigo > 0 ? (double) vidaActualEnemigo / vidaMaxEnemigo : 0;
 		barraVidaSalvaje.setProgress(Math.max(0.0, Math.min(1.0, porcentajeEnemigo)));
 		barraVidaSalvaje.setStyle(colorPorcentaje(porcentajeEnemigo));
+		guardarEstadoPokemonAliado();
 	}
 
 	private String colorPorcentaje(double p) {
@@ -362,6 +381,7 @@ public class CombateController {
 			menuController.init(entrenador, st, loginController);
 			st.show();
 			this.stage.close();
+			guardarEstadoPokemonAliado();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -372,7 +392,7 @@ public class CombateController {
 	    for (int i = 1; i < equipo.size(); i++) { 
 	        Pokemon candidato = equipo.get(i);
 	        if (candidato.getVidaActual() > 0) {
-	        
+	        	guardarEstadoPokemonAliado();
 	            Collections.swap(equipo, 0, i);
 	            entrenador.setPokemons(equipo); 
 	            actualizarImagenPokemonEntrenador(candidato.getNumPokedex());
@@ -387,6 +407,7 @@ public class CombateController {
 	    return false; 
 	}
 	private void cambiarPokemonActivo(Pokemon nuevo) {
+		guardarEstadoPokemonAliado();
 	    if (nuevo == null) {
 	        log(" No se ha seleccionado ningún Pokémon.");
 	        return;
@@ -407,7 +428,7 @@ public class CombateController {
 	    actualizarBotones();
 	    actualizarImagenPokemonEntrenador(nuevo.getNumPokedex());
 	    actualizarBarrasVida();
-	    log("✅ ¡" + nuevo.getNombre() + " ha sido enviado al combate!");
+	    log(nuevo.getNombre() + " ha sido enviado al combate!");
 	}
 
 
@@ -569,5 +590,31 @@ public class CombateController {
 	    cargarObjetosDisponibles(); // <-- Para recargar el ChoiceBox
 	}
 
+	private void guardarEstadoPokemonAliado() {
+	    try (Connection con = ConexionBD.conectar()) {
+	        PreparedStatement ps = con.prepareStatement("""
+	            UPDATE POKEMON SET 
+	                VITALIDAD = ?, ATAQUE = ?, DEFENSA = ?, 
+	                AT_ESPECIAL = ?, DEF_ESPECIAL = ?, VELOCIDAD = ?, 
+	                NIVEL = ?, ESTADO = ?, VIDA_ACTUAL = ?
+	            WHERE ID_POKEMON = ?
+	        """);
+
+	        ps.setInt(1, pokemonAliado.getVitalidad());
+	        ps.setInt(2, pokemonAliado.getAtaque());
+	        ps.setInt(3, pokemonAliado.getDefensa());
+	        ps.setInt(4, pokemonAliado.getAtEspecial());
+	        ps.setInt(5, pokemonAliado.getDefEspecial());
+	        ps.setInt(6, pokemonAliado.getVelocidad());
+	        ps.setInt(7, pokemonAliado.getNivel());
+	        ps.setString(8, pokemonAliado.getEstado());
+	        ps.setInt(9, pokemonAliado.getVidaActual());
+	        ps.setInt(10, pokemonAliado.getId());
+
+	        ps.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
 
 }

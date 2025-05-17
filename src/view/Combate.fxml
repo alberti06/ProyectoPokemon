@@ -10,19 +10,9 @@
 
 <AnchorPane fx:id="anchorpane" prefHeight="641.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CombateController">
 	<children>
-		<ImageView fx:id="imgSuelo11" fitHeight="641.0" fitWidth="991.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fx:id="imgSuelo11" fitHeight="673.0" fitWidth="935.0" pickOnBounds="true" preserveRatio="true">
 			<image>
-				<Image url="@../../img/imagenesExtra/fondoCombateYcaptura.jpeg" />
-			</image>
-		</ImageView>
-		<ImageView fx:id="imgSuelo1" fitHeight="283.0" fitWidth="532.0" layoutX="155.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
-			<image>
-				<Image url="@../../../ProyectoPokemon/img/imagenesExtra/suelo-combate.png" />
-			</image>
-		</ImageView>
-		<ImageView fx:id="imgSuelo2" fitHeight="240.0" fitWidth="332.0" layoutX="465.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
-			<image>
-				<Image url="@../../../ProyectoPokemon/img/imagenesExtra/suelo-combate.png" />
+				<Image url="@../../img/imagenesExtra/FondoEntrenamiento.png" />
 			</image>
 		</ImageView>
 		<ImageView fx:id="imgPokemonEntrenador" fitHeight="247.0" fitWidth="250.0" layoutX="173.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">

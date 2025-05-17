@@ -971,3 +971,20 @@ Metapod contraatacó e hizo 25 de daño.
 [2025-05-17 14:03:21] Has usado Pesa sobre Squirtle
 [2025-05-17 14:04:56] ¡Ha comenzado un combate entre Squirtle y Charmeleon!
 [2025-05-17 14:04:58] Has usado Pesa sobre Squirtle
+[2025-05-17 14:08:41] ¡Ha comenzado un combate entre Charmander y Ivysaur!
+[2025-05-17 14:08:44] ✅ ¡Charmander ha sido enviado al combate!
+[2025-05-17 14:08:45] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Ivysaur se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Dratini salvaje!
+[2025-05-17 14:08:46] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dratini se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Golbat salvaje!
+[2025-05-17 14:08:47] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Golbat se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Charmeleon salvaje!
+[2025-05-17 17:23:39] ¡Ha comenzado un combate entre Charmander y Dugtrio!
+[2025-05-17 17:23:41] Charmander usó Placaje e hizo 40 de daño.
+Dugtrio contraatacó e hizo 30 de daño.
