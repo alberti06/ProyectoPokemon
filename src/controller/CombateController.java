@@ -36,17 +36,21 @@ public class CombateController {
 	private Pokemon pokemonSalvaje;
 	private Pokemon pokemonAliado;
 	private List<Ataque> ataquesJugador = new ArrayList<>();
-	private Stage stageBolsa;
-	private Stage stageEquipo;
+	private Entrenador rival;
+	private List<Pokemon> equipoRival = new ArrayList<>();
+	private int turno = 1;
+	private int koJugador = 0;
+	private int koRival = 0;
+	private final int MAX_KO = 6;
 
 	@FXML
 	private AnchorPane anchorpane;
 	@FXML
 	private ImageView btnSalir;
-    @FXML
-    private ChoiceBox<Pokemon> chcEquipo;
-    @FXML
-    private ChoiceBox<String> chcObjetos;
+	@FXML
+	private ChoiceBox<Pokemon> chcEquipo;
+	@FXML
+	private ChoiceBox<String> chcObjetos;
 	@FXML
 	private ImageView imgPokemonEntrenador;
 	@FXML
@@ -74,53 +78,113 @@ public class CombateController {
 
 	private final String RUTA_LOG = "./combate_log.txt";
 
-	public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
-	    this.entrenador = entrenador;
-	    this.stage = stage;
-	    this.menuController = menuController;
-	    this.loginController = loginController;
-	    this.entrenador.setPokemons(PokemonDAO.obtenerEquipo(entrenador.getIdentrenador()));
-	    this.pokemonAliado = entrenador.getPrimerPokemon();
-	    if (this.pokemonAliado == null) {
-	        System.err.println("❌ El entrenador no tiene ningún Pokémon en el equipo.");
-	        return;
-	    }
-	   
-	    cargarObjetosDisponibles();
-	    inicializarChoiceBoxEquipo();
-	    generarPokemonSalvaje();
-	    cargarAtaquesDesdeBD();
-	    actualizarBotones();
-	    actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
-	    actualizarImagenPokemonEntrenador(entrenador.getPrimerPokemon().getNumPokedex());
-	    actualizarBarrasVida();
+	public void init(Entrenador entrenador, Stage stage, MenuController menuController,
+			LoginController loginController) {
+		this.entrenador = entrenador;
+		this.stage = stage;
+		this.menuController = menuController;
+		this.loginController = loginController;
+		this.entrenador.setPokemons(PokemonDAO.obtenerEquipo(entrenador.getIdentrenador()));
+		this.pokemonAliado = entrenador.getPrimerPokemon();
+		if (this.pokemonAliado == null) {
+			System.err.println("❌ El entrenador no tiene ningún Pokémon en el equipo.");
+			return;
+		}
+		cargarAtaquesDesdeBD();
+		cargarObjetosDisponibles();
+		inicializarChoiceBoxEquipo();
+		generarPokemonSalvaje();
+		generarEntrenadorRival();
+		actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
+		cargarAtaquesDesdeBD();
+		actualizarBotones();
+		actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
+		actualizarImagenPokemonEntrenador(entrenador.getPrimerPokemon().getNumPokedex());
+		actualizarBarrasVida();
 
-	    log("¡Ha comenzado un combate entre " + entrenador.getPrimerPokemon().getNombre() + " y " + pokemonSalvaje.getNombre() + "!");
+		log("¡Ha comenzado un combate entre " + entrenador.getPrimerPokemon().getNombre() + " y "
+				+ pokemonSalvaje.getNombre() + "!");
 	}
 
+	private void generarEntrenadorRival() {
+		try (Connection con = ConexionBD.conectar()) {
+			rival = new Entrenador();
+
+			List<Pokemon> equipoJugador = entrenador.getPokemons();
+			List<Integer> nivelesJugador = equipoJugador.stream().map(Pokemon::getNivel).toList();
+			Random rand = new Random();
+
+			for (int i = 0; i < 6; i++) {
+				int nivel = nivelesJugador.get(rand.nextInt(nivelesJugador.size()));
+				Pokemon p = PokemonDAO.generarPokemonSalvaje(con, nivel);
+				equipoRival.add(p);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private boolean cambiarASiguienteRival() {
+		for (Pokemon p : equipoRival) {
+			if (p.getVidaActual() > 0) {
+				pokemonSalvaje = p;
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private void finalizarCombate(boolean ganaJugador) {
+		int dineroJugador = entrenador.getPokedolares();
+		int dineroRival = 2000;
+
+		if (ganaJugador) {
+			entrenador.setPokedolares(dineroJugador + dineroRival);
+			log("¡Has ganado el combate! Recibes 2000 pokédólares.");
+		} else {
+			int perdida = dineroJugador / 3;
+			entrenador.setPokedolares(dineroJugador - perdida);
+			log("Has perdido el combate. Pierdes " + perdida + " pokédólares.");
+		}
+
+		try (Connection con = ConexionBD.conectar()) {
+			PreparedStatement ps = con
+					.prepareStatement("UPDATE ENTRENADOR SET POKEDOLARES = ? WHERE ID_ENTRENADOR = ?");
+			ps.setInt(1, entrenador.getPokedolares());
+			ps.setInt(2, entrenador.getIdentrenador());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		salirMenupokeForzado();
+	}
 
 	public void mostrarEquipoConVida() {
-	    List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
+		List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
 
-	    if (equipo == null || equipo.isEmpty()) {
-	        System.out.println("No hay Pokémon en el equipo.");
-	        return;
-	    }
+		if (equipo == null || equipo.isEmpty()) {
+			System.out.println("No hay Pokémon en el equipo.");
+			return;
+		}
 
-	    System.out.println("Pokémon del equipo:");
-	    for (Pokemon p : equipo) {
-	        String info = p.getNombre() + " (Nv. " + p.getNivel() + ", PS: " + p.getVidaActual() + "/" + p.getVitalidad() + ")";
-	        System.out.println(info);
-	    }
+		System.out.println("Pokémon del equipo:");
+		for (Pokemon p : equipo) {
+			String info = p.getNombre() + " (Nv. " + p.getNivel() + ", PS: " + p.getVidaActual() + "/"
+					+ p.getVitalidad() + ")";
+			System.out.println(info);
+		}
 	}
-
 
 	private String formatoBoton(Ataque atk) {
 		return atk.getNombre() + " (" + atk.getPpActual() + "/" + atk.getPpMax() + ")";
 	}
 
 	private void cargarAtaquesDesdeBD() {
+		System.out.println("[CARGA ATAQUES] Cargando ataques para: " + (pokemonAliado != null ? pokemonAliado.getNombre() : "null") + " (ID: " + (pokemonAliado != null ? pokemonAliado.getId() : "null") + ")");
+
 		ataquesJugador.clear();
+		
 		try (Connection con = ConexionBD.conectar()) {
 			PreparedStatement ps = con.prepareStatement("""
 						SELECT m.ID_MOVIMIENTO, m.NOM_MOVIMIENTO, m.NIVEL_APRENDIZAJE, m.PP_MAX,
@@ -142,10 +206,8 @@ public class CombateController {
 						rs.getObject("NUM") != null ? rs.getInt("NUM") : null);
 				ataquesJugador.add(atk);
 			}
+			System.out.println("[CARGA ATAQUES] Total ataques cargados: " + ataquesJugador.size());
 
-			if (ataquesJugador.isEmpty()) {
-				ataquesJugador.add(new Ataque(1, "Placaje", 1, 30, 30, "ATAQUE", 40, "Normal", null, null, null, null));
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -162,6 +224,38 @@ public class CombateController {
 			e.printStackTrace();
 		}
 		lblTurnos.setText(mensaje);
+	}
+
+	private String realizarAtaqueJugador(Ataque atk) {
+	    double mult = calcularMultiplicadorTipo(atk.getTipoMovimiento(), pokemonSalvaje.getTipo1(), pokemonSalvaje.getTipo2());
+	    int daño = (int) (atk.getPotencia() * mult);
+	    pokemonSalvaje.reducirVida(daño);
+
+	    String mensaje = pokemonAliado.getNombre() + " usó " + atk.getNombre() + " e hizo " + daño + " de daño";
+	    if (mult > 1.5) mensaje += " ¡Es muy efectivo!";
+	    else if (mult < 1.0) mensaje += " No fue muy efectivo...";
+	    else if (mult == 0.0) mensaje += " ¡No afecta al rival!";
+
+	    return mensaje + "\n";
+	}
+
+
+	private String realizarAtaqueRival() {
+	    double mult = calcularMultiplicadorTipo("NORMAL", pokemonAliado.getTipo1(), pokemonAliado.getTipo2());
+	    int daño = (int) (pokemonSalvaje.getAtaque() * mult);
+	    pokemonAliado.reducirVida(daño);
+
+	    String mensaje = pokemonSalvaje.getNombre() + " atacó e hizo " + daño + " de daño";
+	    if (mult > 1.5) mensaje += " ¡Es muy efectivo!";
+	    else if (mult < 1.0) mensaje += " No fue muy efectivo...";
+	    else if (mult == 0.0) mensaje += " ¡No te ha afectado!";
+
+	    return mensaje + "\n";
+	}
+
+
+	private int calcularExperiencia(int nivelPropio, int nivelRival) {
+		return (nivelPropio + nivelRival * 10) / 4;
 	}
 
 	@FXML
@@ -185,14 +279,15 @@ public class CombateController {
 	}
 
 	private void ejecutarAtaque(int index) {
-		
 		if (index >= ataquesJugador.size())
 			return;
+
 		Ataque atk = ataquesJugador.get(index);
 		if (!atk.tienePP()) {
 			lblTurnos.setText("¡No quedan PP para ese ataque!");
 			return;
 		}
+
 		atk.reducirPP();
 		switch (index) {
 		case 0 -> botonAtaque1.setText(formatoBoton(atk));
@@ -200,67 +295,60 @@ public class CombateController {
 		case 2 -> botonAtaque3.setText(formatoBoton(atk));
 		case 3 -> botonAtaque4.setText(formatoBoton(atk));
 		}
-		int dañoHecho = atk.getPotencia();
-		pokemonSalvaje.reducirVida(dañoHecho);
-		String mensaje = pokemonAliado.getNombre() + " usó " + atk.getNombre() + " e hizo " + dañoHecho + " de daño.\n";
-		if (entrenador.getPrimerPokemon().estaDebilitado()) {
-		    mensaje += "¡" + pokemonAliado.getNombre() + " se ha debilitado!\n";
 
-		    if (!cambiarASiguientePokemonDisponible()) {
-		        mensaje += "¡No quedan Pokémon disponibles! Has perdido el combate.";
-		        log(mensaje.trim());
-				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
-					Parent root = loader.load();
-					menuController = loader.getController();
-					Scene sc = new Scene(root);
-					Stage st = new Stage();
-					st.setTitle("Proyecto Pokemon los 3 mosqueteros");
-					st.setScene(sc);
-					menuController.init(entrenador, st, loginController);
-					st.show();
-					this.stage.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}	    }
+		String mensaje = "";
+
+		// Determinar quién ataca primero
+		boolean jugadorEmpieza = true;
+		if (pokemonAliado.getVelocidad() != pokemonSalvaje.getVelocidad()) {
+			jugadorEmpieza = pokemonAliado.getVelocidad() > pokemonSalvaje.getVelocidad();
+		} else {
+			jugadorEmpieza = new Random().nextBoolean();
 		}
 
-		actualizarBarrasVida();
-		if (pokemonSalvaje.estaDebilitado()) {
-		    mensaje += "¡" + pokemonSalvaje.getNombre() + " se ha debilitado!\n";
-
-		    // Sumar 500 pokedólares al entrenador
-		    int dineroActual = entrenador.getPokedolares();
-		    int nuevoDinero = dineroActual + 500;
-		    entrenador.setPokedolares(nuevoDinero);
-
-		    try (Connection con = ConexionBD.conectar()) {
-		        PreparedStatement ps = con.prepareStatement("UPDATE ENTRENADOR SET POKEDOLARES = ? WHERE ID_ENTRENADOR = ?");
-		        ps.setInt(1, nuevoDinero);
-		        ps.setInt(2, entrenador.getIdentrenador());
-		        ps.executeUpdate();
-		        mensaje += "¡Has ganado 500 pokedólares!\n";
-		    } catch (SQLException e) {
-		        e.printStackTrace();
-		        mensaje += " Error al actualizar el dinero del entrenador.\n";
-		    }
-
-		    generarPokemonSalvaje();
-		    actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
-		    pokemonSalvaje.setVidaActual(pokemonSalvaje.getVitalidad());
-		    actualizarBarrasVida();
-		    mensaje += "¡Ha aparecido un nuevo " + pokemonSalvaje.getNombre() + " salvaje!\n";
-		}
- else {
-			int dañoEnemigo = turnoEnemigo();
-			mensaje += pokemonSalvaje.getNombre() + " contraatacó e hizo " + dañoEnemigo + " de daño.\n";
-			if (pokemonAliado.estaDebilitado()) {
-				mensaje += "¡" + pokemonAliado.getNombre() + " se ha debilitado!";
+		if (jugadorEmpieza) {
+			mensaje += realizarAtaqueJugador(atk);
+			if (!pokemonSalvaje.estaDebilitado()) {
+				mensaje += realizarAtaqueRival();
+			}
+		} else {
+			mensaje += realizarAtaqueRival();
+			if (!pokemonAliado.estaDebilitado()) {
+				mensaje += realizarAtaqueJugador(atk);
 			}
 		}
+
 		actualizarBarrasVida();
 		log(mensaje.trim());
-		
+
+		// Verificar KO
+		if (pokemonAliado.estaDebilitado()) {
+			koJugador++;
+			if (!cambiarASiguientePokemonDisponible()) {
+				finalizarCombate(false);
+				return;
+			}
+		}
+
+		if (pokemonSalvaje.estaDebilitado()) {
+			koRival++;
+			int exp = calcularExperiencia(pokemonAliado.getNivel(), pokemonSalvaje.getNivel());
+			mensaje += "\n" + pokemonAliado.getNombre() + " gana " + exp + " de experiencia.";
+
+			if (koRival >= MAX_KO) {
+				finalizarCombate(true);
+				return;
+			} else {
+				cambiarASiguienteRival();
+				actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
+				pokemonSalvaje.setVidaActual(pokemonSalvaje.getVitalidad());
+				actualizarBarrasVida();
+				mensaje += "\n¡Nuevo Pokémon rival entra al combate!";
+				log(mensaje.trim());
+			}
+		}
+
+		turno++;
 	}
 
 	private int turnoEnemigo() {
@@ -368,6 +456,7 @@ public class CombateController {
 			e.printStackTrace();
 		}
 	}
+
 	@FXML
 	void salirMenupokeForzado() {
 		try {
@@ -386,235 +475,289 @@ public class CombateController {
 			e.printStackTrace();
 		}
 	}
+
 	private boolean cambiarASiguientePokemonDisponible() {
-	    List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
+		List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
 
-	    for (int i = 1; i < equipo.size(); i++) { 
-	        Pokemon candidato = equipo.get(i);
-	        if (candidato.getVidaActual() > 0) {
-	        	guardarEstadoPokemonAliado();
-	            Collections.swap(equipo, 0, i);
-	            entrenador.setPokemons(equipo); 
-	            actualizarImagenPokemonEntrenador(candidato.getNumPokedex());
-	            cargarAtaquesDesdeBD();
-	            actualizarBotones();
-	            actualizarBarrasVida();
-	            log("¡" + candidato.getNombre() + " entra en combate!");
-	            return true;
-	        }
-	    }
+		for (int i = 1; i < equipo.size(); i++) {
+			Pokemon candidato = equipo.get(i);
+			if (candidato.getVidaActual() > 0) {
+				guardarEstadoPokemonAliado();
+				Collections.swap(equipo, 0, i);
+				entrenador.setPokemons(equipo);
+				actualizarImagenPokemonEntrenador(candidato.getNumPokedex());
+				cargarAtaquesDesdeBD();
+				actualizarBotones();
+				actualizarBarrasVida();
+				log("¡" + candidato.getNombre() + " entra en combate!");
+				return true;
+			}
+		}
 
-	    return false; 
+		return false;
 	}
+
 	private void cambiarPokemonActivo(Pokemon nuevo) {
 		guardarEstadoPokemonAliado();
-	    if (nuevo == null) {
-	        log(" No se ha seleccionado ningún Pokémon.");
-	        return;
-	    }
+		if (nuevo == null) {
+			log(" No se ha seleccionado ningún Pokémon.");
+			return;
+		}
 
-	    if (nuevo.equals(pokemonAliado)) {
-	        log(" ¡Ese Pokémon ya está en combate!");
-	        return;
-	    }
+		if (nuevo.equals(pokemonAliado)) {
+			log(" ¡Ese Pokémon ya está en combate!");
+			return;
+		}
 
-	    if (nuevo.getVidaActual() <= 0) {
-	        log(" No puedes enviar un Pokémon debilitado al combate.");
-	        return;
-	    }
+		if (nuevo.getVidaActual() <= 0) {
+			log(" No puedes enviar un Pokémon debilitado al combate.");
+			return;
+		}
 
-	    this.pokemonAliado = nuevo;
-	    cargarAtaquesDesdeBD();
-	    actualizarBotones();
-	    actualizarImagenPokemonEntrenador(nuevo.getNumPokedex());
-	    actualizarBarrasVida();
-	    log(nuevo.getNombre() + " ha sido enviado al combate!");
+		this.pokemonAliado = nuevo;
+		cargarAtaquesDesdeBD();
+		actualizarBotones();
+		actualizarImagenPokemonEntrenador(nuevo.getNumPokedex());
+		actualizarBarrasVida();
+		log(nuevo.getNombre() + " ha sido enviado al combate!");
 	}
 
-
 	public void inicializarChoiceBoxEquipo() {
-	    List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
+		List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
 
-	    chcEquipo.getItems().clear();
-	    chcEquipo.getItems().addAll(equipo);
+		chcEquipo.getItems().clear();
+		chcEquipo.getItems().addAll(equipo);
 
-	    
-	    chcEquipo.setConverter(new javafx.util.StringConverter<>() {
-	        @Override
-	        public String toString(Pokemon p) {
-	            return p == null ? "" : p.getNombre() + " (Nv. " + p.getNivel() + " | PS: " + p.getVidaActual() + "/" + p.getVitalidad() + ")";
-	        }
+		chcEquipo.setConverter(new javafx.util.StringConverter<>() {
+			@Override
+			public String toString(Pokemon p) {
+				return p == null ? ""
+						: p.getNombre() + " (Nv. " + p.getNivel() + " | PS: " + p.getVidaActual() + "/"
+								+ p.getVitalidad() + ")";
+			}
 
-	        @Override
-	        public Pokemon fromString(String s) {
-	            return null;
-	        }
-	    });
+			@Override
+			public Pokemon fromString(String s) {
+				return null;
+			}
+		});
 
-	    chcEquipo.setOnAction(e -> {
-	        Pokemon seleccionado = chcEquipo.getValue();
-	        cambiarPokemonActivo(seleccionado);
-	    });
+		chcEquipo.setOnAction(e -> {
+			Pokemon seleccionado = chcEquipo.getValue();
+			cambiarPokemonActivo(seleccionado);
+		});
 	}
 
 	private void cargarObjetosDisponibles() {
-	    nombresObjetos.clear();
-	    idsObjetos.clear();
+		nombresObjetos.clear();
+		idsObjetos.clear();
 
-	    if (chcObjetos == null) {
-	        System.err.println("❌ ChoiceBox de objetos no está inicializado.");
-	        return;
-	    }
+		if (chcObjetos == null) {
+			System.err.println("❌ ChoiceBox de objetos no está inicializado.");
+			return;
+		}
 
-	    chcObjetos.getItems().clear();
+		chcObjetos.getItems().clear();
 
-	    try (Connection con = ConexionBD.conectar()) {
-	        String query = """
-	            SELECT o.ID_OBJETO, o.NOM_OBJETO, m.NUMERO_OBJETOS
-	            FROM MOCHILA m
-	            JOIN OBJETO o ON m.ID_OBJETO = o.ID_OBJETO
-	            WHERE m.ID_ENTRENADOR = ? AND m.NUMERO_OBJETOS > 0
-	              AND LOWER(o.NOM_OBJETO) NOT LIKE 'pokeball'
-	        """;
+		try (Connection con = ConexionBD.conectar()) {
+			String query = """
+					    SELECT o.ID_OBJETO, o.NOM_OBJETO, m.NUMERO_OBJETOS
+					    FROM MOCHILA m
+					    JOIN OBJETO o ON m.ID_OBJETO = o.ID_OBJETO
+					    WHERE m.ID_ENTRENADOR = ? AND m.NUMERO_OBJETOS > 0
+					      AND LOWER(o.NOM_OBJETO) NOT LIKE 'pokeball'
+					""";
 
-	        PreparedStatement ps = con.prepareStatement(query);
-	        ps.setInt(1, entrenador.getIdentrenador());
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, entrenador.getIdentrenador());
 
-	        ResultSet rs = ps.executeQuery();
-	        while (rs.next()) {
-	            int id = rs.getInt("ID_OBJETO");
-	            String nombre = rs.getString("NOM_OBJETO");
-	            int cantidad = rs.getInt("NUMERO_OBJETOS");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("ID_OBJETO");
+				String nombre = rs.getString("NOM_OBJETO");
+				int cantidad = rs.getInt("NUMERO_OBJETOS");
 
-	            idsObjetos.add(id);
-	            nombresObjetos.add(nombre);
-	            chcObjetos.getItems().add(nombre + ": " + cantidad);
+				idsObjetos.add(id);
+				nombresObjetos.add(nombre);
+				chcObjetos.getItems().add(nombre + ": " + cantidad);
 
-	            System.out.println(" Objeto cargado: " + nombre + ": " + cantidad);
-	        }
+				System.out.println(" Objeto cargado: " + nombre + ": " + cantidad);
+			}
 
-	        if (chcObjetos.getItems().isEmpty()) {
-	            System.out.println(" No hay objetos disponibles.");
-	        }
+			if (chcObjetos.getItems().isEmpty()) {
+				System.out.println(" No hay objetos disponibles.");
+			}
 
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private int obtenerIdObjetoPorNombre(String nombre) {
-	    return switch (nombre.toLowerCase()) {
-	        case "pesa" -> 1;
-	        case "pluma" -> 2;
-	        case "chaleco" -> 3;
-	        case "bastón" -> 4;
-	        case "pilas" -> 5;
-	        case "éter" -> 6;
-	        case "anillo único" -> 7;
-	        default -> -1;
-	    };
+		return switch (nombre.toLowerCase()) {
+		case "pesa" -> 1;
+		case "pluma" -> 2;
+		case "chaleco" -> 3;
+		case "bastón" -> 4;
+		case "pilas" -> 5;
+		case "éter" -> 6;
+		case "anillo único" -> 7;
+		default -> -1;
+		};
 	}
 
 	private void aplicarEfectoObjeto(String nombre) {
-	    switch (nombre.toLowerCase()) {
-	        case "pesa" -> {
-	            pokemonAliado.setAtaque((int) (pokemonAliado.getAtaque() * 1.2));
-	            pokemonAliado.setDefensa((int) (pokemonAliado.getDefensa() * 1.2));
-	            pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 0.8));
-	        }
-	        case "pluma" -> {
-	            pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 1.3));
-	            pokemonAliado.setDefensa((int) (pokemonAliado.getDefensa() * 0.8));
-	            pokemonAliado.setDefEspecial((int) (pokemonAliado.getDefEspecial() * 0.8));
-	        }
-	        case "chaleco" -> {
-	            pokemonAliado.setDefensa((int) (pokemonAliado.getDefensa() * 1.2));
-	            pokemonAliado.setDefEspecial((int) (pokemonAliado.getDefEspecial() * 1.2));
-	            pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 0.85));
-	            pokemonAliado.setAtaque((int) (pokemonAliado.getAtaque() * 0.85));
-	        }
-	        case "bastón" -> {
-	            pokemonAliado.setVitalidad((int) (pokemonAliado.getVitalidad() * 1.2));
-	            pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 0.85));
-	        }
-	        case "pilas" -> {
-	            pokemonAliado.setVitalidad((int) (pokemonAliado.getVitalidad() * 1.5));
-	            pokemonAliado.setDefEspecial((int) (pokemonAliado.getDefEspecial() * 0.7));
-	        }
-	        case "éter" -> {
-	            if (!ataquesJugador.isEmpty()) {
-	                ataquesJugador.get(0).restaurarPP(); // o elegir el ataque con un ChoiceBox también
-	                actualizarBotones();
-	            }
-	        }
-	        case "anillo único" -> {
-	            log(pokemonAliado.getNombre() + " es invencible durante 3 turnos y su ataque se multiplica por 10.");
-	        }
-	    }
+		switch (nombre.toLowerCase()) {
+		case "pesa" -> {
+			pokemonAliado.setAtaque((int) (pokemonAliado.getAtaque() * 1.2));
+			pokemonAliado.setDefensa((int) (pokemonAliado.getDefensa() * 1.2));
+			pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 0.8));
+		}
+		case "pluma" -> {
+			pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 1.3));
+			pokemonAliado.setDefensa((int) (pokemonAliado.getDefensa() * 0.8));
+			pokemonAliado.setDefEspecial((int) (pokemonAliado.getDefEspecial() * 0.8));
+		}
+		case "chaleco" -> {
+			pokemonAliado.setDefensa((int) (pokemonAliado.getDefensa() * 1.2));
+			pokemonAliado.setDefEspecial((int) (pokemonAliado.getDefEspecial() * 1.2));
+			pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 0.85));
+			pokemonAliado.setAtaque((int) (pokemonAliado.getAtaque() * 0.85));
+		}
+		case "bastón" -> {
+			pokemonAliado.setVitalidad((int) (pokemonAliado.getVitalidad() * 1.2));
+			pokemonAliado.setVelocidad((int) (pokemonAliado.getVelocidad() * 0.85));
+		}
+		case "pilas" -> {
+			pokemonAliado.setVitalidad((int) (pokemonAliado.getVitalidad() * 1.5));
+			pokemonAliado.setDefEspecial((int) (pokemonAliado.getDefEspecial() * 0.7));
+		}
+		case "éter" -> {
+			if (!ataquesJugador.isEmpty()) {
+				ataquesJugador.get(0).restaurarPP(); // o elegir el ataque con un ChoiceBox también
+				actualizarBotones();
+			}
+		}
+		case "anillo único" -> {
+			log(pokemonAliado.getNombre() + " es invencible durante 3 turnos y su ataque se multiplica por 10.");
+		}
+		}
 	}
 
 	private void restarObjetoDeBD(int idObjeto) {
-	    try (Connection con = ConexionBD.conectar()) {
-	        PreparedStatement ps = con.prepareStatement("""
-	            UPDATE MOCHILA SET NUMERO_OBJETOS = NUMERO_OBJETOS - 1
-	            WHERE ID_ENTRENADOR = ? AND ID_OBJETO = ?
-	        """);
-	        ps.setInt(1, entrenador.getIdentrenador());
-	        ps.setInt(2, idObjeto);
-	        ps.executeUpdate();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+		try (Connection con = ConexionBD.conectar()) {
+			PreparedStatement ps = con.prepareStatement("""
+					    UPDATE MOCHILA SET NUMERO_OBJETOS = NUMERO_OBJETOS - 1
+					    WHERE ID_ENTRENADOR = ? AND ID_OBJETO = ?
+					""");
+			ps.setInt(1, entrenador.getIdentrenador());
+			ps.setInt(2, idObjeto);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
+
 	@FXML
 	void usarObjetoSeleccionado() {
-	    String seleccionado = chcObjetos.getValue();
-	    if (seleccionado == null || !seleccionado.contains(":")) {
-	        log("Selecciona un objeto válido.");
-	        return;
-	    }
+		String seleccionado = chcObjetos.getValue();
+		if (seleccionado == null || !seleccionado.contains(":")) {
+			log("Selecciona un objeto válido.");
+			return;
+		}
 
-	    String nombreObjeto = seleccionado.split(":")[0].trim();
-	    int idObjeto = obtenerIdObjetoPorNombre(nombreObjeto);
+		String nombreObjeto = seleccionado.split(":")[0].trim();
+		int idObjeto = obtenerIdObjetoPorNombre(nombreObjeto);
 
-	    if (idObjeto == -1) {
-	        log("Objeto no reconocido.");
-	        return;
-	    }
+		if (idObjeto == -1) {
+			log("Objeto no reconocido.");
+			return;
+		}
 
-	    aplicarEfectoObjeto(nombreObjeto);
-	    restarObjetoDeBD(idObjeto);
+		aplicarEfectoObjeto(nombreObjeto);
+		restarObjetoDeBD(idObjeto);
 
-	    log("Has usado " + nombreObjeto + " sobre " + pokemonAliado.getNombre());
-	    actualizarBarrasVida();
-	    cargarObjetosDisponibles(); // <-- Para recargar el ChoiceBox
+		log("Has usado " + nombreObjeto + " sobre " + pokemonAliado.getNombre());
+		actualizarBarrasVida();
+		cargarObjetosDisponibles(); // <-- Para recargar el ChoiceBox
 	}
 
 	private void guardarEstadoPokemonAliado() {
-	    try (Connection con = ConexionBD.conectar()) {
-	        PreparedStatement ps = con.prepareStatement("""
-	            UPDATE POKEMON SET 
-	                VITALIDAD = ?, ATAQUE = ?, DEFENSA = ?, 
-	                AT_ESPECIAL = ?, DEF_ESPECIAL = ?, VELOCIDAD = ?, 
-	                NIVEL = ?, ESTADO = ?, VIDA_ACTUAL = ?
-	            WHERE ID_POKEMON = ?
-	        """);
+		try (Connection con = ConexionBD.conectar()) {
+			PreparedStatement ps = con.prepareStatement("""
+					    UPDATE POKEMON SET
+					        VITALIDAD = ?, ATAQUE = ?, DEFENSA = ?,
+					        AT_ESPECIAL = ?, DEF_ESPECIAL = ?, VELOCIDAD = ?,
+					        NIVEL = ?, ESTADO = ?, VIDA_ACTUAL = ?
+					    WHERE ID_POKEMON = ?
+					""");
 
-	        ps.setInt(1, pokemonAliado.getVitalidad());
-	        ps.setInt(2, pokemonAliado.getAtaque());
-	        ps.setInt(3, pokemonAliado.getDefensa());
-	        ps.setInt(4, pokemonAliado.getAtEspecial());
-	        ps.setInt(5, pokemonAliado.getDefEspecial());
-	        ps.setInt(6, pokemonAliado.getVelocidad());
-	        ps.setInt(7, pokemonAliado.getNivel());
-	        ps.setString(8, pokemonAliado.getEstado());
-	        ps.setInt(9, pokemonAliado.getVidaActual());
-	        ps.setInt(10, pokemonAliado.getId());
+			ps.setInt(1, pokemonAliado.getVitalidad());
+			ps.setInt(2, pokemonAliado.getAtaque());
+			ps.setInt(3, pokemonAliado.getDefensa());
+			ps.setInt(4, pokemonAliado.getAtEspecial());
+			ps.setInt(5, pokemonAliado.getDefEspecial());
+			ps.setInt(6, pokemonAliado.getVelocidad());
+			ps.setInt(7, pokemonAliado.getNivel());
+			ps.setString(8, pokemonAliado.getEstado());
+			ps.setInt(9, pokemonAliado.getVidaActual());
+			ps.setInt(10, pokemonAliado.getId());
 
-	        ps.executeUpdate();
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	private double calcularMultiplicadorTipo(String tipoAtaque, String tipoDef1, String tipoDef2) {
+	    tipoAtaque = tipoAtaque.toUpperCase();
+	    double mult1 = calcularContraTipo(tipoAtaque, tipoDef1 != null ? tipoDef1.toUpperCase() : null);
+	    double mult2 = calcularContraTipo(tipoAtaque, tipoDef2 != null ? tipoDef2.toUpperCase() : null);
+
+	    return mult1 * mult2;
+	}
+
+	private double calcularContraTipo(String tipoAtaque, String tipoDef) {
+	    if (tipoDef == null) return 1.0;
+
+	    // FUEGO
+	    if (tipoAtaque.equals("FUEGO") && (tipoDef.equals("PLANTA") || tipoDef.equals("BICHO") || tipoDef.equals("HIELO"))) return 2.0;
+	    if (tipoAtaque.equals("FUEGO") && (tipoDef.equals("AGUA") || tipoDef.equals("FUEGO") || tipoDef.equals("ROCA") || tipoDef.equals("DRAGÓN"))) return 0.5;
+
+	    // AGUA
+	    if (tipoAtaque.equals("AGUA") && (tipoDef.equals("FUEGO") || tipoDef.equals("ROCA") || tipoDef.equals("TIERRA"))) return 2.0;
+	    if (tipoAtaque.equals("AGUA") && (tipoDef.equals("AGUA") || tipoDef.equals("PLANTA") || tipoDef.equals("DRAGÓN"))) return 0.5;
+
+	    // PLANTA
+	    if (tipoAtaque.equals("PLANTA") && (tipoDef.equals("AGUA") || tipoDef.equals("TIERRA") || tipoDef.equals("ROCA"))) return 2.0;
+	    if (tipoAtaque.equals("PLANTA") && (tipoDef.equals("PLANTA") || tipoDef.equals("FUEGO") || tipoDef.equals("VENENO") || tipoDef.equals("BICHO") || tipoDef.equals("DRAGÓN") || tipoDef.equals("VOLADOR"))) return 0.5;
+
+	    // VENENO
+	    if (tipoAtaque.equals("VENENO") && (tipoDef.equals("PLANTA") || tipoDef.equals("HADA"))) return 2.0;
+	    if (tipoAtaque.equals("VENENO") && (tipoDef.equals("VENENO") || tipoDef.equals("TIERRA") || tipoDef.equals("ROCA") || tipoDef.equals("FANTASMA"))) return 0.5;
+
+	    // HADA
+	    if (tipoAtaque.equals("HADA") && (tipoDef.equals("DRAGÓN") || tipoDef.equals("LUCHA") || tipoDef.equals("SINIESTRO"))) return 2.0;
+	    if (tipoAtaque.equals("HADA") && (tipoDef.equals("FUEGO") || tipoDef.equals("VENENO") || tipoDef.equals("ACERO"))) return 0.5;
+
+	    // DRAGÓN
+	    if (tipoAtaque.equals("DRAGÓN") && tipoDef.equals("DRAGÓN")) return 2.0;
+	    if (tipoAtaque.equals("DRAGÓN") && tipoDef.equals("HADA")) return 0.0;
+
+	    // NORMAL
+	    if (tipoAtaque.equals("NORMAL") && tipoDef.equals("FANTASMA")) return 0.0;
+	    if (tipoAtaque.equals("NORMAL") && (tipoDef.equals("ROCA") || tipoDef.equals("ACERO"))) return 0.5;
+
+	    // TIERRA
+	    if (tipoAtaque.equals("TIERRA") && (tipoDef.equals("FUEGO") || tipoDef.equals("ELÉCTRICO") || tipoDef.equals("VENENO") || tipoDef.equals("ROCA") || tipoDef.equals("ACERO"))) return 2.0;
+	    if (tipoAtaque.equals("TIERRA") && (tipoDef.equals("PLANTA") || tipoDef.equals("BICHO"))) return 0.5;
+	    if (tipoAtaque.equals("TIERRA") && tipoDef.equals("VOLADOR")) return 0.0;
+
+	    // ELÉCTRICO
+	    if (tipoAtaque.equals("ELÉCTRICO") && (tipoDef.equals("AGUA") || tipoDef.equals("VOLADOR"))) return 2.0;
+	    if (tipoAtaque.equals("ELÉCTRICO") && (tipoDef.equals("PLANTA") || tipoDef.equals("DRAGÓN") || tipoDef.equals("ELÉCTRICO"))) return 0.5;
+	    if (tipoAtaque.equals("ELÉCTRICO") && tipoDef.equals("TIERRA")) return 0.0;
+
+	    return 1.0;
 	}
 
 }

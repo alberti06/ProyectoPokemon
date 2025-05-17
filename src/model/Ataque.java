@@ -13,22 +13,22 @@ public class Ataque {
 	private Integer turnos; // Duración del estado si aplica
 	private String mejora; // Atributo que mejora/reduce
 	private Integer modificador; // Cuánto mejora/reduce
-
-	public Ataque(int id, String nombre, int nivelAprendizaje, int ppMax, int ppActual, String tipo, Integer potencia,
-			String tipoMovimiento, String estado, Integer turnos, String mejora, Integer modificador) {
-		this.id = id;
-		this.nombre = nombre;
-		this.nivelAprendizaje = nivelAprendizaje;
-		this.ppMax = ppMax;
-		this.ppActual = ppActual;
-		this.tipo = tipo;
-		this.potencia = potencia != null ? potencia : 0;
-		this.tipoMovimiento = tipoMovimiento;
-		this.estado = estado;
-		this.turnos = turnos;
-		this.mejora = mejora;
-		this.modificador = modificador;
-	}
+	
+	public Ataque(int id, String nombre, int nivelAprendizaje, int ppMax, Integer ppActual, String tipo, Integer potencia,
+            String tipoMovimiento, String estado, Integer turnos, String mejora, Integer modificador) {
+	this.id = id;
+	this.nombre = nombre;
+	this.nivelAprendizaje = nivelAprendizaje;
+	this.ppMax = ppMax;
+	this.ppActual = (ppActual == null || ppActual == 0) ? ppMax : ppActual; 
+	this.tipo = tipo;
+	this.potencia = potencia != null ? potencia : 0;
+	this.tipoMovimiento = tipoMovimiento;
+	this.estado = estado;
+	this.turnos = turnos;
+	this.mejora = mejora;
+	this.modificador = modificador;
+}
 
 	// Constructor más simple (útil para botones de combate)
 	public Ataque(String nombre, String tipoMovimiento, int potencia, int pp) {

@@ -137,7 +137,7 @@ public class Pokemon {
         this.nivel = nivel;
         this.vitalidad = vitalidad;
         this.ataque = ataque;
-        this.sexo = "Desconocido"; // por seguridad
+        this.sexo = "M"; 
     }
 
     // Getters

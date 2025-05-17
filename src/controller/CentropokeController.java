@@ -41,7 +41,7 @@ public class CentropokeController {
     void btnRestaurar(MouseEvent event) {
         try {
             // Curar todos los Pokémon del equipo
-            for (Pokemon p : entrenador.getEquipo()) {
+            for (Pokemon p : entrenador.getPokemons()) {
                 p.setVidaActual(p.getVitalidad());
                 PokemonDAO.actualizarVida(p);
             }

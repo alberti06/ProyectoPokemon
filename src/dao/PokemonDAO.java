@@ -157,6 +157,83 @@ public class PokemonDAO {
             e.printStackTrace();
         }
     }
+    public static int obtenerExp(int idPokemon) {
+        int exp = 0;
+        String query = "SELECT EXP FROM POKEMON WHERE ID_POKEMON = ?";
+        try (Connection con = ConexionBD.conectar();
+             PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setInt(1, idPokemon);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                exp = rs.getInt("EXP");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exp;
+    }
+
+    public static Pokemon generarPokemonSalvaje(Connection con, int nivel) throws SQLException {
+        Random rand = new Random();
+
+        PreparedStatement ps = con.prepareStatement("""
+            SELECT NUM_POKEDEX, NOM_POKEMON, TIPO1, TIPO2, IMG_FRONTAL, IMG_TRASERA, SONIDO, NIVEL_EVOLUCION
+            FROM POKEDEX
+            ORDER BY RAND()
+            LIMIT 1
+        """);
+
+        ResultSet rs = ps.executeQuery();
+
+        if (!rs.next()) throw new SQLException("No se pudo generar un Pokémon salvaje.");
+
+        int numPokedex = rs.getInt("NUM_POKEDEX");
+        String nombre = rs.getString("NOM_POKEMON");
+        String tipo1 = rs.getString("TIPO1");
+        String tipo2 = rs.getString("TIPO2");
+        String imgFrontal = rs.getString("IMG_FRONTAL");
+        String imgTrasera = rs.getString("IMG_TRASERA");
+        String sonido = rs.getString("SONIDO");
+        int nivelEvolucion = rs.getInt("NIVEL_EVOLUCION");
+
+        // Generar estadísticas escaladas
+        int base = 50 + nivel * 2;
+        int vitalidad = base + rand.nextInt(10);
+        int ataque = base / 2 + rand.nextInt(5);
+        int defensa = base / 2 + rand.nextInt(5);
+        int atEspecial = base / 2 + rand.nextInt(5);
+        int defEspecial = base / 2 + rand.nextInt(5);
+        int velocidad = base / 2 + rand.nextInt(5);
+
+        String sexo = rand.nextBoolean() ? "Macho" : "Hembra";
+        int fertilidad = 3;
+
+        Pokemon p = new Pokemon(
+            -1, // ID no asignado
+            -1, // ID del entrenador (rival ficticio)
+            numPokedex,
+            nombre,
+            tipo1,
+            tipo2,
+            vitalidad,
+            ataque,
+            defensa,
+            atEspecial,
+            defEspecial,
+            velocidad,
+            nivel,
+            fertilidad,
+            sexo,
+            null,
+            0,
+            imgFrontal,
+            imgTrasera,
+            sonido,
+            nivelEvolucion
+        );
+        p.setVidaActual(vitalidad);
+        return p;
+    }
 
     public static void actualizarVida(Pokemon p) {
         String sql = "UPDATE POKEMON SET VIDA_ACTUAL = ? WHERE ID_POKEMON = ?";

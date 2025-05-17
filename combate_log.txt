@@ -1280,3 +1280,130 @@ Nidoran♀ contraatacó e hizo 35 de daño.
 ¡Charmander se ha debilitado!
 ¡No quedan Pokémon disponibles! Has perdido el combate.Nidoking contraatacó e hizo 25 de daño.
 ¡Charmander se ha debilitado!
+[2025-05-17 18:04:54] ¡Ha comenzado un combate entre Charmander y Sandslash!
+[2025-05-17 18:04:55] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.
+[2025-05-17 18:04:55] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.Sandslash contraatacó e hizo 37 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 18:06:40] ¡Ha comenzado un combate entre Charmander y Nidorino!
+[2025-05-17 18:06:53] ¡Ha comenzado un combate entre Charmander y Ditto!
+[2025-05-17 18:06:55] Has usado Éter sobre Charmander
+[2025-05-17 18:06:56] Charmander usó Placaje e hizo 40 de daño.
+Ditto contraatacó e hizo 35 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 18:06:58] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.
+[2025-05-17 18:06:58] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.¡Ditto se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Beedrill salvaje!
+[2025-05-17 18:20:12] ¡Ha comenzado un combate entre Charmander y Spearow!
+[2025-05-17 18:20:16] ¡Ha comenzado un combate entre Charmander y Kakuna!
+[2025-05-17 18:20:23] ¡Ha comenzado un combate entre Charmander y Dragonite!
+[2025-05-17 18:24:10] ¡Ha comenzado un combate entre Charmander y Venusaur!
+[2025-05-17 18:24:11] Charmander usó Placaje e hizo 40 de daño.
+Venusaur contraatacó e hizo 25 de daño.
+[2025-05-17 18:24:12] Charmander usó Placaje e hizo 40 de daño.
+¡Venusaur se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Venonat salvaje!
+[2025-05-17 18:24:33] ¡Ha comenzado un combate entre Squirtle y Venomoth!
+[2025-05-17 18:24:34] Squirtle usó Placaje e hizo 40 de daño.
+Venomoth contraatacó e hizo 25 de daño.
+[2025-05-17 18:24:35] Squirtle usó Placaje e hizo 40 de daño.
+¡Venomoth se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Pidgey salvaje!
+[2025-05-17 18:26:35] ¡Ha comenzado un combate entre Charmander y Clefairy!
+[2025-05-17 18:26:37] Charmander usó Placaje e hizo 40 de daño.
+Clefairy contraatacó e hizo 25 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 18:26:37] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.
+[2025-05-17 18:26:37] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.¡Clefairy se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Pidgeotto salvaje!
+[2025-05-17 18:26:41] ¡Ha comenzado un combate entre Charmander y Fearow!
+[2025-05-17 18:26:42] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.
+[2025-05-17 18:26:42] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.Fearow contraatacó e hizo 35 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 18:50:18] ¡Ha comenzado un combate entre Charmander y Clefable!
+[2025-05-17 18:50:20]  No puedes enviar un Pokémon debilitado al combate.
+[2025-05-17 18:50:26] ¡Ha comenzado un combate entre Charmander y Nidoqueen!
+[2025-05-17 18:50:27] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.
+[2025-05-17 18:50:27] Charmander usó Placaje e hizo 40 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.Nidoqueen contraatacó e hizo 27 de daño.
+¡Charmander se ha debilitado!
+[2025-05-17 18:53:11] ¡Ha comenzado un combate entre Charmander y Venonat!
+[2025-05-17 18:53:12] Charmander usó Placaje e hizo 40 de daño.
+¡Venonat se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Vulpix salvaje!
+[2025-05-17 18:53:16] Charmander ha sido enviado al combate!
+[2025-05-17 18:53:17] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Vulpix se ha debilitado!
+¡Has ganado 500 pokedólares!
+¡Ha aparecido un nuevo Caterpie salvaje!
+[2025-05-17 18:53:20] ¡Ha comenzado un combate entre Charmander y Jigglypuff!
+[2025-05-17 18:53:22] Charmander ha sido enviado al combate!
+[2025-05-17 18:53:24] Charmander ha sido enviado al combate!
+[2025-05-17 18:53:25] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 18:53:25] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 23 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 18:53:26] Charmander usó Lanzallamas e hizo 180 de daño ¡Es muy efectivo!
+[2025-05-17 18:53:26] Charmander usó Lanzallamas e hizo 180 de daño ¡Es muy efectivo!
+
+Charmander gana 33 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 18:53:29] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 18:53:29] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 33 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 18:53:29] Charmander usó Lanzallamas e hizo 45 de daño No fue muy efectivo...
+Dratini atacó e hizo 41 de daño
+[2025-05-17 18:53:31] Charmander usó Giro Fuego e hizo 17 de daño No fue muy efectivo...
+Dratini atacó e hizo 41 de daño
+[2025-05-17 18:53:32] Charmander usó Giro Fuego e hizo 17 de daño No fue muy efectivo...
+[2025-05-17 18:53:32] Charmander usó Giro Fuego e hizo 17 de daño No fue muy efectivo...
+
+Charmander gana 33 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 18:53:33] Charmander usó Giro Fuego e hizo 17 de daño No fue muy efectivo...
+Ninetales atacó e hizo 37 de daño
+[2025-05-17 18:53:33] Has perdido el combate. Pierdes 7500 pokédólares.
+[2025-05-17 19:02:43] ¡Ha comenzado un combate entre Charmander y Pidgeot!
+[2025-05-17 19:02:48] Charmander ha sido enviado al combate!
+[2025-05-17 19:02:52]  No puedes enviar un Pokémon debilitado al combate.
+[2025-05-17 19:02:58] ¡Ha comenzado un combate entre Charmander y Jigglypuff!
+[2025-05-17 19:03:00] Charmander ha sido enviado al combate!
+[2025-05-17 19:03:01] Charmander ha sido enviado al combate!
+[2025-05-17 19:03:02] Charmander ha sido enviado al combate!
+[2025-05-17 19:03:07] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 19:03:07] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 28 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 19:03:09] Charmander usó Lanzallamas e hizo 360 de daño ¡Es muy efectivo!
+[2025-05-17 19:03:09] Charmander usó Lanzallamas e hizo 360 de daño ¡Es muy efectivo!
+
+Charmander gana 33 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 19:03:17] ¡Ha comenzado un combate entre Charmander y Charmeleon!
