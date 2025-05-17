@@ -41,8 +41,11 @@ public class PokemonDAO {
         int velocidad = 5 + rd.nextInt(11);
         int nivel = 1;
         int fertilidad = 1 + rd.nextInt(5);
-        String sexo = rd.nextBoolean() ? "M" : "F"; // Aseguramos que sea M o F
-        if (!sexo.equals("M") && !sexo.equals("F")) sexo = "M"; // Seguridad extra
+        String sexo = rd.nextBoolean() ? "M" : "F";
+        if (!sexo.equals("M") && !sexo.equals("F")) {
+            sexo = "M"; 
+        }
+
         String estado = "NORMAL";
         int equipo = obtenerSiguienteHuecoEquipo(idEntrenador);
         if (equipo == -1) equipo = 0; // caja
@@ -84,6 +87,211 @@ public class PokemonDAO {
                 imgFrontal, imgTrasera, sonido, nivelEvolucion);
     }
 
-    // ... (resto del código no modificado)
+    public static int generarIdUnico(Connection conexion) throws SQLException {
+        String query = "SELECT MAX(ID_POKEMON) AS MAX_ID FROM POKEMON";
+        try (PreparedStatement stmt = conexion.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt("MAX_ID") + 1;
+            }
+        }
+        return 1;
+    }
+
+    public static int obtenerSiguienteHuecoEquipo(int idEntrenador) {
+        try (Connection conexion = ConexionBD.conectar()) {
+            String query = "SELECT EQUIPO FROM POKEMON WHERE FKID_ENTRENADOR = ? AND EQUIPO BETWEEN 1 AND 6";
+            PreparedStatement stmt = conexion.prepareStatement(query);
+            stmt.setInt(1, idEntrenador);
+            ResultSet rs = stmt.executeQuery();
+
+            boolean[] ocupado = new boolean[6];
+            while (rs.next()) {
+                int eq = rs.getInt("EQUIPO");
+                if (eq >= 1 && eq <= 6) {
+                    ocupado[eq - 1] = true;
+                }
+            }
+            for (int i = 0; i < 6; i++) {
+                if (!ocupado[i]) return i + 1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public static void guardarPokemon(Pokemon p) {
+        try (Connection conexion = ConexionBD.conectar()) {
+            int nuevoId = generarIdUnico(conexion);
+            int equipo = obtenerSiguienteHuecoEquipo(p.getIdEntrenador());
+            if (equipo == -1) equipo = 0;
+
+            String insertSQL = """
+                INSERT INTO POKEMON (ID_POKEMON, FKID_ENTRENADOR, FK_NUM_POKEDEX, NOMBRE, VITALIDAD, VIDA_ACTUAL, ATAQUE,
+                                     DEFENSA, AT_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, NIVEL, FERTILIDAD, SEXO,
+                                     ESTADO, EQUIPO)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""";
+
+            PreparedStatement stmt = conexion.prepareStatement(insertSQL);
+            stmt.setInt(1, nuevoId);
+            stmt.setInt(2, p.getIdEntrenador());
+            stmt.setInt(3, p.getNumPokedex());
+            stmt.setString(4, p.getNombre());
+            stmt.setInt(5, p.getVitalidad());
+            stmt.setInt(6, p.getVidaActual());
+            stmt.setInt(7, p.getAtaque());
+            stmt.setInt(8, p.getDefensa());
+            stmt.setInt(9, p.getAtEspecial());
+            stmt.setInt(10, p.getDefEspecial());
+            stmt.setInt(11, p.getVelocidad());
+            stmt.setInt(12, p.getNivel());
+            stmt.setInt(13, p.getFertilidad());
+            stmt.setString(14, p.getSexo());
+            stmt.setString(15, p.getEstado());
+            stmt.setInt(16, equipo);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void actualizarVida(Pokemon p) {
+        String sql = "UPDATE POKEMON SET VIDA_ACTUAL = ? WHERE ID_POKEMON = ?";
+
+        try (Connection conn = ConexionBD.conectar();
+             PreparedStatement pst = conn.prepareStatement(sql)) {
+
+            pst.setInt(1, p.getVidaActual());
+            pst.setInt(2, p.getId());
+            pst.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Pokemon> obtenerEquipo(int idEntrenador) {
+        List<Pokemon> equipo = new ArrayList<>();
+        String sql = """
+            SELECT p.*, d.TIPO1, d.TIPO2, d.IMG_FRONTAL, d.IMG_TRASERA, d.SONIDO, d.NIVEL_EVOLUCION
+            FROM POKEMON p
+            JOIN POKEDEX d ON p.FK_NUM_POKEDEX = d.NUM_POKEDEX
+            WHERE p.FKID_ENTRENADOR = ? AND p.EQUIPO BETWEEN 1 AND 6
+        """;
+        try (Connection conexion = ConexionBD.conectar();
+             PreparedStatement stmt = conexion.prepareStatement(sql)) {
+
+            stmt.setInt(1, idEntrenador);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Pokemon p = new Pokemon(
+                    rs.getInt("ID_POKEMON"),
+                    rs.getInt("FKID_ENTRENADOR"),
+                    rs.getInt("FK_NUM_POKEDEX"),
+                    rs.getString("NOMBRE"),
+                    rs.getString("TIPO1"),
+                    rs.getString("TIPO2"),
+                    rs.getInt("VITALIDAD"),
+                    rs.getInt("VIDA_ACTUAL"),
+                    rs.getInt("ATAQUE"),
+                    rs.getInt("DEFENSA"),
+                    rs.getInt("AT_ESPECIAL"),
+                    rs.getInt("DEF_ESPECIAL"),
+                    rs.getInt("VELOCIDAD"),
+                    rs.getInt("NIVEL"),
+                    rs.getInt("FERTILIDAD"),
+                    rs.getString("SEXO"),
+                    rs.getString("ESTADO"),
+                    rs.getInt("EQUIPO"),
+                    rs.getString("IMG_FRONTAL"),
+                    rs.getString("IMG_TRASERA"),
+                    rs.getString("SONIDO"),
+                    rs.getObject("NIVEL_EVOLUCION", Integer.class)
+                );
+                equipo.add(p);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return equipo;
+    }
+
+    public static List<Pokemon> obtenerCaja(int idEntrenador) {
+        List<Pokemon> caja = new ArrayList<>();
+        String sql = """
+            SELECT p.*, d.TIPO1, d.TIPO2, d.IMG_FRONTAL, d.IMG_TRASERA, d.SONIDO, d.NIVEL_EVOLUCION
+            FROM POKEMON p
+            JOIN POKEDEX d ON p.FK_NUM_POKEDEX = d.NUM_POKEDEX
+            WHERE p.FKID_ENTRENADOR = ? AND (p.EQUIPO = 0 OR p.EQUIPO IS NULL)
+        """;
+        try (Connection conexion = ConexionBD.conectar();
+             PreparedStatement stmt = conexion.prepareStatement(sql)) {
+
+            stmt.setInt(1, idEntrenador);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Pokemon p = new Pokemon(
+                    rs.getInt("ID_POKEMON"),
+                    rs.getInt("FKID_ENTRENADOR"),
+                    rs.getInt("FK_NUM_POKEDEX"),
+                    rs.getString("NOMBRE"),
+                    rs.getString("TIPO1"),
+                    rs.getString("TIPO2"),
+                    rs.getInt("VITALIDAD"),
+                    rs.getInt("VIDA_ACTUAL"),
+                    rs.getInt("ATAQUE"),
+                    rs.getInt("DEFENSA"),
+                    rs.getInt("AT_ESPECIAL"),
+                    rs.getInt("DEF_ESPECIAL"),
+                    rs.getInt("VELOCIDAD"),
+                    rs.getInt("NIVEL"),
+                    rs.getInt("FERTILIDAD"),
+                    rs.getString("SEXO"),
+                    rs.getString("ESTADO"),
+                    rs.getInt("EQUIPO"),
+                    rs.getString("IMG_FRONTAL"),
+                    rs.getString("IMG_TRASERA"),
+                    rs.getString("SONIDO"),
+                    rs.getObject("NIVEL_EVOLUCION", Integer.class)
+                );
+                caja.add(p);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return caja;
+    }
+
+    public static void actualizarEquipo(int idPokemon, int nuevoEquipo) {
+        String sql = "UPDATE POKEMON SET EQUIPO = ? WHERE ID_POKEMON = ?";
+        try (Connection conexion = ConexionBD.conectar();
+             PreparedStatement stmt = conexion.prepareStatement(sql)) {
+
+            stmt.setInt(1, nuevoEquipo);
+            stmt.setInt(2, idPokemon);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static int obtenerUltimoIdPokemonInsertado(Connection conexion) throws SQLException {
+        String query = "SELECT MAX(ID_POKEMON) AS ULTIMO_ID FROM POKEMON";
+        try (PreparedStatement stmt = conexion.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt("ULTIMO_ID");
+            } else {
+                throw new SQLException("No se pudo obtener el último ID de Pokémon.");
+            }
+        }
+    }
 
 }
