@@ -106,16 +106,6 @@ public class PantallaChoosePokemonController {
         try (Connection con = ConexionBD.conectar()) {
             Pokemon nuevo = PokemonDAO.generarPokemonPrincipalEspecifico(idEntrenador, nombrePokemon, con);
 
-            // 🔽 Asignar ataque Placaje (ID 31)
-            int idNuevoPokemon = PokemonDAO.obtenerUltimoIdPokemonInsertado(con);
-
-            PreparedStatement ps = con.prepareStatement("""
-                INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_RESTANTES)
-                VALUES (?, 31, (SELECT PP_MAX FROM MOVIMIENTOS WHERE ID_MOVIMIENTO = 31))
-            """);
-            ps.setInt(1, idNuevoPokemon);
-            ps.executeUpdate();
-
             // Mostrar género
             String generoTexto;
             if ("M".equalsIgnoreCase(nuevo.getSexo())) {

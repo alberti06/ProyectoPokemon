@@ -121,7 +121,11 @@ public class CapturaController {
 								"¡Captura exitosa!", JOptionPane.INFORMATION_MESSAGE);
 						}
 
-						pokemonSalvaje.setIdEntrenador(entrenador.getIdentrenador()); 
+						pokemonSalvaje.setIdEntrenador(entrenador.getIdentrenador());
+
+						// ✅ VIDA ACTUAL = VITALIDAD ANTES DE GUARDAR
+						pokemonSalvaje.setVidaActual(pokemonSalvaje.getVitalidad());
+
 						PokemonDAO.guardarPokemon(pokemonSalvaje);
 
 

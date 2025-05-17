@@ -11,3 +11,7 @@
 ¡Ha comenzado un combate entre Charmander y Parasect!
 ¡Ha comenzado un combate entre Charmander y Vileplume!
 ¡Ha comenzado un combate entre Bulbasaur y Wigglytuff!
+¡Ha comenzado un combate entre Bulbasaur y Arbok!
+¡Ha comenzado un combate entre Charmander y Dratini!
+¡Ha comenzado un combate entre Charmander y Golbat!
+¡Ha comenzado un combate entre Charmander y Nidoqueen!

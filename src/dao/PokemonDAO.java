@@ -293,5 +293,75 @@ public class PokemonDAO {
             }
         }
     }
+    
+    public static void insertarPokemon(int idEntrenador, Pokemon p) {
+        String sql = """
+            INSERT INTO POKEMON (ID_POKEMON, FKID_ENTRENADOR, FK_NUM_POKEDEX, NOMBRE, VITALIDAD, VIDA_ACTUAL, ATAQUE,
+                                 DEFENSA, AT_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, NIVEL, FERTILIDAD, SEXO,
+                                 ESTADO, EQUIPO, IMG_FRONTAL, IMG_TRASERA, SONIDO, NIVEL_EVOLUCION)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """;
+
+        try (Connection conexion = ConexionBD.conectar();
+             PreparedStatement stmt = conexion.prepareStatement(sql)) {
+
+            int nuevoId = generarIdUnico(conexion); // ya tienes este método en tu DAO
+
+            stmt.setInt(1, nuevoId);
+            stmt.setInt(2, idEntrenador);
+            stmt.setInt(3, p.getNumPokedex());
+            stmt.setString(4, p.getNombre());
+            stmt.setInt(5, p.getVitalidad());
+            stmt.setInt(6, p.getVidaActual());
+            stmt.setInt(7, p.getAtaque());
+            stmt.setInt(8, p.getDefensa());
+            stmt.setInt(9, p.getAtEspecial());
+            stmt.setInt(10, p.getDefEspecial());
+            stmt.setInt(11, p.getVelocidad());
+            stmt.setInt(12, p.getNivel());
+            stmt.setInt(13, p.getFertilidad());
+            stmt.setString(14, p.getSexo());
+            stmt.setString(15, p.getEstado());
+            stmt.setInt(16, p.getEquipo());
+            stmt.setString(17, p.getImgFrontal());
+            stmt.setString(18, p.getImgTrasera());
+            stmt.setString(19, p.getSonido());
+            
+            if (p.getNivelEvolucion() != null) {
+                stmt.setInt(20, p.getNivelEvolucion());
+            } else {
+                stmt.setNull(20, java.sql.Types.INTEGER);
+            }
+
+            stmt.executeUpdate();
+
+            // Insertar ataque básico: Placaje (ID 31)
+            PreparedStatement ps = conexion.prepareStatement("""
+                INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_RESTANTES)
+                VALUES (?, 31, (SELECT PP_MAX FROM MOVIMIENTOS WHERE ID_MOVIMIENTO = 31))
+            """);
+            ps.setInt(1, nuevoId);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
+    public static void actualizarFertilidad(int idPokemon, int nuevaFertilidad) {
+        String sql = "UPDATE POKEMON SET FERTILIDAD = ? WHERE ID_POKEMON = ?";
+
+        try (Connection conexion = ConexionBD.conectar();
+             PreparedStatement stmt = conexion.prepareStatement(sql)) {
+
+            stmt.setInt(1, nuevaFertilidad);
+            stmt.setInt(2, idPokemon);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -266,7 +266,21 @@ public class CombateController {
 
 	@FXML
 	void salirMenupoke() {
-		stage.close(); // o redirige al menú si quieres
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuPrincipal.fxml"));
+			Parent root = loader.load();
+			menuController = loader.getController();
+			Scene sc = new Scene(root);
+			Stage st = new Stage();
+			st.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+			st.setTitle("Proyecto Pokemon los 3 mosqueteros");
+			st.setScene(sc);
+			menuController.init(entrenador, st, loginController);
+			st.show();
+			this.stage.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void actualizarBotones() {

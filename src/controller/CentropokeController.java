@@ -2,14 +2,13 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
-import dao.PokemonDAO;
+import javax.swing.JOptionPane;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,39 +19,42 @@ import model.Pokemon;
 
 public class CentropokeController {
 
-    private MenuController menuController;
-    private Stage stage;
-    private Entrenador entrenador;
-    private LoginController loginController;
+    @FXML
+    private ImageView btnRestaurar;
 
     @FXML
     private ImageView btnSalir;
 
     @FXML
-    private Button btnRestaurar;
-
-    @FXML
-    private ImageView imgPokemon1;
-
-    @FXML
-    private ImageView imgPokemon2;
-
-    @FXML
-    private ImageView imgPokemon3;
-
-    @FXML
-    private ImageView imgPokemon4;
-
-    @FXML
-    private ImageView imgPokemon5;
-
-    @FXML
-    private ImageView imgPokemon6;
-
-    @FXML
     private Label lblDialogo;
 
-    private List<Pokemon> equipo;
+    private MenuController menuController;
+    
+    private Stage stage;
+    
+    private Entrenador entrenador;
+    
+    private LoginController loginController;
+
+    @FXML
+    void btnRestaurar(MouseEvent event) {
+        try {
+            // Curar todos los Pokémon del equipo
+            for (Pokemon p : entrenador.getEquipo()) {
+                p.setVidaActual(p.getVitalidad());
+                dao.PokemonDAO.actualizarVida(p);
+            }
+
+            // Mostrar ventana emergente de confirmación
+          JOptionPane.showMessageDialog(null, "¡Todos tus Pokémon han sido curados con éxito!", 
+                                                      "Centro Pokémon",JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception e) {
+         JOptionPane.showMessageDialog(null, "Error al curar los Pokémon.", 
+                                                      "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void salirMenupoke(MouseEvent event) {
@@ -83,10 +85,7 @@ public class CentropokeController {
         this.entrenador = entrenador;
         this.loginController = loginController;
 
-       
+
     }
 
-   
-
- 
 }
