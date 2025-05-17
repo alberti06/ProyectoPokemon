@@ -17,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Entrenador;
+import dao.PokemonDAO;
 
 
 public class MenuController {
@@ -180,11 +181,13 @@ public class MenuController {
     @FXML
     void abrirCentropoke(MouseEvent event) {
         try {
+            // Cargar el equipo antes de abrir el centro
+            entrenador.setEquipo(PokemonDAO.obtenerEquipo(entrenador.getIdentrenador()));
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CentroPokemon.fxml"));
-            Parent root = loader.load(); // ⚠️ primero carga
+            Parent root = loader.load();
 
-            CentropokeController controller = loader.getController(); // ✅ luego obtén el controller
-
+            CentropokeController controller = loader.getController();
             Stage confStage = new Stage();
             controller.init(entrenador, confStage, this, loginController);
 
@@ -199,6 +202,7 @@ public class MenuController {
             e.printStackTrace();
         }
     }
+
 
    
     @FXML

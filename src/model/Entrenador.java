@@ -111,6 +111,15 @@ public class Entrenador {
 
         throw new IllegalArgumentException("No hay Pokémon en la posición de equipo: " + posicion);
     }
+    
+    private List<Pokemon> equipo;
+    public void setEquipo(List<Pokemon> equipo) {
+        this.equipo = equipo;
+    }
+
+    public List<Pokemon> getEquipo() {
+        return equipo;
+    }
 
     @Override
     public String toString() {
