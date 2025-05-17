@@ -21,7 +21,7 @@ import model.Entrenador;
 import model.Pokemon;
 
 public class CajaController {
-
+// Aqui ponemos los elementos de la vista
 	 @FXML
 	    private Button btnVolver;
 
@@ -33,6 +33,7 @@ public class CajaController {
 
 	    @FXML
 	    private ScrollPane scrollPane;
+	    //metodo para volver al menu 
     @FXML
     void volverAlMenu(ActionEvent event) {
     	stage.close();
@@ -90,7 +91,7 @@ public class CajaController {
                     PokemonDAO.actualizarEquipo(p.getId(), hueco);
                     JOptionPane.showMessageDialog(null, p.getNombre() + " ha sido movido al equipo.");
 
-                    // 🔁 Volver a la pantalla del equipo
+                    //  Volver a la pantalla del equipo
                     volverAlMenu();
 
                 } else {

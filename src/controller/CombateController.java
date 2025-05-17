@@ -26,7 +26,7 @@ import java.util.*;
 
 import dao.ConexionBD;
 import dao.PokemonDAO;
-
+//Añadimos todos los elementos de las vistas
 public class CombateController {
 	private List<String> nombresObjetos = new ArrayList<>();
 	private List<Integer> idsObjetos = new ArrayList<>();
@@ -106,7 +106,7 @@ public class CombateController {
 		log("¡Ha comenzado un combate entre " + entrenador.getPrimerPokemon().getNombre() + " y "
 				+ pokemonSalvaje.getNombre() + "!");
 	}
-
+// Metodo que nos indica que se nos ha generado un rival
 	private void generarEntrenadorRival() {
 		try (Connection con = ConexionBD.conectar()) {
 			rival = new Entrenador();
@@ -134,7 +134,7 @@ public class CombateController {
 		}
 		return false;
 	}
-
+//metodo de finalizacion de combate donde podremos ver en el log lo que pasa cuando ganas o pierdes un combate
 	private void finalizarCombate(boolean ganaJugador) {
 		int dineroJugador = entrenador.getPokedolares();
 		int dineroRival = 2000;
@@ -351,7 +351,7 @@ public class CombateController {
 
 		turno++;
 	}
-
+//Metodo para crear el turno enemigo y que ataque el pokemon del rival
 	private int turnoEnemigo() {
 		int daño = pokemonSalvaje.getAtaque();
 		pokemonAliado.reducirVida(daño);
@@ -635,7 +635,7 @@ public class CombateController {
 		}
 		case "éter" -> {
 			if (!ataquesJugador.isEmpty()) {
-				ataquesJugador.get(0).restaurarPP(); // o elegir el ataque con un ChoiceBox también
+				ataquesJugador.get(0).restaurarPP(); //  elegir el ataque con un ChoiceBox también
 				actualizarBotones();
 			}
 		}
@@ -658,6 +658,7 @@ public class CombateController {
 			e.printStackTrace();
 		}
 	}
+	//Metodo para usar los objetos que tendremos seleccionados 
 
 	@FXML
 	void usarObjetoSeleccionado() {

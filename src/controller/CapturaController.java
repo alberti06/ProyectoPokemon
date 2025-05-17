@@ -27,7 +27,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 public class CapturaController {
-
+//Aqui ponemos todo los elementos de la vista 
 	private MenuController menuController;
 	private Stage stage;
 	private Entrenador entrenador;
@@ -69,7 +69,8 @@ public class CapturaController {
 			e.printStackTrace();
 		}
 	}
-
+  //Este es nuestro metodo que hemos implementado para poder hacer la captura del pokemon; esta compuesto por una conexion en la base de datos
+//Tambien podemos observar que tenemos el metodo random para los pokemons y que contamos con mensajes emergentes que podemos ver segun la accion realizada
 	@FXML
 	void capturarPokemon(MouseEvent event) {
 		final int ID_POKEBALL = 8;
@@ -123,11 +124,11 @@ public class CapturaController {
 
 						pokemonSalvaje.setIdEntrenador(entrenador.getIdentrenador());
 						pokemonSalvaje.setVidaActual(pokemonSalvaje.getVitalidad());
-						pokemonSalvaje.setFertilidad(5); // 👈 Nueva línea: asignar fertilidad inicial
+						pokemonSalvaje.setFertilidad(5); 
 
 						PokemonDAO.guardarPokemon(pokemonSalvaje);
 
-						// Añadir movimiento Placaje (ID 31)
+						 
 						try (Connection con2 = ConexionBD.conectar()) {
 							int idNuevoPokemon = PokemonDAO.obtenerUltimoIdPokemonInsertado(con2);
 
@@ -238,6 +239,7 @@ public class CapturaController {
 			e.printStackTrace();
 		}
 	}
+//Metodo para actualizar las pokeballs que tenemos a la hora de que las gastemos 
 
 	private void actualizarLabelPokeballs() {
 		try (Connection con = ConexionBD.conectar()) {

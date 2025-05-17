@@ -26,7 +26,7 @@ import java.util.*;
 
 import dao.ConexionBD;
 import dao.PokemonDAO;
-
+//añadimos los elementos de las vistas
 public class EntrenamientoController {
 	private List<String> nombresObjetos = new ArrayList<>();
 	private List<Integer> idsObjetos = new ArrayList<>();
@@ -100,7 +100,7 @@ public class EntrenamientoController {
 		log("¡Ha comenzado un combate entre " + entrenador.getPrimerPokemon().getNombre() + " y "
 				+ pokemonSalvaje.getNombre() + "!");
 	}
-
+//Metodos para mostrar el equipo 
 	public void mostrarEquipoConVida() {
 		List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
 
@@ -120,7 +120,7 @@ public class EntrenamientoController {
 	private String formatoBoton(Ataque atk) {
 		return atk.getNombre() + " (" + atk.getPpActual() + "/" + atk.getPpMax() + ")";
 	}
-
+//con este metodo podemos cargar desde la conexion de la base de datos 
 	private void cargarAtaquesDesdeBD() {
 		ataquesJugador.clear();
 		try (Connection con = ConexionBD.conectar()) {

@@ -19,7 +19,7 @@ import model.Entrenador;
 import model.Pokemon;
 
 public class CentropokeController {
-
+//Inserccion de los elementos de las vistas
     @FXML
     private ImageView btnRestaurar;
 
@@ -40,13 +40,13 @@ public class CentropokeController {
     @FXML
     void btnRestaurar(MouseEvent event) {
         try {
-            // Curar todos los Pokémon del equipo
+            // metodo para curar a  todos los Pokémon del equipo
             for (Pokemon p : entrenador.getPokemons()) {
                 p.setVidaActual(p.getVitalidad());
                 PokemonDAO.actualizarVida(p);
             }
 
-            // Mostrar ventana emergente de confirmación
+            // Aqui mostramos una ventana emergente de confirmacion de que se nos han curado los pokemons
           JOptionPane.showMessageDialog(null, "¡Todos tus Pokémon han sido curados con éxito!", 
                                                       "Centro Pokémon",JOptionPane.INFORMATION_MESSAGE);
 
@@ -56,7 +56,7 @@ public class CentropokeController {
             e.printStackTrace();
         }
     }
-
+//metodo para salir del centro pokemon 
     @FXML
     void salirMenupoke(MouseEvent event) {
         try {
