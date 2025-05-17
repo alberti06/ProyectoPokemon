@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import dao.PokemonDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,7 +43,7 @@ public class CentropokeController {
             // Curar todos los Pokémon del equipo
             for (Pokemon p : entrenador.getEquipo()) {
                 p.setVidaActual(p.getVitalidad());
-                dao.PokemonDAO.actualizarVida(p);
+                PokemonDAO.actualizarVida(p);
             }
 
             // Mostrar ventana emergente de confirmación

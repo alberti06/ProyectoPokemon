@@ -122,12 +122,10 @@ public class CapturaController {
 						}
 
 						pokemonSalvaje.setIdEntrenador(entrenador.getIdentrenador());
-
-						// ✅ VIDA ACTUAL = VITALIDAD ANTES DE GUARDAR
 						pokemonSalvaje.setVidaActual(pokemonSalvaje.getVitalidad());
+						pokemonSalvaje.setFertilidad(5); // 👈 Nueva línea: asignar fertilidad inicial
 
 						PokemonDAO.guardarPokemon(pokemonSalvaje);
-
 
 						// Añadir movimiento Placaje (ID 31)
 						try (Connection con2 = ConexionBD.conectar()) {
@@ -180,6 +178,7 @@ public class CapturaController {
 
 		actualizarLabelPokeballs();
 	}
+
 
 	@FXML
 	void generarNuevoPokemonSalvaje(MouseEvent event) {
