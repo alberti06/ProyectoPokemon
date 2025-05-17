@@ -1,5 +1,6 @@
 package dao;
 
+import model.Ataque;
 import model.Pokemon;
 
 import java.sql.Connection;
@@ -440,5 +441,42 @@ public class PokemonDAO {
             e.printStackTrace();
         }
     }
+    
+    public static List<Ataque> obtenerAtaques(int idPokemon) {
+        List<Ataque> lista = new ArrayList<>();
+        try (Connection con = ConexionBD.conectar()) {
+            PreparedStatement ps = con.prepareStatement("""
+                SELECT m.ID_MOVIMIENTO, m.NOM_MOVIMIENTO, m.NIVEL_APRENDIZAJE, m.PP_MAX,
+                       mp.PP_ACTUALES, m.TIPO, m.POTENCIA, m.TIPO_MOV, m.ESTADO,
+                       m.TURNOS, m.MEJORA, m.NUM
+                FROM MOVIMIENTO_POKEMON mp
+                JOIN MOVIMIENTOS m ON mp.ID_MOVIMIENTO = m.ID_MOVIMIENTO
+                WHERE mp.ID_POKEMON = ?
+            """);
+            ps.setInt(1, idPokemon);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Ataque atk = new Ataque(
+                    rs.getInt("ID_MOVIMIENTO"),
+                    rs.getString("NOM_MOVIMIENTO"),
+                    rs.getInt("NIVEL_APRENDIZAJE"),
+                    rs.getInt("PP_MAX"),
+                    rs.getInt("PP_ACTUALES"),
+                    rs.getString("TIPO"),
+                    rs.getObject("POTENCIA") != null ? rs.getInt("POTENCIA") : null,
+                    rs.getString("TIPO_MOV"),
+                    rs.getString("ESTADO"),
+                    rs.getObject("TURNOS") != null ? rs.getInt("TURNOS") : null,
+                    rs.getString("MEJORA"),
+                    rs.getObject("NUM") != null ? rs.getInt("NUM") : null
+                );
+                lista.add(atk);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
 
 }
