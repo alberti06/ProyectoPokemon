@@ -201,7 +201,7 @@ public class BolsaController {
     void vender(MouseEvent event) {
         int totalVendidos = 0;
 
-        // Mapa de ID de objeto a su nombre (puedes modificar los nombres si deseas)
+        
         Map<Integer, String> nombresObjetos = Map.of(
             1, "Pesa",
             2, "Pluma",

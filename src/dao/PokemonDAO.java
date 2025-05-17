@@ -129,7 +129,7 @@ public class PokemonDAO {
             int equipo = obtenerSiguienteHuecoEquipo(p.getIdEntrenador());
             if (equipo == -1) equipo = 0;
 
-            // ✅ Añadimos EXP al final del INSERT
+          
             String insertSQL = """
                 INSERT INTO POKEMON (ID_POKEMON, FKID_ENTRENADOR, FK_NUM_POKEDEX, NOMBRE, VITALIDAD, VIDA_ACTUAL, ATAQUE,
                                      DEFENSA, AT_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, NIVEL, FERTILIDAD, SEXO,

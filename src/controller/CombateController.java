@@ -490,7 +490,7 @@ public class CombateController {
 				cargarAtaquesDesdeBD();
 				actualizarBotones();
 				actualizarBarrasVida();
-				log("¡" + candidato.getNombre() + " entra en combate!");
+				log("¡" + candidato.getNombre() + "entra en combate!");
 				return true;
 			}
 		}
@@ -520,7 +520,7 @@ public class CombateController {
 		actualizarBotones();
 		actualizarImagenPokemonEntrenador(nuevo.getNumPokedex());
 		actualizarBarrasVida();
-		log(nuevo.getNombre() + " ha sido enviado al combate!");
+		log(nuevo.getNombre() + "ha sido enviado al combate!");
 	}
 
 	public void inicializarChoiceBoxEquipo() {
@@ -554,7 +554,7 @@ public class CombateController {
 		idsObjetos.clear();
 
 		if (chcObjetos == null) {
-			System.err.println("❌ ChoiceBox de objetos no está inicializado.");
+			System.err.println("ChoiceBox de objetos no está inicializado.");
 			return;
 		}
 
@@ -680,7 +680,7 @@ public class CombateController {
 
 		log("Has usado " + nombreObjeto + " sobre " + pokemonAliado.getNombre());
 		actualizarBarrasVida();
-		cargarObjetosDisponibles(); // <-- Para recargar el ChoiceBox
+		cargarObjetosDisponibles(); 
 	}
 
 	private void guardarEstadoPokemonAliado() {

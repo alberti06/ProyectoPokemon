@@ -282,15 +282,15 @@ public class MenuController {
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Entrenamiento.fxml"));
     		Parent root = loader.load();
 
-    		EntrenamientoController pokedexController = loader.getController(); 
+    		EntrenamientoController entrenamientoController = loader.getController(); 
     		Scene scene = new Scene(root);
     		Stage pokedexStage = new Stage();
 
     		pokedexStage.setScene(scene);
     		pokedexStage.setTitle("Pokédex");
-    		pokedexController.init(entrenador, pokedexStage, this, loginController);
+    		entrenamientoController.init(entrenador, pokedexStage, this, loginController);
     		pokedexStage.show();
-    		
+    		  this.stage.close();
     	} catch (IOException e) {
     		e.printStackTrace();
     	}
@@ -305,7 +305,7 @@ public class MenuController {
     	        TiendaController tiendaController = loader.getController();
 
     	        Stage confStage = new Stage();
-    	        tiendaController.init(entrenador, confStage, this, loginController); // 👈 AQUI PASAS TODO
+    	        tiendaController.init(entrenador, confStage, this, loginController); 
 
     	        confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
     	        confStage.setTitle("Tienda");
@@ -335,7 +335,7 @@ public class MenuController {
         if (equipoController != null) {
             equipoController.actualizarEquipo(); // ← método que debe estar en EquipoController
         } else {
-            System.out.println("⚠ No hay equipo cargado aún.");
+            System.out.println("No hay equipo cargado aún.");
         }
     }
 

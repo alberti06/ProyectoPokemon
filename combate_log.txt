@@ -1407,3 +1407,561 @@ Charmander gana 28 de experiencia.
 Charmander gana 33 de experiencia.
 ¡Nuevo Pokémon rival entra al combate!
 [2025-05-17 19:03:17] ¡Ha comenzado un combate entre Charmander y Charmeleon!
+[2025-05-17 23:01:29] ¡Ha comenzado un combate entre Charmander y Dragonite!
+[2025-05-17 23:01:31] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 38 puntos de experiencia.
+[2025-05-17 23:01:32] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 38 puntos de experiencia.
+[2025-05-17 23:01:33] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 38 puntos de experiencia.
+[2025-05-17 23:01:36] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 38 puntos de experiencia.
+¡Charmander sube a nivel 13!
+[2025-05-17 23:01:36] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 38 puntos de experiencia.
+¡Charmander sube a nivel 14!
+[2025-05-17 23:01:37] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 38 puntos de experiencia.
+¡Charmander sube a nivel 15!
+[2025-05-17 23:01:37] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 38 puntos de experiencia.
+¡Charmander sube a nivel 16!
+[2025-05-17 23:01:37] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 39 puntos de experiencia.
+¡Charmander sube a nivel 17!
+[2025-05-17 23:01:37] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 39 puntos de experiencia.
+¡Charmander sube a nivel 18!
+[2025-05-17 23:01:39] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 39 puntos de experiencia.
+¡Charmander sube a nivel 19!
+[2025-05-17 23:01:39] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 39 puntos de experiencia.
+¡Charmander sube a nivel 20!
+[2025-05-17 23:01:39] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 40 puntos de experiencia.
+¡Charmander sube a nivel 21!
+[2025-05-17 23:01:40] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 40 puntos de experiencia.
+¡Charmander sube a nivel 22!
+[2025-05-17 23:01:40] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 40 puntos de experiencia.
+¡Charmander sube a nivel 23!
+[2025-05-17 23:01:40] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 40 puntos de experiencia.
+¡Charmander sube a nivel 24!
+[2025-05-17 23:01:40] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 41 puntos de experiencia.
+¡Charmander sube a nivel 25!
+[2025-05-17 23:01:40] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 41 puntos de experiencia.
+¡Charmander sube a nivel 26!
+[2025-05-17 23:01:40] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 41 puntos de experiencia.
+¡Charmander sube a nivel 27!
+[2025-05-17 23:01:40] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 41 puntos de experiencia.
+¡Charmander sube a nivel 28!
+[2025-05-17 23:01:41] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 42 puntos de experiencia.
+¡Charmander sube a nivel 29!
+[2025-05-17 23:01:41] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 42 puntos de experiencia.
+¡Charmander sube a nivel 30!
+[2025-05-17 23:01:41] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 42 puntos de experiencia.
+¡Charmander sube a nivel 31!
+[2025-05-17 23:01:41] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 42 puntos de experiencia.
+¡Charmander sube a nivel 32!
+[2025-05-17 23:01:41] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 43 puntos de experiencia.
+¡Charmander sube a nivel 33!
+[2025-05-17 23:01:41] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 43 puntos de experiencia.
+¡Charmander sube a nivel 34!
+[2025-05-17 23:01:42] Charmander usó Ascuas e hizo 40 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 43 puntos de experiencia.
+¡Charmander sube a nivel 35!
+[2025-05-17 23:01:43] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 43 puntos de experiencia.
+¡Charmander sube a nivel 36!
+[2025-05-17 23:01:43] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 44 puntos de experiencia.
+¡Charmander sube a nivel 37!
+[2025-05-17 23:01:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 44 puntos de experiencia.
+¡Charmander sube a nivel 38!
+[2025-05-17 23:01:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 44 puntos de experiencia.
+¡Charmander sube a nivel 39!
+[2025-05-17 23:01:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 44 puntos de experiencia.
+¡Charmander sube a nivel 40!
+[2025-05-17 23:01:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 45 puntos de experiencia.
+¡Charmander sube a nivel 41!
+[2025-05-17 23:01:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 45 puntos de experiencia.
+¡Charmander sube a nivel 42!
+[2025-05-17 23:01:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 45 puntos de experiencia.
+¡Charmander sube a nivel 43!
+[2025-05-17 23:01:45] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 45 puntos de experiencia.
+¡Charmander sube a nivel 44!
+[2025-05-17 23:01:45] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 46 puntos de experiencia.
+¡Charmander sube a nivel 45!
+[2025-05-17 23:01:45] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 46 puntos de experiencia.
+¡Charmander sube a nivel 46!
+[2025-05-17 23:01:45] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 46 puntos de experiencia.
+¡Charmander sube a nivel 47!
+[2025-05-17 23:01:45] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 46 puntos de experiencia.
+¡Charmander sube a nivel 48!
+[2025-05-17 23:01:46] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 47 puntos de experiencia.
+¡Charmander sube a nivel 49!
+[2025-05-17 23:01:47] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 47 puntos de experiencia.
+¡Charmander sube a nivel 50!
+[2025-05-17 23:01:47] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 47 puntos de experiencia.
+¡Charmander sube a nivel 51!
+[2025-05-17 23:01:47] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 47 puntos de experiencia.
+¡Charmander sube a nivel 52!
+[2025-05-17 23:01:47] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 48 puntos de experiencia.
+¡Charmander sube a nivel 53!
+[2025-05-17 23:01:48] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 48 puntos de experiencia.
+¡Charmander sube a nivel 54!
+[2025-05-17 23:01:48] Charmander usó Infierno e hizo 100 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 48 puntos de experiencia.
+¡Charmander sube a nivel 55!
+[2025-05-17 23:01:48] Charmander usó Infierno e hizo 100 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 48 puntos de experiencia.
+¡Charmander sube a nivel 56!
+[2025-05-17 23:01:48] Charmander usó Infierno e hizo 100 de daño.
+¡Dragonite se ha debilitado!
+Charmander gana 49 puntos de experiencia.
+¡Charmander sube a nivel 57!
+[2025-05-17 23:01:52] ¡Ha comenzado un combate entre Charmander y Wigglytuff!
+[2025-05-17 23:01:57] ¡Ha comenzado un combate entre Charmander y Rattata!
+[2025-05-17 23:02:21] ¡Ha comenzado un combate entre Charmander y Vulpix!
+[2025-05-17 23:02:23] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:02:23] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 159 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:02:26] Charmander usó Lanzallamas e hizo 45 de daño No fue muy efectivo...
+Dragonair atacó e hizo 83 de daño
+[2025-05-17 23:02:28] Charmander usó Lanzallamas e hizo 45 de daño No fue muy efectivo...
+Dragonair atacó e hizo 83 de daño
+[2025-05-17 23:02:28] Has perdido el combate. Pierdes 5000 pokédólares.
+[2025-05-17 23:02:31] ¡Ha comenzado un combate entre Charmander y Zubat!
+[2025-05-17 23:02:33]  No puedes enviar un Pokémon debilitado al combate.
+[2025-05-17 23:02:34] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:02:34] Has perdido el combate. Pierdes 3333 pokédólares.
+[2025-05-17 23:02:39] ¡Ha comenzado un combate entre Charmander y Metapod!
+[2025-05-17 23:02:40] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:02:40] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 144 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:02:41] Charmander usó Lanzallamas e hizo 180 de daño ¡Es muy efectivo!
+[2025-05-17 23:02:41] Charmander usó Lanzallamas e hizo 180 de daño ¡Es muy efectivo!
+
+Charmander gana 156 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:02:43] Charmander usó Giro Fuego e hizo 35 de daño
+Nidoran♀ atacó e hizo 83 de daño
+[2025-05-17 23:02:43] Charmander usó Lanzallamas e hizo 90 de daño
+Nidoran♀ atacó e hizo 83 de daño
+[2025-05-17 23:02:44] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:02:44] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 156 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:02:45] Charmander usó Lanzallamas e hizo 90 de daño
+Nidoran♂ atacó e hizo 84 de daño
+[2025-05-17 23:02:45] Has perdido el combate. Pierdes 2222 pokédólares.
+[2025-05-17 23:12:01] ¡Ha comenzado un combate entre Charmander y Dratini!
+[2025-05-17 23:12:03] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.
+[2025-05-17 23:12:11] ¡Ha comenzado un combate entre Charmander y Nidorino!
+[2025-05-17 23:12:12] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Nidorino se ha debilitado!
+Charmander gana 154 puntos de experiencia.
+¡Charmander sube a nivel 58!
+[2025-05-17 23:12:12] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Nidorino se ha debilitado!
+Charmander gana 154 puntos de experiencia.
+¡Charmander sube a nivel 58!
+[2025-05-17 23:12:13] Charmander usó Ascuas e hizo 40 de daño.
+¡Nidorino se ha debilitado!
+Charmander gana 154 puntos de experiencia.
+¡Charmander sube a nivel 59!
+[2025-05-17 23:12:13] Charmander usó Ascuas e hizo 40 de daño.
+¡Nidorino se ha debilitado!
+Charmander gana 154 puntos de experiencia.
+¡Charmander sube a nivel 59!
+[2025-05-17 23:12:14] Charmander usó Ascuas e hizo 40 de daño.
+¡Nidorino se ha debilitado!
+Charmander gana 154 puntos de experiencia.
+¡Charmander sube a nivel 60!
+[2025-05-17 23:12:14] Charmander usó Ascuas e hizo 40 de daño.
+¡Nidorino se ha debilitado!
+Charmander gana 154 puntos de experiencia.
+¡Charmander sube a nivel 60!
+[2025-05-17 23:12:15] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Nidorino se ha debilitado!
+Charmander gana 155 puntos de experiencia.
+¡Charmander sube a nivel 61!
+[2025-05-17 23:12:15] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Nidorino se ha debilitado!
+Charmander gana 155 puntos de experiencia.
+¡Charmander sube a nivel 61!
+[2025-05-17 23:17:20] ¡Ha comenzado un combate entre Charmander y Venomoth!
+[2025-05-17 23:17:22] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:17:22] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 167 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:17:23] Charmander usó Lanzallamas e hizo 90 de daño
+Zubat atacó e hizo 89 de daño
+[2025-05-17 23:17:23] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:17:23] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 167 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:17:24] Charmander usó Lanzallamas e hizo 45 de daño No fue muy efectivo...
+Charmander atacó e hizo 87 de daño
+[2025-05-17 23:17:24] Charmander usó Lanzallamas e hizo 45 de daño No fue muy efectivo...
+Charmander atacó e hizo 87 de daño
+[2025-05-17 23:17:24] Has perdido el combate. Pierdes 1481 pokédólares.
+[2025-05-17 23:17:27] ¡Ha comenzado un combate entre Charmander y Pidgeot!
+[2025-05-17 23:17:35] Charmander usó Infierno e hizo 100 de daño
+[2025-05-17 23:17:35] Has perdido el combate. Pierdes 988 pokédólares.
+[2025-05-17 23:17:43] ¡Ha comenzado un combate entre Charmander y Vulpix!
+[2025-05-17 23:17:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Vulpix se ha debilitado!
+Charmander gana 170 puntos de experiencia.
+¡Charmander sube a nivel 62!
+[2025-05-17 23:17:44] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Vulpix se ha debilitado!
+Charmander gana 170 puntos de experiencia.
+¡Charmander sube a nivel 62!
+[2025-05-17 23:17:57] ¡Ha comenzado un combate entre Charmander y Nidoqueen!
+[2025-05-17 23:18:19] ¡Ha comenzado un combate entre Charmander y Sandshrew!
+[2025-05-17 23:18:21] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:18:21] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 173 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:18:21] Charmander usó Lanzallamas e hizo 180 de daño ¡Es muy efectivo!
+Metapod atacó e hizo 90 de daño
+[2025-05-17 23:18:22] Charmander usó Lanzallamas e hizo 180 de daño ¡Es muy efectivo!
+[2025-05-17 23:18:22] Charmander usó Lanzallamas e hizo 180 de daño ¡Es muy efectivo!
+
+Charmander gana 170 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:18:23] Charmander usó Lanzallamas e hizo 360 de daño ¡Es muy efectivo!
+[2025-05-17 23:18:23] Charmander usó Lanzallamas e hizo 360 de daño ¡Es muy efectivo!
+
+Charmander gana 170 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:18:27] Has usado Éter sobre Charmander
+[2025-05-17 23:18:28] Charmander usó Lanzallamas e hizo 90 de daño
+Nidorino atacó e hizo 89 de daño
+[2025-05-17 23:18:29] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:18:29] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 170 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:18:29] Charmander usó Lanzallamas e hizo 90 de daño
+Sandshrew atacó e hizo 91 de daño
+[2025-05-17 23:18:29] Has perdido el combate. Pierdes 325 pokédólares.
+[2025-05-17 23:20:04] ¡Ha comenzado un combate entre Squirtle y Ninetales!
+[2025-05-17 23:20:15] Squirtle usó Placaje e hizo 40 de daño
+Ninetales atacó e hizo 30 de daño
+[2025-05-17 23:20:15] ¡Charmanderentra en combate!
+[2025-05-17 23:20:20] Charmanderha sido enviado al combate!
+[2025-05-17 23:20:22] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:20:22] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 23 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:20:29] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:20:29] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 18 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:20:30] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:20:30] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 45 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:20:31] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:20:31] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 18 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:20:32] Charmander usó Lanzallamas e hizo 45 de daño No fue muy efectivo...
+Charmander atacó e hizo 27 de daño
+[2025-05-17 23:20:32] Charmander usó Lanzallamas e hizo 45 de daño No fue muy efectivo...
+[2025-05-17 23:20:32] Charmander usó Lanzallamas e hizo 45 de daño No fue muy efectivo...
+
+Charmander gana 18 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:20:33] Charmander usó Lanzallamas e hizo 180 de daño ¡Es muy efectivo!
+[2025-05-17 23:20:33] ¡Has ganado el combate! Recibes 2000 pokédólares.
+[2025-05-17 23:20:35] ¡Ha comenzado un combate entre Squirtle y Oddish!
+[2025-05-17 23:20:38] Charmanderha sido enviado al combate!
+[2025-05-17 23:20:40] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:20:40] Charmander usó Lanzallamas e hizo 90 de daño
+
+Charmander gana 23 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:20:40] Charmander usó Lanzallamas e hizo 45 de daño No fue muy efectivo...
+Blastoise atacó e hizo 28 de daño
+[2025-05-17 23:20:41] Charmander usó Giro Fuego e hizo 17 de daño No fue muy efectivo...
+[2025-05-17 23:20:41] Charmander usó Giro Fuego e hizo 17 de daño No fue muy efectivo...
+
+Charmander gana 18 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:20:42] Charmander usó Giro Fuego e hizo 35 de daño
+Ekans atacó e hizo 91 de daño
+[2025-05-17 23:20:42] Charmander usó Giro Fuego e hizo 35 de daño
+Ekans atacó e hizo 91 de daño
+[2025-05-17 23:20:46] Charmander usó Infierno e hizo 100 de daño
+Ekans atacó e hizo 91 de daño
+[2025-05-17 23:20:46] ¡Charmanderentra en combate!
+[2025-05-17 23:20:47] Charmander usó Infierno e hizo 100 de daño
+[2025-05-17 23:20:47] ¡Charmanderentra en combate!
+[2025-05-17 23:20:47] Charmander usó Infierno e hizo 100 de daño
+
+Charmander gana 170 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:20:52] Charmander usó Infierno e hizo 200 de daño ¡Es muy efectivo!
+[2025-05-17 23:20:52] ¡Charmanderentra en combate!
+[2025-05-17 23:20:52] Charmander usó Infierno e hizo 200 de daño ¡Es muy efectivo!
+
+Charmander gana 45 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:20:52] Charmander usó Infierno e hizo 100 de daño
+Rattata atacó e hizo 87 de daño
+[2025-05-17 23:20:53] ¡Charmanderentra en combate!
+[2025-05-17 23:20:53] Charmander usó Infierno e hizo 100 de daño
+[2025-05-17 23:20:53] ¡Charmanderentra en combate!
+[2025-05-17 23:20:53] Charmander usó Infierno e hizo 100 de daño
+
+Charmander gana 170 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-17 23:20:54] Charmander usó Lanzallamas e hizo 90 de daño
+[2025-05-17 23:20:54] ¡Charmanderentra en combate!
+[2025-05-17 23:20:54] ¡Has ganado el combate! Recibes 2000 pokédólares.
+[2025-05-17 23:23:36] ¡Ha comenzado un combate entre Charmander y Dratini!
+[2025-05-17 23:23:37] Charmander usó Lanzallamas e hizo 45 de daño. No fue muy efectivo...
+[2025-05-17 23:23:37] Charmander usó Lanzallamas e hizo 45 de daño. No fue muy efectivo...
+¡Dratini se ha debilitado!
+Charmander gana 178 puntos de experiencia.
+¡Charmander sube a nivel 63!
+[2025-05-17 23:23:37] Charmander usó Lanzallamas e hizo 45 de daño. No fue muy efectivo...
+¡Dratini se ha debilitado!
+Charmander gana 178 puntos de experiencia.
+¡Charmander sube a nivel 63!
+[2025-05-17 23:23:38] Charmander usó Ascuas e hizo 20 de daño. No fue muy efectivo...
+¡Dratini se ha debilitado!
+Charmander gana 178 puntos de experiencia.
+¡Charmander sube a nivel 64!
+[2025-05-17 23:23:38] Charmander usó Ascuas e hizo 20 de daño. No fue muy efectivo...
+¡Dratini se ha debilitado!
+Charmander gana 178 puntos de experiencia.
+¡Charmander sube a nivel 64!
+[2025-05-17 23:33:44] ¡Ha comenzado un combate entre Charmander y Bulbasaur!
+[2025-05-17 23:33:45] Charmander usó Lanzallamas e hizo 180 de daño. ¡Es muy efectivo!
+¡Bulbasaur se ha debilitado!
+Charmander gana 173 puntos de experiencia.
+¡Charmander sube a nivel 65!
+¡Ha aparecido un nuevo Dugtrio salvaje!
+[2025-05-17 23:33:46] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Dugtrio se ha debilitado!
+Charmander gana 191 puntos de experiencia.
+¡Charmander sube a nivel 66!
+¡Ha aparecido un nuevo Fearow salvaje!
+[2025-05-17 23:33:46] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Fearow se ha debilitado!
+Charmander gana 169 puntos de experiencia.
+¡Charmander sube a nivel 67!
+¡Ha aparecido un nuevo Sandslash salvaje!
+[2025-05-17 23:33:47] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Sandslash se ha debilitado!
+Charmander gana 194 puntos de experiencia.
+¡Charmander sube a nivel 68!
+¡Ha aparecido un nuevo Beedrill salvaje!
+[2025-05-17 23:33:47] Charmander usó Lanzallamas e hizo 180 de daño. ¡Es muy efectivo!
+¡Beedrill se ha debilitado!
+Charmander gana 179 puntos de experiencia.
+¡Charmander sube a nivel 69!
+¡Ha aparecido un nuevo Squirtle salvaje!
+[2025-05-17 23:33:48] Charmander usó Lanzallamas e hizo 45 de daño. No fue muy efectivo...
+Squirtle atacó e hizo 27 de daño
+[2025-05-17 23:33:48] Charmander usó Lanzallamas e hizo 45 de daño. No fue muy efectivo...
+¡Squirtle se ha debilitado!
+Charmander gana 192 puntos de experiencia.
+¡Charmander sube a nivel 70!
+¡Ha aparecido un nuevo Vulpix salvaje!
+[2025-05-17 23:33:49] Charmander usó Lanzallamas e hizo 45 de daño. No fue muy efectivo...
+Vulpix atacó e hizo 32 de daño
+[2025-05-17 23:33:49] Charmander usó Lanzallamas e hizo 45 de daño. No fue muy efectivo...
+¡Vulpix se ha debilitado!
+Charmander gana 200 puntos de experiencia.
+¡Charmander sube a nivel 71!
+¡Ha aparecido un nuevo Wartortle salvaje!
+[2025-05-17 23:33:49] Charmander usó Lanzallamas e hizo 45 de daño. No fue muy efectivo...
+Wartortle atacó e hizo 23 de daño
+[2025-05-17 23:33:50] Charmander usó Lanzallamas e hizo 45 de daño. No fue muy efectivo...
+¡Wartortle se ha debilitado!
+Charmander gana 190 puntos de experiencia.
+¡Charmander sube a nivel 72!
+¡Ha aparecido un nuevo Ekans salvaje!
+[2025-05-17 23:33:50] Charmander usó Lanzallamas e hizo 90 de daño.
+¡Ekans se ha debilitado!
+Charmander gana 185 puntos de experiencia.
+¡Charmander sube a nivel 73!
+¡Ha aparecido un nuevo Beedrill salvaje!
+[2025-05-17 23:33:51] Charmander usó Lanzallamas e hizo 180 de daño. ¡Es muy efectivo!
+¡Beedrill se ha debilitado!
+Charmander gana 205 puntos de experiencia.
+¡Charmander sube a nivel 74!
+¡Ha aparecido un nuevo Dragonair salvaje!
+[2025-05-17 23:33:51] Charmander usó Lanzallamas e hizo 45 de daño. No fue muy efectivo...
+Dragonair atacó e hizo 37 de daño
+[2025-05-17 23:33:52] Charmander usó Lanzallamas e hizo 45 de daño. No fue muy efectivo...
+¡Dragonair se ha debilitado!
+Charmander gana 216 puntos de experiencia.
+¡Charmander sube a nivel 75!
+¡Ha aparecido un nuevo Vileplume salvaje!
+[2025-05-17 23:33:55] Charmander usó Infierno e hizo 200 de daño. ¡Es muy efectivo!
+¡Vileplume se ha debilitado!
+Charmander gana 198 puntos de experiencia.
+¡Charmander sube a nivel 76!
+¡Ha aparecido un nuevo Wigglytuff salvaje!
+[2025-05-17 23:33:55] Charmander usó Infierno e hizo 100 de daño.
+¡Wigglytuff se ha debilitado!
+Charmander gana 216 puntos de experiencia.
+¡Charmander sube a nivel 77!
+¡Ha aparecido un nuevo Nidorino salvaje!
+[2025-05-17 23:33:56] Charmander usó Infierno e hizo 100 de daño.
+¡Nidorino se ha debilitado!
+Charmander gana 219 puntos de experiencia.
+¡Charmander sube a nivel 78!
+¡Ha aparecido un nuevo Rattata salvaje!
+[2025-05-17 23:33:57] Charmander usó Giro Fuego e hizo 35 de daño.
+Rattata atacó e hizo 21 de daño
+[2025-05-17 23:33:57] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Rattata se ha debilitado!
+Charmander gana 204 puntos de experiencia.
+¡Charmander sube a nivel 79!
+¡Ha aparecido un nuevo Sandslash salvaje!
+[2025-05-17 23:33:58] Charmander usó Giro Fuego e hizo 35 de daño.
+Sandslash atacó e hizo 30 de daño
+[2025-05-17 23:33:58] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Sandslash se ha debilitado!
+Charmander gana 222 puntos de experiencia.
+¡Charmander sube a nivel 80!
+¡Ha aparecido un nuevo Oddish salvaje!
+[2025-05-17 23:33:59] Charmander usó Giro Fuego e hizo 70 de daño. ¡Es muy efectivo!
+¡Oddish se ha debilitado!
+Charmander gana 217 puntos de experiencia.
+¡Charmander sube a nivel 81!
+¡Ha aparecido un nuevo Nidoqueen salvaje!
+[2025-05-17 23:34:00] Charmander usó Infierno e hizo 100 de daño.
+¡Nidoqueen se ha debilitado!
+Charmander gana 217 puntos de experiencia.
+¡Charmander sube a nivel 82!
+¡Ha aparecido un nuevo Nidoran♀ salvaje!
+[2025-05-17 23:34:01] Charmander usó Ascuas e hizo 40 de daño.
+Nidoran♀ atacó e hizo 35 de daño
+[2025-05-17 23:34:01] Charmander usó Ascuas e hizo 40 de daño.
+¡Nidoran♀ se ha debilitado!
+Charmander gana 235 puntos de experiencia.
+¡Charmander sube a nivel 83!
+¡Ha aparecido un nuevo Pidgeot salvaje!
+[2025-05-17 23:34:02] Charmander usó Ascuas e hizo 40 de daño.
+Pidgeot atacó e hizo 37 de daño
+[2025-05-17 23:34:02] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Pidgeot se ha debilitado!
+Charmander gana 240 puntos de experiencia.
+¡Charmander sube a nivel 84!
+¡Ha aparecido un nuevo Nidoran♂ salvaje!
+[2025-05-17 23:34:03] Charmander usó Infierno e hizo 100 de daño.
+¡Nidoran♂ se ha debilitado!
+Charmander gana 243 puntos de experiencia.
+¡Charmander sube a nivel 85!
+¡Ha aparecido un nuevo Venomoth salvaje!
+[2025-05-17 23:34:03] Charmander usó Giro Fuego e hizo 70 de daño. ¡Es muy efectivo!
+¡Venomoth se ha debilitado!
+Charmander gana 236 puntos de experiencia.
+¡Charmander sube a nivel 86!
+¡Ha aparecido un nuevo Spearow salvaje!
+[2025-05-17 23:34:04] Charmander usó Giro Fuego e hizo 35 de daño.
+Spearow atacó e hizo 30 de daño
+¡Charmander se ha debilitado!
+[2025-05-17 23:34:05] Charmander usó Giro Fuego e hizo 35 de daño.
+¡Charmander se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.
+[2025-05-17 23:37:49] ¡Ha comenzado un combate entre Charmander y Ivysaur!
