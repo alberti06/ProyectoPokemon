@@ -22,99 +22,100 @@ import model.Pokemon;
 
 public class CajaController {
 // Aqui ponemos los elementos de la vista
-	 @FXML
-	    private Button btnVolver;
+	@FXML
+	private Button btnVolver;
 
-	    @FXML
-	    private GridPane gridCaja;
+	@FXML
+	private GridPane gridCaja;
 
-	    @FXML
-	    private AnchorPane root;
+	@FXML
+	private AnchorPane root;
 
-	    @FXML
-	    private ScrollPane scrollPane;
-	    //metodo para volver al menu 
-    @FXML
-    void volverAlMenu(ActionEvent event) {
-    	stage.close();
+	@FXML
+	private ScrollPane scrollPane;
 
-        if (equipoController != null) {
-            equipoController.actualizarEquipo();
-            equipoController.show();
-        }
+	// metodo para volver al menu
+	@FXML
+	void volverAlMenu(ActionEvent event) {
+		stage.close();
 
-    }
+		if (equipoController != null) {
+			equipoController.actualizarEquipo();
+			equipoController.show();
+		}
 
-    private Stage stage;
-    private Entrenador entrenador;
-    private EquipoController equipoController;
+	}
 
-    public void init(Entrenador entrenador, Stage stage, EquipoController equipoController) {
-        this.entrenador = entrenador;
-        this.stage = stage;
-        this.equipoController = equipoController;
-        actualizarVistaCaja(); // Cargar la caja al iniciar
-    }
+	private Stage stage;
+	private Entrenador entrenador;
+	private EquipoController equipoController;
 
-    // Método público para que otros controladores puedan forzar la recarga
-    public void actualizarVistaCaja() {
-        gridCaja.getChildren().clear();
-        List<Pokemon> caja = PokemonDAO.obtenerCaja(entrenador.getIdentrenador());
+	public void init(Entrenador entrenador, Stage stage, EquipoController equipoController) {
+		this.entrenador = entrenador;
+		this.stage = stage;
+		this.equipoController = equipoController;
+		actualizarVistaCaja(); // Cargar la caja al iniciar
+	}
 
-        int col = 0;
-        int row = 0;
+	// Método público para que otros controladores puedan forzar la recarga
+	public void actualizarVistaCaja() {
+		gridCaja.getChildren().clear();
+		List<Pokemon> caja = PokemonDAO.obtenerCaja(entrenador.getIdentrenador());
 
-        for (Pokemon p : caja) {
-            VBox slot = new VBox(5);
-            slot.setAlignment(Pos.CENTER);
+		int col = 0;
+		int row = 0;
 
-            String path = "C:/ProyectoPokemon/resources/img/Pokemon/Front/" +
-                    String.format("%03d", p.getNumPokedex()) + ".png";
-            File file = new File(path);
-            Image img = file.exists()
-                    ? new Image(file.toURI().toString())
-                    : new Image(new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/default.png").toURI().toString());
+		for (Pokemon p : caja) {
+			VBox slot = new VBox(5);
+			slot.setAlignment(Pos.CENTER);
 
-            ImageView imageView = new ImageView(img);
-            imageView.setFitWidth(80);
-            imageView.setFitHeight(80);
+			String path = "C:/ProyectoPokemon/resources/img/Pokemon/Front/" + String.format("%03d", p.getNumPokedex())
+					+ ".png";
+			File file = new File(path);
+			Image img = file.exists() ? new Image(file.toURI().toString())
+					: new Image(
+							new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/default.png").toURI().toString());
 
-            Label nombre = new Label(p.getNombre());
-            nombre.setStyle("-fx-font-size: 12px; -fx-font-weight: bold;");
+			ImageView imageView = new ImageView(img);
+			imageView.setFitWidth(80);
+			imageView.setFitHeight(80);
 
-            slot.getChildren().addAll(imageView, nombre);
+			Label nombre = new Label(p.getNombre());
+			nombre.setStyle("-fx-font-size: 12px; -fx-font-weight: bold;");
 
-            // Evento: mover Pokémon de la caja al equipo
-            slot.setOnMouseClicked(e -> {
-                int hueco = PokemonDAO.obtenerSiguienteHuecoEquipo(entrenador.getIdentrenador());
-                if (hueco != -1) {
-                    PokemonDAO.actualizarEquipo(p.getId(), hueco);
-                    JOptionPane.showMessageDialog(null, p.getNombre() + " ha sido movido al equipo.");
+			slot.getChildren().addAll(imageView, nombre);
 
-                    //  Volver a la pantalla del equipo
-                    volverAlMenu();
+			// Evento: mover Pokémon de la caja al equipo
+			slot.setOnMouseClicked(e -> {
+				int hueco = PokemonDAO.obtenerSiguienteHuecoEquipo(entrenador.getIdentrenador());
+				if (hueco != -1) {
+					PokemonDAO.actualizarEquipo(p.getId(), hueco);
+					JOptionPane.showMessageDialog(null, p.getNombre() + " ha sido movido al equipo.");
 
-                } else {
-                    JOptionPane.showMessageDialog(null, "Tu equipo está lleno.");
-                }
-            });
+					// Volver a la pantalla del equipo
+					volverAlMenu();
 
-            gridCaja.add(slot, col, row);
-            col++;
-            if (col == 6) {
-                col = 0;
-                row++;
-            }
-        }
-    }
-    
-    public void volverAlMenu() {
-        stage.close();
+				} else {
+					JOptionPane.showMessageDialog(null, "Tu equipo está lleno.");
+				}
+			});
 
-        if (equipoController != null) {
-            equipoController.actualizarEquipo();
-            equipoController.show();
-        }
-    }
+			gridCaja.add(slot, col, row);
+			col++;
+			if (col == 6) {
+				col = 0;
+				row++;
+			}
+		}
+	}
+
+	public void volverAlMenu() {
+		stage.close();
+
+		if (equipoController != null) {
+			equipoController.actualizarEquipo();
+			equipoController.show();
+		}
+	}
 
 }

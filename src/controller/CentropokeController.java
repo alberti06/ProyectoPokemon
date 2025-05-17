@@ -20,73 +20,74 @@ import model.Pokemon;
 
 public class CentropokeController {
 //Inserccion de los elementos de las vistas
-    @FXML
-    private ImageView btnRestaurar;
+	@FXML
+	private ImageView btnRestaurar;
 
-    @FXML
-    private ImageView btnSalir;
+	@FXML
+	private ImageView btnSalir;
 
-    @FXML
-    private Label lblDialogo;
+	@FXML
+	private Label lblDialogo;
 
-    private MenuController menuController;
-    
-    private Stage stage;
-    
-    private Entrenador entrenador;
-    
-    private LoginController loginController;
+	private MenuController menuController;
 
-    @FXML
-    void btnRestaurar(MouseEvent event) {
-        try {
-            // metodo para curar a  todos los Pokémon del equipo
-            for (Pokemon p : entrenador.getPokemons()) {
-                p.setVidaActual(p.getVitalidad());
-                PokemonDAO.actualizarVida(p);
-            }
+	private Stage stage;
 
-            // Aqui mostramos una ventana emergente de confirmacion de que se nos han curado los pokemons
-          JOptionPane.showMessageDialog(null, "¡Todos tus Pokémon han sido curados con éxito!", 
-                                                      "Centro Pokémon",JOptionPane.INFORMATION_MESSAGE);
+	private Entrenador entrenador;
 
-        } catch (Exception e) {
-         JOptionPane.showMessageDialog(null, "Error al curar los Pokémon.", 
-                                                      "Error", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
-        }
-    }
+	private LoginController loginController;
+
+	@FXML
+	void btnRestaurar(MouseEvent event) {
+		try {
+			// metodo para curar a todos los Pokémon del equipo
+			for (Pokemon p : entrenador.getPokemons()) {
+				p.setVidaActual(p.getVitalidad());
+				PokemonDAO.actualizarVida(p);
+			}
+
+			// Aqui mostramos una ventana emergente de confirmacion de que se nos han curado
+			// los pokemons
+			JOptionPane.showMessageDialog(null, "¡Todos tus Pokémon han sido curados con éxito!", "Centro Pokémon",
+					JOptionPane.INFORMATION_MESSAGE);
+
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Error al curar los Pokémon.", "Error", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+	}
+
 //metodo para salir del centro pokemon 
-    @FXML
-    void salirMenupoke(MouseEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
-            Parent root = loader.load();
-            menuController = loader.getController();
+	@FXML
+	void salirMenupoke(MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
+			Parent root = loader.load();
+			menuController = loader.getController();
 
-            Scene sc = new Scene(root);
-            Stage st = new Stage();
+			Scene sc = new Scene(root);
+			Stage st = new Stage();
 
-            st.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            st.setTitle("Proyecto Pokémon los 3 mosqueteros");
-            st.setScene(sc);
-            menuController.init(entrenador, st, loginController);
+			st.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+			st.setTitle("Proyecto Pokémon los 3 mosqueteros");
+			st.setScene(sc);
+			menuController.init(entrenador, st, loginController);
 
-            st.show();
-            this.stage.close();
+			st.show();
+			this.stage.close();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-    public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
-        this.menuController = menuController;
-        this.stage = stage;
-        this.entrenador = entrenador;
-        this.loginController = loginController;
+	public void init(Entrenador entrenador, Stage stage, MenuController menuController,
+			LoginController loginController) {
+		this.menuController = menuController;
+		this.stage = stage;
+		this.entrenador = entrenador;
+		this.loginController = loginController;
 
-
-    }
+	}
 
 }

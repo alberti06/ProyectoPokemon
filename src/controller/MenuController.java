@@ -1,6 +1,5 @@
 package controller;
 
-
 import java.io.File;
 import java.io.IOException;
 
@@ -19,326 +18,318 @@ import javafx.stage.Stage;
 import model.Entrenador;
 import dao.PokemonDAO;
 
-
 public class MenuController {
-	
+
 	private Entrenador entrenador;
-    private Stage stage;
-    private LoginController loginController;
-    private EquipoController equipoController;
-    
-    @FXML
-    private AnchorPane AnchorPane;
+	private Stage stage;
+	private LoginController loginController;
+	private EquipoController equipoController;
 
-    @FXML
-    private VBox Box;
+	@FXML
+	private AnchorPane AnchorPane;
 
-    @FXML
-    private ImageView btnConf;
+	@FXML
+	private VBox Box;
 
-    @FXML
-    private ImageView imgBolsa;
+	@FXML
+	private ImageView btnConf;
 
-    @FXML
-    private ImageView imgCaptura;
+	@FXML
+	private ImageView imgBolsa;
 
-    @FXML
-    private ImageView imgCenPokemon;
+	@FXML
+	private ImageView imgCaptura;
 
-    @FXML
-    private ImageView imgCombate;
+	@FXML
+	private ImageView imgCenPokemon;
 
-    @FXML
-    private ImageView imgCrianza;
+	@FXML
+	private ImageView imgCombate;
 
-    @FXML
-    private ImageView imgEquipo;
+	@FXML
+	private ImageView imgCrianza;
 
-    @FXML
-    private ImageView imgFondo;
+	@FXML
+	private ImageView imgEquipo;
 
-    @FXML
-    private ImageView imgSalir;
-    
-    @FXML
-    private ImageView imgTienda;
+	@FXML
+	private ImageView imgFondo;
 
-    @FXML
-    private Label lblCantidad;
+	@FXML
+	private ImageView imgSalir;
 
-    @FXML
-    private Label lblJugador;
+	@FXML
+	private ImageView imgTienda;
 
-    @FXML
-    private Label lblNombre;
+	@FXML
+	private Label lblCantidad;
 
-    @FXML
-    private Label lblPesetas;
-    
-    public void init(Entrenador ent, Stage stage, LoginController loginController) {
-        this.loginController = loginController;
-        this.stage = stage;
-        this.entrenador = ent;
+	@FXML
+	private Label lblJugador;
 
-        // ✅ AÑADIR ESTA LÍNEA PARA CARGAR EL EQUIPO
-        entrenador.setPokemons(dao.PokemonDAO.obtenerEquipo(entrenador.getIdentrenador()));
+	@FXML
+	private Label lblNombre;
 
-        lblNombre.setText(ent.getUsuario());
-        lblCantidad.setText(Integer.toString(ent.getPokedolares()));
-        
-        /*
-        Box.prefWidthProperty().bind(stage.widthProperty());
-        Box.prefHeightProperty().bind(stage.heightProperty());*/
-    }
-    
-    public void actualizarDinero() {
-        lblCantidad.setText(String.valueOf(entrenador.getPokedolares()));
-        lblPesetas.setVisible(false);
-        //lblPesetas.setText(entrenador.getPokedolares() + " $");
-    }
-    
-    @FXML
-    void salirInicio(MouseEvent event) {
-        if (loginController != null && stage != null) {
-            loginController.show();
-            stage.close();
-            System.out.println("Has cerrado sesion correctamente");
-        }
-    }
-    
-    //REVISAR
-    public void show() {
-        if (stage != null) {
-            stage.show();
-        }
-    }
+	@FXML
+	private Label lblPesetas;
 
-    @FXML
-    void abrirConf(MouseEvent event) {
-    	try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuConfiguracion.fxml"));
-            Parent root = loader.load();
+	public void init(Entrenador ent, Stage stage, LoginController loginController) {
+		this.loginController = loginController;
+		this.stage = stage;
+		this.entrenador = ent;
 
-            Stage confStage = new Stage();
-            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            confStage.setTitle("Configuración");
-            confStage.setScene(new Scene(root));
-            confStage.setResizable(false);
-            confStage.show();
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-   
-    @FXML
-    void abrirBolsa(MouseEvent event) {
-    	try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/BolsaPokemon.fxml"));
-            Parent root = loader.load(); // ⚠️ primero carga
+		entrenador.setPokemons(dao.PokemonDAO.obtenerEquipo(entrenador.getIdentrenador()));
 
-            BolsaController controller = loader.getController(); // ✅ luego obtén el controller
+		lblNombre.setText(ent.getUsuario());
+		lblCantidad.setText(Integer.toString(ent.getPokedolares()));
 
-            Stage confStage = new Stage();
-            controller.init(entrenador, confStage, this, loginController);
+		/*
+		 * Box.prefWidthProperty().bind(stage.widthProperty());
+		 * Box.prefHeightProperty().bind(stage.heightProperty());
+		 */
+	}
 
-            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            confStage.setTitle("Bolsa");
-            confStage.setScene(new Scene(root));
-            confStage.setResizable(false);
-            confStage.show();
+	public void actualizarDinero() {
+		lblCantidad.setText(String.valueOf(entrenador.getPokedolares()));
+		lblPesetas.setVisible(false);
+		// lblPesetas.setText(entrenador.getPokedolares() + " $");
+	}
 
-            this.stage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+	@FXML
+	void salirInicio(MouseEvent event) {
+		if (loginController != null && stage != null) {
+			loginController.show();
+			stage.close();
+			System.out.println("Has cerrado sesion correctamente");
+		}
+	}
 
+	// REVISAR
+	public void show() {
+		if (stage != null) {
+			stage.show();
+		}
+	}
 
-    @FXML
-    void abrirCaptura(MouseEvent event) {
-    	try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/captura.fxml"));
-            Parent root = loader.load(); // ⚠️ primero carga
+	@FXML
+	void abrirConf(MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuConfiguracion.fxml"));
+			Parent root = loader.load();
 
-            CapturaController controller = loader.getController(); // ✅ luego obtén el controller
+			Stage confStage = new Stage();
+			confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+			confStage.setTitle("Configuración");
+			confStage.setScene(new Scene(root));
+			confStage.setResizable(false);
+			confStage.show();
 
-            Stage confStage = new Stage();
-            controller.init(entrenador, confStage, this, loginController);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            confStage.setTitle("Captura");
-            confStage.setScene(new Scene(root));
-            confStage.setResizable(false);
-            confStage.show();
+	@FXML
+	void abrirBolsa(MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/BolsaPokemon.fxml"));
+			Parent root = loader.load();
 
-            this.stage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    @FXML
-    void abrirCentropoke(MouseEvent event) {
-        try {
-            // Cargar el equipo antes de abrir el centro
-            entrenador.setEquipo(PokemonDAO.obtenerEquipo(entrenador.getIdentrenador()));
+			BolsaController controller = loader.getController();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CentroPokemon.fxml"));
-            Parent root = loader.load();
+			Stage confStage = new Stage();
+			controller.init(entrenador, confStage, this, loginController);
 
-            CentropokeController controller = loader.getController();
-            Stage confStage = new Stage();
-            controller.init(entrenador, confStage, this, loginController);
+			confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+			confStage.setTitle("Bolsa");
+			confStage.setScene(new Scene(root));
+			confStage.setResizable(false);
+			confStage.show();
 
-            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            confStage.setTitle("Centro Pokemon");
-            confStage.setScene(new Scene(root));
-            confStage.setResizable(false);
-            confStage.show();
+			this.stage.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-            this.stage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+	@FXML
+	void abrirCaptura(MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/captura.fxml"));
+			Parent root = loader.load();
 
+			CapturaController controller = loader.getController();
 
-   
-    @FXML
-    void abrirCombate(MouseEvent event) {
-    	try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Combate.fxml"));
-            Parent root = loader.load();
+			Stage confStage = new Stage();
+			controller.init(entrenador, confStage, this, loginController);
 
-            CombateController combateController = loader.getController();
-            
-            Stage confStage = new Stage(); // <-- crea primero la nueva ventana
-            combateController.init(entrenador, confStage, this, loginController); // <-- pasar confStage aquí
+			confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+			confStage.setTitle("Captura");
+			confStage.setScene(new Scene(root));
+			confStage.setResizable(false);
+			confStage.show();
 
-            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            confStage.setTitle("Combate");
-            confStage.setScene(new Scene(root));
-            confStage.setResizable(false);
-            confStage.show();
+			this.stage.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-            this.stage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+	@FXML
+	void abrirCentropoke(MouseEvent event) {
+		try {
+			// Cargar el equipo antes de abrir el centro
+			entrenador.setEquipo(PokemonDAO.obtenerEquipo(entrenador.getIdentrenador()));
 
-    }
-    
-    @FXML
-    void abrirCrianza(MouseEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Crianza.fxml"));
-            Parent root = loader.load();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CentroPokemon.fxml"));
+			Parent root = loader.load();
 
-            CrianzaController crianzaController = loader.getController();
-            
-            Stage confStage = new Stage(); // <-- crea primero la nueva ventana
-            crianzaController.init(entrenador, confStage, this, loginController); // <-- pasar confStage aquí
+			CentropokeController controller = loader.getController();
+			Stage confStage = new Stage();
+			controller.init(entrenador, confStage, this, loginController);
 
-            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            confStage.setTitle("Crianza");
-            confStage.setScene(new Scene(root));
-            confStage.setResizable(false);
-            confStage.show();
+			confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+			confStage.setTitle("Centro Pokemon");
+			confStage.setScene(new Scene(root));
+			confStage.setResizable(false);
+			confStage.show();
 
-            this.stage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+			this.stage.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
+	@FXML
+	void abrirCombate(MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Combate.fxml"));
+			Parent root = loader.load();
 
-    @FXML
-    void abrirEquipo(MouseEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Equipo.fxml"));
-            Parent root = loader.load();
+			CombateController combateController = loader.getController();
 
-            equipoController = loader.getController(); // ← guardamos la referencia
+			Stage confStage = new Stage();
+			combateController.init(entrenador, confStage, this, loginController);
 
-            Stage confStage = new Stage();
-            equipoController.init(entrenador, confStage, this, loginController);
+			confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+			confStage.setTitle("Combate");
+			confStage.setScene(new Scene(root));
+			confStage.setResizable(false);
+			confStage.show();
 
-            confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-            confStage.setTitle("Equipo");
-            confStage.setScene(new Scene(root));
-            confStage.setResizable(false);
-            confStage.show();
+			this.stage.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-            this.stage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+	}
 
-    @FXML
-    void abrirPokedex(MouseEvent event) {
-    	try {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Entrenamiento.fxml"));
-    		Parent root = loader.load();
+	@FXML
+	void abrirCrianza(MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Crianza.fxml"));
+			Parent root = loader.load();
 
-    		EntrenamientoController entrenamientoController = loader.getController(); 
-    		Scene scene = new Scene(root);
-    		Stage pokedexStage = new Stage();
+			CrianzaController crianzaController = loader.getController();
 
-    		pokedexStage.setScene(scene);
-    		pokedexStage.setTitle("Pokédex");
-    		entrenamientoController.init(entrenador, pokedexStage, this, loginController);
-    		pokedexStage.show();
-    		  this.stage.close();
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    }
-    
-    @FXML
-    void abrirTienda(MouseEvent event) {
-    	    try {
-    	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Tienda.fxml"));
-    	        Parent root = loader.load();
+			Stage confStage = new Stage();
+			crianzaController.init(entrenador, confStage, this, loginController);
 
-    	        TiendaController tiendaController = loader.getController();
+			confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+			confStage.setTitle("Crianza");
+			confStage.setScene(new Scene(root));
+			confStage.setResizable(false);
+			confStage.show();
 
-    	        Stage confStage = new Stage();
-    	        tiendaController.init(entrenador, confStage, this, loginController); 
+			this.stage.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-    	        confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
-    	        confStage.setTitle("Tienda");
-    	        confStage.setScene(new Scene(root));
-    	        confStage.setResizable(false);
-    	        confStage.show();
+	@FXML
+	void abrirEquipo(MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Equipo.fxml"));
+			Parent root = loader.load();
 
-    	        this.stage.close();
-    	    } catch (IOException e) {
-    	        e.printStackTrace();
-    	    }
-    	}
-    
-    public void initEntrenadorDesdeId(int idEntrenador) {
-        try {
-            Entrenador ent = EntrenadorDAO.obtenerEntrenadorPorId(idEntrenador);
-            this.entrenador = ent;
-            lblNombre.setText(ent.getUsuario());
-            lblCantidad.setText(String.valueOf(ent.getPokedolares()));
-            lblPesetas.setText(ent.getPokedolares() + " $");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void actualizarVistaEquipo() {
-        if (equipoController != null) {
-            equipoController.actualizarEquipo(); // ← método que debe estar en EquipoController
-        } else {
-            System.out.println("No hay equipo cargado aún.");
-        }
-    }
+			equipoController = loader.getController();
+			Stage confStage = new Stage();
+			equipoController.init(entrenador, confStage, this, loginController);
 
-    
-    
+			confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+			confStage.setTitle("Equipo");
+			confStage.setScene(new Scene(root));
+			confStage.setResizable(false);
+			confStage.show();
+
+			this.stage.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	void abrirPokedex(MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Entrenamiento.fxml"));
+			Parent root = loader.load();
+
+			EntrenamientoController entrenamientoController = loader.getController();
+			Scene scene = new Scene(root);
+			Stage pokedexStage = new Stage();
+
+			pokedexStage.setScene(scene);
+			pokedexStage.setTitle("Pokédex");
+			entrenamientoController.init(entrenador, pokedexStage, this, loginController);
+			pokedexStage.show();
+			this.stage.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	void abrirTienda(MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Tienda.fxml"));
+			Parent root = loader.load();
+
+			TiendaController tiendaController = loader.getController();
+
+			Stage confStage = new Stage();
+			tiendaController.init(entrenador, confStage, this, loginController);
+
+			confStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+			confStage.setTitle("Tienda");
+			confStage.setScene(new Scene(root));
+			confStage.setResizable(false);
+			confStage.show();
+
+			this.stage.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void initEntrenadorDesdeId(int idEntrenador) {
+		try {
+			Entrenador ent = EntrenadorDAO.obtenerEntrenadorPorId(idEntrenador);
+			this.entrenador = ent;
+			lblNombre.setText(ent.getUsuario());
+			lblCantidad.setText(String.valueOf(ent.getPokedolares()));
+			lblPesetas.setText(ent.getPokedolares() + " $");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void actualizarVistaEquipo() {
+		if (equipoController != null) {
+			equipoController.actualizarEquipo();
+		} else {
+			System.out.println("No hay equipo cargado aún.");
+		}
+	}
+
 }

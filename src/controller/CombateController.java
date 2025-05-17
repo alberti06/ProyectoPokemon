@@ -26,6 +26,7 @@ import java.util.*;
 
 import dao.ConexionBD;
 import dao.PokemonDAO;
+
 //Añadimos todos los elementos de las vistas
 public class CombateController {
 	private List<String> nombresObjetos = new ArrayList<>();
@@ -88,7 +89,7 @@ public class CombateController {
 		this.entrenador.setPokemons(PokemonDAO.obtenerEquipo(entrenador.getIdentrenador()));
 		this.pokemonAliado = entrenador.getPrimerPokemon();
 		if (this.pokemonAliado == null) {
-			System.err.println("❌ El entrenador no tiene ningún Pokémon en el equipo.");
+			System.err.println("El entrenador no tiene ningún Pokémon en el equipo.");
 			return;
 		}
 		cargarAtaquesDesdeBD();
@@ -106,6 +107,7 @@ public class CombateController {
 		log("¡Ha comenzado un combate entre " + entrenador.getPrimerPokemon().getNombre() + " y "
 				+ pokemonSalvaje.getNombre() + "!");
 	}
+
 // Metodo que nos indica que se nos ha generado un rival
 	private void generarEntrenadorRival() {
 		try (Connection con = ConexionBD.conectar()) {
@@ -134,6 +136,7 @@ public class CombateController {
 		}
 		return false;
 	}
+
 //metodo de finalizacion de combate donde podremos ver en el log lo que pasa cuando ganas o pierdes un combate
 	private void finalizarCombate(boolean ganaJugador) {
 		int dineroJugador = entrenador.getPokedolares();
@@ -141,11 +144,11 @@ public class CombateController {
 
 		if (ganaJugador) {
 			entrenador.setPokedolares(dineroJugador + dineroRival);
-			log("¡Has ganado el combate! Recibes 2000 pokédólares.");
+			log("¡Has ganado el combate! Recibes 2000 pesetas.");
 		} else {
 			int perdida = dineroJugador / 3;
 			entrenador.setPokedolares(dineroJugador - perdida);
-			log("Has perdido el combate. Pierdes " + perdida + " pokédólares.");
+			log("Has perdido el combate. Pierdes " + perdida + " pesetas.");
 		}
 
 		try (Connection con = ConexionBD.conectar()) {
@@ -182,10 +185,12 @@ public class CombateController {
 	}
 
 	private void cargarAtaquesDesdeBD() {
-		System.out.println("[CARGA ATAQUES] Cargando ataques para: " + (pokemonAliado != null ? pokemonAliado.getNombre() : "null") + " (ID: " + (pokemonAliado != null ? pokemonAliado.getId() : "null") + ")");
+		System.out.println(
+				"[CARGA ATAQUES] Cargando ataques para: " + (pokemonAliado != null ? pokemonAliado.getNombre() : "null")
+						+ " (ID: " + (pokemonAliado != null ? pokemonAliado.getId() : "null") + ")");
 
 		ataquesJugador.clear();
-		
+
 		try (Connection con = ConexionBD.conectar()) {
 			PreparedStatement ps = con.prepareStatement("""
 						SELECT m.ID_MOVIMIENTO, m.NOM_MOVIMIENTO, m.NIVEL_APRENDIZAJE, m.PP_MAX,
@@ -228,32 +233,37 @@ public class CombateController {
 	}
 
 	private String realizarAtaqueJugador(Ataque atk) {
-	    double mult = calcularMultiplicadorTipo(atk.getTipoMovimiento(), pokemonSalvaje.getTipo1(), pokemonSalvaje.getTipo2());
-	    int daño = (int) (atk.getPotencia() * mult);
-	    pokemonSalvaje.reducirVida(daño);
+		double mult = calcularMultiplicadorTipo(atk.getTipoMovimiento(), pokemonSalvaje.getTipo1(),
+				pokemonSalvaje.getTipo2());
+		int daño = (int) (atk.getPotencia() * mult);
+		pokemonSalvaje.reducirVida(daño);
 
-	    String mensaje = pokemonAliado.getNombre() + " usó " + atk.getNombre() + " e hizo " + daño + " de daño";
-	    if (mult > 1.5) mensaje += " ¡Es muy efectivo!";
-	    else if (mult < 1.0) mensaje += " No fue muy efectivo...";
-	    else if (mult == 0.0) mensaje += " ¡No afecta al rival!";
+		String mensaje = pokemonAliado.getNombre() + " usó " + atk.getNombre() + " e hizo " + daño + " de daño";
+		if (mult > 1.5)
+			mensaje += " ¡Es muy efectivo!";
+		else if (mult < 1.0)
+			mensaje += " No fue muy efectivo...";
+		else if (mult == 0.0)
+			mensaje += " ¡No afecta al rival!";
 
-	    return mensaje + "\n";
+		return mensaje + "\n";
 	}
-
 
 	private String realizarAtaqueRival() {
-	    double mult = calcularMultiplicadorTipo("NORMAL", pokemonAliado.getTipo1(), pokemonAliado.getTipo2());
-	    int daño = (int) (pokemonSalvaje.getAtaque() * mult);
-	    pokemonAliado.reducirVida(daño);
+		double mult = calcularMultiplicadorTipo("NORMAL", pokemonAliado.getTipo1(), pokemonAliado.getTipo2());
+		int daño = (int) (pokemonSalvaje.getAtaque() * mult);
+		pokemonAliado.reducirVida(daño);
 
-	    String mensaje = pokemonSalvaje.getNombre() + " atacó e hizo " + daño + " de daño";
-	    if (mult > 1.5) mensaje += " ¡Es muy efectivo!";
-	    else if (mult < 1.0) mensaje += " No fue muy efectivo...";
-	    else if (mult == 0.0) mensaje += " ¡No te ha afectado!";
+		String mensaje = pokemonSalvaje.getNombre() + " atacó e hizo " + daño + " de daño";
+		if (mult > 1.5)
+			mensaje += " ¡Es muy efectivo!";
+		else if (mult < 1.0)
+			mensaje += " No fue muy efectivo...";
+		else if (mult == 0.0)
+			mensaje += " ¡No te ha afectado!";
 
-	    return mensaje + "\n";
+		return mensaje + "\n";
 	}
-
 
 	private int calcularExperiencia(int nivelPropio, int nivelRival) {
 		return (nivelPropio + nivelRival * 10) / 4;
@@ -351,6 +361,7 @@ public class CombateController {
 
 		turno++;
 	}
+
 //Metodo para crear el turno enemigo y que ataque el pokemon del rival
 	private int turnoEnemigo() {
 		int daño = pokemonSalvaje.getAtaque();
@@ -635,7 +646,7 @@ public class CombateController {
 		}
 		case "éter" -> {
 			if (!ataquesJugador.isEmpty()) {
-				ataquesJugador.get(0).restaurarPP(); //  elegir el ataque con un ChoiceBox también
+				ataquesJugador.get(0).restaurarPP(); // elegir el ataque con un ChoiceBox también
 				actualizarBotones();
 			}
 		}
@@ -658,7 +669,7 @@ public class CombateController {
 			e.printStackTrace();
 		}
 	}
-	//Metodo para usar los objetos que tendremos seleccionados 
+	// Metodo para usar los objetos que tendremos seleccionados
 
 	@FXML
 	void usarObjetoSeleccionado() {
@@ -681,7 +692,7 @@ public class CombateController {
 
 		log("Has usado " + nombreObjeto + " sobre " + pokemonAliado.getNombre());
 		actualizarBarrasVida();
-		cargarObjetosDisponibles(); 
+		cargarObjetosDisponibles();
 	}
 
 	private void guardarEstadoPokemonAliado() {
@@ -710,179 +721,211 @@ public class CombateController {
 			e.printStackTrace();
 		}
 	}
-	private double calcularMultiplicadorTipo(String tipoAtaque, String tipoDef1, String tipoDef2) {
-	    tipoAtaque = tipoAtaque.toUpperCase();
-	    double mult1 = calcularContraTipo(tipoAtaque, tipoDef1 != null ? tipoDef1.toUpperCase() : null);
-	    double mult2 = calcularContraTipo(tipoAtaque, tipoDef2 != null ? tipoDef2.toUpperCase() : null);
 
-	    return mult1 * mult2;
+	private double calcularMultiplicadorTipo(String tipoAtaque, String tipoDef1, String tipoDef2) {
+		tipoAtaque = tipoAtaque.toUpperCase();
+		double mult1 = calcularContraTipo(tipoAtaque, tipoDef1 != null ? tipoDef1.toUpperCase() : null);
+		double mult2 = calcularContraTipo(tipoAtaque, tipoDef2 != null ? tipoDef2.toUpperCase() : null);
+
+		return mult1 * mult2;
 	}
 
 	private double calcularContraTipo(String tipoAtaque, String tipoDef) {
-	    if (tipoDef == null) return 1.0;
+		if (tipoDef == null)
+			return 1.0;
 
-	    // FUEGO
-	    if (tipoAtaque.equals("FUEGO") && (tipoDef.equals("PLANTA") || tipoDef.equals("BICHO") || tipoDef.equals("HIELO"))) return 2.0;
-	    if (tipoAtaque.equals("FUEGO") && (tipoDef.equals("AGUA") || tipoDef.equals("FUEGO") || tipoDef.equals("ROCA") || tipoDef.equals("DRAGÓN"))) return 0.5;
+		// FUEGO
+		if (tipoAtaque.equals("FUEGO")
+				&& (tipoDef.equals("PLANTA") || tipoDef.equals("BICHO") || tipoDef.equals("HIELO")))
+			return 2.0;
+		if (tipoAtaque.equals("FUEGO") && (tipoDef.equals("AGUA") || tipoDef.equals("FUEGO") || tipoDef.equals("ROCA")
+				|| tipoDef.equals("DRAGÓN")))
+			return 0.5;
 
-	    // AGUA
-	    if (tipoAtaque.equals("AGUA") && (tipoDef.equals("FUEGO") || tipoDef.equals("ROCA") || tipoDef.equals("TIERRA"))) return 2.0;
-	    if (tipoAtaque.equals("AGUA") && (tipoDef.equals("AGUA") || tipoDef.equals("PLANTA") || tipoDef.equals("DRAGÓN"))) return 0.5;
+		// AGUA
+		if (tipoAtaque.equals("AGUA")
+				&& (tipoDef.equals("FUEGO") || tipoDef.equals("ROCA") || tipoDef.equals("TIERRA")))
+			return 2.0;
+		if (tipoAtaque.equals("AGUA")
+				&& (tipoDef.equals("AGUA") || tipoDef.equals("PLANTA") || tipoDef.equals("DRAGÓN")))
+			return 0.5;
 
-	    // PLANTA
-	    if (tipoAtaque.equals("PLANTA") && (tipoDef.equals("AGUA") || tipoDef.equals("TIERRA") || tipoDef.equals("ROCA"))) return 2.0;
-	    if (tipoAtaque.equals("PLANTA") && (tipoDef.equals("PLANTA") || tipoDef.equals("FUEGO") || tipoDef.equals("VENENO") || tipoDef.equals("BICHO") || tipoDef.equals("DRAGÓN") || tipoDef.equals("VOLADOR"))) return 0.5;
+		// PLANTA
+		if (tipoAtaque.equals("PLANTA")
+				&& (tipoDef.equals("AGUA") || tipoDef.equals("TIERRA") || tipoDef.equals("ROCA")))
+			return 2.0;
+		if (tipoAtaque.equals("PLANTA")
+				&& (tipoDef.equals("PLANTA") || tipoDef.equals("FUEGO") || tipoDef.equals("VENENO")
+						|| tipoDef.equals("BICHO") || tipoDef.equals("DRAGÓN") || tipoDef.equals("VOLADOR")))
+			return 0.5;
 
-	    // VENENO
-	    if (tipoAtaque.equals("VENENO") && (tipoDef.equals("PLANTA") || tipoDef.equals("HADA"))) return 2.0;
-	    if (tipoAtaque.equals("VENENO") && (tipoDef.equals("VENENO") || tipoDef.equals("TIERRA") || tipoDef.equals("ROCA") || tipoDef.equals("FANTASMA"))) return 0.5;
+		// VENENO
+		if (tipoAtaque.equals("VENENO") && (tipoDef.equals("PLANTA") || tipoDef.equals("HADA")))
+			return 2.0;
+		if (tipoAtaque.equals("VENENO") && (tipoDef.equals("VENENO") || tipoDef.equals("TIERRA")
+				|| tipoDef.equals("ROCA") || tipoDef.equals("FANTASMA")))
+			return 0.5;
 
-	    // HADA
-	    if (tipoAtaque.equals("HADA") && (tipoDef.equals("DRAGÓN") || tipoDef.equals("LUCHA") || tipoDef.equals("SINIESTRO"))) return 2.0;
-	    if (tipoAtaque.equals("HADA") && (tipoDef.equals("FUEGO") || tipoDef.equals("VENENO") || tipoDef.equals("ACERO"))) return 0.5;
+		// HADA
+		if (tipoAtaque.equals("HADA")
+				&& (tipoDef.equals("DRAGÓN") || tipoDef.equals("LUCHA") || tipoDef.equals("SINIESTRO")))
+			return 2.0;
+		if (tipoAtaque.equals("HADA")
+				&& (tipoDef.equals("FUEGO") || tipoDef.equals("VENENO") || tipoDef.equals("ACERO")))
+			return 0.5;
 
-	    // DRAGÓN
-	    if (tipoAtaque.equals("DRAGÓN") && tipoDef.equals("DRAGÓN")) return 2.0;
-	    if (tipoAtaque.equals("DRAGÓN") && tipoDef.equals("HADA")) return 0.0;
+		// DRAGÓN
+		if (tipoAtaque.equals("DRAGÓN") && tipoDef.equals("DRAGÓN"))
+			return 2.0;
+		if (tipoAtaque.equals("DRAGÓN") && tipoDef.equals("HADA"))
+			return 0.0;
 
-	    // NORMAL
-	    if (tipoAtaque.equals("NORMAL") && tipoDef.equals("FANTASMA")) return 0.0;
-	    if (tipoAtaque.equals("NORMAL") && (tipoDef.equals("ROCA") || tipoDef.equals("ACERO"))) return 0.5;
+		// NORMAL
+		if (tipoAtaque.equals("NORMAL") && tipoDef.equals("FANTASMA"))
+			return 0.0;
+		if (tipoAtaque.equals("NORMAL") && (tipoDef.equals("ROCA") || tipoDef.equals("ACERO")))
+			return 0.5;
 
-	    // TIERRA
-	    if (tipoAtaque.equals("TIERRA") && (tipoDef.equals("FUEGO") || tipoDef.equals("ELÉCTRICO") || tipoDef.equals("VENENO") || tipoDef.equals("ROCA") || tipoDef.equals("ACERO"))) return 2.0;
-	    if (tipoAtaque.equals("TIERRA") && (tipoDef.equals("PLANTA") || tipoDef.equals("BICHO"))) return 0.5;
-	    if (tipoAtaque.equals("TIERRA") && tipoDef.equals("VOLADOR")) return 0.0;
+		// TIERRA
+		if (tipoAtaque.equals("TIERRA") && (tipoDef.equals("FUEGO") || tipoDef.equals("ELÉCTRICO")
+				|| tipoDef.equals("VENENO") || tipoDef.equals("ROCA") || tipoDef.equals("ACERO")))
+			return 2.0;
+		if (tipoAtaque.equals("TIERRA") && (tipoDef.equals("PLANTA") || tipoDef.equals("BICHO")))
+			return 0.5;
+		if (tipoAtaque.equals("TIERRA") && tipoDef.equals("VOLADOR"))
+			return 0.0;
 
-	    // ELÉCTRICO
-	    if (tipoAtaque.equals("ELÉCTRICO") && (tipoDef.equals("AGUA") || tipoDef.equals("VOLADOR"))) return 2.0;
-	    if (tipoAtaque.equals("ELÉCTRICO") && (tipoDef.equals("PLANTA") || tipoDef.equals("DRAGÓN") || tipoDef.equals("ELÉCTRICO"))) return 0.5;
-	    if (tipoAtaque.equals("ELÉCTRICO") && tipoDef.equals("TIERRA")) return 0.0;
+		// ELÉCTRICO
+		if (tipoAtaque.equals("ELÉCTRICO") && (tipoDef.equals("AGUA") || tipoDef.equals("VOLADOR")))
+			return 2.0;
+		if (tipoAtaque.equals("ELÉCTRICO")
+				&& (tipoDef.equals("PLANTA") || tipoDef.equals("DRAGÓN") || tipoDef.equals("ELÉCTRICO")))
+			return 0.5;
+		if (tipoAtaque.equals("ELÉCTRICO") && tipoDef.equals("TIERRA"))
+			return 0.0;
 
-	    return 1.0;
+		return 1.0;
 	}
+
 	private Ataque obtenerAtaqueAprendible(int nivel, int numPokedex) {
-	    try (Connection con = ConexionBD.conectar()) {
-	        PreparedStatement ps = con.prepareStatement("""
-	            SELECT * FROM MOVIMIENTOS 
-	            WHERE NIVEL_APRENDIZAJE = ? AND NUM_POKEDEX = ?
-	            LIMIT 1
-	        """);
-	        ps.setInt(1, nivel);
-	        ps.setInt(2, numPokedex);
-	        ResultSet rs = ps.executeQuery();
-	        if (rs.next()) {
-	            return new Ataque(
-	                rs.getInt("ID_MOVIMIENTO"),
-	                rs.getString("NOM_MOVIMIENTO"),
-	                rs.getInt("NIVEL_APRENDIZAJE"),
-	                rs.getInt("PP_MAX"),
-	                rs.getInt("PP_MAX"),
-	                rs.getString("TIPO"),
-	                rs.getObject("POTENCIA") != null ? rs.getInt("POTENCIA") : null,
-	                rs.getString("TIPO_MOV"),
-	                rs.getString("ESTADO"),
-	                rs.getObject("TURNOS") != null ? rs.getInt("TURNOS") : null,
-	                rs.getString("MEJORA"),
-	                rs.getObject("NUM") != null ? rs.getInt("NUM") : null
-	            );
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    return null;
+		try (Connection con = ConexionBD.conectar()) {
+			PreparedStatement ps = con.prepareStatement("""
+					    SELECT * FROM MOVIMIENTOS
+					    WHERE NIVEL_APRENDIZAJE = ? AND NUM_POKEDEX = ?
+					    LIMIT 1
+					""");
+			ps.setInt(1, nivel);
+			ps.setInt(2, numPokedex);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				return new Ataque(rs.getInt("ID_MOVIMIENTO"), rs.getString("NOM_MOVIMIENTO"),
+						rs.getInt("NIVEL_APRENDIZAJE"), rs.getInt("PP_MAX"), rs.getInt("PP_MAX"), rs.getString("TIPO"),
+						rs.getObject("POTENCIA") != null ? rs.getInt("POTENCIA") : null, rs.getString("TIPO_MOV"),
+						rs.getString("ESTADO"), rs.getObject("TURNOS") != null ? rs.getInt("TURNOS") : null,
+						rs.getString("MEJORA"), rs.getObject("NUM") != null ? rs.getInt("NUM") : null);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
+
 	private void subirNivelYAprenderAtaque(int experienciaGanada) {
-	    try (Connection con = ConexionBD.conectar()) {
-	        int nuevoNivel = pokemonAliado.getNivel();
-	        int umbral = pokemonAliado.getNivel() * 10;
-	        int expActual = PokemonDAO.obtenerExp(pokemonAliado.getId());
-	        int nuevaExp = expActual + experienciaGanada;
+		try (Connection con = ConexionBD.conectar()) {
+			int nuevoNivel = pokemonAliado.getNivel();
+			int umbral = pokemonAliado.getNivel() * 10;
+			int expActual = PokemonDAO.obtenerExp(pokemonAliado.getId());
+			int nuevaExp = expActual + experienciaGanada;
 
-	        if (nuevaExp >= umbral) {
-	            nuevoNivel++;
-	            log("¡" + pokemonAliado.getNombre() + " sube a nivel " + nuevoNivel + "!");
-	            pokemonAliado.setNivel(nuevoNivel);
-	            Random rand = new Random();
-	            pokemonAliado.setVitalidad(pokemonAliado.getVitalidad() + rand.nextInt(5) + 1);
-	            pokemonAliado.setAtaque(pokemonAliado.getAtaque() + rand.nextInt(5) + 1);
-	            pokemonAliado.setDefensa(pokemonAliado.getDefensa() + rand.nextInt(5) + 1);
-	            pokemonAliado.setAtEspecial(pokemonAliado.getAtEspecial() + rand.nextInt(5) + 1);
-	            pokemonAliado.setDefEspecial(pokemonAliado.getDefEspecial() + rand.nextInt(5) + 1);
-	            pokemonAliado.setVelocidad(pokemonAliado.getVelocidad() + rand.nextInt(5) + 1);
+			if (nuevaExp >= umbral) {
+				nuevoNivel++;
+				log("¡" + pokemonAliado.getNombre() + " sube a nivel " + nuevoNivel + "!");
+				pokemonAliado.setNivel(nuevoNivel);
+				Random rand = new Random();
+				pokemonAliado.setVitalidad(pokemonAliado.getVitalidad() + rand.nextInt(5) + 1);
+				pokemonAliado.setAtaque(pokemonAliado.getAtaque() + rand.nextInt(5) + 1);
+				pokemonAliado.setDefensa(pokemonAliado.getDefensa() + rand.nextInt(5) + 1);
+				pokemonAliado.setAtEspecial(pokemonAliado.getAtEspecial() + rand.nextInt(5) + 1);
+				pokemonAliado.setDefEspecial(pokemonAliado.getDefEspecial() + rand.nextInt(5) + 1);
+				pokemonAliado.setVelocidad(pokemonAliado.getVelocidad() + rand.nextInt(5) + 1);
 
-	            if (nuevoNivel % 3 == 0) {
-	                Ataque nuevoAtaque = obtenerAtaqueAprendible(nuevoNivel, pokemonAliado.getNumPokedex());
-	                if (nuevoAtaque != null) {
-	                    List<Ataque> ataques = PokemonDAO.obtenerAtaques(pokemonAliado.getId());
-	                    if (ataques.size() >= 4) {
-	                        List<String> opciones = new ArrayList<>();
-	                        for (Ataque a : ataques) opciones.add(a.getNombre());
-	                        ChoiceDialog<String> dialogo = new ChoiceDialog<>(opciones.get(0), opciones);
-	                        dialogo.setTitle("Aprendizaje de ataque");
-	                        dialogo.setHeaderText(pokemonAliado.getNombre() + " quiere aprender " + nuevoAtaque.getNombre());
-	                        dialogo.setContentText("¿Cuál quieres olvidar?");
-	                        Optional<String> resultado = dialogo.showAndWait();
-	                        resultado.ifPresent(nombreElegido -> {
-	                            try (Connection c2 = ConexionBD.conectar()) {
-	                                for (Ataque a : ataques) {
-	                                    if (a.getNombre().equals(nombreElegido)) {
-	                                        PreparedStatement psDel = c2.prepareStatement("""
-	                                            DELETE FROM MOVIMIENTO_POKEMON WHERE ID_POKEMON = ? AND ID_MOVIMIENTO = ?
-	                                        """);
-	                                        psDel.setInt(1, pokemonAliado.getId());
-	                                        psDel.setInt(2, a.getId());
-	                                        psDel.executeUpdate();
-	                                        break;
-	                                    }
-	                                }
-	                                PreparedStatement psIns = c2.prepareStatement("""
-	                                    INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_ACTUALES)
-	                                    VALUES (?, ?, ?)
-	                                """);
-	                                psIns.setInt(1, pokemonAliado.getId());
-	                                psIns.setInt(2, nuevoAtaque.getId());
-	                                psIns.setInt(3, nuevoAtaque.getPpMax());
-	                                psIns.executeUpdate();
-	                                log(pokemonAliado.getNombre() + " olvidó " + nombreElegido + " y aprendió " + nuevoAtaque.getNombre() + "!");
-	                            } catch (SQLException e) {
-	                                e.printStackTrace();
-	                            }
-	                        });
-	                    } else {
-	                        PreparedStatement psIns = con.prepareStatement("""
-	                            INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_ACTUALES)
-	                            VALUES (?, ?, ?)
-	                        """);
-	                        psIns.setInt(1, pokemonAliado.getId());
-	                        psIns.setInt(2, nuevoAtaque.getId());
-	                        psIns.setInt(3, nuevoAtaque.getPpMax());
-	                        psIns.executeUpdate();
-	                        log(pokemonAliado.getNombre() + " aprendió " + nuevoAtaque.getNombre() + "!");
-	                    }
-	                }
-	            }
-	        }
+				if (nuevoNivel % 3 == 0) {
+					Ataque nuevoAtaque = obtenerAtaqueAprendible(nuevoNivel, pokemonAliado.getNumPokedex());
+					if (nuevoAtaque != null) {
+						List<Ataque> ataques = PokemonDAO.obtenerAtaques(pokemonAliado.getId());
+						if (ataques.size() >= 4) {
+							List<String> opciones = new ArrayList<>();
+							for (Ataque a : ataques)
+								opciones.add(a.getNombre());
+							ChoiceDialog<String> dialogo = new ChoiceDialog<>(opciones.get(0), opciones);
+							dialogo.setTitle("Aprendizaje de ataque");
+							dialogo.setHeaderText(
+									pokemonAliado.getNombre() + " quiere aprender " + nuevoAtaque.getNombre());
+							dialogo.setContentText("¿Cuál quieres olvidar?");
+							Optional<String> resultado = dialogo.showAndWait();
+							resultado.ifPresent(nombreElegido -> {
+								try (Connection c2 = ConexionBD.conectar()) {
+									for (Ataque a : ataques) {
+										if (a.getNombre().equals(nombreElegido)) {
+											PreparedStatement psDel = c2.prepareStatement(
+													"""
+															    DELETE FROM MOVIMIENTO_POKEMON WHERE ID_POKEMON = ? AND ID_MOVIMIENTO = ?
+															""");
+											psDel.setInt(1, pokemonAliado.getId());
+											psDel.setInt(2, a.getId());
+											psDel.executeUpdate();
+											break;
+										}
+									}
+									PreparedStatement psIns = c2.prepareStatement("""
+											    INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_ACTUALES)
+											    VALUES (?, ?, ?)
+											""");
+									psIns.setInt(1, pokemonAliado.getId());
+									psIns.setInt(2, nuevoAtaque.getId());
+									psIns.setInt(3, nuevoAtaque.getPpMax());
+									psIns.executeUpdate();
+									log(pokemonAliado.getNombre() + " olvidó " + nombreElegido + " y aprendió "
+											+ nuevoAtaque.getNombre() + "!");
+								} catch (SQLException e) {
+									e.printStackTrace();
+								}
+							});
+						} else {
+							PreparedStatement psIns = con.prepareStatement("""
+									    INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_ACTUALES)
+									    VALUES (?, ?, ?)
+									""");
+							psIns.setInt(1, pokemonAliado.getId());
+							psIns.setInt(2, nuevoAtaque.getId());
+							psIns.setInt(3, nuevoAtaque.getPpMax());
+							psIns.executeUpdate();
+							log(pokemonAliado.getNombre() + " aprendió " + nuevoAtaque.getNombre() + "!");
+						}
+					}
+				}
+			}
 
-	        PreparedStatement ps = con.prepareStatement("""
-	            UPDATE POKEMON SET NIVEL = ?, VIDA_ACTUAL = ?, VITALIDAD = ?, ATAQUE = ?, DEFENSA = ?, VELOCIDAD = ?, AT_ESPECIAL = ?, DEF_ESPECIAL = ?, EXP = ? WHERE ID_POKEMON = ?
-	        """);
-	        ps.setInt(1, pokemonAliado.getNivel());
-	        ps.setInt(2, pokemonAliado.getVidaActual());
-	        ps.setInt(3, pokemonAliado.getVitalidad());
-	        ps.setInt(4, pokemonAliado.getAtaque());
-	        ps.setInt(5, pokemonAliado.getDefensa());
-	        ps.setInt(6, pokemonAliado.getVelocidad());
-	        ps.setInt(7, pokemonAliado.getAtEspecial());
-	        ps.setInt(8, pokemonAliado.getDefEspecial());
-	        ps.setInt(9, nuevaExp);
-	        ps.setInt(10, pokemonAliado.getId());
-	        ps.executeUpdate();
+			PreparedStatement ps = con.prepareStatement(
+					"""
+							    UPDATE POKEMON SET NIVEL = ?, VIDA_ACTUAL = ?, VITALIDAD = ?, ATAQUE = ?, DEFENSA = ?, VELOCIDAD = ?, AT_ESPECIAL = ?, DEF_ESPECIAL = ?, EXP = ? WHERE ID_POKEMON = ?
+							""");
+			ps.setInt(1, pokemonAliado.getNivel());
+			ps.setInt(2, pokemonAliado.getVidaActual());
+			ps.setInt(3, pokemonAliado.getVitalidad());
+			ps.setInt(4, pokemonAliado.getAtaque());
+			ps.setInt(5, pokemonAliado.getDefensa());
+			ps.setInt(6, pokemonAliado.getVelocidad());
+			ps.setInt(7, pokemonAliado.getAtEspecial());
+			ps.setInt(8, pokemonAliado.getDefEspecial());
+			ps.setInt(9, nuevaExp);
+			ps.setInt(10, pokemonAliado.getId());
+			ps.executeUpdate();
 
-	    } catch (SQLException e) {
-	        log("Error al actualizar experiencia o nivel");
-	        e.printStackTrace();
-	    }
+		} catch (SQLException e) {
+			log("Error al actualizar experiencia o nivel");
+			e.printStackTrace();
+		}
 	}
 
 }

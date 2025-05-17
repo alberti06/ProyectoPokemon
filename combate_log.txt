@@ -1965,3 +1965,44 @@ Spearow atacó e hizo 30 de daño
 ¡Charmander se ha debilitado!
 ¡No quedan Pokémon disponibles! Has perdido el combate.
 [2025-05-17 23:37:49] ¡Ha comenzado un combate entre Charmander y Ivysaur!
+[2025-05-18 00:52:19] ¡Ha comenzado un combate entre Squirtle y Parasect!
+[2025-05-18 00:52:29] Squirtle usó Placaje e hizo 40 de daño.
+Parasect atacó e hizo 25 de daño
+[2025-05-18 00:55:28] Squirtle usó Placaje e hizo 40 de daño.
+¡Parasect se ha debilitado!
+Squirtle gana 2 puntos de experiencia.
+¡Ha aparecido un nuevo Wigglytuff salvaje!
+[2025-05-18 00:55:33] Squirtle usó Placaje e hizo 40 de daño.
+Wigglytuff atacó e hizo 25 de daño
+¡Squirtle se ha debilitado!
+[2025-05-18 00:55:35] Squirtle usó Placaje e hizo 40 de daño.
+¡Squirtle se ha debilitado!
+¡No quedan Pokémon disponibles! Has perdido el combate.
+[2025-05-18 01:01:02] ¡Ha comenzado un combate entre Squirtle y Wigglytuff!
+[2025-05-18 01:01:09] Squirtle usó Placaje e hizo 40 de daño
+Wigglytuff atacó e hizo 25 de daño
+[2025-05-18 01:01:11] Squirtle usó Placaje e hizo 40 de daño
+[2025-05-18 01:01:11] Squirtle usó Placaje e hizo 40 de daño
+
+Squirtle gana 2 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-18 01:01:18] Squirtle atacó e hizo 30 de daño
+[2025-05-18 01:01:18] ¡Pidgeottoentra en combate!
+[2025-05-18 01:01:27] Pidgeottoha sido enviado al combate!
+[2025-05-18 01:01:43] ¡Ha comenzado un combate entre Squirtle y Sandshrew!
+[2025-05-18 01:02:03] Pidgeottoha sido enviado al combate!
+[2025-05-18 01:02:18] ¡Ha comenzado un combate entre Squirtle y Gloom!
+[2025-05-18 01:02:20] Pidgeottoha sido enviado al combate!
+[2025-05-18 01:02:27]  No puedes enviar un Pokémon debilitado al combate.
+[2025-05-18 01:04:52] ¡Ha comenzado un combate entre Squirtle y Beedrill!
+[2025-05-18 01:04:57] Pidgeottoha sido enviado al combate!
+[2025-05-18 01:05:05] Has usado Pesa sobre Pidgeotto
+[2025-05-18 01:05:07] Beedrill atacó e hizo 30 de daño
+Pidgeotto usó Placaje e hizo 40 de daño
+[2025-05-18 01:05:26] Has usado Éter sobre Pidgeotto
+[2025-05-18 01:05:35] Pidgeotto usó Placaje e hizo 40 de daño
+[2025-05-18 01:05:35] Pidgeotto usó Placaje e hizo 40 de daño
+
+Pidgeotto gana 9 de experiencia.
+¡Nuevo Pokémon rival entra al combate!
+[2025-05-18 01:13:12] ¡Ha comenzado un combate entre Squirtle y Metapod!

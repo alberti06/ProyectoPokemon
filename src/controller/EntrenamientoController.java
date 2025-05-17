@@ -26,6 +26,7 @@ import java.util.*;
 
 import dao.ConexionBD;
 import dao.PokemonDAO;
+
 //añadimos los elementos de las vistas
 public class EntrenamientoController {
 	private List<String> nombresObjetos = new ArrayList<>();
@@ -100,6 +101,7 @@ public class EntrenamientoController {
 		log("¡Ha comenzado un combate entre " + entrenador.getPrimerPokemon().getNombre() + " y "
 				+ pokemonSalvaje.getNombre() + "!");
 	}
+
 //Metodos para mostrar el equipo 
 	public void mostrarEquipoConVida() {
 		List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
@@ -120,6 +122,7 @@ public class EntrenamientoController {
 	private String formatoBoton(Ataque atk) {
 		return atk.getNombre() + " (" + atk.getPpActual() + "/" + atk.getPpMax() + ")";
 	}
+
 //con este metodo podemos cargar desde la conexion de la base de datos 
 	private void cargarAtaquesDesdeBD() {
 		ataquesJugador.clear();
@@ -185,18 +188,23 @@ public class EntrenamientoController {
 	void usarAtaque4() {
 		ejecutarAtaque(3);
 	}
+
 	private String realizarAtaqueRival() {
-	    double mult = calcularMultiplicadorTipo("NORMAL", pokemonAliado.getTipo1(), pokemonAliado.getTipo2());
-	    int daño = (int) (pokemonSalvaje.getAtaque() * mult);
-	    pokemonAliado.reducirVida(daño);
+		double mult = calcularMultiplicadorTipo("NORMAL", pokemonAliado.getTipo1(), pokemonAliado.getTipo2());
+		int daño = (int) (pokemonSalvaje.getAtaque() * mult);
+		pokemonAliado.reducirVida(daño);
 
-	    String mensaje = pokemonSalvaje.getNombre() + " atacó e hizo " + daño + " de daño";
-	    if (mult > 1.5) mensaje += " ¡Es muy efectivo!";
-	    else if (mult < 1.0) mensaje += " No fue muy efectivo...";
-	    else if (mult == 0.0) mensaje += " ¡No te ha afectado!";
+		String mensaje = pokemonSalvaje.getNombre() + " atacó e hizo " + daño + " de daño";
+		if (mult > 1.5)
+			mensaje += " ¡Es muy efectivo!";
+		else if (mult < 1.0)
+			mensaje += " No fue muy efectivo...";
+		else if (mult == 0.0)
+			mensaje += " ¡No te ha afectado!";
 
-	    return mensaje + "\n";
+		return mensaje + "\n";
 	}
+
 	private int turnoEnemigo() {
 		int daño = pokemonSalvaje.getAtaque();
 		pokemonAliado.reducirVida(daño);
@@ -206,44 +214,37 @@ public class EntrenamientoController {
 	}
 
 	private void generarPokemonSalvaje() {
-	    try (Connection con = ConexionBD.conectar()) {
-	        Random rand = new Random();
-	        int nivelJugador = pokemonAliado.getNivel();
-	        int nivelSalvaje = Math.max(1, nivelJugador + rand.nextInt(11) - 5);
+		try (Connection con = ConexionBD.conectar()) {
+			Random rand = new Random();
+			int nivelJugador = pokemonAliado.getNivel();
+			int nivelSalvaje = Math.max(1, nivelJugador + rand.nextInt(11) - 5);
 
-	        PreparedStatement ps = con.prepareStatement("""
-	            SELECT NUM_POKEDEX, NOM_POKEMON, IMG_FRONTAL, IMG_TRASERA, SONIDO, TIPO1, TIPO2, NIVEL_EVOLUCION
-	            FROM POKEDEX
-	            ORDER BY RAND()
-	            LIMIT 1
-	        """);
+			PreparedStatement ps = con.prepareStatement("""
+					    SELECT NUM_POKEDEX, NOM_POKEMON, IMG_FRONTAL, IMG_TRASERA, SONIDO, TIPO1, TIPO2, NIVEL_EVOLUCION
+					    FROM POKEDEX
+					    ORDER BY RAND()
+					    LIMIT 1
+					""");
 
-	        ResultSet rs = ps.executeQuery();
-	        if (rs.next()) {
-	            String nombre = rs.getString("NOM_POKEMON");
-	            double escalado = obtenerEscalado(nivelJugador, nivelSalvaje);
-	            int vitalidad = (int) (50 * escalado);
-	            int ataque = (int) (25 * escalado);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				String nombre = rs.getString("NOM_POKEMON");
+				double escalado = obtenerEscalado(nivelJugador, nivelSalvaje);
+				int vitalidad = (int) (50 * escalado);
+				int ataque = (int) (25 * escalado);
 
-	            pokemonSalvaje = new Pokemon(
-	                rs.getInt("NUM_POKEDEX"),
-	                nombre,
-	                nivelSalvaje,
-	                vitalidad,
-	                ataque
-	            );
-	            pokemonSalvaje.setTipo1(rs.getString("TIPO1"));
-	            pokemonSalvaje.setTipo2(rs.getString("TIPO2"));
-	            pokemonSalvaje.setVidaActual(vitalidad);
+				pokemonSalvaje = new Pokemon(rs.getInt("NUM_POKEDEX"), nombre, nivelSalvaje, vitalidad, ataque);
+				pokemonSalvaje.setTipo1(rs.getString("TIPO1"));
+				pokemonSalvaje.setTipo2(rs.getString("TIPO2"));
+				pokemonSalvaje.setVidaActual(vitalidad);
 
-	          
-	            actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
+				actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
 
-	            System.out.println("Pokémon salvaje generado: " + nombre + " Nv." + nivelSalvaje);
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+				System.out.println("Pokémon salvaje generado: " + nombre + " Nv." + nivelSalvaje);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private double obtenerEscalado(int nivelJugador, int nivelSalvaje) {
@@ -574,8 +575,6 @@ public class EntrenamientoController {
 			e.printStackTrace();
 		}
 	}
-	
-	
 
 	private double calcularContraTipo(String tipoAtaque, String tipoDef) {
 		if (tipoDef == null)
@@ -673,20 +672,24 @@ public class EntrenamientoController {
 
 		atk.reducirPP();
 		switch (index) {
-			case 0 -> botonAtaque1.setText(formatoBoton(atk));
-			case 1 -> botonAtaque2.setText(formatoBoton(atk));
-			case 2 -> botonAtaque3.setText(formatoBoton(atk));
-			case 3 -> botonAtaque4.setText(formatoBoton(atk));
+		case 0 -> botonAtaque1.setText(formatoBoton(atk));
+		case 1 -> botonAtaque2.setText(formatoBoton(atk));
+		case 2 -> botonAtaque3.setText(formatoBoton(atk));
+		case 3 -> botonAtaque4.setText(formatoBoton(atk));
 		}
 
-		double mult = calcularMultiplicadorTipo(atk.getTipoMovimiento(), pokemonSalvaje.getTipo1(), pokemonSalvaje.getTipo2());
+		double mult = calcularMultiplicadorTipo(atk.getTipoMovimiento(), pokemonSalvaje.getTipo1(),
+				pokemonSalvaje.getTipo2());
 		int dañoHecho = (int) (atk.getPotencia() * mult);
 		pokemonSalvaje.reducirVida(dañoHecho);
 
 		String mensaje = pokemonAliado.getNombre() + " usó " + atk.getNombre() + " e hizo " + dañoHecho + " de daño.";
-		if (mult > 1.5) mensaje += " ¡Es muy efectivo!";
-		else if (mult < 1.0) mensaje += " No fue muy efectivo...";
-		else if (mult == 0.0) mensaje += " ¡No afecta al rival!";
+		if (mult > 1.5)
+			mensaje += " ¡Es muy efectivo!";
+		else if (mult < 1.0)
+			mensaje += " No fue muy efectivo...";
+		else if (mult == 0.0)
+			mensaje += " ¡No afecta al rival!";
 		mensaje += "\n";
 
 		if (pokemonAliado.estaDebilitado()) {
@@ -732,11 +735,13 @@ public class EntrenamientoController {
 							List<Ataque> ataques = PokemonDAO.obtenerAtaques(pokemonAliado.getId());
 							if (ataques.size() >= 4) {
 								List<String> opciones = new ArrayList<>();
-								for (Ataque a : ataques) opciones.add(a.getNombre());
+								for (Ataque a : ataques)
+									opciones.add(a.getNombre());
 
 								ChoiceDialog<String> dialogo = new ChoiceDialog<>(opciones.get(0), opciones);
 								dialogo.setTitle("Aprendizaje de ataque");
-								dialogo.setHeaderText(pokemonAliado.getNombre() + " quiere aprender " + nuevoAtaque.getNombre());
+								dialogo.setHeaderText(
+										pokemonAliado.getNombre() + " quiere aprender " + nuevoAtaque.getNombre());
 								dialogo.setContentText("¿Cuál quieres olvidar?");
 								Optional<String> resultado = dialogo.showAndWait();
 
@@ -744,33 +749,36 @@ public class EntrenamientoController {
 									try (Connection c2 = ConexionBD.conectar()) {
 										for (Ataque a : ataques) {
 											if (a.getNombre().equals(nombreElegido)) {
-												PreparedStatement psDel = c2.prepareStatement("""
-													DELETE FROM MOVIMIENTO_POKEMON WHERE ID_POKEMON = ? AND ID_MOVIMIENTO = ?
-												""");
+												PreparedStatement psDel = c2.prepareStatement(
+														"""
+																	DELETE FROM MOVIMIENTO_POKEMON WHERE ID_POKEMON = ? AND ID_MOVIMIENTO = ?
+																""");
 												psDel.setInt(1, pokemonAliado.getId());
 												psDel.setInt(2, a.getId());
 												psDel.executeUpdate();
 												break;
 											}
 										}
-										PreparedStatement psIns = c2.prepareStatement("""
-											INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_ACTUALES)
-											VALUES (?, ?, ?)
-										""");
+										PreparedStatement psIns = c2.prepareStatement(
+												"""
+															INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_ACTUALES)
+															VALUES (?, ?, ?)
+														""");
 										psIns.setInt(1, pokemonAliado.getId());
 										psIns.setInt(2, nuevoAtaque.getId());
 										psIns.setInt(3, nuevoAtaque.getPpMax());
 										psIns.executeUpdate();
-										log(pokemonAliado.getNombre() + " olvidó " + nombreElegido + " y aprendió " + nuevoAtaque.getNombre() + "!");
+										log(pokemonAliado.getNombre() + " olvidó " + nombreElegido + " y aprendió "
+												+ nuevoAtaque.getNombre() + "!");
 									} catch (SQLException e) {
 										e.printStackTrace();
 									}
 								});
 							} else {
 								PreparedStatement psIns = con.prepareStatement("""
-									INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_ACTUALES)
-									VALUES (?, ?, ?)
-								""");
+											INSERT INTO MOVIMIENTO_POKEMON (ID_POKEMON, ID_MOVIMIENTO, PP_ACTUALES)
+											VALUES (?, ?, ?)
+										""");
 								psIns.setInt(1, pokemonAliado.getId());
 								psIns.setInt(2, nuevoAtaque.getId());
 								psIns.setInt(3, nuevoAtaque.getPpMax());
@@ -781,9 +789,10 @@ public class EntrenamientoController {
 					}
 				}
 
-				PreparedStatement ps = con.prepareStatement("""
-					UPDATE POKEMON SET NIVEL = ?, VIDA_ACTUAL = ?, VITALIDAD = ?, ATAQUE = ?, DEFENSA = ?, VELOCIDAD = ?, AT_ESPECIAL = ?, DEF_ESPECIAL = ?, EXP = ? WHERE ID_POKEMON = ?
-				""");
+				PreparedStatement ps = con.prepareStatement(
+						"""
+									UPDATE POKEMON SET NIVEL = ?, VIDA_ACTUAL = ?, VITALIDAD = ?, ATAQUE = ?, DEFENSA = ?, VELOCIDAD = ?, AT_ESPECIAL = ?, DEF_ESPECIAL = ?, EXP = ? WHERE ID_POKEMON = ?
+								""");
 				ps.setInt(1, pokemonAliado.getNivel());
 				ps.setInt(2, pokemonAliado.getVidaActual());
 				ps.setInt(3, pokemonAliado.getVitalidad());
@@ -801,12 +810,12 @@ public class EntrenamientoController {
 				e.printStackTrace();
 			}
 
-			generarPokemonSalvaje(); 
-			actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex()); 
-			actualizarBarrasVida(); 
+			generarPokemonSalvaje();
+			actualizarImagenPokemonSalvaje(pokemonSalvaje.getNumPokedex());
+			actualizarBarrasVida();
 			mensaje += "¡Ha aparecido un nuevo " + pokemonSalvaje.getNombre() + " salvaje!\n";
 		} else {
-			mensaje += realizarAtaqueRival(); 
+			mensaje += realizarAtaqueRival();
 			if (pokemonAliado.estaDebilitado()) {
 				mensaje += "¡" + pokemonAliado.getNombre() + " se ha debilitado!\n";
 			}
@@ -816,37 +825,27 @@ public class EntrenamientoController {
 		log(mensaje.trim());
 	}
 
-	
 	private Ataque obtenerAtaqueAprendible(int nivel, int numPokedex) {
-	    try (Connection con = ConexionBD.conectar()) {
-	        PreparedStatement ps = con.prepareStatement("""
-	            SELECT * FROM MOVIMIENTOS 
-	            WHERE NIVEL_APRENDIZAJE = ? AND NUM_POKEDEX = ?
-	            LIMIT 1
-	        """);
-	        ps.setInt(1, nivel);
-	        ps.setInt(2, numPokedex);
-	        ResultSet rs = ps.executeQuery();
-	        if (rs.next()) {
-	            return new Ataque(
-	                rs.getInt("ID_MOVIMIENTO"),
-	                rs.getString("NOM_MOVIMIENTO"),
-	                rs.getInt("NIVEL_APRENDIZAJE"),
-	                rs.getInt("PP_MAX"),
-	                rs.getInt("PP_MAX"),
-	                rs.getString("TIPO"),
-	                rs.getObject("POTENCIA") != null ? rs.getInt("POTENCIA") : null,
-	                rs.getString("TIPO_MOV"),
-	                rs.getString("ESTADO"),
-	                rs.getObject("TURNOS") != null ? rs.getInt("TURNOS") : null,
-	                rs.getString("MEJORA"),
-	                rs.getObject("NUM") != null ? rs.getInt("NUM") : null
-	            );
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
-	    return null;
+		try (Connection con = ConexionBD.conectar()) {
+			PreparedStatement ps = con.prepareStatement("""
+					    SELECT * FROM MOVIMIENTOS
+					    WHERE NIVEL_APRENDIZAJE = ? AND NUM_POKEDEX = ?
+					    LIMIT 1
+					""");
+			ps.setInt(1, nivel);
+			ps.setInt(2, numPokedex);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				return new Ataque(rs.getInt("ID_MOVIMIENTO"), rs.getString("NOM_MOVIMIENTO"),
+						rs.getInt("NIVEL_APRENDIZAJE"), rs.getInt("PP_MAX"), rs.getInt("PP_MAX"), rs.getString("TIPO"),
+						rs.getObject("POTENCIA") != null ? rs.getInt("POTENCIA") : null, rs.getString("TIPO_MOV"),
+						rs.getString("ESTADO"), rs.getObject("TURNOS") != null ? rs.getInt("TURNOS") : null,
+						rs.getString("MEJORA"), rs.getObject("NUM") != null ? rs.getInt("NUM") : null);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

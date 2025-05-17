@@ -23,151 +23,142 @@ import javax.swing.JOptionPane;
 
 public class PantallaChoosePokemonController {
 
-    private int idEntrenador;
-    private LoginController loginController;
+	private int idEntrenador;
+	private LoginController loginController;
 
-    @FXML 
-    private Button btnElegirBulbasur;
-    
-    @FXML 
-    private Button btnElegirCharmander;
-    
-    @FXML
-    private Button btnElegirSquirtle;
+	@FXML
+	private Button btnElegirBulbasur;
 
-    @FXML 
-    private ImageView imgBulbasur;
-    
-    @FXML 
-    private ImageView imgCharmander;
-    
-    @FXML 
-    private ImageView imgSquirtle;
+	@FXML
+	private Button btnElegirCharmander;
 
-    public void init(int idEntrenador, LoginController loginController) {
-        this.idEntrenador = idEntrenador;
-        this.loginController = loginController;
-    }
+	@FXML
+	private Button btnElegirSquirtle;
 
-    // ==========================
-    // Hover - Mostrar imágenes
-    // ==========================
+	@FXML
+	private ImageView imgBulbasur;
 
-    @FXML
-    void mostrarBulbasur(MouseEvent event) {
-        imgBulbasur.setVisible(true);
-    }
+	@FXML
+	private ImageView imgCharmander;
 
-    @FXML
-    void quitarBulbasur(MouseEvent event) {
-        imgBulbasur.setVisible(false);
-    }
+	@FXML
+	private ImageView imgSquirtle;
 
-    @FXML
-    void mostrarCharmander(MouseEvent event) {
-        imgCharmander.setVisible(true);
-    }
+	public void init(int idEntrenador, LoginController loginController) {
+		this.idEntrenador = idEntrenador;
+		this.loginController = loginController;
+	}
 
-    @FXML
-    void quitarCharmander(MouseEvent event) {
-        imgCharmander.setVisible(false);
-    }
+	@FXML
+	void mostrarBulbasur(MouseEvent event) {
+		imgBulbasur.setVisible(true);
+	}
 
-    @FXML
-    void mostrarSquirtle(MouseEvent event) {
-        imgSquirtle.setVisible(true);
-    }
+	@FXML
+	void quitarBulbasur(MouseEvent event) {
+		imgBulbasur.setVisible(false);
+	}
 
-    @FXML
-    void quitarSquirtle(MouseEvent event) {
-        imgSquirtle.setVisible(false);
-    }
+	@FXML
+	void mostrarCharmander(MouseEvent event) {
+		imgCharmander.setVisible(true);
+	}
 
-    // ==========================
-    // Clic - Elegir Pokémon
-    // ==========================
+	@FXML
+	void quitarCharmander(MouseEvent event) {
+		imgCharmander.setVisible(false);
+	}
 
-    @FXML
-    void elegirBulbasur(MouseEvent event) {
-        elegirPokemon("Bulbasaur");
-    }
+	@FXML
+	void mostrarSquirtle(MouseEvent event) {
+		imgSquirtle.setVisible(true);
+	}
 
-    @FXML
-    void elegirCharmander(MouseEvent event) {
-        elegirPokemon("Charmander");
-    }
+	@FXML
+	void quitarSquirtle(MouseEvent event) {
+		imgSquirtle.setVisible(false);
+	}
 
-    @FXML
-    void elegirSquirtle(MouseEvent event) {
-        elegirPokemon("Squirtle");
-    }
+	@FXML
+	void elegirBulbasur(MouseEvent event) {
+		elegirPokemon("Bulbasaur");
+	}
 
-    private void elegirPokemon(String nombrePokemon) {
-        try (Connection con = ConexionBD.conectar()) {
-            Pokemon nuevo = PokemonDAO.generarPokemonPrincipalEspecifico(idEntrenador, nombrePokemon, con);
+	@FXML
+	void elegirCharmander(MouseEvent event) {
+		elegirPokemon("Charmander");
+	}
 
-            // Mostrar género
-            String generoTexto;
-            if ("M".equalsIgnoreCase(nuevo.getSexo())) {
-                generoTexto = "Macho";
-            } else if ("F".equalsIgnoreCase(nuevo.getSexo())) {
-                generoTexto = "Hembra";
-            } else {
-                generoTexto = "Desconocido";
-            }
+	@FXML
+	void elegirSquirtle(MouseEvent event) {
+		elegirPokemon("Squirtle");
+	}
 
-            JOptionPane.showMessageDialog(null,
-                "¡Has elegido a " + nuevo.getNombre() + "!\nGénero: " + generoTexto,
-                "¡Pokémon elegido!",
-                JOptionPane.INFORMATION_MESSAGE
-            );
+	private void elegirPokemon(String nombrePokemon) {
+		try (Connection con = ConexionBD.conectar()) {
+			Pokemon nuevo = PokemonDAO.generarPokemonPrincipalEspecifico(idEntrenador, nombrePokemon, con);
 
-            System.out.println("Pokémon elegido: " + nuevo.getNombre() + " | Género: " + generoTexto);
-            abrirPantallaMenu();
+			// Mostrar género
+			String generoTexto;
+			if ("M".equalsIgnoreCase(nuevo.getSexo())) {
+				generoTexto = "Macho";
+			} else if ("F".equalsIgnoreCase(nuevo.getSexo())) {
+				generoTexto = "Hembra";
+			} else {
+				generoTexto = "Desconocido";
+			}
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+			JOptionPane.showMessageDialog(null, "¡Has elegido a " + nuevo.getNombre() + "!\nGénero: " + generoTexto,
+					"¡Pokémon elegido!", JOptionPane.INFORMATION_MESSAGE);
 
+			System.out.println("Pokémon elegido: " + nuevo.getNombre() + " | Género: " + generoTexto);
+			abrirPantallaMenu();
 
-    private void abrirPantallaMenu() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuPrincipal.fxml"));
-            Parent root = loader.load();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-            MenuController controller = loader.getController();
-            Stage stageMenu = new Stage();
-            stageMenu.setScene(new Scene(root));
-            stageMenu.setTitle("Menú Principal");
-            stageMenu.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+	private void abrirPantallaMenu() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuPrincipal.fxml"));
+			Parent root = loader.load();
 
-            Entrenador entrenador = EntrenadorDAO.obtenerEntrenadorPorId(idEntrenador);
-            controller.init(entrenador, stageMenu, loginController);
+			MenuController controller = loader.getController();
+			Stage stageMenu = new Stage();
+			stageMenu.setScene(new Scene(root));
+			stageMenu.setTitle("Menú Principal");
+			stageMenu.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
 
-            stageMenu.show();
+			Entrenador entrenador = EntrenadorDAO.obtenerEntrenadorPorId(idEntrenador);
+			controller.init(entrenador, stageMenu, loginController);
 
-            Stage currentStage = (Stage) btnElegirBulbasur.getScene().getWindow();
-            currentStage.close();
+			stageMenu.show();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+			Stage currentStage = (Stage) btnElegirBulbasur.getScene().getWindow();
+			currentStage.close();
 
-    @FXML
-    void initialize() {
-        imgBulbasur.setVisible(false);
-        imgCharmander.setVisible(false);
-        imgSquirtle.setVisible(false);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-        try {
-            imgBulbasur.setImage(new Image(new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/001.png").toURI().toString()));
-            imgCharmander.setImage(new Image(new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/004.png").toURI().toString()));
-            imgSquirtle.setImage(new Image(new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/007.png").toURI().toString()));
-        } catch (Exception e) {
-            System.err.println("⚠️ No se pudo cargar una imagen de Pokémon.");
-            e.printStackTrace();
-        }
-    }
+	@FXML
+	void initialize() {
+		imgBulbasur.setVisible(false);
+		imgCharmander.setVisible(false);
+		imgSquirtle.setVisible(false);
+
+		try {
+			imgBulbasur.setImage(
+					new Image(new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/001.png").toURI().toString()));
+			imgCharmander.setImage(
+					new Image(new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/004.png").toURI().toString()));
+			imgSquirtle.setImage(
+					new Image(new File("C:/ProyectoPokemon/resources/img/Pokemon/Front/007.png").toURI().toString()));
+		} catch (Exception e) {
+			System.err.println("⚠️ No se pudo cargar una imagen de Pokémon.");
+			e.printStackTrace();
+		}
+	}
 }

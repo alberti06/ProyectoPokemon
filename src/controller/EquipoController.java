@@ -24,155 +24,155 @@ import model.Pokemon;
 
 public class EquipoController {
 
-    private MenuController menuController;
-    private Stage stage;
-    private Entrenador entrenador;
-    private LoginController loginController;
-    private CombateController combateController;
-    
-    @FXML private 
-    ProgressBar barPokemon1, barPokemon2, barPokemon3, barPokemon4, barPokemon5, barPokemon6;
-    
-    @FXML private 
-    ImageView btnSalir;
-    
-    @FXML private 
-    AnchorPane imgFondo;
-    
-    @FXML private 
-    ImageView imgPokemon1, imgPokemon2, imgPokemon3, imgPokemon4, imgPokemon5, imgPokemon6;
-    
-    @FXML private 
-    Label lblNombre1, lblNombre2, lblNombre3, lblNombre4, lblNombre5, lblNombre6;
-    
-    @FXML private 
-    Label lblPS2, lblPS3, lblPS4, lblPS5, lblPS6, lblPs1;
-    
-    @FXML private 
-    Label lblNivel1, lblNivel2, lblNivel3, lblNivel4, lblNivel5, lblNivel6;
-    
-    @FXML private 
-    Button btnCaja;
+	private MenuController menuController;
+	private Stage stage;
+	private Entrenador entrenador;
+	private LoginController loginController;
+	private CombateController combateController;
 
-    public void init(Entrenador entrenador, Stage stage, MenuController menuController, LoginController loginController) {
-        this.entrenador = entrenador;
-        this.stage = stage;
-        this.menuController = menuController;
-        this.loginController = loginController;
-        cargarEquipo(); 
-    }
+	@FXML
+	private ProgressBar barPokemon1, barPokemon2, barPokemon3, barPokemon4, barPokemon5, barPokemon6;
 
+	@FXML
+	private ImageView btnSalir;
 
-    public void setCombateController(CombateController combateController) {
-        this.combateController = combateController;
-    }
+	@FXML
+	private AnchorPane imgFondo;
 
-    private void cargarImagen(ImageView imageView, String nombreArchivo) {
-        String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Front/" + nombreArchivo;
-        File archivo = new File(ruta);
-        if (archivo.exists()) {
-            imageView.setImage(new Image(archivo.toURI().toString()));
-        } else {
-            imageView.setImage(null);
-        }
-    }
+	@FXML
+	private ImageView imgPokemon1, imgPokemon2, imgPokemon3, imgPokemon4, imgPokemon5, imgPokemon6;
 
-    private void cargarEquipo() {
-        List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
+	@FXML
+	private Label lblNombre1, lblNombre2, lblNombre3, lblNombre4, lblNombre5, lblNombre6;
 
-        ImageView[] imagenes = { imgPokemon1, imgPokemon2, imgPokemon3, imgPokemon4, imgPokemon5, imgPokemon6 };
-        Label[] nombres = { lblNombre1, lblNombre2, lblNombre3, lblNombre4, lblNombre5, lblNombre6 };
-        Label[] niveles = { lblNivel1, lblNivel2, lblNivel3, lblNivel4, lblNivel5, lblNivel6 };
-        Label[] ps = { lblPs1, lblPS2, lblPS3, lblPS4, lblPS5, lblPS6 };
-        ProgressBar[] barras = { barPokemon1, barPokemon2, barPokemon3, barPokemon4, barPokemon5, barPokemon6 };
+	@FXML
+	private Label lblPS2, lblPS3, lblPS4, lblPS5, lblPS6, lblPs1;
 
-        for (int i = 0; i < 6; i++) {
-            if (i < equipo.size()) {
-                Pokemon p = equipo.get(i);
-                nombres[i].setText(p.getNombre());
-                niveles[i].setText("Nv. " + p.getNivel());
-                ps[i].setText(p.getVidaActual() + " PS");
+	@FXML
+	private Label lblNivel1, lblNivel2, lblNivel3, lblNivel4, lblNivel5, lblNivel6;
 
-                // ✅ Vida real basada en vidaActual / vitalidad
-                double porcentaje = (double) p.getVidaActual() / p.getVitalidad();
-                barras[i].setProgress(porcentaje);
+	@FXML
+	private Button btnCaja;
 
-                // 🎨 Colores según porcentaje
-                if (porcentaje >= 0.5) {
-                    barras[i].setStyle("-fx-accent: #00cc00;"); // Verde
-                } else if (porcentaje >= 0.3) {
-                    barras[i].setStyle("-fx-accent: #ffcc00;"); // Amarillo
-                } else {
-                    barras[i].setStyle("-fx-accent: #cc0000;"); // Rojo
-                }
+	public void init(Entrenador entrenador, Stage stage, MenuController menuController,
+			LoginController loginController) {
+		this.entrenador = entrenador;
+		this.stage = stage;
+		this.menuController = menuController;
+		this.loginController = loginController;
+		cargarEquipo();
+	}
 
-                cargarImagen(imagenes[i], p.getImgFrontal());
+	public void setCombateController(CombateController combateController) {
+		this.combateController = combateController;
+	}
 
-                imagenes[i].setOnMouseClicked(e -> {
-                    PokemonDAO.actualizarEquipo(p.getId(), 0);
-                    JOptionPane.showMessageDialog(null, p.getNombre() + " ha sido enviado a la caja.");
-                    cargarEquipo();
-                });
-            } else {
-                nombres[i].setText("");
-                niveles[i].setText("");
-                ps[i].setText("");
-                barras[i].setProgress(0);
-                barras[i].setStyle(""); // Resetear color
-                imagenes[i].setImage(null);
-                imagenes[i].setOnMouseClicked(null);
-            }
-        }
-    }
+	private void cargarImagen(ImageView imageView, String nombreArchivo) {
+		String ruta = "C:/ProyectoPokemon/resources/img/Pokemon/Front/" + nombreArchivo;
+		File archivo = new File(ruta);
+		if (archivo.exists()) {
+			imageView.setImage(new Image(archivo.toURI().toString()));
+		} else {
+			imageView.setImage(null);
+		}
+	}
 
-    @FXML
-    void salirMenupoke(MouseEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
-            Parent root = loader.load();
-            menuController = loader.getController();
+	private void cargarEquipo() {
+		List<Pokemon> equipo = PokemonDAO.obtenerEquipo(entrenador.getIdentrenador());
 
-            Scene sc = new Scene(root);
-            Stage st = new Stage();
-            st.setTitle("Proyecto Pokemon los 3 mosqueteros");
-            st.setScene(sc);
-            menuController.init(entrenador, st, loginController);
-            st.show();
-            this.stage.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+		ImageView[] imagenes = { imgPokemon1, imgPokemon2, imgPokemon3, imgPokemon4, imgPokemon5, imgPokemon6 };
+		Label[] nombres = { lblNombre1, lblNombre2, lblNombre3, lblNombre4, lblNombre5, lblNombre6 };
+		Label[] niveles = { lblNivel1, lblNivel2, lblNivel3, lblNivel4, lblNivel5, lblNivel6 };
+		Label[] ps = { lblPs1, lblPS2, lblPS3, lblPS4, lblPS5, lblPS6 };
+		ProgressBar[] barras = { barPokemon1, barPokemon2, barPokemon3, barPokemon4, barPokemon5, barPokemon6 };
 
-    @FXML
-    void abrirCaja(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Caja.fxml"));
-            Parent root = loader.load();
+		for (int i = 0; i < 6; i++) {
+			if (i < equipo.size()) {
+				Pokemon p = equipo.get(i);
+				nombres[i].setText(p.getNombre());
+				niveles[i].setText("Nv. " + p.getNivel());
+				ps[i].setText(p.getVidaActual() + " PS");
 
-            CajaController cajaController = loader.getController();
+				// Vida real basada en vidaActual / vitalidad
+				double porcentaje = (double) p.getVidaActual() / p.getVitalidad();
+				barras[i].setProgress(porcentaje);
 
-            Stage cajaStage = new Stage();
-            cajaStage.setTitle("Caja de Pokémon");
-            cajaStage.setScene(new Scene(root));
-            cajaStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+				// Colores según porcentaje
+				if (porcentaje >= 0.5) {
+					barras[i].setStyle("-fx-accent: #00cc00;"); // Verde
+				} else if (porcentaje >= 0.3) {
+					barras[i].setStyle("-fx-accent: #ffcc00;"); // Amarillo
+				} else {
+					barras[i].setStyle("-fx-accent: #cc0000;"); // Rojo
+				}
 
-            cajaController.init(entrenador, cajaStage, this);
+				cargarImagen(imagenes[i], p.getImgFrontal());
 
-            cajaStage.show();
-            stage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+				imagenes[i].setOnMouseClicked(e -> {
+					PokemonDAO.actualizarEquipo(p.getId(), 0);
+					JOptionPane.showMessageDialog(null, p.getNombre() + " ha sido enviado a la caja.");
+					cargarEquipo();
+				});
+			} else {
+				nombres[i].setText("");
+				niveles[i].setText("");
+				ps[i].setText("");
+				barras[i].setProgress(0);
+				barras[i].setStyle("");
+				imagenes[i].setImage(null);
+				imagenes[i].setOnMouseClicked(null);
+			}
+		}
+	}
 
-    public void actualizarEquipo() {
-        cargarEquipo();
-    }
+	@FXML
+	void salirMenupoke(MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/MenuPrincipal.fxml"));
+			Parent root = loader.load();
+			menuController = loader.getController();
 
-    public void show() {
-        if (stage != null) {
-            stage.show();
-        }
-    }
+			Scene sc = new Scene(root);
+			Stage st = new Stage();
+			st.setTitle("Proyecto Pokemon los 3 mosqueteros");
+			st.setScene(sc);
+			menuController.init(entrenador, st, loginController);
+			st.show();
+			this.stage.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	void abrirCaja(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Caja.fxml"));
+			Parent root = loader.load();
+
+			CajaController cajaController = loader.getController();
+
+			Stage cajaStage = new Stage();
+			cajaStage.setTitle("Caja de Pokémon");
+			cajaStage.setScene(new Scene(root));
+			cajaStage.getIcons().add(new Image(new File("./img/imagenesExtra/logo.jpg").toURI().toString()));
+
+			cajaController.init(entrenador, cajaStage, this);
+
+			cajaStage.show();
+			stage.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void actualizarEquipo() {
+		cargarEquipo();
+	}
+
+	public void show() {
+		if (stage != null) {
+			stage.show();
+		}
+	}
 }
