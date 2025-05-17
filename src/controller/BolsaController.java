@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 import model.Entrenador;
 
 public class BolsaController {
-
+//Aqui empezamos con los elememtos de la vista 
     private MenuController menuController;
     private Stage stage;
     private Entrenador entrenador;
@@ -155,7 +155,7 @@ public class BolsaController {
         configurarSpinners();
         cargarDatosMochila();
     }
-
+//Este metodo es como hemos configurado los objetos de la bolsa 
     private void configurarSpinners() {
         // Mapear cada spinner con su ID de objeto en la base de datos
         mapaSpinnerIDObjeto.put(spinnerPokeball, 8);
@@ -181,7 +181,7 @@ public class BolsaController {
             spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 99, 0));
         }
     }
-
+   //Aqui tenemos la conexion con la base de datos para que se nos guarde lo que hemos comprado, vendido o gastado de la mochila 
     private void cargarDatosMochila() {
         try (Connection con = ConexionBD.conectar()) {
             for (Map.Entry<Spinner<Integer>, Integer> entry : mapaSpinnerIDObjeto.entrySet()) {
@@ -255,13 +255,14 @@ public class BolsaController {
             mostrarMensaje("Error al realizar la venta.");
         }
     }
-
+  
     private void resetearSpinners() {
         for (Spinner<Integer> spinner : mapaSpinnerIDObjeto.keySet()) {
             spinner.getValueFactory().setValue(0);
         }
     }
 
+    //funcionalidad para volver al menu 
     @FXML
     void salirMenupoke(MouseEvent event) {
         try {

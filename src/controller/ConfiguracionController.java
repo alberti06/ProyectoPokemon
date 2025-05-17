@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import util.AudioManager;
 
 public class ConfiguracionController {
-
+//Añadidos los elementos de la vista 
     @FXML
     private ImageView btnCerrar;
 
@@ -113,6 +113,7 @@ public class ConfiguracionController {
             }
         });
     }
+    //metodo para pausar o play de la musica
 
     private void actualizarIconoPlay() {
         if (AudioManager.getMediaPlayer() != null &&

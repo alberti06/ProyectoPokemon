@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CrianzaController {
-
+//Añadir elementos de las vistas 
     @FXML private ChoiceBox<Pokemon> choiceHembra;
     @FXML private ChoiceBox<Pokemon> choiceMacho;
     @FXML private ImageView imgCria;
@@ -55,7 +55,8 @@ public class CrianzaController {
         equipo.addAll(caja);
         inicializarCrianza(equipo);
     }
-
+//metodo con el que iniciamos la crianza del pokemon el cual tendremos que coger un macho y una hembra del mismo tipo primario
+   //Para que puedan tener una cria
     public void inicializarCrianza(List<Pokemon> equipoYCaja) {
         List<Pokemon> machos = equipoYCaja.stream()
                 .filter(p -> "M".equalsIgnoreCase(p.getSexo()) && p.getFertilidad() > 0)
@@ -96,7 +97,7 @@ public class CrianzaController {
 
         imgCria.setVisible(false);
     }
-
+//Metodo que nos dice si es compatible o no nuestro pokemon
     private void comprobarCompatibilidad() {
         padreMacho = choiceMacho.getValue();
         madreHembra = choiceHembra.getValue();
@@ -188,7 +189,7 @@ public class CrianzaController {
 
         JOptionPane.showMessageDialog(null, "¡Ha nacido un " + nuevoHijo.getNombre() + "!", " Crianza completada", JOptionPane.INFORMATION_MESSAGE);
     }
-
+//metodo que nos da a la cria 
     @FXML
     void abrirHuevo(MouseEvent event) {
         if (nuevoHijo != null) {
